@@ -28,7 +28,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/screenshots/02-home.webp" alt="The Dynamic panel: assistant card, messaging, quick links and the navigation bar" width="540">
+  <img src="docs/assets/screenshots/02-home.webp" alt="The Dynamic panel: the Now card, an at-a-glance list and the side navigation rail" width="540">
 </p>
 
 > Dynamic is a personal project for Windows. This page hosts the **installers** and the update feed; the source code is private.
@@ -51,18 +51,19 @@ Every image is a capture of the **real app**, taken in a throw-away profile with
 | ![Chat with action cards](docs/assets/screenshots/04-chat-actions.webp)<br>**Chat and actions** — «metti un timer», «ricordami domani alle 18…»: local commands answer with a result card | ![Confirmation card](docs/assets/screenshots/05-actions-confirm.webp)<br>**Confirmation** — anything destructive shows a preview and waits for your yes or no |
 | ![Calendar, month grid](docs/assets/screenshots/06-calendar-month.webp)<br>**Calendar** — expand the island and a full month grid appears, with the day's agenda below | ![Notes](docs/assets/screenshots/08-notes.webp)<br>**Notes** — local, autosaved, searchable, pinnable |
 | ![Time](docs/assets/screenshots/10-tempo.webp)<br>**Time** — timers, alarms and reminders in one place | ![Music](docs/assets/screenshots/11-music.webp)<br>**Music** — cover, timeline, transport and volume of the player you pick *(a stand-in player here)* |
-| ![AI agents](docs/assets/screenshots/13-agents.webp)<br>**Agents** — your Claude Code and Codex sessions at a glance; *Apri* brings the terminal to the front | ![Update available](docs/assets/screenshots/15-update.webp)<br>**Updates** — a red dot, one click, a verified signature |
+| ![AI agents](docs/assets/screenshots/13-agents.webp)<br>**Agents** — your Claude Code and Codex sessions at a glance; *Apri* brings the terminal to the front | ![Settings, About page](docs/assets/screenshots/15-settings-about.webp)<br>**Settings** — one consistent layout (label, switch, explanation); ordinary, sensitive and advanced options are grouped; updates live under *Informazioni* |
 
 <p align="center">
   <img src="docs/assets/screenshots/03-home-expanded.webp" alt="Home, expanded vertically" width="320">
   &nbsp;&nbsp;
   <img src="docs/assets/screenshots/07-calendar-agenda.webp" alt="Calendar agenda in the normal panel" width="540">
 </p>
-<p align="center"><sub>One button grows the island vertically · the same calendar as a compact agenda</sub></p>
+<p align="center"><sub>One button grows the island vertically and the page uses the whole height · the same calendar as a compact agenda</sub></p>
 
 ## What it does
 
 - 🏝️ **A real Dynamic Island** — a borderless pill docked to the top edge that morphs between compact, listening, chat, panel and settings. Drag it down and it detaches into a floating capsule; drag it back and it docks again. Three visibility modes, multi-monitor aware, and it steps aside when a fullscreen app takes the screen.
+- ✨ **Premium design (V5 / 5.1)** — tonal surfaces instead of outlined boxes, a side navigation rail (icons in the normal window, labels when expanded), a *Now* card plus an at-a-glance list on Home, a real music-player layout, a focused timer with a ring and a month grid that fills the tall window. Same eleven themes, system fonts only, no extra animation or polling.
 - 🤖 **Three avatars, nine states** — the original *eyes*, a little *robot* or a *hitodama* (a floating spirit flame) show whether it is idle, listening, thinking, speaking, waiting for you or done. Eleven themes and static gradients (no animated background, no GPU load at rest).
 - ⚡ **Actions from chat or voice** — «metti un timer di 10 minuti», «ricordami domani alle 15 di chiamare Marco», «crea una nota: …», «che appuntamenti ho domani?», «pausa», «volume al 40», «apri il calendario», «com'è lo stato degli agenti?». Commands are understood by a **deterministic parser on your PC**, so the AI model can never trigger an action on its own, and your notes, calendar and timers are not sent to ChatGPT. Sensitive operations ask for confirmation first; per-category switches live in Settings → Azioni.
 - 📅 **Calendar** — connect Google Calendar or Outlook with their private iCal address (read-only: no account access). Agenda for today and the week, a month grid when expanded, recurring events, time zones, reminders before events. Creating or editing an event opens your browser pre-filled.
@@ -107,7 +108,7 @@ The v0.1.0 installer has no updater: install v0.1.1 or later once by hand.
 ## Honest status
 
 What I have verified on my own PC: the installer, the local speech, ChatGPT sign-in, the island and its docking, notes, calendar (with synthetic and public feeds),
-timers, music control with a test player, the agent monitor, WhatsApp notifications, and the update path 0.1.1 → 0.1.2 (in an isolated test product with the same updater and signing key).
+timers, music control with a test player, the agent monitor, WhatsApp notifications, and, for every release, the native layout of every page in all eleven themes, expanded and compact, docked and floating (an automated check on the real window). The update path 0.1.1 → 0.1.2 was exercised in an isolated test product with the same updater and signing key; 0.1.3 uses the same mechanism.
 What I have **not** verified: a clean second PC, a real Spotify / Google / Outlook account, spoken replies and wake-word accuracy in everyday noise, opening the browser for calendar events, a fullscreen game, a second monitor at other scaling, Telegram.
 Expect rough edges — this is a one-person project.
 
