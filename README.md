@@ -21,6 +21,7 @@
 <p align="center">
   <a href="https://github.com/andrea4546/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
   <a href="#a-look-inside">A look inside</a> ·
+  <a href="#four-notch-styles">Notch styles</a> ·
   <a href="#what-it-does">What it does</a> ·
   <a href="#updates">Updates</a> ·
   <a href="#privacy">Privacy</a> ·
@@ -45,6 +46,8 @@ the useful things one glance away: your chat, your agents, your calendar, the so
 ## A look inside
 
 Every image is a capture of the **real app**, taken in a throw-away profile with invented data: no personal account, conversation or calendar appears.
+Images marked *demo data* come from a browser simulator that runs the same interface with a fake API and invented devices («di prova»); they are used
+where the real list would show the names of personal devices.
 
 | | |
 |---|---|
@@ -52,6 +55,8 @@ Every image is a capture of the **real app**, taken in a throw-away profile with
 | ![Calendar, month grid](docs/assets/screenshots/06-calendar-month.webp)<br>**Calendar** — expand the island and a full month grid appears, with the day's agenda below | ![Notes](docs/assets/screenshots/08-notes.webp)<br>**Notes** — local, autosaved, searchable, pinnable |
 | ![Time](docs/assets/screenshots/10-tempo.webp)<br>**Time** — timers, alarms and reminders in one place | ![Music](docs/assets/screenshots/11-music.webp)<br>**Music** — cover, timeline, transport and volume of the player you pick *(a stand-in player here)* |
 | ![AI agents](docs/assets/screenshots/13-agents.webp)<br>**Agents** — your Claude Code and Codex sessions at a glance; *Apri* brings the terminal to the front | ![Settings, About page](docs/assets/screenshots/15-settings-about.webp)<br>**Settings** — one consistent layout (label, switch, explanation); ordinary, sensitive and advanced options are grouped; updates live under *Informazioni* |
+| ![Home devices](docs/assets/screenshots/20-home-devices-demo.webp)<br>**Devices on Home** *(demo data)* — connected and sleeping devices with their batteries; the star picks the one shown on the card | ![Settings, Devices](docs/assets/screenshots/21-settings-devices-demo.webp)<br>**Settings → Devices** *(demo data)* — connected devices stay in view, paired-but-disconnected ones sit in a collapsible section |
+| ![Bluetooth popup](docs/assets/screenshots/22-bluetooth-popup-demo.webp)<br>**Bluetooth popup** *(demo data)* — a temporary notice over the compact island when a device connects | ![Notification](docs/assets/screenshots/17-notice.webp)<br>**Notices** — the same compact island shows timers, agents and system events, one at a time |
 
 <p align="center">
   <img src="docs/assets/screenshots/03-home-expanded.webp" alt="Home, expanded vertically" width="320">
@@ -60,8 +65,39 @@ Every image is a capture of the **real app**, taken in a throw-away profile with
 </p>
 <p align="center"><sub>One button grows the island vertically and the page uses the whole height · the same calendar as a compact agenda</sub></p>
 
+## Four notch styles
+
+Pick how the compact island looks in **Settings → Appearance → Stile notch compatta**. Only the *shape* changes; the avatar, the activities, the notices and the
+expanded panel are the same in every style, and your choice is kept across restarts and updates.
+
+<p align="center">
+  <img src="docs/assets/screenshots/18-notch-styles.webp" alt="The four compact styles with no activity, one timer, and a timer plus music" width="880">
+</p>
+
+| Style | Size | What it shows |
+|---|---|---|
+| **Premium V5.1** (default) | 188 × 48 | Eyes in the middle and up to two activities at the sides, with their text |
+| **Capsula** | 148 × 40 | A smaller, rounder capsule: the same activities as symbols, with a «+N» when there are more |
+| **Indicatore** | 116 × 34 | The most discreet: the avatar and a single button with the main activity and how many there are |
+| **Adattiva** | 104 / 140 / 178 × 40 | The width follows what is going on: eyes only, then symbols, then symbols with text; it grows at once and shrinks only after 900 ms of calm |
+
+<p align="center">
+  <img src="docs/assets/screenshots/19-style-picker.webp" alt="The style picker in Settings, with static previews" width="540">
+</p>
+
+Battery percentages are never shown permanently on the compact island; they live on Home and in Settings. Eleven themes apply to every style:
+
+<p align="center">
+  <img src="docs/assets/screenshots/23-theme-sunset-home.webp" alt="Sunset theme" width="260">
+  <img src="docs/assets/screenshots/24-theme-ocean-home.webp" alt="Ocean theme" width="260">
+  <img src="docs/assets/screenshots/25-theme-graphite-home.webp" alt="Graphite theme" width="260">
+</p>
+
 ## What it does
 
+- 🔘 **Four compact styles** — Premium V5.1, Capsula, Indicatore and Adattiva (see above).
+- 🔋 **Devices and batteries** — Bluetooth devices already paired with Windows and **Logitech LIGHTSPEED / Unifying / Bolt** receivers (battery read through HID++, read-only) in one list on Home and in *Settings → Devices*. A battery is shown only when the device reports it; a sleeping device shows its *last known* value, labelled as such.
+- 🔔 **Bluetooth popups** — when a Bluetooth device **connects**, a short notice shows its name and, if Windows reports it, its real battery; headphones **disconnecting** is a quiet notice; a device that keeps flapping does not flood you; a battery update alone never notifies. It is driven by Windows events, with no polling. *Tested with a state machine, UI tests and native probes using a test notice; not yet seen with a real device connecting.*
 - 🏝️ **A real Dynamic Island** — a borderless pill docked to the top edge that morphs between compact, listening, chat, panel and settings. Drag it down and it detaches into a floating capsule; drag it back and it docks again. Three visibility modes, multi-monitor aware, and it steps aside when a fullscreen app takes the screen.
 - ✨ **Premium design (V5 / 5.1)** — tonal surfaces instead of outlined boxes, a side navigation rail (icons in the normal window, labels when expanded), a *Now* card plus an at-a-glance list on Home, a real music-player layout, a focused timer with a ring and a month grid that fills the tall window. Same eleven themes, system fonts only, no extra animation or polling.
 - 🤖 **Three avatars, nine states** — the original *eyes*, a little *robot* or a *hitodama* (a floating spirit flame) show whether it is idle, listening, thinking, speaking, waiting for you or done. Eleven themes and static gradients (no animated background, no GPU load at rest).
@@ -105,11 +141,15 @@ The v0.1.0 installer has no updater: install v0.1.1 or later once by hand.
 | Calendar address, notes, history, ChatGPT tokens | Stored on your PC, encrypted with Windows DPAPI where sensitive. Nothing is uploaded. |
 | Other apps and your screen | Never read. |
 
+## Release notes
+
+Every version has its notes on the [Releases](https://github.com/andrea4546/Dynamic-releases/releases) page. **0.1.8**: four compact styles, Bluetooth connect/disconnect popups for any device, a collapsible *Associati, non collegati* section in Settings → Devices and shorter texts on Home.
+
 ## Honest status
 
 What I have verified on my own PC: the installer, the local speech, ChatGPT sign-in, the island and its docking, notes, calendar (with synthetic and public feeds),
 timers, music control with a test player, the agent monitor, WhatsApp notifications, and, for every release, the native layout of every page in all eleven themes, expanded and compact, docked and floating (an automated check on the real window). The update path 0.1.1 → 0.1.2 was exercised in an isolated test product with the same updater and signing key; 0.1.3 uses the same mechanism.
-What I have **not** verified: a clean second PC, a real Spotify / Google / Outlook account, spoken replies and wake-word accuracy in everyday noise, opening the browser for calendar events, a fullscreen game, a second monitor at other scaling, Telegram.
+What I have **not** verified: a real Bluetooth device connecting or disconnecting (the popup is tested with simulated events and a test notice), the four compact styles at other display scales or on a second monitor, a clean second PC, a real Spotify / Google / Outlook account, spoken replies and wake-word accuracy in everyday noise, opening the browser for calendar events, a fullscreen game, a second monitor at other scaling, Telegram.
 Expect rough edges — this is a one-person project.
 
 ---
