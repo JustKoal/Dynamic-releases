@@ -143,7 +143,7 @@ The v0.1.0 installer has no updater: install v0.1.1 or later once by hand.
 
 ## Release notes
 
-Every version has its notes on the [Releases](https://github.com/andrea4546/Dynamic-releases/releases) page. **0.1.8**: four compact styles, Bluetooth connect/disconnect popups for any device, a collapsible *Associati, non collegati* section in Settings → Devices and shorter texts on Home.
+Every version has its notes on the [Releases](https://github.com/andrea4546/Dynamic-releases/releases) page. **0.1.8**: four compact styles, Bluetooth connect/disconnect popups for any device, a collapsible *Associati, non collegati* section in Settings → Devices and shorter texts on Home. **0.1.9**: fixes only: the compact island's «+N» activity chip no longer touches the avatar's right eye, and the web view returns to normal memory as the cursor approaches the island instead of after the click (a precaution against slow first openings after a pause; its effect on real profiles is not yet verified). Known and not yet solved: rarely, a click on the island right after it reappears (Auto-hide) may not open the panel for a few seconds; occasional graphic flicker reported but not reproduced.
 
 ## Honest status
 
