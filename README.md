@@ -101,20 +101,21 @@ Battery percentages are never shown permanently on the compact island; they live
 - 🏝️ **A real Dynamic Island** — a borderless pill docked to the top edge that morphs between compact, listening, chat, panel and settings. Drag it down and it detaches into a floating capsule; drag it back and it docks again. Three visibility modes, multi-monitor aware, and it steps aside when a fullscreen app takes the screen.
 - ✨ **Premium design (V5 / 5.1)** — tonal surfaces instead of outlined boxes, a side navigation rail (icons in the normal window, labels when expanded), a *Now* card plus an at-a-glance list on Home, a real music-player layout, a focused timer with a ring and a month grid that fills the tall window. Same eleven themes, system fonts only, no extra animation or polling.
 - 🤖 **Three avatars, nine states** — the original *eyes*, a little *robot* or a *hitodama* (a floating spirit flame) show whether it is idle, listening, thinking, speaking, waiting for you or done. Eleven themes and static gradients (no animated background, no GPU load at rest).
-- ⚡ **Actions from chat or voice** — «metti un timer di 10 minuti», «ricordami domani alle 15 di chiamare Marco», «crea una nota: …», «che appuntamenti ho domani?», «pausa», «volume al 40», «apri il calendario», «com'è lo stato degli agenti?». Commands are understood by a **deterministic parser on your PC**, so the AI model can never trigger an action on its own, and your notes, calendar and timers are not sent to ChatGPT. Sensitive operations ask for confirmation first; per-category switches live in Settings → Azioni.
+- ⚡ **Actions from chat or voice** — «metti un timer di 10 minuti», «ricordami domani alle 15 di chiamare Marco», «crea una nota: …», «che appuntamenti ho domani?», «apri Spotify», «pausa», «volume al 40», «apri il calendario», «com'è lo stato degli agenti?». Commands are understood by a **deterministic parser on your PC**, so the AI model can never trigger an action on its own, and your notes, calendar and timers are not sent to ChatGPT. Sensitive operations ask for confirmation first; per-category switches live in Settings → Azioni.
 - 📅 **Calendar** — connect Google Calendar or Outlook with their private iCal address (read-only: no account access). Agenda for today and the week, a month grid when expanded, recurring events, time zones, reminders before events. Creating or editing an event opens your browser pre-filled.
 - 📝 **Notes and clipboard history** — local notes with autosave and search; an opt-in clipboard history kept in memory only.
 - ⏱️ **Timers, alarms, reminders** — driven by a native scheduler, no polling.
-- 🎵 **Music** — controls whatever Windows is playing (Spotify, a browser, other players): cover, timeline, transport and per-player volume. No account, no network.
+- 🎵 **Music** — controls whatever Windows is playing: cover, timeline, transport and per-player volume. Local commands can open Spotify, Apple Music or TIDAL using Windows' app catalogue, with an explicit preference and a manual executable fallback. No service account and no AI request.
 - 🛰️ **Coding-agent monitor** *(optional, off by default)* — see which Claude Code and Codex sessions are working, waiting for authorisation or done, and jump to the right terminal window. Observation only: prompts and tool contents are discarded.
 - 💬 **WhatsApp Web** notifications in an isolated window with an encrypted local history. *(Telegram support exists but is not working yet.)*
 - 🧠 **ChatGPT** — *Sign in with ChatGPT*, streaming answers, no API key and no pay-per-use fallback.
-- 🎙️ **Local speech** — Whisper (speech-to-text) and Piper (Italian voice) run offline on the CPU. An experimental, off-by-default wake word: «Ehi» + a name you choose.
+- 🎙️ **Local speech** — Whisper and the optional Parakeet Ultra Q5_K_M (speech-to-text), plus Piper (Italian voice), run offline on the CPU. Parakeet is off by default and downloaded only when you choose it. An experimental, off-by-default wake word: «Ehi» + a name you choose.
+- 🚀 **Start with Windows** — optional and off by default; uses the current user's startup entry, shows the effective Windows state and never overrides a block set by Windows or the user.
 - 🔄 **Self-updating** — see below.
 
 ## Download
 
-1. Open the [latest release](https://github.com/andrea4546/Dynamic-releases/releases/latest) and download **`Dynamic_x.y.z_x64-setup.exe`** (about 615 MB: it includes the speech models and the Windows WebView2 runtime, so nothing is downloaded at install time).
+1. Open the [latest release](https://github.com/andrea4546/Dynamic-releases/releases/latest) and download **`Dynamic_x.y.z_x64-setup.exe`** (about 615 MB: it includes Whisper, Piper and the Windows WebView2 runtime; the optional Parakeet model is not bundled).
 2. Run it. It installs for your user only — **no administrator rights needed**.
 3. Dynamic appears at the top of your screen. Click it to open the panel.
 
@@ -143,13 +144,13 @@ The v0.1.0 installer has no updater: install v0.1.1 or later once by hand.
 
 ## Release notes
 
-Every version has its notes on the [Releases](https://github.com/andrea4546/Dynamic-releases/releases) page. **0.1.8**: four compact styles, Bluetooth connect/disconnect popups for any device, a collapsible *Associati, non collegati* section in Settings → Devices and shorter texts on Home. **0.1.9**: fixes only: the compact island's «+N» activity chip no longer touches the avatar's right eye, and the web view returns to normal memory as the cursor approaches the island instead of after the click (a precaution against slow first openings after a pause; its effect on real profiles is not yet verified). Known and not yet solved: rarely, a click on the island right after it reappears (Auto-hide) may not open the panel for a few seconds; occasional graphic flicker reported but not reproduced.
+Every version has its notes on the [Releases](https://github.com/andrea4546/Dynamic-releases/releases) page. **0.1.8**: four compact styles and Bluetooth/device refinements. **0.1.9**: compact-island layout and memory-timing fixes. **0.1.10**: optional CPU-only Parakeet Ultra Q5_K_M, opt-in start with Windows, single-instance protection and local commands that open Spotify, Apple Music or TIDAL with deterministic selection and a manual fallback. Known and not yet solved: rarely, a click on the island right after it reappears (Auto-hide) may not open the panel for a few seconds; occasional graphic flicker reported but not reproduced.
 
 ## Honest status
 
 What I have verified on my own PC: the installer, the local speech, ChatGPT sign-in, the island and its docking, notes, calendar (with synthetic and public feeds),
-timers, music control with a test player, the agent monitor, WhatsApp notifications, and, for every release, the native layout of every page in all eleven themes, expanded and compact, docked and floating (an automated check on the real window). The update path 0.1.1 → 0.1.2 was exercised in an isolated test product with the same updater and signing key; 0.1.3 uses the same mechanism.
-What I have **not** verified: a real Bluetooth device connecting or disconnecting (the popup is tested with simulated events and a test notice), the four compact styles at other display scales or on a second monitor, a clean second PC, a real Spotify / Google / Outlook account, spoken replies and wake-word accuracy in everyday noise, opening the browser for calendar events, a fullscreen game, a second monitor at other scaling, Telegram.
+timers, music control with a test player and real Spotify, the Windows startup entry and blocked-state handling, the optional Parakeet runtime, the agent monitor, WhatsApp notifications, and, for every release, the native layout of every page in all eleven themes, expanded and compact, docked and floating (an automated check on the real window). The updater has also been exercised with the same signing mechanism used by public releases.
+What I have **not** verified: a real Bluetooth device connecting or disconnecting (the popup is tested with simulated events and a test notice), the four compact styles at other display scales or on a second monitor, a clean second PC, real Apple Music / TIDAL / Google / Outlook accounts, spoken replies and wake-word accuracy in everyday noise, opening the browser for calendar events, a fullscreen game, suspend/resume, a second monitor at other scaling, Telegram.
 Expect rough edges — this is a one-person project.
 
 ---
