@@ -43,6 +43,14 @@ Most assistants live in a browser tab you have to go and find. Dynamic stays at 
 the useful things one glance away: your chat, your agents, your calendar, the song playing, a running timer. It listens and speaks
 **on your PC** (Whisper and Piper) and it never reads your screen or your other apps.
 
+### What's new in 0.1.12
+
+- Voice auto-send now works with both Whisper and Parakeet without bypassing the separate approval required by sensitive actions.
+- The listening header no longer overlaps its waveform and controls; the Gemini API-key field follows all eleven themes.
+- WhatsApp and Telegram can mark the current local history tab as read without sending remote read receipts.
+- Parakeet installation and updates show real downloaded bytes and percentage, followed by explicit verification and installation phases.
+- Codex hook configuration follows the documented Windows command and timeout; approval with `/hooks` is still required in Codex.
+
 ## A look inside
 
 Every image is a capture of the **real app**, taken in a throw-away profile with invented data: no personal account, conversation or calendar appears.
@@ -106,10 +114,10 @@ Battery percentages are never shown permanently on the compact island; they live
 - 📝 **Notes and clipboard history** — local notes with autosave and search; an opt-in clipboard history kept in memory only.
 - ⏱️ **Timers, alarms, reminders** — driven by a native scheduler, no polling.
 - 🎵 **Music** — controls whatever Windows is playing: cover, timeline, transport and per-player volume. Local commands can open Spotify, Apple Music or TIDAL using Windows' app catalogue, with an explicit preference and a manual executable fallback. No service account and no AI request.
-- 🛰️ **Coding-agent monitor** *(optional, off by default)* — see which Claude Code and Codex sessions are working, waiting for authorisation or done, and jump to the right terminal window. Observation only: prompts and tool contents are discarded.
-- 💬 **WhatsApp Web** notifications in an isolated window with an encrypted local history. *(Telegram support exists but is not working yet.)*
+- 🛰️ **Coding-agent monitor** *(optional, off by default)* — see which Claude Code and Codex sessions are working, waiting for authorisation or done, and jump to the right terminal window. Observation only: prompts and tool contents are discarded. Codex hooks require explicit approval through `/hooks`.
+- 💬 **WhatsApp Web** notifications in an isolated window with an encrypted local history, including local per-message and current-tab “mark as read”. No remote read receipt is sent. *(Telegram support exists but is not working yet.)*
 - 🧠 **ChatGPT** — *Sign in with ChatGPT*, streaming answers, no API key and no pay-per-use fallback.
-- 🎙️ **Local speech** — Whisper and the optional Parakeet Ultra Q5_K_M (speech-to-text), plus Piper (Italian voice), run offline on the CPU. Parakeet is off by default and downloaded only when you choose it. An experimental, off-by-default wake word: «Ehi» + a name you choose.
+- 🎙️ **Local speech** — Whisper and the optional Parakeet Ultra Q5_K_M (speech-to-text), plus Piper (Italian voice), run offline on the CPU. Parakeet is off by default and downloaded only when you choose it, with real download/verification progress. Automatic sending remains separate from confirmation of sensitive actions. An experimental, off-by-default wake word: «Ehi» + a name you choose.
 - 🚀 **Start with Windows** — optional and off by default; uses the current user's startup entry, shows the effective Windows state and never overrides a block set by Windows or the user.
 - 🔄 **Self-updating** — see below.
 
@@ -130,21 +138,21 @@ The v0.1.0 installer has no updater: install v0.1.1 or later once by hand.
 
 - Windows 11 x64 (developed and tested on Windows 11 build 26200; Windows 10 is not tested).
 - A CPU with AVX2 (speech recognition runs on the CPU, no GPU is used).
-- Internet only for ChatGPT, calendar feeds and updates; speech works offline.
-- A microphone for voice; a ChatGPT account whose plan allows *Sign in with ChatGPT* for real chat answers.
+- Internet only for ChatGPT or Gemini, calendar feeds, updates and the optional Parakeet download; speech works offline after installation.
+- A microphone for voice; for conversational answers, either a ChatGPT account whose plan allows *Sign in with ChatGPT* or your own Gemini API key.
 
 ## Privacy
 
 | What | Where it goes |
 |---|---|
 | Microphone audio | Processed **locally**; never recorded to disk, never sent anywhere. It opens only while you talk (or, if you enable the wake word, listens on this PC only). |
-| Your chat text | Sent to OpenAI **only** when you are signed in to ChatGPT and send a message. Action commands («timer», «nota», «calendario»…) stay on your PC. |
-| Calendar address, notes, history, ChatGPT tokens | Stored on your PC, encrypted with Windows DPAPI where sensitive. Nothing is uploaded. |
+| Your chat text | Sent only to the provider you select: OpenAI for ChatGPT or Google for Gemini. Action commands («timer», «nota», «calendario»…) stay on your PC. |
+| Calendar address, notes, history, ChatGPT tokens and Gemini key | Stored on your PC, encrypted with Windows DPAPI where sensitive. Nothing is uploaded. |
 | Other apps and your screen | Never read. |
 
 ## Release notes
 
-Every version has its notes on the [Releases](https://github.com/andrea4546/Dynamic-releases/releases) page. **0.1.8**: four compact styles and Bluetooth/device refinements. **0.1.9**: compact-island layout and memory-timing fixes. **0.1.10**: optional CPU-only Parakeet Ultra Q5_K_M, opt-in start with Windows, single-instance protection and local commands that open Spotify, Apple Music or TIDAL with deterministic selection and a manual fallback. Known and not yet solved: rarely, a click on the island right after it reappears (Auto-hide) may not open the panel for a few seconds; occasional graphic flicker reported but not reproduced.
+Every version has its notes on the [Releases](https://github.com/andrea4546/Dynamic-releases/releases) page. **0.1.8**: four compact styles and Bluetooth/device refinements. **0.1.9**: compact-island layout and memory-timing fixes. **0.1.10**: optional CPU-only Parakeet Ultra, start with Windows and local music commands. **0.1.11**: Gemini with a personal key, shortcuts and verified Parakeet updates. **0.1.12**: voice auto-send, listening/Gemini UI fixes, Codex hook alignment, local bulk-read and real Parakeet progress. Known and not yet solved: rarely, a click on the island right after it reappears (Auto-hide) may not open the panel for a few seconds; occasional graphic flicker reported but not reproduced.
 
 ## Honest status
 
