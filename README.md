@@ -43,6 +43,14 @@ Speech recognition and synthesis run locally on the CPU; only conversational tex
 The V6.1 Refined interface uses static theme surfaces and event-driven Windows integrations. It does not capture the screen, inject into other
 processes or run speech inference on the GPU.
 
+## What's new in 0.2.5
+
+- **One Chat for AI** — «Share with AI» is no longer a separate tool. The **+** button in the Chat composer opens the share panel: paste text or pick a text file, choose Explain, Summarise, Translate or Ask, check the summary and confirm before anything is sent to the connected ChatGPT or Gemini. The provider is picked with the Chat's own switch, and typing a normal message works exactly as before. Dynamic still never reads the clipboard, the screen or other apps by itself.
+- **Audio centre from the Home** — a speaker button next to Notifications and Settings opens the audio centre with one click. The mixer is read only when it opens; Ctrl+Alt+U still works.
+- **Simpler «···» menu** — Command Palette, Reduce to island, Centre Dynamic and Quit. The audio centre, sharing and Settings already have their own direct buttons.
+
+Settings, accounts, notes, timers, conversations, shortcuts and voice models are kept when updating from 0.2.4.
+
 ## What's new in 0.2.4
 
 - **Command Palette** — press the 🔍 button in the island header, use the «···» menu or Ctrl+Alt+K while Dynamic is focused: one search over Dynamic screens, Settings sections, 28 ready-made actions (music, Windows volume, timers, quiet mode, folders, devices, lock), Start-menu apps and typed timers («timer 7», «25 min»). Fully usable from the keyboard; favourites and recents are stored as identifiers only and the history can be switched off. Actions go through the same permissions and confirmations as voice and chat; typed text is never executed.
@@ -102,7 +110,7 @@ profile and invented data; no personal account, conversation, calendar address, 
 | ![Coding agents](docs/assets/screenshots/13-agents.webp)<br>**Coding agents** — Claude Code and Codex sessions, observation only | ![Devices](docs/assets/screenshots/30-settings-devices.webp)<br>**Devices** — Windows Bluetooth and supported Logitech receivers |
 | ![Notes](docs/assets/screenshots/08-notes.webp)<br>**Notes** — local, searchable and autosaved | ![Notification](docs/assets/screenshots/17-notice.webp)<br>**Notifications** — Dynamic events appear directly in the compact island |
 | ![Command Palette](docs/assets/screenshots/35-command-palette.webp)<br>**Command Palette (0.2.4)** — screens, settings, actions, apps and timers from one keyboard-driven search | ![Audio centre](docs/assets/screenshots/36-audio-center.webp)<br>**Audio centre (0.2.4)** — Windows volume, per-app mixer volume, player and Dynamic's microphone |
-| ![Share with AI](docs/assets/screenshots/37-share-ai.webp)<br>**Share with AI (0.2.4)** — pasted text or a text file, reviewed before sending (shown with no AI connected) | |
+| ![Share with AI in the Chat](docs/assets/screenshots/37-share-ai.webp)<br>**Share with AI, inside the Chat (0.2.5)** — the composer's + opens pasted text or a text file, reviewed before sending (shown with no AI connected) | ![Home with the audio button](docs/assets/screenshots/38-home-audio.webp)<br>**Audio centre from the Home (0.2.5)** — the speaker button next to Notifications and Settings opens it with one click |
 
 <p align="center">
   <img src="docs/assets/screenshots/03-home-expanded.webp" alt="Expanded Dynamic Home" width="320">
@@ -184,7 +192,7 @@ opening times, ≈ 8 ms to open the Command Palette and ≈ 72 ms to open the au
 
 ## Known limitations
 
-- **Codex CLI notifications do not work in 0.2.0 to 0.2.4 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
+- **Codex CLI notifications do not work in 0.2.0 to 0.2.5 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
 - Telegram notification reception has not been confirmed with a real account.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime and a clean second PC remain unverified.
 - A multi-second Auto-hide stall seen once in an older build has not been reproduced; occasional visual glitches should not be described as definitively fixed.
