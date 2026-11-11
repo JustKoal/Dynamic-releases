@@ -19,7 +19,7 @@
 
 <p align="center">
   <a href="https://github.com/andrea4546/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
-  <a href="#whats-new-in-023">What's new</a> ·
+  <a href="#whats-new-in-024">What's new</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#features">Features</a> ·
   <a href="#privacy-and-security">Privacy</a> ·
@@ -31,6 +31,7 @@
 </p>
 
 > Dynamic is a personal Windows project. This repository hosts the public installers and update feed; the source repository is private.
+> The «Source code» archives that GitHub attaches automatically to every release contain only this README and the screenshots, not the application code.
 > The app interface and voice are in Italian. The installer is not Authenticode-signed, so Windows SmartScreen may warn on first run.
 
 ## What Dynamic is
@@ -41,6 +42,15 @@ Speech recognition and synthesis run locally on the CPU; only conversational tex
 
 The V6.1 Refined interface uses static theme surfaces and event-driven Windows integrations. It does not capture the screen, inject into other
 processes or run speech inference on the GPU.
+
+## What's new in 0.2.4
+
+- **Command Palette** — press the 🔍 button in the island header, use the «···» menu or Ctrl+Alt+K while Dynamic is focused: one search over Dynamic screens, Settings sections, 28 ready-made actions (music, Windows volume, timers, quiet mode, folders, devices, lock), Start-menu apps and typed timers («timer 7», «25 min»). Fully usable from the keyboard; favourites and recents are stored as identifiers only and the history can be switched off. Actions go through the same permissions and confirmations as voice and chat; typed text is never executed.
+- **Audio centre** (Ctrl+Alt+U) — Windows master volume and mute with the output in use, per-app volume in the Windows mixer for the apps that really have an audio session, the current player and Dynamic's microphone (device, «Ehi Dynamic» listening on/off, status). It reads the mixer only when opened or used: nothing runs while it is closed.
+- **Share with AI** — paste text or pick a text file, choose Explain, Summarise, Translate or Ask, check the summary (action, provider, size) and only then send it to the connected ChatGPT or Gemini. Dynamic never reads the clipboard, the screen or other apps by itself.
+- **Shortcuts** — the palette and the audio centre have configurable shortcuts that work only while Dynamic is focused unless you make them global.
+
+Settings, accounts, notes, timers, conversations, shortcuts and voice models are kept when updating from 0.2.3.
 
 ## What's new in 0.2.3
 
@@ -91,6 +101,8 @@ profile and invented data; no personal account, conversation, calendar address, 
 | ![Music](docs/assets/screenshots/11-music.webp)<br>**Music** — Windows media sessions, transport, timeline and per-player volume | ![Messaging](docs/assets/screenshots/12-messaging.webp)<br>**Messaging** — isolated WhatsApp/Telegram Web connections and local notification history |
 | ![Coding agents](docs/assets/screenshots/13-agents.webp)<br>**Coding agents** — Claude Code and Codex sessions, observation only | ![Devices](docs/assets/screenshots/30-settings-devices.webp)<br>**Devices** — Windows Bluetooth and supported Logitech receivers |
 | ![Notes](docs/assets/screenshots/08-notes.webp)<br>**Notes** — local, searchable and autosaved | ![Notification](docs/assets/screenshots/17-notice.webp)<br>**Notifications** — Dynamic events appear directly in the compact island |
+| ![Command Palette](docs/assets/screenshots/35-command-palette.webp)<br>**Command Palette (0.2.4)** — screens, settings, actions, apps and timers from one keyboard-driven search | ![Audio centre](docs/assets/screenshots/36-audio-center.webp)<br>**Audio centre (0.2.4)** — Windows volume, per-app mixer volume, player and Dynamic's microphone |
+| ![Share with AI](docs/assets/screenshots/37-share-ai.webp)<br>**Share with AI (0.2.4)** — pasted text or a text file, reviewed before sending (shown with no AI connected) | |
 
 <p align="center">
   <img src="docs/assets/screenshots/03-home-expanded.webp" alt="Expanded Dynamic Home" width="320">
@@ -121,6 +133,7 @@ Choose the shape in **Settings → Appearance**. The avatar, activities, notific
 - **Messaging** — WhatsApp Web and Telegram Web run in isolated WebView2 profiles. Dynamic can display their web notifications and keep an optional DPAPI-encrypted local history.
 - **Coding agents** — optional, observation-only monitoring for Claude Code and Codex through local hooks. Prompt and tool contents are discarded. Codex hooks require explicit approval through `/hooks`.
 - **Devices** — paired Bluetooth devices and supported Logitech LIGHTSPEED, Unifying and Bolt receivers, using read-only Windows/HID data.
+- **Quick access** — Command Palette, audio centre and Share with AI as small sheets over the island, opened from the header, the menu or shortcuts; no new permanent navigation destination.
 - **Personalisation** — four compact styles, three avatars, eleven themes, docking/floating modes, multi-monitor placement and configurable shortcuts.
 - **Fullscreen awareness** — can hide while a fullscreen app occupies the same monitor; no overlay injection or screen capture.
 - **Self-updating** — manual install confirmation, minisign verification and preservation of the user profile.
@@ -155,6 +168,8 @@ minisign signature against the embedded public key, performs the per-user update
 | Credentials and calendar addresses | Stored with Windows DPAPI where sensitive; never placed in screenshots or diagnostics. |
 | Notes, timers, conversations and histories | Kept in the user's local profile. |
 | Screen and other applications | Dynamic does not capture the screen, inspect app contents or inject code. |
+| Share with AI | Only text you paste or a text file you pick; a summary is shown and nothing is sent until you press «Invia». Never interpreted as a command. |
+| Command Palette history | Only identifiers of built-in actions; no typed text, app names, AI content or paths. Can be switched off. |
 | Coding-agent hooks | Observation only; prompt and tool payloads are discarded. Dynamic never approves requests for the agent. |
 
 Third-party licence notices, voice attribution and the corresponding Piper source references are included with the installer.
@@ -163,17 +178,20 @@ Third-party licence notices, voice attribution and the corresponding Piper sourc
 
 Dynamic is designed to remain quiet while hidden or idle: Windows and media events are used where available, themes are static, and no GPU speech
 inference or extra overlay process is used. A three-run 0.1.13 → 0.2.0 comparison found the same seven-process tree and CPU, memory, thread and handle
-counts within short-sample noise. **FPS and frametime have not been measured in a real game.**
+counts within short-sample noise. A 0.2.3 → 0.2.4 comparison on isolated release builds (4–5 alternating runs, whole process tree) measured about
++6 MB of private memory with the compact island (the page's JavaScript heap is unchanged), the same CPU and GPU within noise, the same Home and Settings
+opening times, ≈ 8 ms to open the Command Palette and ≈ 72 ms to open the audio centre including the mixer read. **FPS and frametime have not been measured in a real game.**
 
 ## Known limitations
 
-- **Codex CLI notifications do not work in 0.2.0 to 0.2.3 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
+- **Codex CLI notifications do not work in 0.2.0 to 0.2.4 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
 - Telegram notification reception has not been confirmed with a real account.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime and a clean second PC remain unverified.
 - A multi-second Auto-hide stall seen once in an older build has not been reproduced; occasional visual glitches should not be described as definitively fixed.
 - TIDAL and Spotify were exercised for real in 0.2.1 (previous track, open-and-play, close, volume); Apple Music was not. TIDAL releases its audio output after a few minutes of pause, so its volume can be adjusted again only once playback resumes.
 - Group and sender details in the WhatsApp voice summary depend on what WhatsApp Web puts in its notifications and have not been verified with a real account; without them Dynamic says only the chat name.
 - Windows offers no public API for apps to change the default audio output: Dynamic tells you which output is in use and points to Win+Ctrl+V.
+- The audio centre does not follow volume changes made by other apps while it is open (it reads the mixer when opened and after each change). Sharing a file with the AI accepts text files only.
 - The installer has a valid updater minisign signature but no Authenticode certificate; SmartScreen may warn.
 
 ## Release notes
