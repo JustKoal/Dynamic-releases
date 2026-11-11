@@ -144,7 +144,7 @@ counts within short-sample noise. **FPS and frametime have not been measured in 
 
 ## Known limitations
 
-- Codex CLI end-to-end notifications require the seven Dynamic hooks to be approved with `/hooks`; the VS Code Codex extension is a separate, unverified path.
+- **Codex CLI notifications do not work in 0.2.0 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
 - Telegram notification reception has not been confirmed with a real account.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime and a clean second PC remain unverified.
 - A multi-second Auto-hide stall seen once in an older build has not been reproduced; occasional visual glitches should not be described as definitively fixed.
