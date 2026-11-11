@@ -42,6 +42,12 @@ Speech recognition and synthesis run locally on the CPU; only conversational tex
 The V6.1 Refined interface uses static theme surfaces and event-driven Windows integrations. It does not capture the screen, inject into other
 processes or run speech inference on the GPU.
 
+## What's new in 0.2.2
+
+- **Faster voice commands**: after a successful local command whose confirmation is read aloud («apri TIDAL» → «Ho aperto TIDAL»), the island closes as soon as the reading ends instead of staying open for 8 seconds, so you can give the next command right away. AI replies, errors and notices still stay visible for 8 seconds.
+
+Settings, accounts, notes, timers, conversations, shortcuts and voice models are kept when updating from 0.2.1.
+
 ## What's new in 0.2.1
 
 - **Everyday local voice commands**, no cloud involved: «che ore sono?», «che giorno è?», «quanto manca a Natale / al weekend?», «apri Download / Documenti / Immagini / Desktop / Esplora file», «blocca il computer» (with confirmation), Windows volume and mute, the current audio output, devices and battery, «non disturbarmi per 30 minuti», «ho notifiche?», «cosa sai fare?».
@@ -154,7 +160,7 @@ counts within short-sample noise. **FPS and frametime have not been measured in 
 
 ## Known limitations
 
-- **Codex CLI notifications do not work in 0.2.0 and 0.2.1 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
+- **Codex CLI notifications do not work in 0.2.0, 0.2.1 and 0.2.2 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
 - Telegram notification reception has not been confirmed with a real account.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime and a clean second PC remain unverified.
 - A multi-second Auto-hide stall seen once in an older build has not been reproduced; occasional visual glitches should not be described as definitively fixed.
