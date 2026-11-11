@@ -19,7 +19,7 @@
 
 <p align="center">
   <a href="https://github.com/andrea4546/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
-  <a href="#whats-new-in-021">What's new</a> ·
+  <a href="#whats-new-in-023">What's new</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#features">Features</a> ·
   <a href="#privacy-and-security">Privacy</a> ·
@@ -41,6 +41,13 @@ Speech recognition and synthesis run locally on the CPU; only conversational tex
 
 The V6.1 Refined interface uses static theme surfaces and event-driven Windows integrations. It does not capture the screen, inject into other
 processes or run speech inference on the GPU.
+
+## What's new in 0.2.3
+
+- **Customizable Home quick tiles**: in Settings → Appearance («Aspetto» → «Accessi rapidi della Home») you choose what each of the four tiles under «Adesso» shows: Music, Timer, Devices, AI, Calendar (next event), Messages (unread) or Agents. The default layout is unchanged.
+- **Logitech mouse no longer stuck on «In sonno»**: opening the Home re-reads the receiver once when a Logitech device looks asleep, so a mouse that just woke up shows its real state and battery without opening the device list.
+
+Settings, accounts, notes, timers, conversations, shortcuts and voice models are kept when updating from 0.2.2.
 
 ## What's new in 0.2.2
 
@@ -160,7 +167,7 @@ counts within short-sample noise. **FPS and frametime have not been measured in 
 
 ## Known limitations
 
-- **Codex CLI notifications do not work in 0.2.0, 0.2.1 and 0.2.2 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
+- **Codex CLI notifications do not work in 0.2.0 to 0.2.3 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
 - Telegram notification reception has not been confirmed with a real account.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime and a clean second PC remain unverified.
 - A multi-second Auto-hide stall seen once in an older build has not been reproduced; occasional visual glitches should not be described as definitively fixed.
