@@ -19,7 +19,7 @@
 
 <p align="center">
   <a href="https://github.com/andrea4546/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
-  <a href="#whats-new-in-020">What's new</a> ·
+  <a href="#whats-new-in-021">What's new</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#features">Features</a> ·
   <a href="#privacy-and-security">Privacy</a> ·
@@ -41,6 +41,16 @@ Speech recognition and synthesis run locally on the CPU; only conversational tex
 
 The V6.1 Refined interface uses static theme surfaces and event-driven Windows integrations. It does not capture the screen, inject into other
 processes or run speech inference on the GPU.
+
+## What's new in 0.2.1
+
+- **Everyday local voice commands**, no cloud involved: «che ore sono?», «che giorno è?», «quanto manca a Natale / al weekend?», «apri Download / Documenti / Immagini / Desktop / Esplora file», «blocca il computer» (with confirmation), Windows volume and mute, the current audio output, devices and battery, «non disturbarmi per 30 minuti», «ho notifiche?», «cosa sai fare?».
+- **Reliable music commands**: «brano precedente» really goes back one track instead of restarting the current one; «apri TIDAL e metti un po' di musica» opens the player and starts playback once it is ready; new «chiudi Spotify / TIDAL / Apple Music»; a named player's volume works even when another player is selected. Verified with real TIDAL and Spotify.
+- **Changed**: «alza il volume» without a player name now sets the Windows volume; name the player for its own volume («volume di TIDAL al 40»).
+- **WhatsApp voice summary** on request («che notifiche WhatsApp ho?», «chi mi ha scritto?») with three levels in Settings → Messaging. The default is the count only; names and message texts stay on the PC and are never sent to the AI.
+- **Quiet mode** with a duration; timers, alarms, reminders, appointments and errors still get through.
+
+Settings, accounts, notes, timers, conversations, shortcuts and voice models are kept when updating from 0.2.0.
 
 ## What's new in 0.2.0
 
@@ -92,8 +102,8 @@ Choose the shape in **Settings → Appearance**. The avatar, activities, notific
 
 - **AI assistant** — ChatGPT through *Sign in with ChatGPT* when the account plan permits it, or Gemini through the user's own Google AI Studio key. There is no automatic paid-API fallback.
 - **Local voice** — Whisper Base/Small and optional Parakeet Ultra for speech-to-text; Piper for Italian speech synthesis. Voice models run offline on the CPU.
-- **Local actions** — deterministic commands for timers, reminders, notes, calendar, music and navigation. AI replies are never interpreted as commands; sensitive actions require confirmation.
-- **Music** — controls Windows media sessions and can open Spotify, Apple Music or TIDAL using the Windows app catalogue or an explicit executable path.
+- **Local actions** — deterministic commands for time and dates, timers, reminders, notes, calendar, music, Windows volume, folders, devices, quiet mode, notifications and navigation. AI replies are never interpreted as commands; sensitive actions require confirmation.
+- **Music** — controls Windows media sessions, can open, start and close Spotify, Apple Music or TIDAL using the Windows app catalogue or an explicit executable path, and sets the volume of a single player.
 - **Calendar** — read-only Google/Outlook ICS feeds, recurring events, time zones, reminders and offline encrypted cache. Creating or editing an event opens the browser.
 - **Messaging** — WhatsApp Web and Telegram Web run in isolated WebView2 profiles. Dynamic can display their web notifications and keep an optional DPAPI-encrypted local history.
 - **Coding agents** — optional, observation-only monitoring for Claude Code and Codex through local hooks. Prompt and tool contents are discarded. Codex hooks require explicit approval through `/hooks`.
@@ -144,11 +154,13 @@ counts within short-sample noise. **FPS and frametime have not been measured in 
 
 ## Known limitations
 
-- **Codex CLI notifications do not work in 0.2.0 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
+- **Codex CLI notifications do not work in 0.2.0 and 0.2.1 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
 - Telegram notification reception has not been confirmed with a real account.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime and a clean second PC remain unverified.
 - A multi-second Auto-hide stall seen once in an older build has not been reproduced; occasional visual glitches should not be described as definitively fixed.
-- Apple Music and TIDAL have not been exercised with real accounts in the final candidate.
+- TIDAL and Spotify were exercised for real in 0.2.1 (previous track, open-and-play, close, volume); Apple Music was not. TIDAL releases its audio output after a few minutes of pause, so its volume can be adjusted again only once playback resumes.
+- Group and sender details in the WhatsApp voice summary depend on what WhatsApp Web puts in its notifications and have not been verified with a real account; without them Dynamic says only the chat name.
+- Windows offers no public API for apps to change the default audio output: Dynamic tells you which output is in use and points to Win+Ctrl+V.
 - The installer has a valid updater minisign signature but no Authenticode certificate; SmartScreen may warn.
 
 ## Release notes
