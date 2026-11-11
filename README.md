@@ -1,99 +1,86 @@
 <h1 align="center">Dynamic</h1>
 
 <p align="center">
-  <strong>A Dynamic Island for the Windows 11 desktop.</strong><br>
-  A tiny pill at the top of your screen that grows into your chat, calendar, notes, timers, music and coding agents —<br>
-  and that you can simply talk to. Speech runs on your own PC.
+  <strong>Smart Desktop Assistant for Windows 11.</strong><br>
+  A compact Dynamic Island for AI, local voice commands, notifications, music, devices, notes, time and coding agents.
 </p>
 
 <p align="center">
-  <img src="docs/assets/screenshots/01-compact.webp" alt="Dynamic in its compact form: a thin black pill at the top edge of the screen with two glowing eyes" width="376">
+  <img src="docs/assets/screenshots/01-compact.webp" alt="Dynamic in its compact form" width="376">
 </p>
 
 <p align="center">
   <a href="https://github.com/andrea4546/Dynamic-releases/releases/latest"><img src="https://img.shields.io/github/v/release/andrea4546/Dynamic-releases?label=version&color=0A84FF" alt="Latest version"></a>
   <img src="https://img.shields.io/badge/Windows%2011-x64-0078D4?logo=windows&logoColor=white" alt="Windows 11 x64">
-  <img src="https://img.shields.io/badge/speech-100%25%20local-3DDC84" alt="Speech runs locally">
-  <img src="https://img.shields.io/badge/updates-signed-8A63D2" alt="Signed updates">
+  <img src="https://img.shields.io/badge/speech-local-3DDC84" alt="Speech runs locally">
+  <img src="https://img.shields.io/badge/updates-minisign%20verified-8A63D2" alt="Signed updates">
   <img src="https://img.shields.io/github/downloads/andrea4546/Dynamic-releases/total?label=downloads&color=blueviolet" alt="Downloads">
 </p>
 
 <p align="center">
   <a href="https://github.com/andrea4546/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
-  <a href="#a-look-inside">A look inside</a> ·
-  <a href="#four-notch-styles">Notch styles</a> ·
-  <a href="#what-it-does">What it does</a> ·
-  <a href="#updates">Updates</a> ·
-  <a href="#privacy">Privacy</a> ·
-  <a href="#honest-status">Honest status</a>
+  <a href="#whats-new-in-020">What's new</a> ·
+  <a href="#screenshots">Screenshots</a> ·
+  <a href="#features">Features</a> ·
+  <a href="#privacy-and-security">Privacy</a> ·
+  <a href="#known-limitations">Known limitations</a>
 </p>
 
 <p align="center">
-  <img src="docs/assets/screenshots/02-home.webp" alt="The Dynamic panel: the Now card, an at-a-glance list and the side navigation rail" width="540">
+  <img src="docs/assets/screenshots/02-home.webp" alt="Dynamic 0.2.0 Home panel" width="540">
 </p>
 
-> Dynamic is a personal project for Windows. This page hosts the **installers** and the update feed; the source code is private.
-> The app interface and voice are in Italian. The installer is not code-signed, so Windows SmartScreen may warn you the first time.
+> Dynamic is a personal Windows project. This repository hosts the public installers and update feed; the source repository is private.
+> The app interface and voice are in Italian. The installer is not Authenticode-signed, so Windows SmartScreen may warn on first run.
 
----
+## What Dynamic is
 
-## Why
+Dynamic stays at the top of the desktop as a small, low-distraction pill and expands only when needed. It combines an AI chat with local,
+deterministic actions: timers, reminders, notes, calendar, media controls and navigation work without giving the AI permission to operate the PC.
+Speech recognition and synthesis run locally on the CPU; only conversational text is sent to the provider selected by the user.
 
-Most assistants live in a browser tab you have to go and find. Dynamic stays at the top edge of your screen, tiny until you need it, and keeps
-the useful things one glance away: your chat, your agents, your calendar, the song playing, a running timer. It listens and speaks
-**on your PC** (Whisper and Piper) and it never reads your screen or your other apps.
+The V6.1 Refined interface uses static theme surfaces and event-driven Windows integrations. It does not capture the screen, inject into other
+processes or run speech inference on the GPU.
 
-### What's new in 0.1.12
+## What's new in 0.2.0
 
-- Voice auto-send now works with both Whisper and Parakeet without bypassing the separate approval required by sensitive actions.
-- The listening header no longer overlaps its waveform and controls; the Gemini API-key field follows all eleven themes.
-- WhatsApp and Telegram can mark the current local history tab as read without sending remote read receipts.
-- Parakeet installation and updates show real downloaded bytes and percentage, followed by explicit verification and installation phases.
-- Codex hook configuration follows the documented Windows command and timeout; approval with `/hooks` is still required in Codex.
+- **Guided setup** for AI, voice, integrations and preferences. It can be postponed, resumed and reopened; older profiles are migrated without forcing the wizard.
+- **Connections** shows the real state and next action for ChatGPT, Gemini, coding agents, messaging, music and calendar, with diagnostics designed not to expose secrets.
+- **Offline Settings search**, keyboard navigation included.
+- **Cleaner public build**: the former local demo provider is removed and the internal test bench is hidden.
+- **Auto-hide reliability**: clicks made while the island is sliding back into view are no longer lost in the reproduced case.
+- **Whole-app UI review** across every section, Settings page and all eleven themes, including contrast, empty states, spacing and accessible names.
+- **Contextual setup links** from voice errors, such as configuring the microphone or connecting an AI provider.
 
-## A look inside
+Existing settings, accounts, notes, timers, conversations, shortcuts and voice models are designed to survive the update from 0.1.13.
 
-Every image is a capture of the **real app**, taken in a throw-away profile with invented data: no personal account, conversation or calendar appears.
-Images marked *demo data* come from a browser simulator that runs the same interface with a fake API and invented devices («di prova»); they are used
-where the real list would show the names of personal devices.
+## Screenshots
+
+Every image below is a capture of the **real native app** (Tauri + WebView2) from the 0.2.0 release candidate. Captures use a throw-away
+profile and invented data; no personal account, conversation, calendar address, credential or private path is shown.
 
 | | |
 |---|---|
-| ![Chat with action cards](docs/assets/screenshots/04-chat-actions.webp)<br>**Chat and actions** — «metti un timer», «ricordami domani alle 18…»: local commands answer with a result card | ![Confirmation card](docs/assets/screenshots/05-actions-confirm.webp)<br>**Confirmation** — anything destructive shows a preview and waits for your yes or no |
-| ![Calendar, month grid](docs/assets/screenshots/06-calendar-month.webp)<br>**Calendar** — expand the island and a full month grid appears, with the day's agenda below | ![Notes](docs/assets/screenshots/08-notes.webp)<br>**Notes** — local, autosaved, searchable, pinnable |
-| ![Time](docs/assets/screenshots/10-tempo.webp)<br>**Time** — timers, alarms and reminders in one place | ![Music](docs/assets/screenshots/11-music.webp)<br>**Music** — cover, timeline, transport and volume of the player you pick *(a stand-in player here)* |
-| ![AI agents](docs/assets/screenshots/13-agents.webp)<br>**Agents** — your Claude Code and Codex sessions at a glance; *Apri* brings the terminal to the front | ![Settings, About page](docs/assets/screenshots/15-settings-about.webp)<br>**Settings** — one consistent layout (label, switch, explanation); ordinary, sensitive and advanced options are grouped; updates live under *Informazioni* |
-| ![Home devices](docs/assets/screenshots/20-home-devices-demo.webp)<br>**Devices on Home** *(demo data)* — connected and sleeping devices with their batteries; the star picks the one shown on the card | ![Settings, Devices](docs/assets/screenshots/21-settings-devices-demo.webp)<br>**Settings → Devices** *(demo data)* — connected devices stay in view, paired-but-disconnected ones sit in a collapsible section |
-| ![Bluetooth popup](docs/assets/screenshots/22-bluetooth-popup-demo.webp)<br>**Bluetooth popup** *(demo data)* — a temporary notice over the compact island when a device connects | ![Notification](docs/assets/screenshots/17-notice.webp)<br>**Notices** — the same compact island shows timers, agents and system events, one at a time |
+| ![Guided setup](docs/assets/screenshots/26-setup-ai.png)<br>**Guided setup** — choose ChatGPT, a personal Gemini key or local commands only | ![Connections](docs/assets/screenshots/27-settings-connections.png)<br>**Connections** — real state, explanation and next action for every integration |
+| ![Settings search](docs/assets/screenshots/28-settings-search.png)<br>**Settings search** — local, keyboard-driven and linked to the exact option | ![Appearance](docs/assets/screenshots/29-settings-appearance.webp)<br>**Appearance** — eleven themes and the approved Dynamic identity |
+| ![Chat and local actions](docs/assets/screenshots/04-chat-actions.webp)<br>**Chat and local actions** — commands still work with no cloud AI connected | ![Sensitive action confirmation](docs/assets/screenshots/05-actions-confirm.webp)<br>**Confirmation** — sensitive operations wait for an explicit yes or no |
+| ![Calendar](docs/assets/screenshots/06-calendar-month.webp)<br>**Calendar** — read-only ICS agenda and expanded month view | ![Time](docs/assets/screenshots/10-tempo.webp)<br>**Time** — timers, alarms and reminders from one page |
+| ![Music](docs/assets/screenshots/11-music.webp)<br>**Music** — Windows media sessions, transport, timeline and per-player volume | ![Messaging](docs/assets/screenshots/12-messaging.webp)<br>**Messaging** — isolated WhatsApp/Telegram Web connections and local notification history |
+| ![Coding agents](docs/assets/screenshots/13-agents.webp)<br>**Coding agents** — Claude Code and Codex sessions, observation only | ![Devices](docs/assets/screenshots/30-settings-devices.webp)<br>**Devices** — Windows Bluetooth and supported Logitech receivers |
+| ![Notes](docs/assets/screenshots/08-notes.webp)<br>**Notes** — local, searchable and autosaved | ![Notification](docs/assets/screenshots/17-notice.webp)<br>**Notifications** — Dynamic events appear directly in the compact island |
 
 <p align="center">
-  <img src="docs/assets/screenshots/03-home-expanded.webp" alt="Home, expanded vertically" width="320">
-  &nbsp;&nbsp;
-  <img src="docs/assets/screenshots/07-calendar-agenda.webp" alt="Calendar agenda in the normal panel" width="540">
-</p>
-<p align="center"><sub>One button grows the island vertically and the page uses the whole height · the same calendar as a compact agenda</sub></p>
-
-## Four notch styles
-
-Pick how the compact island looks in **Settings → Appearance → Stile notch compatta**. Only the *shape* changes; the avatar, the activities, the notices and the
-expanded panel are the same in every style, and your choice is kept across restarts and updates.
-
-<p align="center">
-  <img src="docs/assets/screenshots/18-notch-styles.webp" alt="The four compact styles with no activity, one timer, and a timer plus music" width="880">
+  <img src="docs/assets/screenshots/03-home-expanded.webp" alt="Expanded Dynamic Home" width="320">
 </p>
 
-| Style | Size | What it shows |
-|---|---|---|
-| **Premium V5.1** (default) | 188 × 48 | Eyes in the middle and up to two activities at the sides, with their text |
-| **Capsula** | 148 × 40 | A smaller, rounder capsule: the same activities as symbols, with a «+N» when there are more |
-| **Indicatore** | 116 × 34 | The most discreet: the avatar and a single button with the main activity and how many there are |
-| **Adattiva** | 104 / 140 / 178 × 40 | The width follows what is going on: eyes only, then symbols, then symbols with text; it grows at once and shrinks only after 900 ms of calm |
+### Four compact styles
 
-<p align="center">
-  <img src="docs/assets/screenshots/19-style-picker.webp" alt="The style picker in Settings, with static previews" width="540">
-</p>
+Choose the shape in **Settings → Appearance**. The avatar, activities, notifications and expanded panel remain shared.
 
-Battery percentages are never shown permanently on the compact island; they live on Home and in Settings. Eleven themes apply to every style:
+| Premium | Capsule | Indicator | Adaptive |
+|---|---|---|---|
+| ![Premium style](docs/assets/screenshots/31-notch-premium.png) | ![Capsule style](docs/assets/screenshots/32-notch-capsule.png) | ![Indicator style](docs/assets/screenshots/33-notch-indicator.png) | ![Adaptive style](docs/assets/screenshots/34-notch-adaptive.png) |
+| 188 × 48 | 148 × 40 | 116 × 34 | 104 / 140 / 178 × 40 |
 
 <p align="center">
   <img src="docs/assets/screenshots/23-theme-sunset-home.webp" alt="Sunset theme" width="260">
@@ -101,66 +88,73 @@ Battery percentages are never shown permanently on the compact island; they live
   <img src="docs/assets/screenshots/25-theme-graphite-home.webp" alt="Graphite theme" width="260">
 </p>
 
-## What it does
+## Features
 
-- 🔘 **Four compact styles** — Premium V5.1, Capsula, Indicatore and Adattiva (see above).
-- 🔋 **Devices and batteries** — Bluetooth devices already paired with Windows and **Logitech LIGHTSPEED / Unifying / Bolt** receivers (battery read through HID++, read-only) in one list on Home and in *Settings → Devices*. A battery is shown only when the device reports it; a sleeping device shows its *last known* value, labelled as such.
-- 🔔 **Bluetooth popups** — when a Bluetooth device **connects**, a short notice shows its name and, if Windows reports it, its real battery; headphones **disconnecting** is a quiet notice; a device that keeps flapping does not flood you; a battery update alone never notifies. It is driven by Windows events, with no polling. *Tested with a state machine, UI tests and native probes using a test notice; not yet seen with a real device connecting.*
-- 🏝️ **A real Dynamic Island** — a borderless pill docked to the top edge that morphs between compact, listening, chat, panel and settings. Drag it down and it detaches into a floating capsule; drag it back and it docks again. Three visibility modes, multi-monitor aware, and it steps aside when a fullscreen app takes the screen.
-- ✨ **Premium design (V5 / 5.1)** — tonal surfaces instead of outlined boxes, a side navigation rail (icons in the normal window, labels when expanded), a *Now* card plus an at-a-glance list on Home, a real music-player layout, a focused timer with a ring and a month grid that fills the tall window. Same eleven themes, system fonts only, no extra animation or polling.
-- 🤖 **Three avatars, nine states** — the original *eyes*, a little *robot* or a *hitodama* (a floating spirit flame) show whether it is idle, listening, thinking, speaking, waiting for you or done. Eleven themes and static gradients (no animated background, no GPU load at rest).
-- ⚡ **Actions from chat or voice** — «metti un timer di 10 minuti», «ricordami domani alle 15 di chiamare Marco», «crea una nota: …», «che appuntamenti ho domani?», «apri Spotify», «pausa», «volume al 40», «apri il calendario», «com'è lo stato degli agenti?». Commands are understood by a **deterministic parser on your PC**, so the AI model can never trigger an action on its own, and your notes, calendar and timers are not sent to ChatGPT. Sensitive operations ask for confirmation first; per-category switches live in Settings → Azioni.
-- 📅 **Calendar** — connect Google Calendar or Outlook with their private iCal address (read-only: no account access). Agenda for today and the week, a month grid when expanded, recurring events, time zones, reminders before events. Creating or editing an event opens your browser pre-filled.
-- 📝 **Notes and clipboard history** — local notes with autosave and search; an opt-in clipboard history kept in memory only.
-- ⏱️ **Timers, alarms, reminders** — driven by a native scheduler, no polling.
-- 🎵 **Music** — controls whatever Windows is playing: cover, timeline, transport and per-player volume. Local commands can open Spotify, Apple Music or TIDAL using Windows' app catalogue, with an explicit preference and a manual executable fallback. No service account and no AI request.
-- 🛰️ **Coding-agent monitor** *(optional, off by default)* — see which Claude Code and Codex sessions are working, waiting for authorisation or done, and jump to the right terminal window. Observation only: prompts and tool contents are discarded. Codex hooks require explicit approval through `/hooks`.
-- 💬 **WhatsApp Web** notifications in an isolated window with an encrypted local history, including local per-message and current-tab “mark as read”. No remote read receipt is sent. *(Telegram support exists but is not working yet.)*
-- 🧠 **ChatGPT** — *Sign in with ChatGPT*, streaming answers, no API key and no pay-per-use fallback.
-- 🎙️ **Local speech** — Whisper and the optional Parakeet Ultra Q5_K_M (speech-to-text), plus Piper (Italian voice), run offline on the CPU. Parakeet is off by default and downloaded only when you choose it, with real download/verification progress. Automatic sending remains separate from confirmation of sensitive actions. An experimental, off-by-default wake word: «Ehi» + a name you choose.
-- 🚀 **Start with Windows** — optional and off by default; uses the current user's startup entry, shows the effective Windows state and never overrides a block set by Windows or the user.
-- 🔄 **Self-updating** — see below.
+- **AI assistant** — ChatGPT through *Sign in with ChatGPT* when the account plan permits it, or Gemini through the user's own Google AI Studio key. There is no automatic paid-API fallback.
+- **Local voice** — Whisper Base/Small and optional Parakeet Ultra for speech-to-text; Piper for Italian speech synthesis. Voice models run offline on the CPU.
+- **Local actions** — deterministic commands for timers, reminders, notes, calendar, music and navigation. AI replies are never interpreted as commands; sensitive actions require confirmation.
+- **Music** — controls Windows media sessions and can open Spotify, Apple Music or TIDAL using the Windows app catalogue or an explicit executable path.
+- **Calendar** — read-only Google/Outlook ICS feeds, recurring events, time zones, reminders and offline encrypted cache. Creating or editing an event opens the browser.
+- **Messaging** — WhatsApp Web and Telegram Web run in isolated WebView2 profiles. Dynamic can display their web notifications and keep an optional DPAPI-encrypted local history.
+- **Coding agents** — optional, observation-only monitoring for Claude Code and Codex through local hooks. Prompt and tool contents are discarded. Codex hooks require explicit approval through `/hooks`.
+- **Devices** — paired Bluetooth devices and supported Logitech LIGHTSPEED, Unifying and Bolt receivers, using read-only Windows/HID data.
+- **Personalisation** — four compact styles, three avatars, eleven themes, docking/floating modes, multi-monitor placement and configurable shortcuts.
+- **Fullscreen awareness** — can hide while a fullscreen app occupies the same monitor; no overlay injection or screen capture.
+- **Self-updating** — manual install confirmation, minisign verification and preservation of the user profile.
 
-## Download
+## Installation
 
-1. Open the [latest release](https://github.com/andrea4546/Dynamic-releases/releases/latest) and download **`Dynamic_x.y.z_x64-setup.exe`** (about 615 MB: it includes Whisper, Piper and the Windows WebView2 runtime; the optional Parakeet model is not bundled).
-2. Run it. It installs for your user only — **no administrator rights needed**.
-3. Dynamic appears at the top of your screen. Click it to open the panel.
+1. Open the [latest release](https://github.com/andrea4546/Dynamic-releases/releases/latest).
+2. Download **`Dynamic_x.y.z_x64-setup.exe`** (roughly 600 MB because the offline speech models and WebView2 runtime are included).
+3. Run the installer. It installs for the current user and does not require administrator rights.
+4. Follow the guided setup, or postpone it and use local features first.
 
 ## Updates
 
-Dynamic checks this repository's `latest.json` shortly after it starts and then every few hours (one HTTPS request to github.com, no personal data;
-you can switch it off in Settings → Informazioni). When a newer version exists a **red dot** appears; *Aggiorna a x.y.z* downloads the installer,
-**verifies its minisign signature** against the public key built into the app, installs it for your user and restarts. Settings, timers, notes and history are kept.
-The v0.1.0 installer has no updater: install v0.1.1 or later once by hand.
+Dynamic checks this repository's `latest.json` shortly after startup and then periodically when automatic checks are enabled. If a newer version
+is available, Settings → Information shows it. Installation starts only after the user chooses it; the app downloads the installer, verifies its
+minisign signature against the embedded public key, performs the per-user update and restarts. Settings and local data are retained.
 
 ## Requirements
 
-- Windows 11 x64 (developed and tested on Windows 11 build 26200; Windows 10 is not tested).
-- A CPU with AVX2 (speech recognition runs on the CPU, no GPU is used).
-- Internet only for ChatGPT or Gemini, calendar feeds, updates and the optional Parakeet download; speech works offline after installation.
-- A microphone for voice; for conversational answers, either a ChatGPT account whose plan allows *Sign in with ChatGPT* or your own Gemini API key.
+- Windows 11 x64. Windows 10 is not tested.
+- A CPU with AVX2; local speech recognition is CPU-only.
+- A microphone for voice features.
+- Internet only for the selected AI provider, calendar downloads, updates and the optional Parakeet download.
+- For conversational AI: a compatible ChatGPT account or a personal Gemini API key. Local commands work without either.
 
-## Privacy
+## Privacy and security
 
-| What | Where it goes |
+| Data | Handling |
 |---|---|
-| Microphone audio | Processed **locally**; never recorded to disk, never sent anywhere. It opens only while you talk (or, if you enable the wake word, listens on this PC only). |
-| Your chat text | Sent only to the provider you select: OpenAI for ChatGPT or Google for Gemini. Action commands («timer», «nota», «calendario»…) stay on your PC. |
-| Calendar address, notes, history, ChatGPT tokens and Gemini key | Stored on your PC, encrypted with Windows DPAPI where sensitive. Nothing is uploaded. |
-| Other apps and your screen | Never read. |
+| Microphone audio | Processed locally and not written to disk. The optional wake word also runs locally. |
+| Chat text | Sent only to the selected ChatGPT or Gemini provider, and only for messages that are not recognised local commands. |
+| Credentials and calendar addresses | Stored with Windows DPAPI where sensitive; never placed in screenshots or diagnostics. |
+| Notes, timers, conversations and histories | Kept in the user's local profile. |
+| Screen and other applications | Dynamic does not capture the screen, inspect app contents or inject code. |
+| Coding-agent hooks | Observation only; prompt and tool payloads are discarded. Dynamic never approves requests for the agent. |
+
+Third-party licence notices, voice attribution and the corresponding Piper source references are included with the installer.
+
+## Performance
+
+Dynamic is designed to remain quiet while hidden or idle: Windows and media events are used where available, themes are static, and no GPU speech
+inference or extra overlay process is used. A three-run 0.1.13 → 0.2.0 comparison found the same seven-process tree and CPU, memory, thread and handle
+counts within short-sample noise. **FPS and frametime have not been measured in a real game.**
+
+## Known limitations
+
+- Codex CLI end-to-end notifications require the seven Dynamic hooks to be approved with `/hooks`; the VS Code Codex extension is a separate, unverified path.
+- Telegram notification reception has not been confirmed with a real account.
+- Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime and a clean second PC remain unverified.
+- A multi-second Auto-hide stall seen once in an older build has not been reproduced; occasional visual glitches should not be described as definitively fixed.
+- Apple Music and TIDAL have not been exercised with real accounts in the final candidate.
+- The installer has a valid updater minisign signature but no Authenticode certificate; SmartScreen may warn.
 
 ## Release notes
 
-Every version has its notes on the [Releases](https://github.com/andrea4546/Dynamic-releases/releases) page. **0.1.8**: four compact styles and Bluetooth/device refinements. **0.1.9**: compact-island layout and memory-timing fixes. **0.1.10**: optional CPU-only Parakeet Ultra, start with Windows and local music commands. **0.1.11**: Gemini with a personal key, shortcuts and verified Parakeet updates. **0.1.12**: voice auto-send, listening/Gemini UI fixes, Codex hook alignment, local bulk-read and real Parakeet progress. Known and not yet solved: rarely, a click on the island right after it reappears (Auto-hide) may not open the panel for a few seconds; occasional graphic flicker reported but not reproduced.
-
-## Honest status
-
-What I have verified on my own PC: the installer, the local speech, ChatGPT sign-in, the island and its docking, notes, calendar (with synthetic and public feeds),
-timers, music control with a test player and real Spotify, the Windows startup entry and blocked-state handling, the optional Parakeet runtime, the agent monitor, WhatsApp notifications, and, for every release, the native layout of every page in all eleven themes, expanded and compact, docked and floating (an automated check on the real window). The updater has also been exercised with the same signing mechanism used by public releases.
-What I have **not** verified: a real Bluetooth device connecting or disconnecting (the popup is tested with simulated events and a test notice), the four compact styles at other display scales or on a second monitor, a clean second PC, real Apple Music / TIDAL / Google / Outlook accounts, spoken replies and wake-word accuracy in everyday noise, opening the browser for calendar events, a fullscreen game, suspend/resume, a second monitor at other scaling, Telegram.
-Expect rough edges — this is a one-person project.
+See the [Releases](https://github.com/andrea4546/Dynamic-releases/releases) page for versioned notes and checksums.
 
 ---
 
-<sub>Windows 11 x64 · built with Tauri 2, Rust, React and TypeScript · whisper.cpp · Piper</sub>
+<sub>Windows 11 x64 · Tauri 2 · Rust · React · TypeScript · whisper.cpp · Piper</sub>
