@@ -19,7 +19,7 @@
 
 <p align="center">
   <a href="https://github.com/andrea4546/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
-  <a href="#whats-new-in-024">What's new</a> ·
+  <a href="#whats-new-in-027">What's new</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#features">Features</a> ·
   <a href="#privacy-and-security">Privacy</a> ·
@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/screenshots/02-home.webp" alt="Dynamic Home panel" width="540">
+  <img src="docs/assets/screenshots/02-home.webp" alt="Dynamic Home with four large icon cards; the time card shows a running timer" width="540">
 </p>
 
 > Dynamic is a personal Windows project. This repository hosts the public installers and update feed; the source repository is private.
@@ -42,6 +42,14 @@ Speech recognition and synthesis run locally on the CPU; only conversational tex
 
 The V6.1 Refined interface uses static theme surfaces and event-driven Windows integrations. It does not capture the screen, inject into other
 processes or run speech inference on the GPU.
+
+## What's new in 0.2.7
+
+- **Visual Home cards**: each of the four quick cards is now a large themed icon (music, time, devices, AI, calendar, messages, agents). A short line appears on the card only when there is something real to show: the track playing or paused, today's next event, the devices actually connected, a running timer, alarm or reminder, unread messages. Long text scrolls inside the card once (never with reduced motion). The Home header shows only the date, the time and the eyes.
+- **Messages**: WhatsApp and Telegram are one **Messages** destination with a WhatsApp | Telegram switch, unread counts per tab and one badge for both. Accounts, sessions and notifications stay separate. Pinned destinations, palette favourites, voice commands and shortcuts that pointed to WhatsApp or Telegram keep working and open the right tab.
+- **Settings always wide**: every way of opening Settings goes straight to the large layout in one step, and leaving Settings brings the island back to its normal size with the focus where it was.
+- **Attach files in the Chat**: the paperclip in the composer opens the Windows file picker. Text files only (notes, CSV, JSON, code…), sent **as text** together with your message when you press Send; PDFs, images and Office documents are not supported by the ChatGPT and Gemini connectors in Dynamic. The separate «Share with AI» panel is gone.
+- **Clearer details**: a red warning with the reason when a player's volume cannot be adjusted; Settings → Overview summarises connected and unconfigured services; AI agents and Actions pages highlight the main switch and move specialist details into Advanced.
 
 ## What's new in 0.2.6
 
@@ -103,7 +111,7 @@ Existing settings, accounts, notes, timers, conversations, shortcuts and voice m
 
 ## Screenshots
 
-Every image below is a capture of the **real native app** (Tauri + WebView2) from the 0.2.0 release candidate. Captures use a throw-away
+Every image below is a capture of the **real native app** (Tauri + WebView2) from the 0.2.0 release candidate; images marked with a newer version come from that version's build. Captures use a throw-away
 profile and invented data; no personal account, conversation, calendar address, credential or private path is shown.
 
 | | |
@@ -112,13 +120,13 @@ profile and invented data; no personal account, conversation, calendar address, 
 | ![Settings search](docs/assets/screenshots/28-settings-search.png)<br>**Settings search** — local, keyboard-driven and linked to the exact option | ![Appearance](docs/assets/screenshots/29-settings-appearance.webp)<br>**Appearance** — eleven themes and the approved Dynamic identity |
 | ![Chat and local actions](docs/assets/screenshots/04-chat-actions.webp)<br>**Chat and local actions** — commands still work with no cloud AI connected | ![Sensitive action confirmation](docs/assets/screenshots/05-actions-confirm.webp)<br>**Confirmation** — sensitive operations wait for an explicit yes or no |
 | ![Calendar](docs/assets/screenshots/06-calendar-month.webp)<br>**Calendar** — read-only ICS agenda and expanded month view | ![Time](docs/assets/screenshots/10-tempo.webp)<br>**Time** — timers, alarms and reminders from one page |
-| ![Music](docs/assets/screenshots/11-music.webp)<br>**Music** — Windows media sessions, transport, timeline and per-player volume | ![Messaging](docs/assets/screenshots/12-messaging.webp)<br>**Messaging** — isolated WhatsApp/Telegram Web connections and local notification history |
+| ![Music](docs/assets/screenshots/11-music.webp)<br>**Music** — Windows media sessions, transport, timeline and per-player volume | ![Messages](docs/assets/screenshots/43-messages-tabs.webp)<br>**Messages (0.2.7)** — WhatsApp and Telegram in one destination with tabs; isolated web connections and local notification history |
 | ![Coding agents](docs/assets/screenshots/13-agents.webp)<br>**Coding agents** — Claude Code and Codex sessions, observation only | ![Devices](docs/assets/screenshots/30-settings-devices.webp)<br>**Devices** — Windows Bluetooth and supported Logitech receivers |
 | ![Notes](docs/assets/screenshots/08-notes.webp)<br>**Notes** — local, searchable and autosaved | ![Notification](docs/assets/screenshots/17-notice.webp)<br>**Notifications** — Dynamic events appear directly in the compact island |
 | ![Command Palette](docs/assets/screenshots/35-command-palette.webp)<br>**Command Palette (0.2.4)** — screens, settings, actions, apps and timers from one keyboard-driven search | ![Audio centre](docs/assets/screenshots/36-audio-center.webp)<br>**Audio centre (0.2.4)** — Windows volume, per-app mixer volume, player and Dynamic's microphone |
-| ![Settings overview](docs/assets/screenshots/39-settings-overview.webp)<br>**Settings → Overview (0.2.6)** — the state of Dynamic at a glance, every row leads to its setting | ![Advanced section](docs/assets/screenshots/40-settings-advanced.webp)<br>**Voice → Advanced (0.2.6)** — technical options live in a collapsible section (shown open) |
+| ![Settings overview](docs/assets/screenshots/39-settings-overview.webp)<br>**Settings → Overview** — always in the wide layout (0.2.7); the state of Dynamic at a glance, every row leads to its setting | ![Advanced section](docs/assets/screenshots/40-settings-advanced.webp)<br>**Voice → Advanced (0.2.6)** — technical options live in a collapsible section (shown open) |
 | ![Guided setup welcome](docs/assets/screenshots/41-setup-welcome.webp)<br>**Guided setup (0.2.6)** — what the island is, how to open and close it, what works without an AI | ![Getting started](docs/assets/screenshots/42-home-getting-started.webp)<br>**Getting started (0.2.6)** — a short list for new users on the Home, only verified steps get ticked |
-| ![Share with AI in the Chat](docs/assets/screenshots/37-share-ai.webp)<br>**Share with AI, inside the Chat (0.2.5)** — the composer's + opens pasted text or a text file, reviewed before sending (shown with no AI connected) | ![Home with the audio button](docs/assets/screenshots/38-home-audio.webp)<br>**Audio centre from the Home (0.2.5)** — the speaker button next to Notifications and Settings opens it with one click |
+| ![Attach a file in the Chat](docs/assets/screenshots/44-chat-attach.webp)<br>**Attach files in the Chat (0.2.7)** — a text file next to your message, sent as text only when you press Send (shown with no AI connected) | ![Home with the audio button](docs/assets/screenshots/38-home-audio.webp)<br>**Audio centre from the Home (0.2.5)** — the speaker button next to Notifications and Settings opens it with one click |
 
 <p align="center">
   <img src="docs/assets/screenshots/03-home-expanded.webp" alt="Expanded Dynamic Home" width="320">
@@ -146,10 +154,10 @@ Choose the shape in **Settings → Appearance**. The avatar, activities, notific
 - **Local actions** — deterministic commands for time and dates, timers, reminders, notes, calendar, music, Windows volume, folders, devices, quiet mode, notifications and navigation. AI replies are never interpreted as commands; sensitive actions require confirmation.
 - **Music** — controls Windows media sessions, can open, start and close Spotify, Apple Music or TIDAL using the Windows app catalogue or an explicit executable path, and sets the volume of a single player.
 - **Calendar** — read-only Google/Outlook ICS feeds, recurring events, time zones, reminders and offline encrypted cache. Creating or editing an event opens the browser.
-- **Messaging** — WhatsApp Web and Telegram Web run in isolated WebView2 profiles. Dynamic can display their web notifications and keep an optional DPAPI-encrypted local history.
+- **Messages** — WhatsApp Web and Telegram Web, one destination with two tabs, each in its own isolated WebView2 profile. Dynamic can display their web notifications and keep an optional DPAPI-encrypted local history.
 - **Coding agents** — optional, observation-only monitoring for Claude Code and Codex through local hooks. Prompt and tool contents are discarded. Codex hooks require explicit approval through `/hooks`.
 - **Devices** — paired Bluetooth devices and supported Logitech LIGHTSPEED, Unifying and Bolt receivers, using read-only Windows/HID data.
-- **Quick access** — Command Palette, audio centre and Share with AI as small sheets over the island, opened from the header, the menu or shortcuts; no new permanent navigation destination.
+- **Quick access** — Command Palette and audio centre as small sheets over the island, opened from the header, the menu or shortcuts; text-file attachments right in the Chat composer.
 - **Personalisation** — four compact styles, three avatars, eleven themes, docking/floating modes, multi-monitor placement and configurable shortcuts.
 - **Fullscreen awareness** — can hide while a fullscreen app occupies the same monitor; no overlay injection or screen capture.
 - **Self-updating** — manual install confirmation, minisign verification and preservation of the user profile.
@@ -184,7 +192,7 @@ minisign signature against the embedded public key, performs the per-user update
 | Credentials and calendar addresses | Stored with Windows DPAPI where sensitive; never placed in screenshots or diagnostics. |
 | Notes, timers, conversations and histories | Kept in the user's local profile. |
 | Screen and other applications | Dynamic does not capture the screen, inspect app contents or inject code. |
-| Share with AI | Only text you paste or a text file you pick; a summary is shown and nothing is sent until you press «Invia». Never interpreted as a command. |
+| Chat attachments | Only text files you pick with the paperclip; shown in the composer and sent as text only when you press Send. Kept in memory, never written to disk or logs, never interpreted as a command. |
 | Command Palette history | Only identifiers of built-in actions; no typed text, app names, AI content or paths. Can be switched off. |
 | Coding-agent hooks | Observation only; prompt and tool payloads are discarded. Dynamic never approves requests for the agent. |
 
@@ -200,14 +208,14 @@ opening times, ≈ 8 ms to open the Command Palette and ≈ 72 ms to open the au
 
 ## Known limitations
 
-- **Codex CLI notifications do not work in 0.2.0 to 0.2.6 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
+- **Codex CLI notifications do not work in 0.2.0 to 0.2.7 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
 - Telegram notification reception has not been confirmed with a real account.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime and a clean second PC remain unverified.
 - A multi-second Auto-hide stall seen once in an older build has not been reproduced; occasional visual glitches should not be described as definitively fixed.
 - TIDAL and Spotify were exercised for real in 0.2.1 (previous track, open-and-play, close, volume); Apple Music was not. TIDAL releases its audio output after a few minutes of pause, so its volume can be adjusted again only once playback resumes.
 - Group and sender details in the WhatsApp voice summary depend on what WhatsApp Web puts in its notifications and have not been verified with a real account; without them Dynamic says only the chat name.
 - Windows offers no public API for apps to change the default audio output: Dynamic tells you which output is in use and points to Win+Ctrl+V.
-- The audio centre does not follow volume changes made by other apps while it is open (it reads the mixer when opened and after each change). Sharing a file with the AI accepts text files only.
+- The audio centre does not follow volume changes made by other apps while it is open (it reads the mixer when opened and after each change). Chat attachments accept text files only and are sent as text, not as native provider attachments; sending them to a real ChatGPT or Gemini account has not been tested yet.
 - The installer has a valid updater minisign signature but no Authenticode certificate; SmartScreen may warn.
 
 ## Release notes
