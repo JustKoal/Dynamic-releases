@@ -19,7 +19,7 @@
 
 <p align="center">
   <a href="https://github.com/JustKoal/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
-  <a href="#whats-new-in-0210">What's new</a> ·
+  <a href="#whats-new-in-0211">What's new</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#features">Features</a> ·
   <a href="#privacy-and-security">Privacy</a> ·
@@ -42,6 +42,14 @@ Speech recognition and synthesis run locally on the CPU; only conversational tex
 
 The V6.1 Refined interface uses static theme surfaces and event-driven Windows integrations. It does not capture the screen, inject into other
 processes or run speech inference on the GPU.
+
+## What's new in 0.2.11
+
+- **Temporary AI chat, no history**: ChatGPT and Gemini each keep one current conversation, in memory only. It stays while you move between screens and disappears when Dynamic closes; nothing is written to disk and there is no history to browse.
+- **Nuova chat** asks for confirmation when there is something to lose, then deletes that provider's messages, attachments, unsent text and the context sent with the next request. The other provider's conversation is untouched.
+- **Old saved conversations**: if an earlier version saved chats on this PC, the Chat tells you they will be permanently deleted and removes them only when you press **Elimina** (**Più tardi** keeps them for now). Settings, accounts and other data are not touched. Nothing is deleted on OpenAI's or Google's servers.
+
+Settings, accounts, notes, timers, shortcuts and voice models are kept when updating from 0.2.10. The «Salva le conversazioni» switch is gone.
 
 ## What's new in 0.2.10
 
@@ -214,7 +222,8 @@ minisign signature against the embedded public key, performs the per-user update
 | Microphone audio | Processed locally and not written to disk. The optional wake word also runs locally. |
 | Chat text | Sent only to the selected ChatGPT or Gemini provider, and only for messages that are not recognised local commands. |
 | Credentials and calendar addresses | Stored with Windows DPAPI where sensitive; never placed in screenshots or diagnostics. |
-| Notes, timers, conversations and histories | Kept in the user's local profile. |
+| AI chat | Kept in memory only, never written to disk; gone when Dynamic closes or with **Nuova chat**. |
+| Notes, timers and histories | Kept in the user's local profile. |
 | Screen and other applications | Dynamic does not capture the screen, inspect app contents or inject code. |
 | Chat attachments | Only text files you pick with the paperclip; shown in the composer and sent as text only when you press Send. Kept in memory, never written to disk or logs, never interpreted as a command. |
 | Command Palette history | Only identifiers of built-in actions; no typed text, app names, AI content or paths. Can be switched off. |
@@ -232,7 +241,7 @@ opening times, ≈ 8 ms to open the Command Palette and ≈ 72 ms to open the au
 
 ## Known limitations
 
-- **Codex CLI notifications do not work in 0.2.0 to 0.2.10 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
+- **Codex CLI notifications do not work in 0.2.0 to 0.2.11 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
 - Telegram notification reception has not been confirmed with a real account.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime and a clean second PC remain unverified.
 - A multi-second Auto-hide stall seen once in an older build has not been reproduced; occasional visual glitches should not be described as definitively fixed.
