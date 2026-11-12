@@ -19,7 +19,7 @@
 
 <p align="center">
   <a href="https://github.com/andrea4546/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
-  <a href="#whats-new-in-027">What's new</a> ·
+  <a href="#whats-new-in-028">What's new</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#features">Features</a> ·
   <a href="#privacy-and-security">Privacy</a> ·
@@ -42,6 +42,15 @@ Speech recognition and synthesis run locally on the CPU; only conversational tex
 
 The V6.1 Refined interface uses static theme surfaces and event-driven Windows integrations. It does not capture the screen, inject into other
 processes or run speech inference on the GPU.
+
+## What's new in 0.2.8
+
+- **Settings that are easier to find**: the four Home cards and the navigation bar moved to **Appearance & Home**, next to theme, island shape and character (your choices are kept). Switching page starts from the top. Search prefers whole words and singular/plural forms (typing «tema» finds the themes first), in Settings and in the Command Palette.
+- **Audio centre opens wide**: it uses the large layout of Settings in a single step, so the app volumes are visible without scrolling; closing it brings the island back to its size.
+- **Messages**: disconnecting WhatsApp or Telegram lives only in Settings → Messaging (a settings button in the service bar takes you there); the note about previews wraps instead of being cut.
+- **Themes**: the AI and Messages cards follow the theme (warm tones on Red and Sunset instead of a fixed green), a honey music card in the green themes, and a deeper Blue that is easy to tell apart from Dynamic Original.
+- **Smaller details**: «More» in the sidebar has a grid icon (different from the «···» menu), the Home shows the date once, monitors are called «Monitor 2», the Codex row in Connections shows Check and Manage, and the microphone text in Voice matches the wake word setting.
+- **Updates leave nothing behind**: each update used to leave a ~590 MB copy of the installer in the Windows temporary folder; from 0.2.8 Dynamic removes it at the next start (only the updater's own folder, never a file in use). Copies left by earlier versions are removed the first time 0.2.8 starts.
 
 ## What's new in 0.2.7
 
@@ -120,13 +129,14 @@ profile and invented data; no personal account, conversation, calendar address, 
 | ![Settings search](docs/assets/screenshots/28-settings-search.png)<br>**Settings search** — local, keyboard-driven and linked to the exact option | ![Appearance](docs/assets/screenshots/29-settings-appearance.webp)<br>**Appearance** — eleven themes and the approved Dynamic identity |
 | ![Chat and local actions](docs/assets/screenshots/04-chat-actions.webp)<br>**Chat and local actions** — commands still work with no cloud AI connected | ![Sensitive action confirmation](docs/assets/screenshots/05-actions-confirm.webp)<br>**Confirmation** — sensitive operations wait for an explicit yes or no |
 | ![Calendar](docs/assets/screenshots/06-calendar-month.webp)<br>**Calendar** — read-only ICS agenda and expanded month view | ![Time](docs/assets/screenshots/10-tempo.webp)<br>**Time** — timers, alarms and reminders from one page |
-| ![Music](docs/assets/screenshots/11-music.webp)<br>**Music** — Windows media sessions, transport, timeline and per-player volume | ![Messages](docs/assets/screenshots/43-messages-tabs.webp)<br>**Messages (0.2.7)** — WhatsApp and Telegram in one destination with tabs; isolated web connections and local notification history |
+| ![Music](docs/assets/screenshots/11-music.webp)<br>**Music** — Windows media sessions, transport, timeline and per-player volume | ![Messages](docs/assets/screenshots/43-messages-tabs.webp)<br>**Messages (0.2.8)** — WhatsApp and Telegram in one destination with tabs and a settings button; isolated web connections and local notification history |
 | ![Coding agents](docs/assets/screenshots/13-agents.webp)<br>**Coding agents** — Claude Code and Codex sessions, observation only | ![Devices](docs/assets/screenshots/30-settings-devices.webp)<br>**Devices** — Windows Bluetooth and supported Logitech receivers |
 | ![Notes](docs/assets/screenshots/08-notes.webp)<br>**Notes** — local, searchable and autosaved | ![Notification](docs/assets/screenshots/17-notice.webp)<br>**Notifications** — Dynamic events appear directly in the compact island |
-| ![Command Palette](docs/assets/screenshots/35-command-palette.webp)<br>**Command Palette (0.2.4)** — screens, settings, actions, apps and timers from one keyboard-driven search | ![Audio centre](docs/assets/screenshots/36-audio-center.webp)<br>**Audio centre (0.2.4)** — Windows volume, per-app mixer volume, player and Dynamic's microphone |
+| ![Command Palette](docs/assets/screenshots/35-command-palette.webp)<br>**Command Palette (0.2.4)** — screens, settings, actions, apps and timers from one keyboard-driven search | ![Audio centre](docs/assets/screenshots/36-audio-center.webp)<br>**Audio centre (0.2.4, wide since 0.2.8)** — Windows volume, per-app mixer volume, player and Dynamic's microphone |
 | ![Settings overview](docs/assets/screenshots/39-settings-overview.webp)<br>**Settings → Overview** — always in the wide layout (0.2.7); the state of Dynamic at a glance, every row leads to its setting | ![Advanced section](docs/assets/screenshots/40-settings-advanced.webp)<br>**Voice → Advanced (0.2.6)** — technical options live in a collapsible section (shown open) |
 | ![Guided setup welcome](docs/assets/screenshots/41-setup-welcome.webp)<br>**Guided setup (0.2.6)** — what the island is, how to open and close it, what works without an AI | ![Getting started](docs/assets/screenshots/42-home-getting-started.webp)<br>**Getting started (0.2.6)** — a short list for new users on the Home, only verified steps get ticked |
 | ![Attach a file in the Chat](docs/assets/screenshots/44-chat-attach.webp)<br>**Attach files in the Chat (0.2.7)** — a text file next to your message, sent as text only when you press Send (shown with no AI connected) | ![Home with the audio button](docs/assets/screenshots/38-home-audio.webp)<br>**Audio centre from the Home (0.2.5)** — the speaker button next to Notifications and Settings opens it with one click |
+| ![Appearance and Home](docs/assets/screenshots/45-settings-appearance-home.webp)<br>**Settings → Appearance & Home (0.2.8)** — theme, island shape and character, the four Home cards and the navigation bar in one page | |
 
 <p align="center">
   <img src="docs/assets/screenshots/03-home-expanded.webp" alt="Expanded Dynamic Home" width="320">
@@ -208,7 +218,7 @@ opening times, ≈ 8 ms to open the Command Palette and ≈ 72 ms to open the au
 
 ## Known limitations
 
-- **Codex CLI notifications do not work in 0.2.0 to 0.2.7 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
+- **Codex CLI notifications do not work in 0.2.0 to 0.2.8 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
 - Telegram notification reception has not been confirmed with a real account.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime and a clean second PC remain unverified.
 - A multi-second Auto-hide stall seen once in an older build has not been reproduced; occasional visual glitches should not be described as definitively fixed.
