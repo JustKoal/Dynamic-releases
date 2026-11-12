@@ -10,16 +10,16 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/andrea4546/Dynamic-releases/releases/latest"><img src="https://img.shields.io/github/v/release/andrea4546/Dynamic-releases?label=version&color=0A84FF" alt="Latest version"></a>
+  <a href="https://github.com/JustKoal/Dynamic-releases/releases/latest"><img src="https://img.shields.io/github/v/release/JustKoal/Dynamic-releases?label=version&color=0A84FF" alt="Latest version"></a>
   <img src="https://img.shields.io/badge/Windows%2011-x64-0078D4?logo=windows&logoColor=white" alt="Windows 11 x64">
   <img src="https://img.shields.io/badge/speech-local-3DDC84" alt="Speech runs locally">
   <img src="https://img.shields.io/badge/updates-minisign%20verified-8A63D2" alt="Signed updates">
-  <img src="https://img.shields.io/github/downloads/andrea4546/Dynamic-releases/total?label=downloads&color=blueviolet" alt="Downloads">
+  <img src="https://img.shields.io/github/downloads/JustKoal/Dynamic-releases/total?label=downloads&color=blueviolet" alt="Downloads">
 </p>
 
 <p align="center">
-  <a href="https://github.com/andrea4546/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
-  <a href="#whats-new-in-029">What's new</a> ·
+  <a href="https://github.com/JustKoal/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
+  <a href="#whats-new-in-0210">What's new</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#features">Features</a> ·
   <a href="#privacy-and-security">Privacy</a> ·
@@ -42,6 +42,12 @@ Speech recognition and synthesis run locally on the CPU; only conversational tex
 
 The V6.1 Refined interface uses static theme surfaces and event-driven Windows integrations. It does not capture the screen, inject into other
 processes or run speech inference on the GPU.
+
+## What's new in 0.2.10
+
+- **More reliable «Ehi Dynamic»**: the detector now also accepts the ways the speech engine really writes the phrase when the name runs into the next word («Hey Dynamic, che ore sono?») or the greeting is repeated. In synthetic-voice tests (two TTS voices, five conditions, no real microphone) activations went from 67/80 to 74/80 with no false positives (0/360) and the custom name still recognised 60/60. Similar Italian words («dinamica», «dinamico») still do not activate it.
+- **Voice commands**: «Apri TIDAL» heard as «Apriti dal» is now recognised, with a confirmation. Transcription accuracy itself is unchanged.
+- **New GitHub address**: downloads and updates now come from [JustKoal/Dynamic-releases](https://github.com/JustKoal/Dynamic-releases). Earlier versions keep finding updates through GitHub's redirect; the signature check is unchanged.
 
 ## What's new in 0.2.9
 
@@ -182,7 +188,7 @@ Choose the shape in **Settings → Appearance**. The avatar, activities, notific
 
 ## Installation
 
-1. Open the [latest release](https://github.com/andrea4546/Dynamic-releases/releases/latest).
+1. Open the [latest release](https://github.com/JustKoal/Dynamic-releases/releases/latest).
 2. Download **`Dynamic_x.y.z_x64-setup.exe`** (about 382 MB; Parakeet Ultra is a separate 550 MB download from Settings → Voice).
 3. Run the installer. It installs for the current user and does not require administrator rights.
 4. Follow the guided setup, or postpone it and use local features first.
@@ -226,7 +232,7 @@ opening times, ≈ 8 ms to open the Command Palette and ≈ 72 ms to open the au
 
 ## Known limitations
 
-- **Codex CLI notifications do not work in 0.2.0 to 0.2.9 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
+- **Codex CLI notifications do not work in 0.2.0 to 0.2.10 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
 - Telegram notification reception has not been confirmed with a real account.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime and a clean second PC remain unverified.
 - A multi-second Auto-hide stall seen once in an older build has not been reproduced; occasional visual glitches should not be described as definitively fixed.
@@ -238,7 +244,7 @@ opening times, ≈ 8 ms to open the Command Palette and ≈ 72 ms to open the au
 
 ## Release notes
 
-See the [Releases](https://github.com/andrea4546/Dynamic-releases/releases) page for versioned notes and checksums.
+See the [Releases](https://github.com/JustKoal/Dynamic-releases/releases) page for versioned notes and checksums.
 
 ---
 
