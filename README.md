@@ -19,7 +19,7 @@
 
 <p align="center">
   <a href="https://github.com/andrea4546/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
-  <a href="#whats-new-in-028">What's new</a> ·
+  <a href="#whats-new-in-029">What's new</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#features">Features</a> ·
   <a href="#privacy-and-security">Privacy</a> ·
@@ -43,6 +43,14 @@ Speech recognition and synthesis run locally on the CPU; only conversational tex
 The V6.1 Refined interface uses static theme surfaces and event-driven Windows integrations. It does not capture the screen, inject into other
 processes or run speech inference on the GPU.
 
+## What's new in 0.2.9
+
+- **One speech engine: Parakeet Ultra.** Whisper Base and Small are gone: push-to-talk, live text, the «Ehi + name» wake word and the microphone test all use Parakeet Ultra. It is a 550 MB download from Settings → Voice (official sources, size and SHA-256 checked) that never starts by itself; if it is already installed, Dynamic uses it immediately. Without it, Voice explains what is missing and the rest of the app keeps working.
+- **Smaller installer**: 382,091,473 bytes instead of 616,794,825 bytes in 0.2.8 — 234,703,352 bytes less (38.1%). Updating also removes the two old Whisper model files from the installation folder.
+- **Lighter wake word at rest**: only the small Silero voice detector stays loaded; Parakeet is loaded when speech is detected and released after the configured inactivity.
+- **Simpler Voice settings**: one «Speech recognition — Parakeet Ultra» section with status, download and progress; model, revision, updates and the separate recognition, voice-detection and speech-synthesis components live under Advanced. Microphone, wake word, assistant name, sending and reading choices are preserved.
+
+Settings, accounts, notes, timers, conversations and shortcuts are preserved when updating from 0.2.8. An existing Parakeet download is kept.
 ## What's new in 0.2.8
 
 - **Settings that are easier to find**: the four Home cards and the navigation bar moved to **Appearance & Home**, next to theme, island shape and character (your choices are kept). Switching page starts from the top. Search prefers whole words and singular/plural forms (typing «tema» finds the themes first), in Settings and in the Command Palette.
@@ -133,7 +141,7 @@ profile and invented data; no personal account, conversation, calendar address, 
 | ![Coding agents](docs/assets/screenshots/13-agents.webp)<br>**Coding agents** — Claude Code and Codex sessions, observation only | ![Devices](docs/assets/screenshots/30-settings-devices.webp)<br>**Devices** — Windows Bluetooth and supported Logitech receivers |
 | ![Notes](docs/assets/screenshots/08-notes.webp)<br>**Notes** — local, searchable and autosaved | ![Notification](docs/assets/screenshots/17-notice.webp)<br>**Notifications** — Dynamic events appear directly in the compact island |
 | ![Command Palette](docs/assets/screenshots/35-command-palette.webp)<br>**Command Palette (0.2.4)** — screens, settings, actions, apps and timers from one keyboard-driven search | ![Audio centre](docs/assets/screenshots/36-audio-center.webp)<br>**Audio centre (0.2.4, wide since 0.2.8)** — Windows volume, per-app mixer volume, player and Dynamic's microphone |
-| ![Settings overview](docs/assets/screenshots/39-settings-overview.webp)<br>**Settings → Overview** — always in the wide layout (0.2.7); the state of Dynamic at a glance, every row leads to its setting | ![Advanced section](docs/assets/screenshots/40-settings-advanced.webp)<br>**Voice → Advanced (0.2.6)** — technical options live in a collapsible section (shown open) |
+| ![Settings overview](docs/assets/screenshots/39-settings-overview.webp)<br>**Settings → Overview** — always in the wide layout (0.2.7); the state of Dynamic at a glance, every row leads to its setting | ![Advanced section](docs/assets/screenshots/40-settings-advanced.webp)<br>**Voice → Advanced (0.2.6)** — technical options live in a collapsible section (shown open; this screenshot predates 0.2.9 and still shows Whisper) |
 | ![Guided setup welcome](docs/assets/screenshots/41-setup-welcome.webp)<br>**Guided setup (0.2.6)** — what the island is, how to open and close it, what works without an AI | ![Getting started](docs/assets/screenshots/42-home-getting-started.webp)<br>**Getting started (0.2.6)** — a short list for new users on the Home, only verified steps get ticked |
 | ![Attach a file in the Chat](docs/assets/screenshots/44-chat-attach.webp)<br>**Attach files in the Chat (0.2.7)** — a text file next to your message, sent as text only when you press Send (shown with no AI connected) | ![Home with the audio button](docs/assets/screenshots/38-home-audio.webp)<br>**Audio centre from the Home (0.2.5)** — the speaker button next to Notifications and Settings opens it with one click |
 | ![Appearance and Home](docs/assets/screenshots/45-settings-appearance-home.webp)<br>**Settings → Appearance & Home (0.2.8)** — theme, island shape and character, the four Home cards and the navigation bar in one page | |
@@ -160,7 +168,7 @@ Choose the shape in **Settings → Appearance**. The avatar, activities, notific
 ## Features
 
 - **AI assistant** — ChatGPT through *Sign in with ChatGPT* when the account plan permits it, or Gemini through the user's own Google AI Studio key. There is no automatic paid-API fallback.
-- **Local voice** — Whisper Base/Small and optional Parakeet Ultra for speech-to-text; Piper for Italian speech synthesis. Voice models run offline on the CPU.
+- **Local voice** — Parakeet Ultra is the only speech-to-text engine; Piper provides Italian speech synthesis. Both run locally on the CPU. Parakeet is downloaded on request from Settings → Voice.
 - **Local actions** — deterministic commands for time and dates, timers, reminders, notes, calendar, music, Windows volume, folders, devices, quiet mode, notifications and navigation. AI replies are never interpreted as commands; sensitive actions require confirmation.
 - **Music** — controls Windows media sessions, can open, start and close Spotify, Apple Music or TIDAL using the Windows app catalogue or an explicit executable path, and sets the volume of a single player.
 - **Calendar** — read-only Google/Outlook ICS feeds, recurring events, time zones, reminders and offline encrypted cache. Creating or editing an event opens the browser.
@@ -175,7 +183,7 @@ Choose the shape in **Settings → Appearance**. The avatar, activities, notific
 ## Installation
 
 1. Open the [latest release](https://github.com/andrea4546/Dynamic-releases/releases/latest).
-2. Download **`Dynamic_x.y.z_x64-setup.exe`** (roughly 600 MB because the offline speech models and WebView2 runtime are included).
+2. Download **`Dynamic_x.y.z_x64-setup.exe`** (about 382 MB; Parakeet Ultra is a separate 550 MB download from Settings → Voice).
 3. Run the installer. It installs for the current user and does not require administrator rights.
 4. Follow the guided setup, or postpone it and use local features first.
 
@@ -218,7 +226,7 @@ opening times, ≈ 8 ms to open the Command Palette and ≈ 72 ms to open the au
 
 ## Known limitations
 
-- **Codex CLI notifications do not work in 0.2.0 to 0.2.8 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
+- **Codex CLI notifications do not work in 0.2.0 to 0.2.9 on Windows.** With all seven Dynamic hooks approved through `/hooks`, a real Codex CLI 0.163.0 session still cannot launch the generated `commandWindows` (a quoting defect: the quoted executable path is rejected by Codex's `cmd /S /C` launch). Dynamic's local relay works when invoked directly; the fix needs a follow-up release. Claude Code monitoring is unaffected. The VS Code Codex extension is a separate, unverified path.
 - Telegram notification reception has not been confirmed with a real account.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime and a clean second PC remain unverified.
 - A multi-second Auto-hide stall seen once in an older build has not been reproduced; occasional visual glitches should not be described as definitively fixed.
@@ -234,4 +242,4 @@ See the [Releases](https://github.com/andrea4546/Dynamic-releases/releases) page
 
 ---
 
-<sub>Windows 11 x64 · Tauri 2 · Rust · React · TypeScript · whisper.cpp · Piper</sub>
+<sub>Windows 11 x64 · Tauri 2 · Rust · React · TypeScript · Parakeet · Piper</sub>
