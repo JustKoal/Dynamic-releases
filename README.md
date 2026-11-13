@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/screenshots/01-compact.webp" alt="Dynamic in its compact form: a small black pill at the top edge of the screen with two glowing eyes, a music indicator and a timer" width="344">
+  <img src="docs/assets/screenshots/v7-01-compact.webp" alt="Dynamic in its compact form: a small black pill at the top edge of the screen with two glowing eyes, a music indicator and a timer" width="344">
 </p>
 
 <p align="center">
@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/screenshots/02-home.webp" alt="Dynamic V7 Home: a large clock, the date, an AI status chip, three widgets (agents, now playing, timer) and the icon bar at the bottom" width="640">
+  <img src="docs/assets/screenshots/v7-02-home.webp" alt="Dynamic V7 Home: a large clock, the date, an AI status chip, three widgets (agents, now playing, timer) and the icon bar at the bottom" width="640">
 </p>
 
 > Dynamic is a personal Windows project. This repository hosts the public installers and the update feed; the source repository is private.
@@ -51,18 +51,18 @@ agent sessions). No personal account, conversation or device appears.
 
 | | |
 |---|---|
-| ![Home](docs/assets/screenshots/02-home.webp)<br>**Home** — clock, status and three live widgets | ![Chat](docs/assets/screenshots/03-chat.webp)<br>**Chat** — local commands answer even with no AI connected |
-| ![Music](docs/assets/screenshots/04-music.webp)<br>**Music** — Windows media sessions with cover, timeline and volume | ![Calendar](docs/assets/screenshots/05-calendar.webp)<br>**Calendar** — read-only ICS feeds, month and agenda |
-| ![Notes](docs/assets/screenshots/06-notes.webp)<br>**Notes** — local, searchable, autosaved | ![Messages](docs/assets/screenshots/07-messages.webp)<br>**Messages** — WhatsApp and Telegram in one place (shown not connected) |
-| ![Share file](docs/assets/screenshots/08-share.webp)<br>**Share file** — send a file from the PC to your phone on the local network with a QR code | ![Time](docs/assets/screenshots/09-tempo.webp)<br>**Time** — timers, alarms and reminders |
-| ![Coding agents](docs/assets/screenshots/10-agents.webp)<br>**Coding agents** — Claude Code and Codex sessions, observation only | ![Settings](docs/assets/screenshots/11-settings.webp)<br>**Settings** — categories and search on the left, content on the right |
-| ![Appearance](docs/assets/screenshots/12-settings-appearance.webp)<br>**Personalisation** — twelve themes, island shape and character | ![Notification](docs/assets/screenshots/13-notice.webp)<br>**Notifications** — events appear directly in the compact island |
+| ![Home](docs/assets/screenshots/v7-02-home.webp)<br>**Home** — clock, status and three live widgets | ![Chat](docs/assets/screenshots/v7-03-chat.webp)<br>**Chat** — local commands answer even with no AI connected |
+| ![Music](docs/assets/screenshots/v7-04-music.webp)<br>**Music** — Windows media sessions with cover, timeline and volume | ![Calendar](docs/assets/screenshots/v7-05-calendar.webp)<br>**Calendar** — read-only ICS feeds, month and agenda |
+| ![Notes](docs/assets/screenshots/v7-06-notes.webp)<br>**Notes** — local, searchable, autosaved | ![Messages](docs/assets/screenshots/v7-07-messages.webp)<br>**Messages** — WhatsApp and Telegram in one place (shown not connected) |
+| ![Share file](docs/assets/screenshots/v7-08-share.webp)<br>**Share file** — send a file from the PC to your phone on the local network with a QR code | ![Time](docs/assets/screenshots/v7-09-tempo.webp)<br>**Time** — timers, alarms and reminders |
+| ![Coding agents](docs/assets/screenshots/v7-10-agents.webp)<br>**Coding agents** — Claude Code and Codex sessions, observation only | ![Settings](docs/assets/screenshots/v7-11-settings.webp)<br>**Settings** — categories and search on the left, content on the right |
+| ![Appearance](docs/assets/screenshots/v7-12-settings-appearance.webp)<br>**Personalisation** — twelve themes, island shape and character | ![Notification](docs/assets/screenshots/v7-13-notice.webp)<br>**Notifications** — events appear directly in the compact island |
 
 ### Compact styles
 
 | Premium | Capsule | Indicator |
 |---|---|---|
-| ![Premium style](docs/assets/screenshots/01-compact.webp) | ![Capsule style](docs/assets/screenshots/14-notch-capsule.webp) | ![Indicator style](docs/assets/screenshots/15-notch-indicator.webp) |
+| ![Premium style](docs/assets/screenshots/v7-01-compact.webp) | ![Capsule style](docs/assets/screenshots/v7-14-notch-capsule.webp) | ![Indicator style](docs/assets/screenshots/v7-15-notch-indicator.webp) |
 
 A fourth style, **Adaptive**, changes width with the activities in progress.
 
@@ -70,9 +70,9 @@ A fourth style, **Adaptive**, changes width with the activities in progress.
 
 | | | |
 |---|---|---|
-| ![Blue theme](docs/assets/screenshots/20-theme-blue.webp)<br>Blue | ![Violet theme](docs/assets/screenshots/20-theme-violet.webp)<br>Violet | ![Green theme](docs/assets/screenshots/20-theme-green.webp)<br>Green |
-| ![Red theme](docs/assets/screenshots/20-theme-red.webp)<br>Red | ![Ocean theme](docs/assets/screenshots/20-theme-ocean.webp)<br>Ocean | ![Sunset theme](docs/assets/screenshots/20-theme-sunset.webp)<br>Sunset |
-| ![Glass theme](docs/assets/screenshots/20-theme-glass.webp)<br>Glass (the screenshot cannot show the desktop behind it) | | |
+| ![Blue theme](docs/assets/screenshots/v7-20-theme-blue.webp)<br>Blue | ![Violet theme](docs/assets/screenshots/v7-20-theme-violet.webp)<br>Violet | ![Green theme](docs/assets/screenshots/v7-20-theme-green.webp)<br>Green |
+| ![Red theme](docs/assets/screenshots/v7-20-theme-red.webp)<br>Red | ![Ocean theme](docs/assets/screenshots/v7-20-theme-ocean.webp)<br>Ocean | ![Sunset theme](docs/assets/screenshots/v7-20-theme-sunset.webp)<br>Sunset |
+| ![Glass theme](docs/assets/screenshots/v7-20-theme-glass.webp)<br>Glass (the screenshot cannot show the desktop behind it) | | |
 
 ## Features
 
