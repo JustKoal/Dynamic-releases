@@ -45,7 +45,7 @@ https://github.com/user-attachments/assets/92f53acb-83ac-4731-85c2-7285ce66b3cb
 
 A tour of Dynamic 0.3.1 (the player above is a 41-second cut): the island opening, Home and themes, the offline voice assistant,
 ChatGPT/Gemini chat, music, productivity tools and Share file by QR. The interface is recreated from the native V7 build with synthetic data.
-Italian titles, original music. A shorter vertical cut is in [Trailer](#trailer).
+Italian titles, original music.
 
 ## What Dynamic is
 
@@ -86,12 +86,6 @@ A fourth style, **Adaptive**, changes width with the activities in progress.
 | ![Blue theme](docs/assets/screenshots/v7-20-theme-blue.webp)<br>Blue | ![Violet theme](docs/assets/screenshots/v7-20-theme-violet.webp)<br>Violet | ![Green theme](docs/assets/screenshots/v7-20-theme-green.webp)<br>Green |
 | ![Red theme](docs/assets/screenshots/v7-20-theme-red.webp)<br>Red | ![Ocean theme](docs/assets/screenshots/v7-20-theme-ocean.webp)<br>Ocean | ![Sunset theme](docs/assets/screenshots/v7-20-theme-sunset.webp)<br>Sunset |
 | ![Glass theme](docs/assets/screenshots/v7-20-theme-glass.webp)<br>Glass (the screenshot cannot show the desktop behind it) | | |
-
-## Trailer
-
-Vertical cut of the presentation video for phones (30 s, 1080 × 1920, 60 fps, Italian titles):
-
-https://github.com/user-attachments/assets/07afbdca-fb47-4345-9853-3e3c047e60ef
 
 ## Features
 
