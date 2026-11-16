@@ -37,14 +37,14 @@
 
 ## Video di presentazione
 
-https://github.com/user-attachments/assets/92f53acb-83ac-4731-85c2-7285ce66b3cb
+https://github.com/user-attachments/assets/b37ec616-2c2f-47a2-8128-6f80117dc915
 
 <p align="center">
   <a href="https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.1/Dynamic-Promo-1080p.mp4"><b>⬇️ Full presentation video (96 s)</b></a> — 1920 × 1080 · 60 fps · MP4, 44.5 MB, attached to the v0.3.1 release
 </p>
 
-A tour of Dynamic 0.3.1 (the player above is a 41-second cut): the island opening, Home and themes, the offline voice assistant,
-ChatGPT/Gemini chat, music, productivity tools and Share file by QR. The interface is recreated from the native V7 build with synthetic data.
+A tour of Dynamic 0.3.1 (the player above is a 52-second cut): Dynamic at real size on a Windows 11 desktop, the island opening,
+a local voice command that sets a timer, Home and themes, ChatGPT/Gemini chat, music and Share file by QR. The interface is recreated from the native V7 build with synthetic data.
 Italian titles, original music.
 
 ## What Dynamic is
