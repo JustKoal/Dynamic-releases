@@ -19,6 +19,7 @@
 
 <p align="center">
   <a href="https://github.com/JustKoal/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
+  <a href="#video-di-presentazione">Video</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#features">Features</a> ·
   <a href="#privacy-and-local-processing">Privacy</a> ·
@@ -33,6 +34,20 @@
 > Dynamic is a personal Windows project. This repository hosts the public installers and the update feed; the source repository is private.
 > The «Source code» archives that GitHub attaches automatically to every release contain only this README and the screenshots, not the application code.
 > The app interface and voice are in Italian. The installer is not Authenticode-signed, so Windows SmartScreen may warn on first run.
+
+## Video di presentazione
+
+<p align="center">
+  <a href="https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.1/Dynamic-Promo-1080p.mp4"><img src="docs/assets/video/v7-promo-thumbnail.jpg" alt="Frame from the Dynamic presentation video: the V7 Home panel with the large clock, three widgets and the icon bar, above the title «Il tuo desktop. Una nuova esperienza.»" width="720"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.1/Dynamic-Promo-1080p.mp4"><b>▶ Watch the presentation video</b></a> — 96 s · 1920 × 1080 · 60 fps · MP4, 44.5 MB · Italian titles, original music
+</p>
+
+A tour of Dynamic 0.3.1: the island opening, Home and themes, the offline voice assistant, ChatGPT/Gemini chat, music, productivity tools,
+messages and devices, and Share file by QR. The interface is recreated from the native V7 build with synthetic data. A shorter vertical cut is in
+[Trailer](#trailer).
 
 ## What Dynamic is
 
@@ -73,6 +88,12 @@ A fourth style, **Adaptive**, changes width with the activities in progress.
 | ![Blue theme](docs/assets/screenshots/v7-20-theme-blue.webp)<br>Blue | ![Violet theme](docs/assets/screenshots/v7-20-theme-violet.webp)<br>Violet | ![Green theme](docs/assets/screenshots/v7-20-theme-green.webp)<br>Green |
 | ![Red theme](docs/assets/screenshots/v7-20-theme-red.webp)<br>Red | ![Ocean theme](docs/assets/screenshots/v7-20-theme-ocean.webp)<br>Ocean | ![Sunset theme](docs/assets/screenshots/v7-20-theme-sunset.webp)<br>Sunset |
 | ![Glass theme](docs/assets/screenshots/v7-20-theme-glass.webp)<br>Glass (the screenshot cannot show the desktop behind it) | | |
+
+## Trailer
+
+Vertical cut of the presentation video for phones (30 s, 1080 × 1920, 60 fps, Italian titles):
+
+https://github.com/user-attachments/assets/07afbdca-fb47-4345-9853-3e3c047e60ef
 
 ## Features
 
