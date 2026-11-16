@@ -37,17 +37,15 @@
 
 ## Video di presentazione
 
-<p align="center">
-  <a href="https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.1/Dynamic-Promo-1080p.mp4"><img src="docs/assets/video/v7-promo-thumbnail.jpg" alt="Frame from the Dynamic presentation video: the V7 Home panel with the large clock, three widgets and the icon bar, above the title «Il tuo desktop. Una nuova esperienza.»" width="720"></a>
-</p>
+https://github.com/user-attachments/assets/92f53acb-83ac-4731-85c2-7285ce66b3cb
 
 <p align="center">
-  <a href="https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.1/Dynamic-Promo-1080p.mp4"><b>▶ Watch the presentation video</b></a> — 96 s · 1920 × 1080 · 60 fps · MP4, 44.5 MB · Italian titles, original music
+  <a href="https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.1/Dynamic-Promo-1080p.mp4"><b>⬇️ Full presentation video (96 s)</b></a> — 1920 × 1080 · 60 fps · MP4, 44.5 MB, attached to the v0.3.1 release
 </p>
 
-A tour of Dynamic 0.3.1: the island opening, Home and themes, the offline voice assistant, ChatGPT/Gemini chat, music, productivity tools,
-messages and devices, and Share file by QR. The interface is recreated from the native V7 build with synthetic data. A shorter vertical cut is in
-[Trailer](#trailer).
+A tour of Dynamic 0.3.1 (the player above is a 41-second cut): the island opening, Home and themes, the offline voice assistant,
+ChatGPT/Gemini chat, music, productivity tools and Share file by QR. The interface is recreated from the native V7 build with synthetic data.
+Italian titles, original music. A shorter vertical cut is in [Trailer](#trailer).
 
 ## What Dynamic is
 
