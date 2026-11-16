@@ -40,7 +40,7 @@
 https://github.com/user-attachments/assets/b37ec616-2c2f-47a2-8128-6f80117dc915
 
 <p align="center">
-  <a href="https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.1/Dynamic-Promo-1080p.mp4"><b>⬇️ Full presentation video (2 min 9 s)</b></a> — 1920 × 1080 · 60 fps · MP4, 48.9 MB, attached to the v0.3.1 release
+  <a href="https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.1/Dynamic-Promo-1080p.mp4"><b>⬇️ Full presentation video (2 min 9 s)</b></a>: 1920 × 1080 · 60 fps · MP4, 48.9 MB, attached to the v0.3.1 release
 </p>
 
 A tour of Dynamic 0.3.1 (the player above is a 52-second cut): Dynamic at real size on a Windows 11 desktop, the island opening,
@@ -65,12 +65,12 @@ agent sessions). No personal account, conversation or device appears.
 
 | | |
 |---|---|
-| ![Home](docs/assets/screenshots/v7-02-home.webp)<br>**Home** — clock, status and three live widgets | ![Chat](docs/assets/screenshots/v7-03-chat.webp)<br>**Chat** — local commands answer even with no AI connected |
-| ![Music](docs/assets/screenshots/v7-04-music.webp)<br>**Music** — Windows media sessions with cover, timeline and volume | ![Calendar](docs/assets/screenshots/v7-05-calendar.webp)<br>**Calendar** — read-only ICS feeds, month and agenda |
-| ![Notes](docs/assets/screenshots/v7-06-notes.webp)<br>**Notes** — local, searchable, autosaved | ![Messages](docs/assets/screenshots/v7-07-messages.webp)<br>**Messages** — WhatsApp and Telegram in one place (shown not connected) |
-| ![Share file](docs/assets/screenshots/v7-08-share.webp)<br>**Share file** — send a file from the PC to your phone on the local network with a QR code | ![Time](docs/assets/screenshots/v7-09-tempo.webp)<br>**Time** — timers, alarms and reminders |
-| ![Coding agents](docs/assets/screenshots/v7-10-agents.webp)<br>**Coding agents** — Claude Code and Codex sessions, observation only | ![Settings](docs/assets/screenshots/v7-11-settings.webp)<br>**Settings** — categories and search on the left, content on the right |
-| ![Appearance](docs/assets/screenshots/v7-12-settings-appearance.webp)<br>**Personalisation** — twelve themes, island shape and character | ![Notification](docs/assets/screenshots/v7-13-notice.webp)<br>**Notifications** — events appear directly in the compact island |
+| ![Home](docs/assets/screenshots/v7-02-home.webp)<br>**Home** → clock, status and three live widgets | ![Chat](docs/assets/screenshots/v7-03-chat.webp)<br>**Chat** → local commands answer even with no AI connected |
+| ![Music](docs/assets/screenshots/v7-04-music.webp)<br>**Music** → Windows media sessions with cover, timeline and volume | ![Calendar](docs/assets/screenshots/v7-05-calendar.webp)<br>**Calendar** → read-only ICS feeds, month and agenda |
+| ![Notes](docs/assets/screenshots/v7-06-notes.webp)<br>**Notes** → local, searchable, autosaved | ![Messages](docs/assets/screenshots/v7-07-messages.webp)<br>**Messages** → WhatsApp and Telegram in one place (shown not connected) |
+| ![Share file](docs/assets/screenshots/v7-08-share.webp)<br>**Share file** → send a file from the PC to your phone on the local network with a QR code | ![Time](docs/assets/screenshots/v7-09-tempo.webp)<br>**Time** → timers, alarms and reminders |
+| ![Coding agents](docs/assets/screenshots/v7-10-agents.webp)<br>**Coding agents** → Claude Code and Codex sessions, observation only | ![Settings](docs/assets/screenshots/v7-11-settings.webp)<br>**Settings** → categories and search on the left, content on the right |
+| ![Appearance](docs/assets/screenshots/v7-12-settings-appearance.webp)<br>**Personalisation** → twelve themes, island shape and character | ![Notification](docs/assets/screenshots/v7-13-notice.webp)<br>**Notifications** → events appear directly in the compact island |
 
 ### Compact styles
 
@@ -90,20 +90,20 @@ A fourth style, **Adaptive**, changes width with the activities in progress.
 
 ## Features
 
-- **V7 interface** — a wide, low panel (860 × 440) that opens in two quick steps, an icon bar at the bottom with up to nine sections of your choice plus «More», search and the microphone, and a header with only the date, the eyes and the Settings gear.
-- **Home** — large clock, status chips for connected wireless devices (Bluetooth or USB receivers) and the AI, and three widgets: assistant or agents, now playing, timer.
-- **AI assistant** — ChatGPT through *Sign in with ChatGPT* when the account plan permits it, or Gemini through your own Google AI Studio key. No automatic paid-API fallback. The chat is temporary and kept in memory only.
-- **Local voice** — Parakeet Ultra speech-to-text and Piper Italian speech synthesis, both on the CPU. Parakeet is downloaded on request from Settings → Voice.
-- **Local actions** — deterministic commands for time and dates, timers, reminders, notes, calendar, music, Windows volume, folders, devices, quiet mode, notifications and navigation. AI replies are never interpreted as commands; sensitive actions ask for confirmation.
-- **Music** — Windows media sessions with cover, timeline, transport and per-player volume; can open, start and close Spotify, Apple Music or TIDAL.
-- **Calendar** — read-only Google/Outlook ICS feeds with recurring events, time zones, reminders and an encrypted offline cache; the month stays visible even before a calendar is connected. Creating or editing an event opens the browser.
-- **Messages** — WhatsApp Web and Telegram Web, each in its own isolated WebView2 profile, with notifications and an optional DPAPI-encrypted local history.
-- **Share file** — pick a file or drag it from File Explorer, start sharing and scan the QR code with your phone on the same network. While this page is open the island stays open even if you click elsewhere, so you can drag files in.
-- **Coding agents** — optional, observation-only monitoring for Claude Code and Codex through local hooks; prompt and tool contents are discarded.
-- **Personalisation** — twelve themes (Dynamic Original, Blue, Violet, Green, Red, Midnight, Ocean, Aurora, Sunset, Emerald, Graphite, Glass), four compact styles, island characters, docking/floating modes, multi-monitor placement and configurable shortcuts.
-- **Quick access** — Command Palette and audio centre; text-file attachments in the Chat composer.
-- **Fullscreen awareness** — can hide while a fullscreen app occupies the same monitor; no overlay injection or screen capture.
-- **Self-updating** — manual confirmation, minisign verification and preservation of the user profile.
+- **V7 interface** → a wide, low panel (860 × 440) that opens in two quick steps, an icon bar at the bottom with up to nine sections of your choice plus «More», search and the microphone, and a header with only the date, the eyes and the Settings gear.
+- **Home** → large clock, status chips for connected wireless devices (Bluetooth or USB receivers) and the AI, and three widgets: assistant or agents, now playing, timer.
+- **AI assistant** → ChatGPT through *Sign in with ChatGPT* when the account plan permits it, or Gemini through your own Google AI Studio key. No automatic paid-API fallback. The chat is temporary and kept in memory only.
+- **Local voice** → Parakeet Ultra speech-to-text and Piper Italian speech synthesis, both on the CPU. Parakeet is downloaded on request from Settings → Voice.
+- **Local actions** → deterministic commands for time and dates, timers, reminders, notes, calendar, music, Windows volume, folders, devices, quiet mode, notifications and navigation. AI replies are never interpreted as commands; sensitive actions ask for confirmation.
+- **Music** → Windows media sessions with cover, timeline, transport and per-player volume; can open, start and close Spotify, Apple Music or TIDAL.
+- **Calendar** → read-only Google/Outlook ICS feeds with recurring events, time zones, reminders and an encrypted offline cache; the month stays visible even before a calendar is connected. Creating or editing an event opens the browser.
+- **Messages** → WhatsApp Web and Telegram Web, each in its own isolated WebView2 profile, with notifications and an optional DPAPI-encrypted local history.
+- **Share file** → pick a file or drag it from File Explorer, start sharing and scan the QR code with your phone on the same network. While this page is open the island stays open even if you click elsewhere, so you can drag files in.
+- **Coding agents** → optional, observation-only monitoring for Claude Code and Codex through local hooks; prompt and tool contents are discarded.
+- **Personalisation** → twelve themes (Dynamic Original, Blue, Violet, Green, Red, Midnight, Ocean, Aurora, Sunset, Emerald, Graphite, Glass), four compact styles, island characters, docking/floating modes, multi-monitor placement and configurable shortcuts.
+- **Quick access** → Command Palette and audio centre; text-file attachments in the Chat composer.
+- **Fullscreen awareness** → can hide while a fullscreen app occupies the same monitor; no overlay injection or screen capture.
+- **Self-updating** → manual confirmation, minisign verification and preservation of the user profile.
 
 ## Privacy and local processing
 
