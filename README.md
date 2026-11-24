@@ -62,6 +62,10 @@ Your profile from 0.2.x is kept: accounts, messages, preferences, themes, notes,
 from MSI Afterburner or HWiNFO shared memory, an expanded audio centre, gaming resource suspension and an evolving phone/tablet dashboard with eight
 customisable widgets. Companion is local-network only, off by default and still awaiting full validation on physical mobile devices.
 
+**Dynamic 0.6.0 secures and expands Companion:** optional HTTPS signed by a local Dynamic CA, per-device permissions, remote volume and microphone
+controls, PC timers, Do Not Disturb and quick actions. The Command Palette gains Gaming, microphone and agent actions; Companion can show concurrent
+Claude Code and Codex sessions. Agent approvals remain on the PC.
+
 ## Screenshots
 
 All screenshots are taken from the native Windows build with a separate test profile and synthetic data (test media player, sample calendar, sample
@@ -92,6 +96,14 @@ A fourth style, **Adaptive**, changes width with the activities in progress.
 | ![Red theme](docs/assets/screenshots/v7-20-theme-red.webp)<br>Red | ![Ocean theme](docs/assets/screenshots/v7-20-theme-ocean.webp)<br>Ocean | ![Sunset theme](docs/assets/screenshots/v7-20-theme-sunset.webp)<br>Sunset |
 | ![Glass theme](docs/assets/screenshots/v7-20-theme-glass.webp)<br>Glass (the screenshot cannot show the desktop behind it) | | |
 
+### Dynamic Companion 0.6.0
+
+Synthetic demo data only; no account, device or hardware value from the development PC is shown.
+
+| Phone | Tablet |
+|---|---|
+| <img src="docs/assets/screenshots/v7-30-companion-phone.webp" alt="Dynamic Companion on a phone with HTTPS, hardware, coding agents, quick actions, audio controls, PC timers, music and batteries" width="320"> | <img src="docs/assets/screenshots/v7-31-companion-tablet.webp" alt="Dynamic Companion responsive tablet dashboard with concurrent coding agents, quick actions, audio controls and PC timers" width="640"> |
+
 ## Features
 
 - **V7 interface** → a wide, low panel (860 × 440) that opens in two quick steps, an icon bar at the bottom with up to nine sections of your choice plus «More», search and the microphone, and a header with only the date, the eyes and the Settings gear.
@@ -104,12 +116,12 @@ A fourth style, **Adaptive**, changes width with the activities in progress.
 - **Messages** → WhatsApp Web and Telegram Web, each in its own isolated WebView2 profile, with notifications and an optional DPAPI-encrypted local history.
 - **Share file** → pick a file or drag it from File Explorer, start sharing and scan the QR code with your phone on the same network. While this page is open the island stays open even if you click elsewhere, so you can drag files in.
 - **System monitor** → CPU, GPU/VRAM, RAM, physical-network traffic and disks from Windows APIs, with a shared 1/2/5-second sampling interval. CPU temperature can be read from MSI Afterburner or HWiNFO when their shared-memory interface is already available; Dynamic installs no driver.
-- **Dynamic Companion (evolving)** → an optional local dashboard for phones and tablets with eight widgets, per-device order and sizes, light/dark themes, QR or code pairing and live System, agents, music and read-only audio data. It is off by default and uses plain HTTP only on a trusted private network.
+- **Dynamic Companion** → an optional local dashboard for phones and tablets with per-device layout, themes and permissions. HTTPS uses a local Dynamic CA installed manually on the device; authorised controls include volume, microphone mute, PC timers, Do Not Disturb and quick actions. Plain HTTP remains limited to lower-risk viewing and music on trusted networks.
 - **Audio centre** → master and per-app volume, current outputs and inputs, and microphone level/mute through Windows audio sessions; Windows exposes no supported API for changing the default output.
 - **Gaming resource controls** → while the existing Gaming Boost signal is active, local wake-word processing is suspended and hidden messaging WebViews are closed, then restored gradually. This reduces background processes and memory; no FPS improvement is claimed.
-- **Coding agents** → optional, observation-only monitoring for Claude Code and Codex through local hooks; prompt and tool contents are discarded.
+- **Coding agents** → optional monitoring for concurrent Claude Code and Codex sessions through local hooks; prompt and tool contents are discarded. Companion can show state and attention requests, but approvals stay on the PC.
 - **Personalisation** → twelve themes (Dynamic Original, Blue, Violet, Green, Red, Midnight, Ocean, Aurora, Sunset, Emerald, Graphite, Glass), four compact styles, island characters, docking/floating modes, multi-monitor placement and configurable shortcuts.
-- **Quick access** → Command Palette and audio centre; text-file attachments in the Chat composer.
+- **Quick access** → Command Palette with local actions for Gaming, microphone and agents, reorderable favourites and optional shortcuts; audio centre; text-file attachments in the Chat composer.
 - **Fullscreen awareness** → can hide while a fullscreen app occupies the same monitor; no overlay injection or screen capture.
 - **Self-updating** → manual confirmation, minisign verification and preservation of the user profile.
 
@@ -126,7 +138,7 @@ A fourth style, **Adaptive**, changes width with the activities in progress.
 | Screen and other applications | Dynamic does not capture the screen, inspect app contents or inject code. |
 | Chat attachments | Only text files you pick; sent as text only when you press Send, never written to disk or logs. |
 | Coding-agent hooks | Observation only; prompt and tool payloads are discarded. Dynamic never approves requests for the agent. |
-| Hardware and Companion | Hardware samples stay in memory. Companion sends only the selected live widgets to paired devices on the same private network; no cloud relay is used. |
+| Hardware and Companion | Hardware samples stay in memory. Companion sends only selected live widgets to paired devices on the private network; HTTPS tokens and permissions are device-specific, and no cloud relay is used. |
 
 ### About Share file (QR)
 
@@ -139,23 +151,25 @@ A fourth style, **Adaptive**, changes width with the activities in progress.
 ### About Dynamic Companion
 
 - Companion is **off by default** and starts only when enabled in Settings → Companion. It binds to the PC's private LAN address on port 47613; there is no Internet exposure, UPnP or cloud relay.
-- Pairing uses a short-lived QR secret or six-digit code. The device token is stored only as a SHA-256 hash on the PC and can be revoked at any time.
-- The dashboard subscribes only to the data required by its current widgets and closes the live stream in the background. Layout and theme remain in that device's browser storage.
-- **The connection is plain HTTP, not encrypted.** Use it only on a trusted private network. Remote audio control remains disabled; audio data is read-only.
+- HTTPS is configured manually: install Dynamic's public local CA on the phone/tablet, compare its fingerprint with the PC, then use the secure QR. Dynamic never installs a certificate or profile automatically.
+- Pairing uses a short-lived QR secret or six-digit code. The device token is stored only as a SHA-256 hash on the PC, is bound to HTTP or HTTPS, and can be revoked immediately.
+- Remote controls require HTTPS plus explicit per-device permissions. Commands use one-time identifiers; no shell, filesystem, credentials or arbitrary command execution is exposed.
+- The dashboard subscribes only to data required by its current widgets and renews the live stream every five minutes. Layout, theme and selected quick actions remain in that device's browser storage.
+- Plain HTTP remains available on trusted networks for lower-risk information and music control; sensitive controls and PC timers are absent.
 
 Third-party licence notices, voice attribution and the corresponding Piper source references are included with the installer.
 
 ## Installation and updates
 
 1. Open the [latest release](https://github.com/JustKoal/Dynamic-releases/releases/latest).
-2. Download **`Dynamic_x.y.z_x64-setup.exe`** (about 440 MiB; Parakeet Ultra is a separate 550 MB download from Settings → Voice).
+2. Download **`Dynamic_x.y.z_x64-setup.exe`** (about 411 MiB; Parakeet Ultra is a separate 550 MB download from Settings → Voice).
 3. Run the installer. It installs for the current user and does not require administrator rights.
 4. Follow the guided setup, or postpone it and use local features first.
 
 **Updates.** Dynamic checks this repository's `latest.json` shortly after startup and then periodically when automatic checks are enabled. When a newer
 version is available, Settings → Information shows it. Installation starts only after you choose it: the app downloads the installer, verifies its
 minisign signature against the embedded public key, performs the per-user update and restarts. Settings and local data are retained — updating from
-0.3.1 to 0.4.1 keeps the existing profile, settings, accounts, notes, calendars and WebView sessions.
+0.4.1 to 0.6.0 keeps the existing profile, settings, accounts, notes, calendars, paired devices and WebView sessions.
 
 ## Requirements
 
@@ -170,9 +184,9 @@ minisign signature against the embedded public key, performs the per-user update
 ## Known limitations
 
 - **Share file has not yet been tried with a real phone,** and the Windows Firewall prompt has not been observed on a clean PC. Downloads were verified from the same PC.
-- **Dynamic Companion is still evolving:** its responsive layouts and multi-client lifecycle were verified from the release build, but pairing, background/lock behaviour and Home-screen installation have not been completed on physical iPhone, iPad or Android devices.
+- **Dynamic Companion 0.6.0 has not completed physical-device validation:** CA trust, pairing, remote controls, background/lock behaviour and Home-screen installation remain to be checked on iPhone, iPad and Android.
 - **The Glass theme's translucency has not been checked on screen;** Glass falls back to an opaque smoke grey when Windows transparency effects are off.
-- **The Codex CLI hook is not considered verified in 0.4.1.** The command was corrected, but the last real Codex session still used an older installed hook entry and did not produce an event; Claude Code monitoring is unaffected.
+- **Codex hooks need manual re-approval after updating:** Dynamic detects entries changed since approval and asks for `/hooks`; a real 0.6.0 Codex session is still pending. Claude Code monitoring is unaffected.
 - **PawnIO support is only planned and cannot be selected.** Dynamic does not install or load a sensor driver. MSI Afterburner was verified with live shared-memory data; HWiNFO parsing was verified without completing a live HWiNFO session.
 - Telegram notification reception has not been confirmed with a real account; WhatsApp group and sender details depend on what WhatsApp Web puts in its notifications.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime, GPU usage and a clean second PC remain unverified.
