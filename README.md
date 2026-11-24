@@ -54,9 +54,13 @@ Dynamic stays at the top of the desktop as a small, low-distraction pill and ope
 with local, deterministic actions: timers, reminders, notes, calendar, media controls and navigation work without giving the AI permission to operate
 the PC. Speech recognition and synthesis run locally on the CPU; only conversational text is sent to the AI provider you choose.
 
-**Dynamic 0.3.0 introduces the V7 interface:** a wider and lower panel with an icon bar at the bottom, a clock-first Home with three widgets, a faster
+**Dynamic 0.3.0 introduced the V7 interface:** a wider and lower panel with an icon bar at the bottom, a clock-first Home with three widgets, a faster
 two-step opening (width, then height), twelve themes including the new smoke-grey **Glass**, horizontal Settings and the new **Share file** feature.
 Your profile from 0.2.x is kept: accounts, messages, preferences, themes, notes, calendar, reminders, voice settings, shortcuts and agents.
+
+**Dynamic 0.4.1 adds hardware monitoring and local companion controls:** a System page for CPU, GPU, RAM, network and disks, optional CPU temperature
+from MSI Afterburner or HWiNFO shared memory, an expanded audio centre, gaming resource suspension and an evolving phone/tablet dashboard with eight
+customisable widgets. Companion is local-network only, off by default and still awaiting full validation on physical mobile devices.
 
 ## Screenshots
 
@@ -99,6 +103,10 @@ A fourth style, **Adaptive**, changes width with the activities in progress.
 - **Calendar** → read-only Google/Outlook ICS feeds with recurring events, time zones, reminders and an encrypted offline cache; the month stays visible even before a calendar is connected. Creating or editing an event opens the browser.
 - **Messages** → WhatsApp Web and Telegram Web, each in its own isolated WebView2 profile, with notifications and an optional DPAPI-encrypted local history.
 - **Share file** → pick a file or drag it from File Explorer, start sharing and scan the QR code with your phone on the same network. While this page is open the island stays open even if you click elsewhere, so you can drag files in.
+- **System monitor** → CPU, GPU/VRAM, RAM, physical-network traffic and disks from Windows APIs, with a shared 1/2/5-second sampling interval. CPU temperature can be read from MSI Afterburner or HWiNFO when their shared-memory interface is already available; Dynamic installs no driver.
+- **Dynamic Companion (evolving)** → an optional local dashboard for phones and tablets with eight widgets, per-device order and sizes, light/dark themes, QR or code pairing and live System, agents, music and read-only audio data. It is off by default and uses plain HTTP only on a trusted private network.
+- **Audio centre** → master and per-app volume, current outputs and inputs, and microphone level/mute through Windows audio sessions; Windows exposes no supported API for changing the default output.
+- **Gaming resource controls** → while the existing Gaming Boost signal is active, local wake-word processing is suspended and hidden messaging WebViews are closed, then restored gradually. This reduces background processes and memory; no FPS improvement is claimed.
 - **Coding agents** → optional, observation-only monitoring for Claude Code and Codex through local hooks; prompt and tool contents are discarded.
 - **Personalisation** → twelve themes (Dynamic Original, Blue, Violet, Green, Red, Midnight, Ocean, Aurora, Sunset, Emerald, Graphite, Glass), four compact styles, island characters, docking/floating modes, multi-monitor placement and configurable shortcuts.
 - **Quick access** → Command Palette and audio centre; text-file attachments in the Chat composer.
@@ -118,6 +126,7 @@ A fourth style, **Adaptive**, changes width with the activities in progress.
 | Screen and other applications | Dynamic does not capture the screen, inspect app contents or inject code. |
 | Chat attachments | Only text files you pick; sent as text only when you press Send, never written to disk or logs. |
 | Coding-agent hooks | Observation only; prompt and tool payloads are discarded. Dynamic never approves requests for the agent. |
+| Hardware and Companion | Hardware samples stay in memory. Companion sends only the selected live widgets to paired devices on the same private network; no cloud relay is used. |
 
 ### About Share file (QR)
 
@@ -127,19 +136,26 @@ A fourth style, **Adaptive**, changes width with the activities in progress.
 - There is no cloud relay: the phone must be on the same network. Guest networks with client isolation block it.
 - The first time, Windows Firewall may ask for access: allow **Private networks**.
 
+### About Dynamic Companion
+
+- Companion is **off by default** and starts only when enabled in Settings → Companion. It binds to the PC's private LAN address on port 47613; there is no Internet exposure, UPnP or cloud relay.
+- Pairing uses a short-lived QR secret or six-digit code. The device token is stored only as a SHA-256 hash on the PC and can be revoked at any time.
+- The dashboard subscribes only to the data required by its current widgets and closes the live stream in the background. Layout and theme remain in that device's browser storage.
+- **The connection is plain HTTP, not encrypted.** Use it only on a trusted private network. Remote audio control remains disabled; audio data is read-only.
+
 Third-party licence notices, voice attribution and the corresponding Piper source references are included with the installer.
 
 ## Installation and updates
 
 1. Open the [latest release](https://github.com/JustKoal/Dynamic-releases/releases/latest).
-2. Download **`Dynamic_x.y.z_x64-setup.exe`** (about 380 MB; Parakeet Ultra is a separate 550 MB download from Settings → Voice).
+2. Download **`Dynamic_x.y.z_x64-setup.exe`** (about 440 MiB; Parakeet Ultra is a separate 550 MB download from Settings → Voice).
 3. Run the installer. It installs for the current user and does not require administrator rights.
 4. Follow the guided setup, or postpone it and use local features first.
 
 **Updates.** Dynamic checks this repository's `latest.json` shortly after startup and then periodically when automatic checks are enabled. When a newer
 version is available, Settings → Information shows it. Installation starts only after you choose it: the app downloads the installer, verifies its
 minisign signature against the embedded public key, performs the per-user update and restarts. Settings and local data are retained — updating from
-0.2.x to 0.3.0 keeps your profile, and your previous navigation bar is carried over into the larger V7 bar.
+0.3.1 to 0.4.1 keeps the existing profile, settings, accounts, notes, calendars and WebView sessions.
 
 ## Requirements
 
@@ -149,12 +165,15 @@ minisign signature against the embedded public key, performs the per-user update
 - Internet only for the selected AI provider, calendar downloads, updates and the optional Parakeet download.
 - For conversational AI: a compatible ChatGPT account or a personal Gemini API key. Local commands work without either.
 - For Share file: a phone on the same trusted local network.
+- For Dynamic Companion: a phone or tablet on the same trusted private network; guest networks with client isolation will block it.
 
 ## Known limitations
 
 - **Share file has not yet been tried with a real phone,** and the Windows Firewall prompt has not been observed on a clean PC. Downloads were verified from the same PC.
+- **Dynamic Companion is still evolving:** its responsive layouts and multi-client lifecycle were verified from the release build, but pairing, background/lock behaviour and Home-screen installation have not been completed on physical iPhone, iPad or Android devices.
 - **The Glass theme's translucency has not been checked on screen;** Glass falls back to an opaque smoke grey when Windows transparency effects are off.
-- **Codex CLI notifications do not work in 0.2.0 to 0.3.0 on Windows.** A real Codex CLI 0.163.0 session cannot launch the generated `commandWindows` (a quoting defect in the hook command); Claude Code monitoring is unaffected.
+- **The Codex CLI hook is not considered verified in 0.4.1.** The command was corrected, but the last real Codex session still used an older installed hook entry and did not produce an event; Claude Code monitoring is unaffected.
+- **PawnIO support is only planned and cannot be selected.** Dynamic does not install or load a sensor driver. MSI Afterburner was verified with live shared-memory data; HWiNFO parsing was verified without completing a live HWiNFO session.
 - Telegram notification reception has not been confirmed with a real account; WhatsApp group and sender details depend on what WhatsApp Web puts in its notifications.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime, GPU usage and a clean second PC remain unverified.
 - Apple Music was not exercised for real; TIDAL releases its audio output after a few minutes of pause.
