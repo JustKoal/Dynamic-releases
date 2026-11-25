@@ -213,11 +213,11 @@ const en = {
         id: "system", icon: "gauge", title: "Hardware, devices and Gaming mode",
         text: "The System page shows CPU, GPU and VRAM, RAM, physical network traffic and disks from Windows APIs, with a shared 1, 2 or 5-second interval.",
         points: [
-          "CPU temperature from MSI Afterburner or HWiNFO shared memory, when already available. Dynamic installs no driver.",
+          "CPU temperature from MSI Afterburner or HWiNFO shared memory, when already available. Experimental and off by default: PawnIO, if you installed it yourself.",
           "Bluetooth and USB-receiver devices with battery level when Windows exposes it.",
           "Gaming mode: during a fullscreen app, the wake word pauses and hidden WhatsApp and Telegram views close, then return gradually. No FPS improvement is claimed.",
         ],
-        status: "HWiNFO parsing was verified without a live HWiNFO session; MSI Afterburner was verified with live data.",
+        status: "HWiNFO parsing was verified without a live HWiNFO session; MSI Afterburner was verified with live data. PawnIO reading is not yet validated on real hardware.",
       },
       {
         id: "companion", icon: "smartphone", title: "Dynamic Companion",
@@ -316,7 +316,7 @@ const en = {
       { icon: "bell", title: "Event-driven updates", text: "Volume, media, IP-address and session changes arrive as Windows notifications instead of constant polling." },
       { icon: "layers", title: "Shared providers", text: "One hardware sampler serves both the System page and every Companion device; one stream per device carries only the widgets on screen." },
       { icon: "recycle", title: "Unused resources released", text: "Speech models are released when listening pauses; Companion streams close when the page goes to the background." },
-      { icon: "hard-drive", title: "No new drivers", text: "Hardware data comes from Windows APIs. Temperatures are read from tools you already run; Dynamic loads no kernel driver." },
+      { icon: "hard-drive", title: "No new drivers", text: "Hardware data comes from Windows APIs. Temperatures come from tools you already run. Dynamic installs no driver; optional PawnIO support uses the driver only if you installed it yourself." },
       { icon: "smartphone", title: "Rendering on the client", text: "The Companion dashboard is drawn by the phone or tablet; the PC only sends small data updates." },
       { icon: "gamepad-2", title: "Gaming mode", text: "With a fullscreen app on its monitor, non-essential features step aside and come back afterwards." },
     ],

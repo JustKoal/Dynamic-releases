@@ -214,11 +214,11 @@ const it: Dict = {
         id: "system", icon: "gauge", title: "Hardware, dispositivi e modalità Gaming",
         text: "La pagina Sistema mostra CPU, GPU e VRAM, RAM, traffico di rete fisico e dischi dalle API di Windows, con un intervallo condiviso di 1, 2 o 5 secondi.",
         points: [
-          "Temperatura CPU dalla memoria condivisa di MSI Afterburner o HWiNFO, quando già disponibile. Dynamic non installa driver.",
+          "Temperatura CPU dalla memoria condivisa di MSI Afterburner o HWiNFO, quando già disponibile. Sperimentale e spento di default: PawnIO, se lo hai installato tu.",
           "Dispositivi Bluetooth e con ricevitore USB, con il livello della batteria quando Windows lo espone.",
           "Modalità Gaming: con un'app a schermo intero la parola di attivazione va in pausa e le WebView nascoste di WhatsApp e Telegram si chiudono, poi tornano gradualmente. Nessun aumento degli FPS viene dichiarato.",
         ],
-        status: "La lettura di HWiNFO è stata verificata senza una sessione HWiNFO dal vivo; MSI Afterburner è stato verificato con dati reali.",
+        status: "La lettura di HWiNFO è stata verificata senza una sessione HWiNFO dal vivo; MSI Afterburner è stato verificato con dati reali. La lettura tramite PawnIO non è ancora validata su hardware reale.",
       },
       {
         id: "companion", icon: "smartphone", title: "Dynamic Companion",
@@ -317,7 +317,7 @@ const it: Dict = {
       { icon: "bell", title: "Aggiornamenti basati sugli eventi", text: "Cambi di volume, musica, indirizzo IP e sessione arrivano come notifiche di Windows, senza controlli continui." },
       { icon: "layers", title: "Provider condivisi", text: "Un solo campionatore hardware serve la pagina Sistema e tutti i dispositivi Companion; un solo flusso per dispositivo trasporta solo i widget visibili." },
       { icon: "recycle", title: "Risorse rilasciate", text: "I modelli vocali vengono rilasciati quando l'ascolto è in pausa; i flussi di Companion si chiudono quando la pagina passa in background." },
-      { icon: "hard-drive", title: "Nessun nuovo driver", text: "I dati hardware arrivano dalle API di Windows. Le temperature si leggono da strumenti che usi già; Dynamic non carica driver del kernel." },
+      { icon: "hard-drive", title: "Nessun nuovo driver", text: "I dati hardware arrivano dalle API di Windows. Le temperature arrivano da strumenti che usi già. Dynamic non installa driver; il supporto facoltativo a PawnIO usa il driver solo se lo hai installato tu." },
       { icon: "smartphone", title: "Rendering sul dispositivo", text: "La dashboard di Companion è disegnata dallo smartphone o dal tablet; il PC invia solo piccoli aggiornamenti di dati." },
       { icon: "gamepad-2", title: "Modalità Gaming", text: "Con un'app a schermo intero sul suo monitor, le funzioni non essenziali si fanno da parte e poi tornano." },
     ],
