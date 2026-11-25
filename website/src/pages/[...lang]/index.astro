@@ -3,16 +3,21 @@ import Base from "../../layouts/Base.astro";
 import Icon from "../../components/Icon.astro";
 import Shot from "../../components/Shot.astro";
 import Device from "../../components/Device.astro";
-import { t, url, langPaths, type Lang } from "../../i18n";
+import Loop from "../../components/Loop.astro";
+import { Image } from "astro:assets";
+import { t, url, asset, langPaths, type Lang } from "../../i18n";
 import { getLatest, formatDate, formatSize, REPO_URL } from "../../lib/releases";
-import home from "../../assets/shots/v7-02-home.webp";
+import logo from "../../assets/logo.png";
+import heroPoster from "../../assets/media/hero-island.webp";
+import themesPoster from "../../assets/media/clip-themes.webp";
+import chatPoster from "../../assets/media/clip-chat.webp";
+import musicPoster from "../../assets/media/clip-music.webp";
+import tempo from "../../assets/shots/v7-09-tempo.webp";
 import compact from "../../assets/shots/v7-01-compact.webp";
 import capsule from "../../assets/shots/v7-14-notch-capsule.webp";
 import indicator from "../../assets/shots/v7-15-notch-indicator.webp";
-import notice from "../../assets/shots/v7-13-notice.webp";
 import agents from "../../assets/shots/v7-10-agents.webp";
-import music from "../../assets/shots/v7-04-music.webp";
-import calendar from "../../assets/shots/v7-05-calendar.webp";
+import hw from "../../assets/shots/companion-hw.webp";
 import iphone from "../../assets/shots/companion-iphone.webp";
 import ipad from "../../assets/shots/companion-ipad-landscape.webp";
 
@@ -20,30 +25,56 @@ export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Lang };
 const d = t(lang);
 const h = d.home;
+const it = lang === "it";
 const latest = await getLatest();
 const exe = latest.installer!;
+const abs = (p: string) => new URL(asset(p), Astro.site).href;
+const tourPoster = asset("media/dynamic-tour-poster.webp");
+const FULL_VIDEO = "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.1/Dynamic-Promo-1080p.mp4";
+const loopLabels = { pauseLabel: h.pause, playLabel: h.play };
+
+// Verified benchmark (also on the Performance page). Memory bar uses the upper bound of the 177–190 MB range.
+const bars = [
+  { label: h.chartProcesses, before: 13, after: 7, max: 13, fmtBefore: "13", fmtAfter: "7" },
+  { label: h.chartMemory, before: 509, after: 190, max: 509, fmtBefore: "509 MB", fmtAfter: "177–190 MB" },
+];
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Dynamic",
-  alternateName: "Dynamic by JustKoal",
-  description: d.site.description,
-  applicationCategory: "UtilitiesApplication",
-  operatingSystem: "Windows 11",
-  softwareVersion: latest.version,
-  datePublished: latest.date.slice(0, 10),
-  downloadUrl: exe.url,
-  fileSize: `${Math.round(exe.size / 1e6)} MB`,
-  url: new URL(url(lang), Astro.site).href,
-  image: new URL(url("en", "og-en.png"), Astro.site).href,
-  inLanguage: "it",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-  author: { "@type": "Person", name: "JustKoal", url: "https://github.com/JustKoal" },
-  sameAs: [REPO_URL],
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      name: "Dynamic",
+      alternateName: "Dynamic by JustKoal",
+      description: d.site.description,
+      applicationCategory: "UtilitiesApplication",
+      operatingSystem: "Windows 11",
+      softwareVersion: latest.version,
+      datePublished: latest.date.slice(0, 10),
+      downloadUrl: exe.url,
+      fileSize: `${Math.round(exe.size / 1e6)} MB`,
+      url: new URL(url(lang), Astro.site).href,
+      image: abs("og-en.png"),
+      inLanguage: "it",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+      author: { "@type": "Person", name: "JustKoal", url: "https://github.com/JustKoal" },
+      sameAs: [REPO_URL],
+    },
+    {
+      "@type": "VideoObject",
+      name: it ? "Dynamic per Windows — tour di 52 secondi" : "Dynamic for Windows — 52-second tour",
+      description: h.demoSub,
+      thumbnailUrl: [abs("media/dynamic-tour-poster.webp")],
+      uploadDate: "2026-11-16",
+      duration: "PT52S",
+      contentUrl: abs("media/dynamic-tour.mp4"),
+      inLanguage: "it",
+    },
+  ],
 };
 ---
 <Base lang={lang} path="" description={d.site.description} jsonLd={jsonLd}>
+  <!-- HERO -->
   <section class="hero">
     <div class="container center">
       <p class="eyebrow fade-up"><span class="eyes" aria-hidden="true"><i></i><i></i></span>{h.eyebrow}</p>
@@ -51,7 +82,7 @@ const jsonLd = {
       <p class="lead center fade-up d2" style="margin-top:24px">{h.sub}</p>
       <div class="hero-cta fade-up d3">
         <a class="btn btn-primary" href={exe.url}><Icon name="download" size={20} />{d.common.download}</a>
-        <a class="btn btn-ghost" href={url(lang, "features/")}>{d.common.explore}<Icon name="arrow-right" size={18} /></a>
+        <a class="btn btn-ghost" href="#demo" data-play-tour><Icon name="circle-play" size={20} />{h.watch}</a>
       </div>
       <p class="hero-meta fade-up d3">
         <span>{d.common.version} {latest.version}</span><span aria-hidden="true">·</span>
@@ -62,179 +93,380 @@ const jsonLd = {
       </p>
     </div>
     <div class="container">
-      <div class="hero-stage">
-        <Shot src={home} alt={h.heroAlt} sizes="(max-width: 940px) 92vw, 860px" eager class="panel-shot" widths={[480, 860, 1290, 1720]} />
+      <div class="monitor">
+        <Loop name="hero-island" poster={heroPoster} alt={h.heroAlt} sizes="(max-width: 1240px) 94vw, 1160px" widths={[640, 960, 1280]} eager class="screen" {...loopLabels} />
+        <p class="stage-caption"><span class="dot" aria-hidden="true"></span>{h.heroCaption}</p>
       </div>
+      <ul class="facts" aria-label={d.nav.performance}>
+        {h.principles.map((p) => (
+          <li><Icon name={p.icon} size={18} /><span><strong>{p.title}</strong> {p.text}</span></li>
+        ))}
+      </ul>
     </div>
   </section>
 
-  <section class="section-tight divider" aria-labelledby="principles">
-    <h2 id="principles" class="visually-hidden">{d.nav.performance}</h2>
-    <div class="container grid-4">
-      {h.principles.map((p) => (
-        <div class="principle">
-          <span class="icon-chip"><Icon name={p.icon} size={22} /></span>
-          <h3 class="h3">{p.title}</h3>
-          <p>{p.text}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section class="section" id="features" aria-labelledby="bento-title">
+  <!-- VIDEO SHOWCASE -->
+  <section class="section demo" id="demo" aria-labelledby="demo-title">
     <div class="container">
-      <div class="section-head center reveal">
-        <h2 id="bento-title" class="h2">{h.bentoTitle}</h2>
+      <div class="section-head center">
+        <p class="eyebrow"><Icon name="clapperboard" size={16} />{h.demoEyebrow}</p>
+        <h2 id="demo-title" class="h1">{h.demoTitle}</h2>
+        <p class="lead">{h.demoSub}</p>
+      </div>
+      <div class="player" data-player>
+        <video id="tour" controls preload="none" playsinline poster={tourPoster} width="1920" height="1080" aria-label={h.demoTitle}>
+          <source src={asset("media/dynamic-tour.webm")} type='video/webm; codecs="vp9, opus"' />
+          <source src={asset("media/dynamic-tour.mp4")} type="video/mp4" />
+          <track kind="subtitles" src={asset("media/dynamic-tour.en.vtt")} srclang="en" label="English" default={!it} />
+          <a href={asset("media/dynamic-tour.mp4")}>{h.demoFull}</a>
+        </video>
+        <button class="play-big" type="button" data-play-tour>
+          <span class="play-cta">
+            <span class="play-ring"><Icon name="play" size={30} /></span>
+            <span class="play-label">{h.demoPlay}<span class="muted"> · 0:52</span></span>
+          </span>
+        </button>
+      </div>
+      <div class="demo-foot">
+        <p class="small muted">{h.demoNote}</p>
+        <a class="link small" href={FULL_VIDEO}><Icon name="download" size={16} />{h.demoFull}</a>
+      </div>
+      <details class="transcript">
+        <summary>{h.demoTranscriptTitle}<Icon name="chevron-down" size={18} /></summary>
+        <ul>{h.demoTranscript.map((line) => <li>{line}</li>)}</ul>
+      </details>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section divider" id="features" aria-labelledby="bento-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 id="bento-title" class="h1" style="max-width:16ch">{h.bentoTitle}</h2>
         <p class="lead">{h.bentoSub}</p>
       </div>
-      <div class="bento">
-        <a class="card span-2 row-2 reveal" href={url(lang, "features/#island")}>
-          <span class="icon-chip"><Icon name="panel-top" size={22} /></span>
-          <h3 class="h3">{h.bento.island.title}</h3>
-          <p>{h.bento.island.text}</p>
-          <div class="media island-stack">
-            <Shot src={compact} alt="Premium" sizes="240px" widths={[240, 344]} />
-            <Shot src={capsule} alt={lang === "it" ? "Capsula" : "Capsule"} sizes="206px" widths={[206, 296]} />
-            <Shot src={indicator} alt={lang === "it" ? "Indicatore" : "Indicator"} sizes="162px" widths={[162, 232]} />
-            <Shot src={notice} alt="" sizes="(max-width: 640px) 80vw, 460px" widths={[460, 800]} class="notice" />
+      <div class="bento6">
+        <article class="tile t-island reveal">
+          <div class="tile-text">
+            <h3 class="h3">{h.bento.island.title}</h3>
+            <p>{h.bento.island.text}</p>
+            <a class="link small" href={url(lang, "features/#island")}>{it ? "Scopri l'isola e i temi" : "Explore the island and themes"}<Icon name="arrow-right" size={16} /></a>
           </div>
-        </a>
-        <a class="card span-2 reveal" href={url(lang, "features/#ai")}>
-          <span class="icon-chip"><Icon name="sparkles" size={22} /></span>
-          <h3 class="h3">{h.bento.agents.title}</h3>
-          <p>{h.bento.agents.text}</p>
-          <div class="media-bleed"><Shot src={agents} alt="" sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 600px" /></div>
-        </a>
-        <a class="card reveal" href={url(lang, "features/#voice")}>
+          <Loop name="clip-themes" poster={themesPoster} alt={it ? "Home di Dynamic che cambia tema, con la fila dei dodici temi" : "Dynamic's Home switching themes, with the row of twelve themes"} sizes="(max-width: 900px) 92vw, 760px" class="tile-media" {...loopLabels} />
+          <div class="styles" aria-label={d.features.compactTitle}>
+            <Shot src={compact} alt="Premium" sizes="172px" widths={[172, 344]} />
+            <Shot src={capsule} alt={it ? "Capsula" : "Capsule"} sizes="148px" widths={[148, 296]} />
+            <Shot src={indicator} alt={it ? "Indicatore" : "Indicator"} sizes="116px" widths={[116, 232]} />
+          </div>
+        </article>
+
+        <article class="tile t-voice reveal">
           <span class="icon-chip"><Icon name="mic" size={22} /></span>
           <h3 class="h3">{h.bento.voice.title}</h3>
           <p>{h.bento.voice.text}</p>
-        </a>
-        <a class="card reveal" href={url(lang, "features/#palette")}>
+          <ol class="flow">{h.bento.voice.flow.map((f) => <li>{f}</li>)}</ol>
+          <figure class="transcript-chip" lang="it">
+            <span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            <blockquote>{h.bento.voice.quote}</blockquote>
+          </figure>
+          <p class="small muted">{h.bento.voice.note}</p>
+        </article>
+
+        <article class="tile t-ai reveal">
+          <div class="tile-text">
+            <h3 class="h3">{h.bento.ai.title}</h3>
+            <p>{h.bento.ai.text}</p>
+          </div>
+          <Loop name="clip-chat" poster={chatPoster} alt={it ? "Chat AI di Dynamic che riassume un file di testo allegato" : "Dynamic's AI chat summarising an attached text file"} sizes="(max-width: 900px) 92vw, 560px" class="tile-media" {...loopLabels} />
+        </article>
+
+        <article class="tile t-agents reveal">
+          <div class="tile-text">
+            <h3 class="h3">{h.bento.agents.title}</h3>
+            <p>{h.bento.agents.text}</p>
+          </div>
+          <Shot src={agents} alt={it ? "Pagina Agenti con sessioni di Claude Code e Codex, una in attesa di autorizzazione" : "Agents page with Claude Code and Codex sessions, one waiting for authorisation"} sizes="(max-width: 900px) 92vw, 560px" class="tile-media" />
+        </article>
+
+        <article class="tile t-palette reveal">
           <span class="icon-chip"><Icon name="command" size={22} /></span>
           <h3 class="h3">{h.bento.palette.title}</h3>
           <p>{h.bento.palette.text}</p>
-          <p class="media keys" aria-hidden="true"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>K</kbd></p>
-        </a>
-        <a class="card reveal" href={url(lang, "features/#system")}>
+          <div class="palette-demo" aria-hidden="true">
+            <div class="palette-keys"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>K</kbd></div>
+            <ul>{h.bento.palette.examples.map((e) => <li><Icon name="corner-down-right" size={14} />{e}</li>)}</ul>
+          </div>
+        </article>
+
+        <article class="tile t-system reveal">
           <span class="icon-chip"><Icon name="gauge" size={22} /></span>
           <h3 class="h3">{h.bento.system.title}</h3>
           <p>{h.bento.system.text}</p>
-        </a>
-        <a class="card reveal" href={url(lang, "features/#system")}>
-          <span class="icon-chip"><Icon name="battery-medium" size={22} /></span>
-          <h3 class="h3">{h.bento.devices.title}</h3>
-          <p>{h.bento.devices.text}</p>
-        </a>
-        <a class="card reveal" href={url(lang, "features/#messages")}>
-          <span class="icon-chip"><Icon name="message-circle" size={22} /></span>
-          <h3 class="h3">{h.bento.messages.title}</h3>
-          <p>{h.bento.messages.text}</p>
-        </a>
-        <a class="card reveal" href={url(lang, "performance/#gaming")}>
-          <span class="icon-chip"><Icon name="gamepad-2" size={22} /></span>
-          <h3 class="h3">{h.bento.gaming.title}</h3>
-          <p>{h.bento.gaming.text}</p>
-        </a>
-        <a class="card span-2 reveal" href={url(lang, "features/#audio")}>
-          <span class="icon-chip"><Icon name="music" size={22} /></span>
-          <h3 class="h3">{h.bento.audio.title}</h3>
-          <p>{h.bento.audio.text}</p>
-          <div class="media-bleed"><Shot src={music} alt="" sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 600px" /></div>
-        </a>
-        <a class="card span-2 reveal" href={url(lang, "features/#productivity")}>
-          <span class="icon-chip"><Icon name="calendar" size={22} /></span>
-          <h3 class="h3">{h.bento.productivity.title}</h3>
-          <p>{h.bento.productivity.text}</p>
-          <div class="media-bleed"><Shot src={calendar} alt="" sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 600px" /></div>
-        </a>
+          <figure class="hw">
+            <Shot src={hw} alt={it ? "Widget CPU e GPU con utilizzo, temperatura e frequenza" : "CPU and GPU widgets with usage, temperature and clock"} sizes="(max-width: 900px) 92vw, 380px" widths={[400, 786]} />
+            <figcaption class="small muted">{h.bento.system.caption}</figcaption>
+          </figure>
+        </article>
+
+        <article class="tile t-audio reveal">
+          <div class="tile-text">
+            <h3 class="h3">{h.bento.audio.title}</h3>
+            <p>{h.bento.audio.text}</p>
+          </div>
+          <Loop name="clip-music" poster={musicPoster} alt={it ? "Pagina Musica con copertina, avanzamento, controlli e volume" : "Music page with cover art, timeline, controls and volume"} sizes="(max-width: 900px) 92vw, 380px" class="tile-media" {...loopLabels} />
+        </article>
+
+        <article class="tile t-more reveal">
+          <h3 class="h3">{h.bento.more.title}</h3>
+          <ul class="pills">{h.bento.more.items.map((i) => <li>{i}</li>)}</ul>
+          <a class="link small" href={url(lang, "features/")}>{d.common.explore}<Icon name="arrow-right" size={16} /></a>
+        </article>
       </div>
-      <p class="muted small center" style="margin-top:20px">{d.common.italianUi}</p>
+      <p class="muted small" style="margin-top:20px">{d.common.italianUi}</p>
     </div>
   </section>
 
-  <section class="section divider companion-teaser" aria-labelledby="companion-title">
-    <div class="container split">
-      <div class="reveal">
+  <!-- COMPANION -->
+  <section class="section divider companion" aria-labelledby="companion-title">
+    <div class="container">
+      <div class="section-head">
         <p class="eyebrow"><Icon name="smartphone" size={16} />{h.companionEyebrow}</p>
-        <h2 id="companion-title" class="h2">{h.companionTitle}</h2>
-        <p class="lead" style="margin-top:16px">{h.companionSub}</p>
-        <ul class="pills" style="margin-block:28px">{h.companionPoints.map((p) => <li>{p}</li>)}</ul>
+        <h2 id="companion-title" class="h1" style="max-width:18ch">{h.companionTitle}</h2>
+        <p class="lead">{h.companionSub}</p>
+      </div>
+      <div class="bridge reveal">
+        <figure class="bridge-pc">
+          <Shot src={tempo} alt={it ? "Pagina Tempo di Dynamic con timer, sveglie e promemoria" : "Dynamic's Time page with timers, alarms and reminders"} sizes="(max-width: 900px) 92vw, 420px" widths={[480, 860]} class="panel-mini" />
+          <figcaption><Icon name="monitor" size={16} />{h.companionPc}</figcaption>
+        </figure>
+        <div class="bridge-link" aria-hidden="true"><span>{h.companionLink}</span></div>
+        <p class="visually-hidden">{h.companionLink}</p>
+        <figure class="bridge-devices">
+          <Device kind="tablet" src={ipad} alt={d.companion.shotsAlt.ipadLandscape} sizes="(max-width: 900px) 80vw, 520px" class="b-tablet" />
+          <Device kind="phone" src={iphone} alt={d.companion.shotsAlt.iphone} sizes="(max-width: 900px) 34vw, 190px" class="b-phone" />
+          <figcaption><Icon name="smartphone" size={16} />{h.companionDevice}</figcaption>
+        </figure>
+      </div>
+      <div class="companion-foot">
+        <ul class="pills">{h.companionPoints.map((p) => <li>{p}</li>)}</ul>
         <a class="btn btn-ghost" href={url(lang, "companion/")}>{h.companionCta}<Icon name="arrow-right" size={18} /></a>
       </div>
-      <div class="devices reveal">
-        <Device kind="tablet" src={ipad} alt={d.companion.shotsAlt.ipadLandscape} sizes="(max-width: 900px) 90vw, 560px" class="dev-tablet" />
-        <Device kind="phone" src={iphone} alt={d.companion.shotsAlt.iphone} sizes="(max-width: 900px) 40vw, 220px" class="dev-phone" />
+    </div>
+  </section>
+
+  <!-- GAMING & PERFORMANCE -->
+  <section class="section divider" id="gaming" aria-labelledby="perf-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><Icon name="gamepad-2" size={16} />{h.perfEyebrow}</p>
+        <h2 id="perf-title" class="h1" style="max-width:16ch">{h.perfTitle}</h2>
+        <p class="lead">{h.perfSub}</p>
+      </div>
+      <div class="perf-grid">
+        <div class="card states reveal">
+          <h3 class="h3">{h.statesTitle}</h3>
+          <table>
+            <caption class="visually-hidden">{h.statesTitle}</caption>
+            <thead><tr><th scope="col"><span class="visually-hidden">{it ? "Componente" : "Component"}</span></th><th scope="col">{h.before}</th><th scope="col">{h.after}</th></tr></thead>
+            <tbody>
+              {h.states.map((s) => (
+                <tr><th scope="row">{s.label}</th><td><span class="state on">{s.before}</span></td><td><span class="state off"><Icon name="moon" size={13} />{s.after}</span></td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div class="card chart reveal">
+          <h3 class="h3">{h.chartTitle}</h3>
+          {bars.map((b) => (
+            <div class="bar-group" role="group" aria-label={`${b.label}: ${h.before} ${b.fmtBefore}, ${h.after} ${b.fmtAfter}`}>
+              <p class="bar-title">{b.label}</p>
+              <div class="bar-row" title={`${h.before}: ${b.fmtBefore}`}><span class="bar-name">{h.before}</span><span class="bar"><i class="before" style={`width:${(b.before / b.max) * 100}%`}></i></span><span class="bar-val num">{b.fmtBefore}</span></div>
+              <div class="bar-row" title={`${h.after}: ${b.fmtAfter}`}><span class="bar-name">{h.after}</span><span class="bar"><i class="after" style={`width:${(b.after / b.max) * 100}%`}></i></span><span class="bar-val num">{b.fmtAfter}</span></div>
+            </div>
+          ))}
+          <p class="small muted" style="margin-top:18px">{h.perfStatContext}</p>
+          <a class="link small" href={url(lang, "performance/#benchmarks")}>{h.perfCta}<Icon name="arrow-right" size={16} /></a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section divider" aria-labelledby="perf-title">
-    <div class="container split perf">
-      <div class="reveal">
-        <p class="eyebrow"><Icon name="gauge" size={16} />{h.perfEyebrow}</p>
-        <h2 id="perf-title" class="h2">{h.perfTitle}</h2>
-        <p class="lead" style="margin-top:16px">{h.perfSub}</p>
-        <a class="link" href={url(lang, "performance/")} style="margin-top:20px">{h.perfCta}<Icon name="arrow-right" size={16} /></a>
-      </div>
-      <div class="card stat reveal">
-        <p class="stat-num">{h.perfStat}</p>
-        <p class="stat-label">{h.perfStatLabel}</p>
-        <p class="small muted" style="margin-top:16px">{h.perfStatContext}</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section divider final-cta" aria-labelledby="cta-title">
-    <div class="container center">
-      <span class="eyes big" aria-hidden="true"><i></i><i></i></span>
-      <h2 id="cta-title" class="h1">{h.ctaTitle}</h2>
-      <p class="lead center" style="margin-top:16px">{h.ctaSub}</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href={exe.url}><Icon name="download" size={20} />{d.common.download}</a>
-        <a class="btn btn-ghost" href={url(lang, "download/")}>{d.download.reqTitle}</a>
+  <!-- DOWNLOAD -->
+  <section class="section divider" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="download-card reveal">
+        <Image src={logo} alt="" width={88} height={88} widths={[88, 176]} sizes="88px" class="dl-logo" />
+        <h2 id="cta-title" class="h1">{h.ctaTitle}</h2>
+        <p class="lead center">{h.ctaSub}</p>
+        <ul class="dl-specs">
+          <li><span>{d.common.version}</span><strong>{latest.version}</strong></li>
+          <li><span>{d.download.released}</span><strong>{formatDate(latest.date, lang)}</strong></li>
+          <li><span>Windows</span><strong>11 · x64</strong></li>
+          <li><span>{d.download.size}</span><strong>{formatSize(exe.size, lang)}</strong></li>
+        </ul>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href={exe.url}><Icon name="download" size={20} />{d.common.download}</a>
+        </div>
+        <p class="dl-links">
+          <a class="link" href={latest.url}><Icon name="file-text" size={16} />{h.ctaNotes}</a>
+          <a class="link" href={url(lang, "docs/")}><Icon name="book-open" size={16} />{h.ctaDocs}</a>
+          <a class="link" href={url(lang, "download/")}><Icon name="shield-check" size={16} />SHA-256</a>
+        </p>
       </div>
     </div>
   </section>
 </Base>
 
 <style>
-  .hero { padding-top: clamp(56px, 9vw, 120px); overflow: hidden; }
+  .hero { padding-top: clamp(56px, 8vw, 112px); overflow: hidden; }
   .dim { color: var(--text-3); }
   .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px; }
   .hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; margin-top: 20px; color: var(--text-3); font-size: 0.875rem; }
   .hero-meta a { color: var(--text-2); }
   .eyes { display: inline-flex; gap: 4px; }
   .eyes i { width: 7px; height: 10px; border-radius: 4px; background: var(--eye); box-shadow: 0 0 8px 1px rgb(150 170 230 / 0.7); }
-  .eyes.big { gap: 14px; margin-bottom: 28px; }
-  .eyes.big i { width: 22px; height: 32px; border-radius: 12px; box-shadow: 0 0 22px 4px rgb(130 150 220 / 0.55); }
-  .hero-stage {
-    margin-top: clamp(48px, 7vw, 88px); padding: 0 4%; border: 1px solid var(--border-strong); border-bottom: 0;
-    border-radius: 28px 28px 0 0; background: radial-gradient(110% 90% at 50% 0%, #0c1526 0%, #04060b 50%, #000 80%);
-    -webkit-mask-image: linear-gradient(#000 75%, transparent); mask-image: linear-gradient(#000 75%, transparent);
+
+  /* hero "monitor": a real-scale clip of the island on a Windows desktop */
+  .monitor { position: relative; margin: clamp(48px, 7vw, 80px) auto 0; max-width: 1080px; }
+  .monitor::before { content: ""; position: absolute; inset: -12% 10% auto; height: 70%; background: radial-gradient(closest-side, rgb(108 196 255 / 0.16), transparent); z-index: -1; }
+  .monitor :global(.screen) { border-radius: 22px 22px 0 0; border: 1px solid var(--border-strong); border-bottom: 0; padding: 8px 8px 0; background: #0b0c10; -webkit-mask-image: linear-gradient(#000 58%, transparent 98%); mask-image: linear-gradient(#000 58%, transparent 98%); }
+  .monitor :global(.screen .loop-toggle) { bottom: auto; top: 18px; right: 18px; }
+  .monitor :global(.screen img), .monitor :global(.screen video) { border-radius: 15px 15px 0 0; aspect-ratio: 2 / 1; }
+  .stage-caption { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 14px 0 0; position: relative; text-align: left; color: var(--text-3); font-size: 0.8125rem; }
+  .stage-caption .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgb(94 224 143 / 0.18); flex: none; }
+  @media (min-width: 900px) { .stage-caption { margin-top: -28px; } }
+  @media (max-width: 640px) { .monitor :global(.screen .loop-toggle) { width: 36px; height: 36px; top: 12px; right: 12px; } .monitor :global(.screen) { padding: 5px 5px 0; border-radius: 16px 16px 0 0; } }
+  .facts { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 20px; border-top: 1px solid var(--border); }
+  .facts li { display: grid; grid-template-columns: 18px 1fr; gap: 12px; padding: 22px 0 0; color: var(--text-3); font-size: 0.875rem; line-height: 1.5; }
+  .facts li :global(.icon) { color: var(--accent); margin-top: 2px; }
+  .facts strong { color: var(--text); font-weight: 600; display: block; }
+
+  /* video showcase */
+  .demo { padding-top: clamp(80px, 10vw, 128px); }
+  .player { position: relative; max-width: 1080px; margin: 0 auto; border-radius: 24px; padding: 1px; background: linear-gradient(160deg, rgb(108 196 255 / 0.45), rgb(255 255 255 / 0.06) 40%, rgb(255 255 255 / 0.04)); box-shadow: 0 50px 120px rgb(0 0 0 / 0.8), 0 0 80px rgb(108 196 255 / 0.08); }
+  .player video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 23px; background: #000; }
+  .play-big { position: absolute; inset: 1px; display: flex; align-items: flex-end; justify-content: flex-start; gap: 16px; padding: clamp(16px, 3vw, 32px); border: 0; border-radius: 23px; background: linear-gradient(to top, rgb(0 0 0 / 0.78), rgb(0 0 0 / 0.1) 46%, transparent 70%); color: var(--text); cursor: pointer; font: 600 1rem var(--font); text-align: left; }
+  .play-ring { flex: none; display: inline-flex; align-items: center; justify-content: center; width: clamp(56px, 7vw, 80px); height: clamp(56px, 7vw, 80px); border-radius: 50%; background: var(--accent); color: var(--on-accent); box-shadow: 0 0 0 10px rgb(108 196 255 / 0.18), 0 20px 50px rgb(0 0 0 / 0.5); transition: transform 0.2s var(--ease); }
+  .play-ring :global(svg) { margin-left: 5px; fill: currentColor; }
+  .play-big:hover .play-ring { transform: scale(1.06); }
+  .play-big:focus-visible { outline-offset: -6px; }
+  .play-cta { display: inline-flex; align-items: center; gap: 16px; }
+  .play-label { font-size: clamp(0.9375rem, 0.85rem + 0.4vw, 1.125rem); text-shadow: 0 1px 8px rgb(0 0 0 / 0.6); }
+  .player.playing .play-big { display: none; }
+  .demo-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; max-width: 1080px; margin: 20px auto 0; }
+  .demo-foot p { margin: 0; max-width: 70ch; }
+  .transcript { max-width: 1080px; margin: 16px auto 0; border-top: 1px solid var(--border); }
+  .transcript summary { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; cursor: pointer; color: var(--text-2); font-weight: 600; font-size: 0.9375rem; list-style: none; }
+  .transcript summary::-webkit-details-marker { display: none; }
+  .transcript[open] summary :global(.icon) { transform: rotate(180deg); }
+  .transcript ul { margin: 0 0 8px; padding-left: 1.2em; color: var(--text-2); font-size: 0.9375rem; display: grid; gap: 6px; }
+
+  /* bento with deliberate size differences */
+  .bento6 { display: grid; gap: 16px; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .tile { position: relative; display: flex; flex-direction: column; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-l); padding: clamp(22px, 2.4vw, 30px); overflow: hidden; }
+  .tile p { margin: 0; color: var(--text-2); }
+  .tile .icon-chip { margin-bottom: 8px; }
+  .tile-text { display: grid; gap: 10px; }
+  .tile :global(.tile-media) { margin: auto calc(-1 * clamp(22px, 2.4vw, 30px)) calc(-1 * clamp(22px, 2.4vw, 30px)); padding-top: 14px; }
+  .tile :global(.tile-media img), .tile :global(.tile-media video) { width: 100%; }
+  .t-island { grid-column: span 4; grid-row: span 2; }
+  .t-voice { grid-column: span 2; grid-row: span 2; }
+  .t-ai, .t-agents { grid-column: span 3; }
+  .t-palette, .t-system, .t-audio { grid-column: span 2; }
+  .t-more { grid-column: span 6; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+  .t-more h3 { margin-right: auto; }
+  .t-island .tile-text { max-width: 46ch; }
+  .styles { position: absolute; top: clamp(22px, 2.4vw, 30px); right: clamp(22px, 2.4vw, 30px); display: grid; justify-items: end; gap: 10px; padding: 14px; border-radius: 16px; background: #000; border: 1px solid var(--border); }
+  .styles :global(img:nth-child(1)) { width: 150px; }
+  .styles :global(img:nth-child(2)) { width: 130px; }
+  .styles :global(img:nth-child(3)) { width: 102px; }
+  .flow { list-style: none; counter-reset: f; margin: 18px 0 0; padding: 0; display: grid; gap: 0; }
+  .flow li { counter-increment: f; position: relative; display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding-bottom: 18px; color: var(--text-2); font-size: 0.9375rem; }
+  .flow li::before { content: counter(f); display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: var(--surface-3); color: var(--text); font-size: 0.8125rem; font-weight: 650; }
+  .flow li:not(:last-child)::after { content: ""; position: absolute; left: 13.5px; top: 30px; bottom: 2px; width: 1px; background: var(--border-strong); }
+  .transcript-chip { margin: auto 0 0; padding: 16px 18px; border-radius: 18px; background: #000; border: 1px solid rgb(108 196 255 / 0.3); box-shadow: 0 0 30px rgb(108 196 255 / 0.08); display: grid; gap: 10px; }
+  .transcript-chip blockquote { margin: 0; color: var(--text); font-weight: 600; font-size: 1.0625rem; }
+  .wave { display: inline-flex; gap: 3px; align-items: center; height: 18px; }
+  .wave i { width: 3px; border-radius: 2px; background: var(--accent); height: 40%; }
+  .wave i:nth-child(2) { height: 85%; } .wave i:nth-child(3) { height: 60%; } .wave i:nth-child(4) { height: 100%; } .wave i:nth-child(5) { height: 45%; }
+  .palette-demo { margin-top: auto; padding: 14px; border-radius: 16px; background: var(--bg-raised); border: 1px solid var(--border); }
+  .palette-keys { display: flex; gap: 6px; margin-bottom: 12px; }
+  .palette-demo ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; color: var(--text-2); font-size: 0.875rem; }
+  .palette-demo li { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 8px; }
+  .palette-demo li:first-child { background: var(--accent-soft); color: var(--text); }
+  .hw { margin: auto 0 0; }
+  .hw :global(img) { border-radius: 14px; }
+  .hw figcaption { margin-top: 8px; }
+  @media (max-width: 1080px) {
+    .bento6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .t-island, .t-more, .t-audio { grid-column: span 2; grid-row: auto; }
+    .t-voice, .t-ai, .t-agents, .t-palette, .t-system { grid-column: span 1; grid-row: auto; }
   }
-  .hero-stage :global(.panel-shot) { width: min(860px, 100%); margin: -1px auto 0; }
-  .principle .icon-chip { margin-bottom: 16px; }
-  .principle h3 { margin-bottom: 8px; font-size: 1.0625rem; }
-  .principle p { color: var(--text-2); font-size: 0.9375rem; margin: 0; }
-  .island-stack { display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 40px 16px; margin-inline: -8px; border-radius: var(--r); background: #000; border: 1px solid var(--border); }
-  .island-stack :global(img) { height: auto; }
-  .island-stack :global(img:nth-child(1)) { width: min(240px, 70%); }
-  .island-stack :global(img:nth-child(2)) { width: min(206px, 60%); }
-  .island-stack :global(img:nth-child(3)) { width: min(162px, 48%); }
-  .island-stack :global(.notice) { width: min(460px, 100%); margin-top: 14px; }
-  .keys { display: flex; gap: 6px; }
-  .keys kbd { font-size: 1rem; padding: 6px 12px; }
-  .bento :global(.media-bleed img) { width: 100%; }
-  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(40px, 6vw, 80px); align-items: center; }
-  .devices { position: relative; padding: 0 0 40px 0; }
-  .devices :global(.dev-tablet) { width: 92%; }
-  .devices :global(.dev-phone) { position: absolute; right: 0; bottom: 0; width: 34%; }
-  .perf .stat { padding: clamp(28px, 4vw, 48px); }
-  .stat-num { font-size: clamp(3rem, 2rem + 4vw, 5rem); font-weight: 700; letter-spacing: -0.05em; line-height: 1; color: var(--text); margin-bottom: 16px; font-variant-numeric: tabular-nums; }
-  .stat-label { color: var(--text-2); font-size: 1.0625rem; }
-  .final-cta { padding-block: clamp(96px, 12vw, 160px); }
+  @media (max-width: 760px) {
+    .styles { position: static; justify-items: center; margin-top: 8px; }
+    .t-island .tile-text { max-width: none; }
+  }
+  @media (max-width: 640px) {
+    .bento6 { grid-template-columns: minmax(0, 1fr); }
+    .tile, .t-island, .t-more, .t-audio { grid-column: auto; }
+    .facts { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* companion bridge */
+  .bridge { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(120px, 0.45fr) minmax(0, 1.25fr); align-items: center; }
+  .bridge figure { margin: 0; }
+  .bridge figcaption { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; color: var(--text-2); font-size: 0.875rem; font-weight: 600; }
+  .bridge figcaption :global(.icon) { color: var(--accent); }
+  .bridge :global(.panel-mini) { border-radius: 0 0 18px 18px; border: 1px solid var(--border); box-shadow: 0 30px 70px rgb(0 0 0 / 0.6); }
+  .bridge-link { position: relative; height: 2px; margin: 0 -6px; background: repeating-linear-gradient(90deg, var(--accent) 0 8px, transparent 8px 16px); opacity: 0.8; }
+  .bridge-link span { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 6px 12px; border-radius: 999px; background: var(--bg); border: 1px solid rgb(108 196 255 / 0.35); color: var(--accent); font-size: 0.75rem; font-weight: 600; text-align: center; width: max-content; max-width: 180px; }
+  .bridge-devices { position: relative; padding-bottom: 8%; }
+  .bridge-devices :global(.b-tablet) { width: 86%; }
+  .bridge-devices :global(.b-phone) { position: absolute; right: 0; bottom: 34px; width: 30%; }
+  .companion-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; margin-top: 40px; }
   @media (max-width: 900px) {
-    .split { grid-template-columns: minmax(0, 1fr); }
+    .bridge { grid-template-columns: minmax(0, 1fr); }
+    .bridge-link { width: 2px; height: 88px; margin: 8px auto; background: repeating-linear-gradient(180deg, var(--accent) 0 8px, transparent 8px 16px); }
+    .bridge-pc { width: min(100%, 560px); justify-self: center; }
+    .bridge-devices { width: min(100%, 640px); justify-self: center; padding-bottom: 10%; }
+    .bridge-devices :global(.b-phone) { width: 28%; bottom: 44px; }
   }
+
+  /* gaming & performance */
+  .perf-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 16px; align-items: start; }
+  .states h3, .chart h3 { margin-bottom: 18px; }
+  .states th, .states td { padding: 12px 10px 12px 0; }
+  .states thead th { padding-top: 0; }
+  .state { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 0.8125rem; font-weight: 600; }
+  .state.on { background: rgb(255 255 255 / 0.07); color: var(--text-2); }
+  .state.off { background: var(--accent-soft); color: var(--accent); }
+  .bar-group { margin-top: 18px; }
+  .bar-title { margin: 0 0 8px !important; color: var(--text) !important; font-weight: 600; font-size: 0.9375rem; }
+  .bar-row { display: grid; grid-template-columns: 130px 1fr 96px; align-items: center; gap: 12px; margin-top: 8px; }
+  .bar-name { color: var(--text-3); font-size: 0.8125rem; }
+  .bar { height: 14px; border-radius: 4px; background: rgb(255 255 255 / 0.04); overflow: hidden; }
+  .bar i { display: block; height: 100%; border-radius: 0 4px 4px 0; }
+  .bar i.before { background: #5f6b7a; }
+  .bar i.after { background: var(--accent); }
+  .bar-val { color: var(--text); font-size: 0.875rem; text-align: right; }
+  .chart .link { margin-top: 12px; }
+  @media (max-width: 900px) { .perf-grid { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 520px) {
+    .bar-row { grid-template-columns: 1fr 92px; }
+    .bar-name { grid-column: 1 / -1; }
+    .states thead { display: none; }
+    .states tr { display: grid; grid-template-columns: auto auto; justify-content: start; gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .states tbody th { grid-column: 1 / -1; }
+    .states th, .states td { border: 0; padding: 0; }
+  }
+
+  /* download */
+  .download-card { text-align: center; padding: clamp(40px, 6vw, 72px) clamp(20px, 4vw, 48px); border-radius: var(--r-xl); border: 1px solid var(--border); background: radial-gradient(80% 120% at 50% 0%, #0c1526 0%, var(--surface) 55%); }
+  .download-card :global(.dl-logo) { margin: 0 auto 28px; border-radius: 22px; box-shadow: 0 0 60px rgb(130 150 220 / 0.25); }
+  .dl-specs { list-style: none; padding: 0; margin: 32px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .dl-specs li { display: grid; gap: 2px; min-width: 120px; padding: 12px 18px; border-radius: 14px; background: rgb(255 255 255 / 0.04); border: 1px solid var(--border); }
+  .dl-specs span { color: var(--text-3); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; }
+  .dl-specs strong { color: var(--text); font-size: 1rem; font-variant-numeric: tabular-nums; }
+  .btn-lg { min-height: 56px; padding: 0 30px; font-size: 1.0625rem; }
+  .dl-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; margin: 28px 0 0; }
 </style>

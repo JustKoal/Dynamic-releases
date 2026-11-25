@@ -24,7 +24,7 @@ for (const page of pages) {
   if (!/<html lang="(en|it)"/.test(html)) errors.push(`${name}: missing lang`);
   if (!name.startsWith("404") && !/rel="canonical"/.test(html)) errors.push(`${name}: missing canonical`);
   if (!name.startsWith("404") && (html.match(/hreflang="(en|it|x-default)"/g) ?? []).length < 3) errors.push(`${name}: missing hreflang`);
-  for (const [, attr, raw] of html.matchAll(/\s(href|src|srcset)="([^"]+)"/g)) {
+  for (const [, attr, raw] of html.matchAll(/\s(href|src|srcset|poster|data-src)="([^"]+)"/g)) {
     for (const part of attr === "srcset" ? raw.split(",").map((s) => s.trim().split(" ")[0]) : [raw]) {
       if (/^(https?:|mailto:|data:|#)/.test(part)) continue;
       const [path] = part.split("#");

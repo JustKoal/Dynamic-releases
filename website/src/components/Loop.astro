@@ -1,0 +1,33 @@
+---
+// Short muted preview: the poster <img> is the real content (and the LCP candidate); the <video> is fetched only when the
+// figure becomes visible, plays muted in a loop, pauses off-screen and never autoplays with prefers-reduced-motion.
+// A visible pause/play button satisfies WCAG 2.2.2. Behaviour lives in the small script in Base.astro ([data-loop]).
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Icon from "./Icon.astro";
+import { asset } from "../i18n";
+
+interface Props {
+  name: string; // public/media/<name>.webm|.mp4
+  poster: ImageMetadata;
+  alt: string;
+  sizes: string;
+  widths?: number[];
+  eager?: boolean;
+  pauseLabel: string;
+  playLabel: string;
+  class?: string;
+}
+const { name, poster, alt, sizes, widths = [480, 960], eager = false, pauseLabel, playLabel, class: cls } = Astro.props;
+---
+<figure class:list={["loop", cls]} data-loop>
+  <Image src={poster} alt={alt} widths={widths.filter((w) => w <= poster.width)} sizes={sizes} format="webp" quality={85}
+    loading={eager ? "eager" : "lazy"} fetchpriority={eager ? "high" : "auto"} class="loop-poster" />
+  <video muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" width={poster.width} height={poster.height}>
+    <source data-src={asset(`media/${name}.webm`)} type='video/webm; codecs="vp9"' />
+    <source data-src={asset(`media/${name}.mp4`)} type="video/mp4" />
+  </video>
+  <button class="loop-toggle" type="button" aria-label={pauseLabel} data-pause={pauseLabel} data-play={playLabel} hidden>
+    <span class="i-pause"><Icon name="pause" size={14} /></span><span class="i-play"><Icon name="play" size={14} /></span>
+  </button>
+</figure>

@@ -337,3 +337,19 @@ td:first-child, tbody th { color: var(--text); font-weight: 550; }
 }
 @keyframes reveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* ---------- muted previews ([data-loop], see Loop.astro) ---------- */
+.loop { position: relative; margin: 0; display: grid; }
+.loop > img, .loop > video { grid-area: 1 / 1; display: block; width: 100%; height: auto; }
+.loop > video { opacity: 0; transition: opacity 0.4s var(--ease); }
+.loop.is-playing > video { opacity: 1; }
+.loop-toggle {
+  position: absolute; right: 12px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgb(255 255 255 / 0.22); background: rgb(0 0 0 / 0.62); color: #fff; cursor: pointer;
+  transition: background-color 0.15s;
+}
+.loop-toggle:hover { background: rgb(0 0 0 / 0.85); }
+.loop-toggle .i-play, .loop.is-paused .loop-toggle .i-pause { display: none; }
+.loop.is-paused .loop-toggle .i-play { display: inline-flex; }
+.loop-toggle svg { fill: currentColor; }
+@media (max-width: 640px) { .loop-toggle { width: 36px; height: 36px; right: 10px; bottom: 10px; } }

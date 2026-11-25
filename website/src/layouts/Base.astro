@@ -166,6 +166,49 @@ const current = (href: string) => (alt[lang] === href || (href !== url(lang) && 
           });
         }
       });
+      // Muted previews: load when visible, pause off-screen or in a background tab, never autoplay with reduced motion or Save-Data.
+      var calm = matchMedia("(prefers-reduced-motion: reduce)").matches || (navigator.connection && navigator.connection.saveData);
+      var loops = [];
+      document.querySelectorAll("[data-loop]").forEach(function (f) {
+        var v = f.querySelector("video"), b = f.querySelector(".loop-toggle"), st = { f: f, v: v, paused: !!calm, seen: false, loaded: false };
+        var sync = function () { f.classList.toggle("is-paused", st.paused); b.setAttribute("aria-label", st.paused ? b.dataset.play : b.dataset.pause); };
+        st.play = function () {
+          if (!st.loaded) { st.loaded = true; v.querySelectorAll("source").forEach(function (s) { s.src = s.dataset.src; }); v.load(); }
+          var p = v.play(); if (p) p.catch(function () {});
+        };
+        v.addEventListener("playing", function () { f.classList.add("is-playing"); });
+        b.hidden = false; sync();
+        b.addEventListener("click", function () { st.paused = !st.paused; sync(); st.paused ? v.pause() : st.play(); });
+        loops.push(st);
+      });
+      if (loops.length && "IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            var st = loops.find(function (l) { return l.f === e.target; });
+            st.seen = e.isIntersecting;
+            if (st.seen && !st.paused && !document.hidden) st.play(); else if (st.loaded) st.v.pause();
+          });
+        }, { threshold: 0.25 });
+        loops.forEach(function (l) { io.observe(l.f); });
+        document.addEventListener("visibilitychange", function () {
+          loops.forEach(function (l) { if (document.hidden) { if (l.loaded) l.v.pause(); } else if (l.seen && !l.paused) l.play(); });
+        });
+      }
+      // Main video: started only by the user (hero button or the big play button), with sound and native controls.
+      var tour = document.getElementById("tour");
+      if (tour) {
+        var player = tour.closest("[data-player]");
+        tour.controls = false; // native controls appear once the user starts the video (they stay without JS)
+        tour.addEventListener("play", function () { player.classList.add("playing"); tour.controls = true; });
+        document.querySelectorAll("[data-play-tour]").forEach(function (el) {
+          el.addEventListener("click", function (e) {
+            e.preventDefault();
+            player.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "center" });
+            var p = tour.play(); if (p) p.catch(function () {});
+            tour.focus({ preventScroll: true });
+          });
+        });
+      }
       document.addEventListener("keydown", function (e) {
         if (e.key !== "Escape") return;
         var m = document.querySelector(".nav-mobile[open]");
