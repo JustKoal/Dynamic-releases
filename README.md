@@ -100,7 +100,7 @@ A fourth style, **Adaptive**, changes width with the activities in progress.
 
 ### Dynamic Companion 0.6.0
 
-Synthetic demo data only; no account, device or hardware value from the development PC is shown.
+Synthetic demo data only; no account, device or hardware value from the development PC is shown. Since 0.6.2 the landscape dashboard (rotated phones and tablets) packs widgets without gaps and keeps your saved order; portrait is unchanged.
 
 | Phone | Tablet |
 |---|---|
