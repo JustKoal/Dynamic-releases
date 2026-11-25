@@ -48,6 +48,10 @@ play muted, pause off-screen or in a background tab, and stay on their poster wi
 - Grids must not leave holes: `.grid-3`/`.grid-4` stretch a lone last card across the row; the home bento pairs tiles of
   similar height on tablets (768–1080 px).
 - Standalone `.link`s get a 44 px touch target from `::after`; inline code in `.prose` wraps (long hashes in release notes).
+- Spacing between sibling cards comes from `--card-gap` (16 px, 20 px on phones): always larger than any gap inside a card.
+  On phones bento media sit inside the card with their own corners instead of bleeding into the bottom edge.
+- Files in `public/media/` keep fixed names, so reference them with `versioned()` (adds `?v=<content hash>`): GitHub Pages
+  caches every file for 10 minutes. CSS and scripts are inlined and images under `_astro/` are hashed, so they never mismatch.
 - Check every page at 320–430, 768–1080 and 1366–2560 px in both languages, in portrait and landscape, before pushing.
 
 ## Other scripts

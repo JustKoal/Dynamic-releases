@@ -1,4 +1,7 @@
 // English is the default language at the site root; Italian lives under /it/.
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import en from "./en";
 import it from "./it";
 
@@ -23,3 +26,11 @@ export const alternates = (path: string) => Object.fromEntries(LANGS.map((l) => 
 
 /** Asset/public file URL with base path. */
 export const asset = (path: string) => `${BASE}${path.replace(/^\//, "")}`;
+
+/** public/ file URL plus a content hash. GitHub Pages caches every file for 10 minutes and these names never change, so a
+    replaced video, poster or subtitle file would otherwise be served stale next to new HTML. Build-time only. */
+const hashes = new Map<string, string>();
+export const versioned = (path: string) => {
+  if (!hashes.has(path)) hashes.set(path, createHash("sha256").update(readFileSync(join(process.cwd(), "public", path))).digest("hex").slice(0, 10));
+  return `${asset(path)}?v=${hashes.get(path)}`;
+};

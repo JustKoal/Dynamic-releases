@@ -49,6 +49,7 @@
   --gutter: clamp(20px, 4vw, 40px);
   --section: clamp(72px, 10vw, 128px);
   --header-h: 64px;
+  --card-gap: 16px; /* space between sibling cards; larger than any gap inside a card */
   --font: "Inter Variable", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
   --mono: "Cascadia Mono", ui-monospace, Consolas, monospace;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -220,11 +221,11 @@ a.card:hover { border-color: var(--border-strong); background: var(--surface-2);
   .bento > .card { min-height: 0; }
 }
 
-.grid-2 { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.grid-3 { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.grid-4 { display: grid; gap: 16px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid-2 { display: grid; gap: var(--card-gap); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-3 { display: grid; gap: var(--card-gap); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-4 { display: grid; gap: var(--card-gap); grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 1000px) { .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 640px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 640px) { :root { --card-gap: 20px; } .grid-2, .grid-3, .grid-4 { grid-template-columns: minmax(0, 1fr); } }
 /* a lone card on the last row spans the row instead of leaving empty cells */
 @media (min-width: 1001px) { .grid-3 > :last-child:nth-child(3n + 1) { grid-column: 1 / -1; } }
 @media (min-width: 641px) and (max-width: 1000px) { .grid-3 > :last-child:nth-child(odd), .grid-4 > :last-child:nth-child(odd) { grid-column: 1 / -1; } }
@@ -312,7 +313,7 @@ td:first-child, tbody th { color: var(--text); font-weight: 550; }
 .copy-btn:hover { color: var(--text); background: var(--surface-3); }
 
 /* ---------- details / faq ---------- */
-.faq { display: grid; gap: 10px; }
+.faq { display: grid; gap: 12px; }
 .faq details { border: 1px solid var(--border); border-radius: var(--r); background: var(--surface); }
 .faq summary {
   display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; padding: 14px 20px;

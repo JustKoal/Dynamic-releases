@@ -5,7 +5,7 @@ import Shot from "../../components/Shot.astro";
 import Device from "../../components/Device.astro";
 import Loop from "../../components/Loop.astro";
 import { Image } from "astro:assets";
-import { t, url, asset, langPaths, type Lang } from "../../i18n";
+import { t, url, asset, versioned, langPaths, type Lang } from "../../i18n";
 import { getLatest, formatDate, formatSize, REPO_URL } from "../../lib/releases";
 import logo from "../../assets/logo.png";
 import heroPoster from "../../assets/media/hero-island.webp";
@@ -29,7 +29,7 @@ const it = lang === "it";
 const latest = await getLatest();
 const exe = latest.installer!;
 const abs = (p: string) => new URL(asset(p), Astro.site).href;
-const tourPoster = asset("media/dynamic-tour-poster.webp");
+const tourPoster = versioned("media/dynamic-tour-poster.webp");
 const FULL_VIDEO = "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.1/Dynamic-Promo-1080p.mp4";
 const loopLabels = { pauseLabel: h.pause, playLabel: h.play };
 
@@ -115,9 +115,9 @@ const jsonLd = {
       </div>
       <div class="player" data-player>
         <video id="tour" controls preload="none" playsinline poster={tourPoster} width="1920" height="1080" aria-label={h.demoTitle}>
-          <source src={asset("media/dynamic-tour.webm")} type='video/webm; codecs="vp9, opus"' />
-          <source src={asset("media/dynamic-tour.mp4")} type="video/mp4" />
-          <track kind="subtitles" src={asset("media/dynamic-tour.en.vtt")} srclang="en" label="English" default={!it} />
+          <source src={versioned("media/dynamic-tour.webm")} type='video/webm; codecs="vp9, opus"' />
+          <source src={versioned("media/dynamic-tour.mp4")} type="video/mp4" />
+          <track kind="subtitles" src={versioned("media/dynamic-tour.en.vtt")} srclang="en" label="English" default={!it} />
           <a href={asset("media/dynamic-tour.mp4")}>{h.demoFull}</a>
         </video>
         <button class="play-big" type="button" data-play-tour>
@@ -363,7 +363,7 @@ const jsonLd = {
   .transcript ul { margin: 0 0 8px; padding-left: 1.2em; color: var(--text-2); font-size: 0.9375rem; display: grid; gap: 6px; }
 
   /* bento with deliberate size differences */
-  .bento6 { display: grid; gap: 16px; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .bento6 { display: grid; gap: var(--card-gap); grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .tile { --pad: clamp(22px, 2.4vw, 30px); position: relative; display: flex; flex-direction: column; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-l); padding: var(--pad); overflow: hidden; }
   .tile p { margin: 0; color: var(--text-2); }
   .tile .icon-chip { margin-bottom: 8px; }
@@ -378,8 +378,11 @@ const jsonLd = {
   .t-palette, .t-system, .t-audio { grid-column: span 2; }
   .t-more { grid-column: span 6; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
   .t-more h3 { margin-right: auto; }
-  .t-island .tile-text { max-width: 46ch; }
-  .styles { position: absolute; top: var(--pad); right: var(--pad); display: grid; justify-items: end; gap: 10px; padding: 14px; border-radius: 16px; background: #000; border: 1px solid var(--border); }
+  /* text | compact styles on top, media below: a grid, so the styles box can never touch or cover the media */
+  .t-island { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto 1fr; column-gap: 24px; row-gap: 14px; }
+  .t-island .tile-text { grid-area: 1 / 1; max-width: 46ch; }
+  .t-island :global(.tile-media) { grid-area: 2 / 1 / 3 / -1; }
+  .styles { grid-area: 1 / 2; align-self: start; display: grid; justify-items: end; gap: 10px; padding: 14px; border-radius: 16px; background: #000; border: 1px solid var(--border); }
   .styles :global(img:nth-child(1)) { width: 150px; }
   .styles :global(img:nth-child(2)) { width: 130px; }
   .styles :global(img:nth-child(3)) { width: 102px; }
@@ -410,12 +413,17 @@ const jsonLd = {
     .t-more { order: 2; }
   }
   @media (max-width: 760px) {
-    .styles { position: static; justify-items: center; margin-top: 8px; }
+    .t-island { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+    .t-island .tile-text, .t-island :global(.tile-media), .styles { grid-area: auto; }
+    .styles { justify-self: center; justify-items: center; }
     .t-island .tile-text { max-width: none; }
   }
   @media (max-width: 640px) {
     .bento6 { grid-template-columns: minmax(0, 1fr); }
     .tile, .t-island, .t-more, .t-audio { grid-column: auto; order: 0; }
+    /* stacked cards: media sits inside the card with its own corners instead of bleeding into the bottom edge, so a
+       screenshot never reads as the start of the next card */
+    .tile :global(.tile-media) { width: 100%; margin: 4px 0 0; padding-top: 0; border-radius: 14px; overflow: hidden; }
     .facts { grid-template-columns: 1fr 1fr; }
   }
 
@@ -442,7 +450,7 @@ const jsonLd = {
   }
 
   /* gaming & performance */
-  .perf-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 16px; align-items: start; }
+  .perf-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: var(--card-gap); align-items: start; }
   .states h3, .chart h3 { margin-bottom: 18px; }
   .states th, .states td { padding: 12px 10px 12px 0; }
   .states thead th { padding-top: 0; }

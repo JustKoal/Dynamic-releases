@@ -27,7 +27,7 @@ for (const page of pages) {
   for (const [, attr, raw] of html.matchAll(/\s(href|src|srcset|poster|data-src)="([^"]+)"/g)) {
     for (const part of attr === "srcset" ? raw.split(",").map((s) => s.trim().split(" ")[0]) : [raw]) {
       if (/^(https?:|mailto:|data:|#)/.test(part)) continue;
-      const [path] = part.split("#");
+      const [path] = part.split(/[?#]/);
       const abs = path.startsWith("/") ? path : posix.join(pageUrl.endsWith("/") ? pageUrl : posix.dirname(pageUrl) + "/", path);
       if (!exists(abs)) errors.push(`${name}: broken ${attr} → ${part}`);
     }

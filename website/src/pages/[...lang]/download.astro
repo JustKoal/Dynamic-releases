@@ -97,8 +97,8 @@ const verify = `Get-FileHash .\\${exe.name} -Algorithm SHA256`;
 </Base>
 
 <style>
-  .dl-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
-  .side, .stack { display: grid; gap: 16px; }
+  .dl-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: var(--card-gap); align-items: start; }
+  .side, .stack { display: grid; gap: var(--card-gap); }
   .release { padding: clamp(24px, 3vw, 40px); }
   .release-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
   .ver { font-size: 2rem; font-weight: 700; letter-spacing: -0.035em; margin: 2px 0 0; color: var(--text); }
