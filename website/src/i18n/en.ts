@@ -300,7 +300,7 @@ const en = {
       "It does not approve Claude Code or Codex requests. Approvals always stay on the PC.",
     ],
     limitsTitle: "Current status",
-    limits: "The phone or tablet must be on the same private network as the PC: guest networks with client isolation block Companion. There is no offline mode, because the page does not use a service worker.",
+    limits: "Tested by the project owner on physical iPhone, iPad and Android devices. There is no offline mode, because the page does not use a service worker.",
     guideCta: "Read the Companion guide",
   },
   performance: {

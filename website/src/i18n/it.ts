@@ -301,7 +301,7 @@ const it: Dict = {
       "Non approva le richieste di Claude Code o Codex. Le autorizzazioni restano sempre sul PC.",
     ],
     limitsTitle: "Stato attuale",
-    limits: "Smartphone o tablet devono essere sulla stessa rete privata del PC: le reti ospiti con isolamento dei client bloccano Companion. Non è disponibile l'uso offline, perché la pagina non usa un service worker.",
+    limits: "Collaudato dal proprietario del progetto su iPhone, iPad e Android fisici. Non è disponibile l'uso offline, perché la pagina non usa un service worker.",
     guideCta: "Leggi la guida a Companion",
   },
   performance: {
