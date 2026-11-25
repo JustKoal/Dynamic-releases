@@ -50,7 +50,7 @@ const jsonLd = {
       applicationCategory: "UtilitiesApplication",
       operatingSystem: "Windows 11",
       softwareVersion: latest.version,
-      datePublished: latest.date.slice(0, 10),
+      datePublished: latest.date, // ISO 8601 completo con fuso (published_at della release, es. 2026-11-25T15:57:59Z)
       downloadUrl: exe.url,
       fileSize: `${Math.round(exe.size / 1e6)} MB`,
       url: new URL(url(lang), Astro.site).href,
@@ -65,7 +65,8 @@ const jsonLd = {
       name: it ? "Dynamic per Windows — tour di 52 secondi" : "Dynamic for Windows — 52-second tour",
       description: h.demoSub,
       thumbnailUrl: [abs("media/dynamic-tour-poster.webp")],
-      uploadDate: "2026-11-16",
+      // Prima pubblicazione del tour da 52 s: push del commit 79ad5fc (player nel README), evento GitHub 2026-11-16T20:03:28Z.
+      uploadDate: "2026-11-16T21:03:28+01:00",
       duration: "PT52S",
       contentUrl: abs("media/dynamic-tour.mp4"),
       inLanguage: "it",
