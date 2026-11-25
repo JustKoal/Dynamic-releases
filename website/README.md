@@ -41,6 +41,15 @@ Playback rules: the tour never autoplays (`preload="none"`, native controls afte
 play muted, pause off-screen or in a background tab, and stay on their poster with `prefers-reduced-motion` or Save-Data
 (`src/components/Loop.astro` + the script in `src/layouts/Base.astro`).
 
+## Layout rules
+
+- Edge-to-edge media in a padded card: use the bento's `.tile-media` (it sets `width: calc(100% + 2 * var(--pad))`). Negative
+  margins alone are not enough when the element is the `<img>` itself, because `max-width: 100%` keeps it at the content width.
+- Grids must not leave holes: `.grid-3`/`.grid-4` stretch a lone last card across the row; the home bento pairs tiles of
+  similar height on tablets (768–1080 px).
+- Standalone `.link`s get a 44 px touch target from `::after`; inline code in `.prose` wraps (long hashes in release notes).
+- Check every page at 320–430, 768–1080 and 1366–2560 px in both languages, in portrait and landscape, before pushing.
+
 ## Other scripts
 
 - `node scripts/make-og.mjs` regenerates the social preview images (`public/og-*.png`).
