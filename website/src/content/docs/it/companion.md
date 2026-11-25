@@ -47,4 +47,3 @@ Ogni dispositivo parte con la sola **consultazione**. Sul PC puoi concedere, per
 
 - Le reti ospiti con isolamento dei client bloccano Companion.
 - La pagina non usa un service worker, quindi non funziona offline.
-- La verifica su iPhone, iPad e Android fisici è ancora in corso.

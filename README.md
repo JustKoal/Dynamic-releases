@@ -62,7 +62,7 @@ Your profile from 0.2.x is kept: accounts, messages, preferences, themes, notes,
 
 **Dynamic 0.4.1 adds hardware monitoring and local companion controls:** a System page for CPU, GPU, RAM, network and disks, optional CPU temperature
 from MSI Afterburner or HWiNFO shared memory, an expanded audio centre, gaming resource suspension and an evolving phone/tablet dashboard with eight
-customisable widgets. Companion is local-network only, off by default and still awaiting full validation on physical mobile devices.
+customisable widgets. Companion is local-network only and off by default.
 
 **Dynamic 0.6.0 secures and expands Companion:** optional HTTPS signed by a local Dynamic CA, per-device permissions, remote volume and microphone
 controls, PC timers, Do Not Disturb and quick actions. The Command Palette gains Gaming, microphone and agent actions; Companion can show concurrent
@@ -185,12 +185,11 @@ minisign signature against the embedded public key, performs the per-user update
 
 ## Known limitations
 
-- **Share file has not yet been tried with a real phone,** and the Windows Firewall prompt has not been observed on a clean PC. Downloads were verified from the same PC.
-- **Dynamic Companion 0.6.0 has not completed physical-device validation:** CA trust, pairing, remote controls, background/lock behaviour and Home-screen installation remain to be checked on iPhone, iPad and Android.
-- **The Glass theme's translucency has not been checked on screen;** Glass falls back to an opaque smoke grey when Windows transparency effects are off.
+- The Windows Firewall prompt for Share file has not been observed on a clean PC.
+- **Glass needs Windows transparency effects** to be translucent; with them off it uses an opaque smoke grey.
 - **Codex hooks need manual re-approval after updating:** Dynamic detects entries changed since approval and asks for `/hooks`; a real 0.6.0 Codex session is still pending. Claude Code monitoring is unaffected.
 - **PawnIO support is only planned and cannot be selected.** Dynamic does not install or load a sensor driver. MSI Afterburner was verified with live shared-memory data; HWiNFO parsing was verified without completing a live HWiNFO session.
-- Telegram notification reception has not been confirmed with a real account; WhatsApp group and sender details depend on what WhatsApp Web puts in its notifications.
+- WhatsApp group and sender details depend on what WhatsApp Web puts in its notifications.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime, GPU usage and a clean second PC remain unverified.
 - Apple Music was not exercised for real; TIDAL releases its audio output after a few minutes of pause.
 - Windows offers no public API for apps to change the default audio output: Dynamic tells you which output is in use and points to Win+Ctrl+V.

@@ -141,12 +141,12 @@ const it: Dict = {
         text: "Dynamic resta in cima al desktop come una pillola piccola e discreta e si apre in due rapidi passaggi in un pannello ampio e basso (860 × 440). In basso, una barra di icone raccoglie fino a nove sezioni a scelta, più «Altro», la ricerca e il microfono.",
         points: [
           "Quattro stili compatti: Premium, Capsula, Indicatore e Adattivo, che cambia larghezza in base alle attività in corso.",
-          "Dodici temi, compreso Glass grigio fumo, personaggi dell'isola e gli occhi luminosi del logo.",
+          "Dodici temi, compreso Glass grigio fumo, personaggi dell'isola e gli occhi luminosi del logo. Glass è traslucido con gli effetti di trasparenza di Windows attivi; se sono disattivati usa un grigio opaco.",
           "Ancorata o mobile, posizionamento su più monitor e scorciatoie configurabili.",
           "Può nascondersi quando un'app a schermo intero occupa lo stesso monitor. Nessun overlay iniettato, nessuna cattura dello schermo.",
           "Le notifiche compaiono direttamente nell'isola compatta.",
         ],
-        status: "La trasparenza del tema Glass non è ancora stata verificata a schermo; con gli effetti di trasparenza di Windows disattivati diventa un grigio opaco.",
+        status: "",
       },
       {
         id: "voice", icon: "mic", title: "Voce e comandi locali",
@@ -189,7 +189,7 @@ const it: Dict = {
           "Tempo: timer, sveglie e promemoria.",
           "Condividi file: invia un file dal PC allo smartphone sulla rete locale con un QR e un collegamento a scadenza.",
         ],
-        status: "La condivisione di file è stata verificata dallo stesso PC ma non ancora con uno smartphone reale.",
+        status: "",
       },
       {
         id: "audio", icon: "music", title: "Musica e Centro audio",
@@ -208,7 +208,7 @@ const it: Dict = {
           "Gli eventi compaiono nell'isola compatta senza aprire finestre.",
           "Durante i giochi le WebView nascoste della messaggistica possono chiudersi per liberare memoria, mantenendo la sessione.",
         ],
-        status: "La ricezione delle notifiche di Telegram non è ancora stata confermata con un account reale.",
+        status: "",
       },
       {
         id: "system", icon: "gauge", title: "Hardware, dispositivi e modalità Gaming",
@@ -228,7 +228,7 @@ const it: Dict = {
           "Controlli autorizzati: volume, muto del microfono, timer del PC, Non disturbare e azioni rapide, solo su HTTPS.",
           "Spento di default, solo rete locale.",
         ],
-        status: "La verifica su iPhone, iPad e Android fisici è in corso.",
+        status: "",
       },
     ],
     themesTitle: "Dodici temi",
@@ -301,7 +301,7 @@ const it: Dict = {
       "Non approva le richieste di Claude Code o Codex. Le autorizzazioni restano sempre sul PC.",
     ],
     limitsTitle: "Stato attuale",
-    limits: "Companion è verificato con test automatici ed emulazione nel browser. Fiducia nella CA, icone della schermata Home e controlli remoti sono ancora in verifica su iPhone, iPad e Android fisici. Non è disponibile l'uso offline, perché la pagina non usa un service worker.",
+    limits: "Smartphone o tablet devono essere sulla stessa rete privata del PC: le reti ospiti con isolamento dei client bloccano Companion. Non è disponibile l'uso offline, perché la pagina non usa un service worker.",
     guideCta: "Leggi la guida a Companion",
   },
   performance: {
@@ -400,7 +400,6 @@ const it: Dict = {
     limitsTitle: "Limiti noti",
     limits: [
       "Interfaccia e voce sono in italiano.",
-      "Companion non ha ancora completato la verifica su iPhone, iPad e Android fisici.",
       "FPS e frame time in giochi reali, un secondo PC pulito, sospensione e ibernazione e lettori di schermo non sono ancora verificati.",
       "Manca ancora un certificato Authenticode, quindi SmartScreen può avvisare al primo avvio.",
     ],

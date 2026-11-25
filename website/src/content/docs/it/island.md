@@ -16,7 +16,7 @@ icon: panel-top
 In **Impostazioni → Aspetto e Home**:
 
 - **Forma dell'isola**: Premium, Capsula, Indicatore o Adattiva, che cambia larghezza in base alle attività in corso.
-- **Temi**: dodici temi, cioè Dynamic Original, Blu, Viola, Verde, Rosso, Midnight, Ocean, Aurora, Sunset, Emerald, Graphite e Glass. Glass diventa un grigio opaco quando gli effetti di trasparenza di Windows sono disattivati.
+- **Temi**: dodici temi, cioè Dynamic Original, Blu, Viola, Verde, Rosso, Midnight, Ocean, Aurora, Sunset, Emerald, Graphite e Glass. Glass è traslucido quando gli **Effetti di trasparenza** di Windows sono attivi; se sono disattivati usa un grigio opaco.
 - **Colori** e **Sfondo**: colore d'accento, colore degli occhi e sfondo.
 - **Personaggio dell'isola**, **Sguardo** e **Animazioni degli occhi**: il personaggio, se gli occhi seguono il cursore e quanto sono espressivi.
 - **Barra di navigazione**: fissa, riordina o rimuovi le sezioni della barra.

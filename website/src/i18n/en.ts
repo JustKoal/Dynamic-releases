@@ -140,12 +140,12 @@ const en = {
         text: "Dynamic sits at the top of the desktop as a small, low-distraction pill and opens into a wide, low panel (860 × 440) in two quick steps. An icon bar at the bottom holds up to nine sections of your choice plus «More», search and the microphone.",
         points: [
           "Four compact styles: Premium, Capsule, Indicator and Adaptive, which changes width with the activities in progress.",
-          "Twelve themes, including the smoke-grey Glass, island characters and the glowing eyes from the logo.",
+          "Twelve themes, including the smoke-grey Glass, island characters and the glowing eyes from the logo. Glass is translucent when Windows transparency effects are on; with them off it uses an opaque grey.",
           "Docked or floating, multi-monitor placement and configurable shortcuts.",
           "Can hide while a fullscreen app is on the same monitor. No overlay injection or screen capture.",
           "Notifications appear directly in the compact island.",
         ],
-        status: "The Glass theme's translucency has not yet been checked on screen; it falls back to opaque grey when Windows transparency effects are off.",
+        status: "",
       },
       {
         id: "voice", icon: "mic", title: "Voice and local commands",
@@ -188,7 +188,7 @@ const en = {
           "Time: timers, alarms and reminders.",
           "Share file: send a file from the PC to your phone on the local network with a QR code and a short-lived link.",
         ],
-        status: "Share file has been verified from the same PC but not yet with a real phone.",
+        status: "",
       },
       {
         id: "audio", icon: "music", title: "Music and audio centre",
@@ -207,7 +207,7 @@ const en = {
           "Events show up in the compact island without opening a window.",
           "Hidden messaging views can be closed during games to free memory, with the session kept intact.",
         ],
-        status: "Telegram notification reception has not been confirmed with a real account yet.",
+        status: "",
       },
       {
         id: "system", icon: "gauge", title: "Hardware, devices and Gaming mode",
@@ -227,7 +227,7 @@ const en = {
           "Authorised controls: volume, microphone mute, PC timers, Do Not Disturb and quick actions, only over HTTPS.",
           "Off by default, local network only.",
         ],
-        status: "Physical-device validation on iPhone, iPad and Android is in progress.",
+        status: "",
       },
     ],
     themesTitle: "Twelve themes",
@@ -300,7 +300,7 @@ const en = {
       "It does not approve Claude Code or Codex requests. Approvals always stay on the PC.",
     ],
     limitsTitle: "Current status",
-    limits: "Companion is validated with automated tests and browser emulation. CA trust, Home screen icons and remote controls are still being validated on physical iPhone, iPad and Android devices. There is no offline mode, because the page does not use a service worker.",
+    limits: "The phone or tablet must be on the same private network as the PC: guest networks with client isolation block Companion. There is no offline mode, because the page does not use a service worker.",
     guideCta: "Read the Companion guide",
   },
   performance: {
@@ -399,7 +399,6 @@ const en = {
     limitsTitle: "Known limitations",
     limits: [
       "The interface and voice are in Italian.",
-      "Companion has not completed validation on physical iPhone, iPad and Android devices.",
       "Real-game FPS and frame-time measurements, a clean second PC, suspend and hibernate, and screen readers are still unverified.",
       "There is no Authenticode certificate yet, so SmartScreen may warn on first run.",
     ],

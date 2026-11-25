@@ -16,7 +16,7 @@ icon: panel-top
 In **Settings → Aspetto e Home** (Appearance and Home):
 
 - **Forma dell'isola**: Premium, Capsule, Indicator or Adaptive, which changes width with the activities in progress.
-- **Temi**: twelve themes, namely Dynamic Original, Blue, Violet, Green, Red, Midnight, Ocean, Aurora, Sunset, Emerald, Graphite and Glass. Glass falls back to opaque grey when Windows transparency effects are off.
+- **Temi**: twelve themes, namely Dynamic Original, Blue, Violet, Green, Red, Midnight, Ocean, Aurora, Sunset, Emerald, Graphite and Glass. Glass is translucent when Windows **Transparency effects** are on; with them off it uses an opaque grey.
 - **Colori** and **Sfondo**: accent colour, eye colour and background.
 - **Personaggio dell'isola**, **Sguardo** and **Animazioni degli occhi**: the character, whether the eyes follow the cursor and how expressive they are.
 - **Barra di navigazione**: pin, reorder or remove sections in the icon bar.

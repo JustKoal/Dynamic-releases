@@ -47,4 +47,3 @@ Each device starts with **view** only. On the PC you can grant, per device and o
 
 - Guest networks with client isolation block Companion.
 - The page has no service worker, so it does not work offline.
-- Validation on physical iPhone, iPad and Android devices is still in progress.
