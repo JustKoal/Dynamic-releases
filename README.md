@@ -18,6 +18,8 @@
 </p>
 
 <p align="center">
+  <a href="https://justkoal.github.io/Dynamic-releases/"><b>Official website</b></a> ·
+  <a href="https://justkoal.github.io/Dynamic-releases/it/">Sito in italiano</a> ·
   <a href="https://github.com/JustKoal/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
   <a href="#video-di-presentazione">Video</a> ·
   <a href="#screenshots">Screenshots</a> ·
@@ -31,8 +33,8 @@
   <img src="docs/assets/screenshots/v7-02-home.webp" alt="Dynamic V7 Home: a large clock, the date, an AI status chip, three widgets (agents, now playing, timer) and the icon bar at the bottom" width="640">
 </p>
 
-> Dynamic is a personal Windows project. This repository hosts the public installers and the update feed; the source repository is private.
-> The «Source code» archives that GitHub attaches automatically to every release contain only this README and the screenshots, not the application code.
+> Dynamic is a personal Windows project. This repository hosts the public installers, the update feed and the source of the [official website](https://justkoal.github.io/Dynamic-releases/) (`website/`); the application source repository is private.
+> The «Source code» archives that GitHub attaches automatically to every release contain only this README, the screenshots and the website, not the application code.
 > The app interface and voice are in Italian. The installer is not Authenticode-signed, so Windows SmartScreen may warn on first run.
 
 ## Video di presentazione
@@ -197,6 +199,7 @@ minisign signature against the embedded public key, performs the per-user update
 
 ## Links
 
+- [Official website](https://justkoal.github.io/Dynamic-releases/) · [italiano](https://justkoal.github.io/Dynamic-releases/it/)
 - [Latest release and download](https://github.com/JustKoal/Dynamic-releases/releases/latest)
 - [All releases, notes and checksums](https://github.com/JustKoal/Dynamic-releases/releases)
 - [Update feed (`latest.json`)](https://github.com/JustKoal/Dynamic-releases/releases/latest/download/latest.json)
