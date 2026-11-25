@@ -1,0 +1,49 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Icon from "../../../components/Icon.astro";
+import { getCollection, render } from "astro:content";
+import { t, url, LANGS, type Lang } from "../../../i18n";
+
+export async function getStaticPaths() {
+  const all = await getCollection("docs");
+  return LANGS.flatMap((lang) => {
+    const docs = all.filter((e) => e.id.startsWith(`${lang}/`)).sort((a, b) => a.data.order - b.data.order);
+    return docs.map((entry, i) => ({
+      params: { lang: lang === "en" ? undefined : lang, slug: entry.id.split("/")[1] },
+      props: { lang, entry, prev: docs[i - 1], next: docs[i + 1] },
+    }));
+  });
+}
+const { lang, entry, prev, next } = Astro.props as { lang: Lang; entry: any; prev?: any; next?: any };
+const d = t(lang);
+const slug = entry.id.split("/")[1];
+const { Content } = await render(entry);
+const href = (e: any) => url(lang, `docs/${e.id.split("/")[1]}/`);
+---
+<Base lang={lang} path={`docs/${slug}/`} title={entry.data.title} description={entry.data.description}>
+  <article class="container doc">
+    <nav class="crumbs small" aria-label="Breadcrumb"><a href={url(lang, "docs/")}><Icon name="arrow-left" size={14} />{d.docs.all}</a></nav>
+    <header>
+      <span class="icon-chip"><Icon name={entry.data.icon} size={22} /></span>
+      <h1 class="h1">{entry.data.title}</h1>
+      <p class="lead">{entry.data.description}</p>
+    </header>
+    <div class="prose"><Content /></div>
+    <nav class="pager" aria-label={d.docs.all}>
+      {prev ? <a class="card" href={href(prev)} rel="prev"><span class="muted small">{d.docs.prev}</span><strong>{prev.data.title}</strong></a> : <span />}
+      {next && <a class="card next" href={href(next)} rel="next"><span class="muted small">{d.docs.next}</span><strong>{next.data.title}</strong></a>}
+    </nav>
+  </article>
+</Base>
+<style>
+  .doc { max-width: calc(820px + 2 * var(--gutter)); padding-top: 40px; padding-bottom: var(--section); }
+  .crumbs a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: var(--text-3); text-decoration: none; }
+  .crumbs a:hover { color: var(--text); }
+  header { padding: 24px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 8px; }
+  header .icon-chip { margin-bottom: 20px; }
+  header .lead { margin-top: 16px; }
+  .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 64px; }
+  .pager .card { display: grid; gap: 4px; padding: 20px 24px; }
+  .pager .next { text-align: right; }
+  @media (max-width: 560px) { .pager { grid-template-columns: 1fr; } .pager .next { text-align: left; } }
+</style>

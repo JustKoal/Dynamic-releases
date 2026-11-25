@@ -1,0 +1,176 @@
+---
+import "../styles/global.css";
+import fontLatin from "../../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
+import Icon from "../components/Icon.astro";
+import { t, url, alternates, asset, type Lang, LANGS } from "../i18n";
+import { REPO_URL, RELEASES_URL } from "../lib/releases";
+
+interface Props {
+  lang: Lang;
+  /** page path without language prefix, e.g. "features/" ("" for home) */
+  path: string;
+  title?: string; // omitted on home
+  description: string;
+  ogImage?: string;
+  jsonLd?: object;
+  noindex?: boolean;
+}
+const { lang, path, title, description, ogImage, jsonLd, noindex } = Astro.props;
+const d = t(lang);
+const alt = alternates(path);
+const site = Astro.site!;
+const canonical = new URL(alt[lang], site).href;
+const fullTitle = title ? `${title} · Dynamic` : d.site.title;
+const og = new URL(asset(ogImage ?? `og-${lang}.png`), site).href;
+const other = LANGS.find((l) => l !== lang)!;
+const switchHref = noindex ? url(other) : alt[other]; // the 404 page has no translated twin
+const gsc = process.env.GOOGLE_SITE_VERIFICATION; // optional, set as a repository variable for Search Console
+
+const nav = [
+  { key: "features", href: url(lang, "features/"), label: d.nav.features },
+  { key: "companion", href: url(lang, "companion/"), label: d.nav.companion },
+  { key: "performance", href: url(lang, "performance/"), label: d.nav.performance },
+  { key: "docs", href: url(lang, "docs/"), label: d.nav.docs },
+  { key: "changelog", href: url(lang, "changelog/"), label: d.nav.changelog },
+];
+const current = (href: string) => (alt[lang] === href || (href !== url(lang) && alt[lang].startsWith(href)) ? "page" : undefined);
+---
+<!doctype html>
+<html lang={lang} dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex" /> : LANGS.map((l) => <link rel="alternate" hreflang={l} href={new URL(alt[l], site).href} />)}
+    {!noindex && <link rel="alternate" hreflang="x-default" href={new URL(alt.en, site).href} />}
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href={asset("favicon.ico")} sizes="any" />
+    <link rel="icon" type="image/png" href={asset("favicon-32.png")} sizes="32x32" />
+    <link rel="apple-touch-icon" href={asset("apple-touch-icon.png")} />
+    <link rel="sitemap" href={asset("sitemap.xml")} />
+    <link rel="preload" href={fontLatin} as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Dynamic" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={d.ogLocale} />
+    <meta property="og:locale:alternate" content={t(other).ogLocale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={og} />
+    {gsc && <meta name="google-site-verification" content={gsc} />}
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    <script is:inline define:vars={{ lang, alt, noindex }}>
+      // Honour an explicit language choice made with the switcher (no automatic browser-language redirects).
+      try { var p = localStorage.getItem("dynamic.lang"); if (!noindex && p && p !== lang && alt[p]) location.replace(alt[p] + location.hash); } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{d.nav.skip}</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href={url(lang)}>
+          <Image src={logo} alt="" width={28} height={28} widths={[28, 56]} sizes="28px" loading="eager" />
+          <span>Dynamic</span>
+        </a>
+        <nav class="nav-desktop" aria-label={d.nav.primary}>
+          <ul>{nav.map((n) => <li><a href={n.href} aria-current={current(n.href)}>{n.label}</a></li>)}</ul>
+        </nav>
+        <div class="header-actions">
+          <a class="icon-btn hide-xs" href={REPO_URL} aria-label={d.nav.github} title="GitHub"><Icon name="github" size={20} /></a>
+          <a class="icon-btn" href={switchHref} hreflang={other} lang={other} data-lang={other} aria-label={t(other).name} title={t(other).name}>
+            <Icon name="languages" size={18} class="hide-xs" /><span class="lang-code">{other.toUpperCase()}</span>
+          </a>
+          <a class="btn btn-primary btn-sm" href={url(lang, "download/")}>{d.nav.download}</a>
+          <details class="nav-mobile">
+            <summary class="icon-btn" aria-label={d.nav.menu}><Icon name="menu" size={22} /></summary>
+            <nav class="panel" aria-label={d.nav.primary}>
+              <ul>
+                {nav.map((n) => <li><a href={n.href} aria-current={current(n.href)}>{n.label}</a></li>)}
+                <li><a href={url(lang, "download/")} aria-current={current(url(lang, "download/"))}>{d.nav.download}</a></li>
+              </ul>
+              <hr />
+              <ul>
+                <li><a href={REPO_URL}><Icon name="github" size={18} />GitHub</a></li>
+              </ul>
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href={url(lang)}><Image src={logo} alt="" width={28} height={28} widths={[28, 56]} sizes="28px" /><span>Dynamic</span></a>
+            <p style="margin-top:14px;max-width:36ch">{d.footer.tagline}</p>
+          </div>
+          <div>
+            <h2>{d.footer.product}</h2>
+            <ul>
+              <li><a href={url(lang, "features/")}>{d.nav.features}</a></li>
+              <li><a href={url(lang, "companion/")}>{d.nav.companion}</a></li>
+              <li><a href={url(lang, "performance/")}>{d.nav.performance}</a></li>
+              <li><a href={url(lang, "download/")}>{d.nav.download}</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>{d.footer.resources}</h2>
+            <ul>
+              <li><a href={url(lang, "docs/")}>{d.nav.docs}</a></li>
+              <li><a href={url(lang, "faq/")}>{d.footer.faq}</a></li>
+              <li><a href={url(lang, "changelog/")}>{d.nav.changelog}</a></li>
+              <li><a href={url(lang, "privacy/")}>{d.footer.privacy}</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>{d.footer.project}</h2>
+            <ul>
+              <li><a href={REPO_URL}>GitHub</a></li>
+              <li><a href={RELEASES_URL}>{d.footer.releases}</a></li>
+              <li><a href={`${RELEASES_URL}/latest/download/latest.json`}>{d.footer.feed}</a></li>
+              <li><a href={switchHref} hreflang={other} lang={other} data-lang={other}>{t(other).name}</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer-note">{d.footer.note} © {new Date().getUTCFullYear()} JustKoal.</p>
+      </div>
+    </footer>
+
+    <script is:inline>
+      // Tiny progressive enhancements: remember the language choice, copy buttons, Escape closes the mobile menu.
+      document.addEventListener("click", function (e) {
+        var l = e.target.closest("[data-lang]");
+        if (l) try { localStorage.setItem("dynamic.lang", l.getAttribute("data-lang")); } catch (x) {}
+        var c = e.target.closest("[data-copy]");
+        if (c && navigator.clipboard) {
+          navigator.clipboard.writeText(c.getAttribute("data-copy")).then(function () {
+            var s = c.querySelector("span"), o = s.textContent;
+            s.textContent = c.getAttribute("data-copied");
+            setTimeout(function () { s.textContent = o; }, 1800);
+          });
+        }
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key !== "Escape") return;
+        var m = document.querySelector(".nav-mobile[open]");
+        if (m) { m.open = false; m.querySelector("summary").focus(); }
+      });
+    </script>
+  </body>
+</html>

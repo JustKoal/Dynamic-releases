@@ -1,0 +1,90 @@
+---
+import Base from "../../layouts/Base.astro";
+import Icon from "../../components/Icon.astro";
+import { t, url, langPaths, type Lang } from "../../i18n";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const p = d.performance;
+---
+<Base lang={lang} path="performance/" title={p.title} description={p.description}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{p.eyebrow}</p>
+      <h1 class="h1" style="max-width:18ch">{p.heading}</h1>
+      <p class="lead">{p.sub}</p>
+    </div>
+  </section>
+
+  <section class="section-tight divider" aria-labelledby="pr-t">
+    <div class="container">
+      <div class="section-head"><h2 id="pr-t" class="h2">{p.principlesTitle}</h2></div>
+      <div class="grid-4">
+        {p.principles.map((x) => (
+          <div class="card reveal">
+            <span class="icon-chip"><Icon name={x.icon} size={22} /></span>
+            <h3 class="h3">{x.title}</h3>
+            <p>{x.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section divider" id="gaming" aria-labelledby="g-t">
+    <div class="container grid-2 gaming">
+      <div>
+        <span class="icon-chip" style="margin-bottom:20px"><Icon name="gamepad-2" size={22} /></span>
+        <h2 id="g-t" class="h2">{p.gamingTitle}</h2>
+        <p class="lead" style="margin-top:14px">{p.gamingText}</p>
+      </div>
+      <div class="card"><ul class="checks">{p.gamingPoints.map((g) => <li><Icon name="check" size={18} /><span>{g}</span></li>)}</ul></div>
+    </div>
+  </section>
+
+  <section class="section divider" id="benchmarks" aria-labelledby="b-t">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="b-t" class="h2">{p.benchTitle}</h2>
+        <p class="lead">{p.benchIntro}</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <caption class="visually-hidden">{p.benchTitle}</caption>
+          <thead><tr>{p.benchCols.map((c) => <th scope="col">{c}</th>)}</tr></thead>
+          <tbody>
+            {p.benchRows.map((r) => (
+              <tr><th scope="row">{r[0]}</th><td class="num">{r[1]}</td><td class="num after">{r[2]}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" style="margin-top:16px">{p.benchIdle}</p>
+      <dl class="context card">
+        {p.benchContext.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+      </dl>
+      <p class="note" style="margin-top:16px"><Icon name="circle-alert" size={18} /><span>{p.benchLimits}</span></p>
+    </div>
+  </section>
+
+  <section class="section divider" aria-labelledby="c-t">
+    <div class="container grid-2" style="align-items:start">
+      <h2 id="c-t" class="h2">{p.claimsTitle}</h2>
+      <ul class="checks">{p.claims.map((c) => <li><Icon name="minus" size={18} /><span>{c}</span></li>)}</ul>
+    </div>
+    <div class="container" style="margin-top:48px">
+      <a class="link" href={url(lang, "docs/gaming-mode/")}>{d.common.readGuide}<Icon name="arrow-right" size={16} /></a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .gaming { align-items: center; gap: clamp(24px, 5vw, 64px); }
+  td.after { color: var(--text); font-weight: 600; }
+  .context { margin: 24px 0 0; display: grid; gap: 16px; }
+  .context div { display: grid; grid-template-columns: 140px 1fr; gap: 16px; }
+  .context dt { color: var(--text-3); font-weight: 600; font-size: 0.875rem; }
+  .context dd { margin: 0; color: var(--text-2); }
+  @media (max-width: 640px) { .context div { grid-template-columns: 1fr; gap: 4px; } }
+</style>

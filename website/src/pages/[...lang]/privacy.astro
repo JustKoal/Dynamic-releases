@@ -1,0 +1,61 @@
+---
+import Base from "../../layouts/Base.astro";
+import Icon from "../../components/Icon.astro";
+import { t, langPaths, type Lang } from "../../i18n";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const p = d.privacy;
+const lists = [
+  { id: "credentials", icon: "key-round", title: p.credentialsTitle, items: p.credentials },
+  { id: "companion", icon: "smartphone", title: p.companionTitle, items: p.companion },
+  { id: "website", icon: "globe", title: p.siteTitle, items: p.site },
+];
+---
+<Base lang={lang} path="privacy/" title={p.title} description={p.description}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow"><Icon name="shield-check" size={16} />{p.eyebrow}</p>
+      <h1 class="h1" style="max-width:20ch">{p.heading}</h1>
+      <p class="lead">{p.sub}</p>
+    </div>
+  </section>
+
+  {[
+    { id: "local", title: p.localTitle, sub: "", rows: p.local },
+    { id: "cloud", title: p.cloudTitle, sub: p.cloudSub, rows: p.cloud },
+  ].map((s) => (
+    <section class="section-tight divider" id={s.id} aria-labelledby={`${s.id}-t`}>
+      <div class="container">
+        <div class="section-head">
+          <h2 id={`${s.id}-t`} class="h2">{s.title}</h2>
+          {s.sub && <p class="lead">{s.sub}</p>}
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption class="visually-hidden">{s.title}</caption>
+            <thead><tr>{p.dataCols.map((c) => <th scope="col">{c}</th>)}</tr></thead>
+            <tbody>{s.rows.map(([k, v]) => <tr><th scope="row">{k}</th><td>{v}</td></tr>)}</tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="section-tight divider" style="padding-bottom:var(--section)">
+    <div class="container grid-3" style="align-items:start">
+      {lists.map((l) => (
+        <div class="card" id={l.id}>
+          <span class="icon-chip"><Icon name={l.icon} size={22} /></span>
+          <h2 class="h3">{l.title}</h2>
+          <ul class="checks" style="margin-top:16px">{l.items.map((x) => <li><Icon name="check" size={18} /><span>{x}</span></li>)}</ul>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>
+<style>
+  .card .icon-chip { margin-bottom: 16px; }
+  tbody th { width: 30%; }
+</style>

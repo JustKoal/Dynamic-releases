@@ -1,0 +1,33 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Icon from "../../../components/Icon.astro";
+import { getCollection } from "astro:content";
+import { t, url, langPaths, type Lang } from "../../../i18n";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const docs = (await getCollection("docs", (e) => e.id.startsWith(`${lang}/`))).sort((a, b) => a.data.order - b.data.order);
+---
+<Base lang={lang} path="docs/" title={d.docs.title} description={d.docs.description}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{d.docs.eyebrow}</p>
+      <h1 class="h1">{d.docs.heading}</h1>
+      <p class="lead">{d.docs.sub}</p>
+      <p class="muted small" style="margin-top:12px">{d.common.italianLabels}</p>
+    </div>
+  </section>
+  <section class="divider section-tight" style="padding-bottom:var(--section)">
+    <div class="container grid-3">
+      {docs.map((e) => (
+        <a class="card" href={url(lang, `docs/${e.id.split("/")[1]}/`)}>
+          <span class="icon-chip"><Icon name={e.data.icon} size={22} /></span>
+          <h2 class="h3">{e.data.title}</h2>
+          <p>{e.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
+<style>.card .icon-chip { margin-bottom: 16px; }</style>

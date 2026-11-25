@@ -1,0 +1,154 @@
+---
+import Base from "../../layouts/Base.astro";
+import Icon from "../../components/Icon.astro";
+import Shot from "../../components/Shot.astro";
+import Device from "../../components/Device.astro";
+import { t, url, langPaths, type Lang } from "../../i18n";
+import type { ImageMetadata } from "astro";
+import home from "../../assets/shots/v7-02-home.webp";
+import chat from "../../assets/shots/v7-03-chat.webp";
+import agents from "../../assets/shots/v7-10-agents.webp";
+import calendar from "../../assets/shots/v7-05-calendar.webp";
+import notes from "../../assets/shots/v7-06-notes.webp";
+import tempo from "../../assets/shots/v7-09-tempo.webp";
+import share from "../../assets/shots/v7-08-share.webp";
+import music from "../../assets/shots/v7-04-music.webp";
+import messages from "../../assets/shots/v7-07-messages.webp";
+import appearance from "../../assets/shots/v7-12-settings-appearance.webp";
+import iphone from "../../assets/shots/companion-iphone.webp";
+import compact from "../../assets/shots/v7-01-compact.webp";
+import capsule from "../../assets/shots/v7-14-notch-capsule.webp";
+import indicator from "../../assets/shots/v7-15-notch-indicator.webp";
+import notice from "../../assets/shots/v7-13-notice.webp";
+import blue from "../../assets/shots/v7-20-theme-blue.webp";
+import violet from "../../assets/shots/v7-20-theme-violet.webp";
+import green from "../../assets/shots/v7-20-theme-green.webp";
+import sunset from "../../assets/shots/v7-20-theme-sunset.webp";
+import ocean from "../../assets/shots/v7-20-theme-ocean.webp";
+import red from "../../assets/shots/v7-20-theme-red.webp";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const f = d.features;
+const it = lang === "it";
+
+// Real screenshots for each section (alt text describes what is visible).
+const media: Record<string, { src: ImageMetadata; alt: string }[]> = {
+  island: [{ src: appearance, alt: it ? "Impostazioni → Aspetto: temi, forma dell'isola e personaggio" : "Settings → Appearance: themes, island shape and character" }],
+  voice: [{ src: chat, alt: it ? "Chat: i comandi locali rispondono anche senza AI collegata" : "Chat: local commands answer even with no AI connected" }],
+  ai: [{ src: agents, alt: it ? "Pagina Agenti con sessioni di Claude Code e Codex, una in attesa di autorizzazione" : "Agents page with Claude Code and Codex sessions, one waiting for authorisation" }],
+  productivity: [
+    { src: calendar, alt: it ? "Calendario mensile con agenda" : "Monthly calendar with agenda" },
+    { src: notes, alt: it ? "Note locali con ricerca" : "Local notes with search" },
+    { src: tempo, alt: it ? "Tempo: timer, sveglie e promemoria" : "Time: timers, alarms and reminders" },
+    { src: share, alt: it ? "Condividi file con QR sulla rete locale" : "Share file with a QR code on the local network" },
+  ],
+  audio: [{ src: music, alt: it ? "Musica: copertina, avanzamento e controlli della sessione di Windows" : "Music: cover, timeline and controls for the Windows media session" }],
+  messages: [{ src: messages, alt: it ? "Messaggi: WhatsApp e Telegram in un unico posto, non collegati" : "Messages: WhatsApp and Telegram in one place, shown not connected" }],
+  system: [{ src: home, alt: it ? "Home con stato dei dispositivi, agenti, musica e timer" : "Home with device status, agents, music and timer" }],
+};
+// Default shortcuts (desktop/docs/SCORCIATOIE.md). Only Show/hide is global on first start; the others can be made global.
+const keys: [string, string, string][] = [
+  ["D", "Show / hide Dynamic", "Mostra / nascondi Dynamic"], ["K", "Command Palette", "Command Palette"], ["V", "Voice listening", "Ascolto vocale"],
+  ["A", "AI chat", "Chat AI"], ["U", "Audio centre", "Centro audio"], ["M", "Music", "Musica"], ["N", "Notes", "Note"], ["T", "Time", "Tempo"],
+];
+const themes = [
+  { src: blue, name: "Blue" }, { src: violet, name: "Violet" }, { src: green, name: "Green" },
+  { src: red, name: "Red" }, { src: ocean, name: "Ocean" }, { src: sunset, name: "Sunset" },
+];
+---
+<Base lang={lang} path="features/" title={f.title} description={f.description}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{f.eyebrow}</p>
+      <h1 class="h1" style="max-width:18ch">{f.heading}</h1>
+      <p class="lead">{f.sub}</p>
+      <nav class="toc" aria-label={d.common.onThisPage}>
+        <ul class="pills">{f.sections.map((s) => <li><a href={`#${s.id}`}>{s.title}</a></li>)}</ul>
+      </nav>
+    </div>
+  </section>
+
+  {f.sections.map((s, i) => (
+    <section class="section-tight divider feature" id={s.id} aria-labelledby={`${s.id}-t`}>
+      <div class:list={["container", "feature-row", { flip: i % 2 === 1 }]}>
+        <div class="feature-text reveal">
+          <span class="icon-chip"><Icon name={s.icon} size={22} /></span>
+          <h2 id={`${s.id}-t`} class="h2">{s.title}</h2>
+          <p class="lead" style="margin-top:14px">{s.text}</p>
+          <ul class="checks" style="margin-top:24px">
+            {s.points.map((p) => <li><Icon name="check" size={18} /><span>{p}</span></li>)}
+          </ul>
+          {s.status && <p class="note" style="margin-top:24px"><Icon name="flask-conical" size={18} /><span><strong>{d.common.validating}.</strong> {s.status}</span></p>}
+          {s.id === "companion" && <a class="btn btn-ghost" style="margin-top:28px" href={url(lang, "companion/")}>{d.home.companionCta}<Icon name="arrow-right" size={18} /></a>}
+          {s.id === "system" && <a class="link" style="margin-top:24px" href={url(lang, "performance/#gaming")}>{d.nav.performance}<Icon name="arrow-right" size={16} /></a>}
+        </div>
+        <div class="feature-media reveal">
+          {s.id === "companion" ? (
+            <Device kind="phone" src={iphone} alt={d.companion.shotsAlt.iphone} sizes="(max-width: 900px) 70vw, 300px" class="phone-solo" />
+          ) : s.id === "island" ? (
+            <div class="island-demo">
+              <Shot src={compact} alt="Premium" sizes="260px" widths={[260, 344]} />
+              <Shot src={capsule} alt={it ? "Capsula" : "Capsule"} sizes="224px" widths={[224, 296]} />
+              <Shot src={indicator} alt={it ? "Indicatore" : "Indicator"} sizes="176px" widths={[176, 232]} />
+              <Shot src={notice} alt={it ? "Notifica nell'isola compatta" : "Notification in the compact island"} sizes="(max-width: 640px) 80vw, 460px" widths={[460, 800]} class="notice" />
+            </div>
+          ) : s.id === "palette" ? (
+            <div class="card keys-card">
+              <table>
+                <caption class="visually-hidden">{it ? "Scorciatoie predefinite" : "Default shortcuts"}</caption>
+                <tbody>{keys.map(([k, en, itl]) => <tr><th scope="row">{it ? itl : en}</th><td class="num"><kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>{k}</kbd></td></tr>)}</tbody>
+              </table>
+              <p class="small muted" style="margin-top:14px">{it ? "Al primo avvio è globale solo «Mostra / nascondi»; le altre funzionano con Dynamic in primo piano e si possono rendere globali, modificare o disattivare." : "On first start only «Show / hide» is global; the others work while Dynamic is focused and can be made global, changed or turned off."}</p>
+            </div>
+          ) : media[s.id].length > 1 ? (
+            <div class="shot-grid">{media[s.id].map((m) => <Shot src={m.src} alt={m.alt} sizes="(max-width: 900px) 45vw, 300px" widths={[400, 800]} class="shot framed" />)}</div>
+          ) : (
+            <Shot src={media[s.id][0].src} alt={media[s.id][0].alt} sizes="(max-width: 900px) 92vw, 620px" class="shot framed" />
+          )}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="section divider" aria-labelledby="themes-t">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="themes-t" class="h2">{f.themesTitle}</h2>
+        <p class="lead">{f.themesSub}</p>
+      </div>
+      <ul class="themes">
+        {themes.map((th) => <li><Shot src={th.src} alt={`${th.name}`} sizes="(max-width: 640px) 92vw, (max-width: 1000px) 45vw, 380px" widths={[400, 800]} class="shot framed" /><span>{th.name}</span></li>)}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .toc { margin-top: 32px; }
+  .toc a { color: inherit; text-decoration: none; }
+  .toc li:hover { border-color: var(--border-strong); color: var(--text); }
+  .feature-row { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 80px); align-items: center; }
+  .feature-row.flip .feature-text { order: 2; }
+  .feature-text .icon-chip { margin-bottom: 20px; }
+  .feature-media :global(.framed) { border: 1px solid var(--border); box-shadow: 0 24px 60px rgb(0 0 0 / 0.6); width: 100%; }
+  .keys-card { padding: 12px 16px 20px; }
+  .keys-card td { text-align: right; }
+  .keys-card th, .keys-card td { padding: 12px 8px; }
+  .shot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .island-demo { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 56px 20px; border-radius: var(--r-l); background: #000; border: 1px solid var(--border); }
+  .island-demo :global(img:nth-child(1)) { width: min(260px, 70%); }
+  .island-demo :global(img:nth-child(2)) { width: min(224px, 60%); }
+  .island-demo :global(img:nth-child(3)) { width: min(176px, 48%); }
+  .island-demo :global(.notice) { width: min(460px, 100%); margin-top: 16px; }
+  .feature-media :global(.phone-solo) { width: min(300px, 70%); margin-inline: auto; }
+  .themes { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .themes span { display: block; margin-top: 10px; color: var(--text-2); font-size: 0.9375rem; }
+  @media (max-width: 1000px) { .themes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 900px) {
+    .feature-row { grid-template-columns: minmax(0, 1fr); }
+    .feature-row.flip .feature-text { order: 0; }
+  }
+  @media (max-width: 640px) { .themes { grid-template-columns: minmax(0, 1fr); } }
+</style>

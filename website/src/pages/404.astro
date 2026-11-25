@@ -1,0 +1,30 @@
+---
+// GitHub Pages serves this for any missing URL, in either language: show both.
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import { t, url } from "../i18n";
+const en = t("en").notFound;
+const it = t("it").notFound;
+---
+<Base lang="en" path="404/" title={en.title} description={en.text} noindex>
+  <section class="section">
+    <div class="container center nf">
+      <span class="eyes" aria-hidden="true"><i></i><i></i></span>
+      <p class="eyebrow">404</p>
+      <h1 class="h1">{en.heading}</h1>
+      <p class="lead center">{en.text}</p>
+      <p class="lead center" lang="it">{it.heading} {it.text}</p>
+      <div class="cta">
+        <a class="btn btn-primary" href={url("en")}><Icon name="house" size={18} />{en.home}</a>
+        <a class="btn btn-ghost" href={url("it")} lang="it" hreflang="it">{it.home}</a>
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  .nf { padding-block: 40px; }
+  .eyes { display: inline-flex; gap: 14px; margin-bottom: 28px; }
+  .eyes i { width: 22px; height: 12px; border-radius: 12px; background: var(--eye); box-shadow: 0 0 22px 4px rgb(130 150 220 / 0.5); }
+  .lead + .lead { margin-top: 8px; color: var(--text-3); }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 32px; }
+</style>

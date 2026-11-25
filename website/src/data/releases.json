@@ -1,0 +1,452 @@
+[
+ {
+  "tag": "v0.6.1",
+  "version": "0.6.1",
+  "name": "Dynamic 0.6.1",
+  "date": "2026-11-24T22:02:48Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.6.1",
+  "notes": "# Dynamic 0.6.1\n\nAggiornamento di Companion per iPhone e iPad.\n\n- **Connessione sicura guidata.** In **Impostazioni → Companion → Configura iPhone o iPad**, scansiona il QR e apri la guida in Safari. Scarica il profilo con il solo certificato pubblico, confronta l'impronta SHA-256 con quella sul PC e segui le istruzioni per attivare l'attendibilità completa.\n- **Icona Home di Dynamic.** La pagina offre l'Apple Touch Icon e i PNG del logo da 192 e 512 px. Dopo aver aperto HTTPS senza avvisi, aggiungi Companion alla Home da Safari. Una scorciatoia precedente può mantenere la vecchia icona.\n- **Indirizzo e associazione.** Usa lo stesso indirizzo per ritrovare associazione e personalizzazioni. Per una nuova associazione puoi scegliere il nome `.local` se la rete lo risolve. L'accesso tramite IP resta disponibile.\n\nIl server conserva la CA esistente e la riusa quando rinnova il certificato HTTPS. Il collaudo finale della fiducia e della nuova icona su iPhone e iPad fisici è ancora in corso.\n\nAggiorna Dynamic da **Impostazioni → Informazioni** o scarica l'installer Windows x64 da questa pagina.\n",
+  "installer": {
+   "name": "Dynamic_0.6.1_x64-setup.exe",
+   "size": 430970765,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.6.1/Dynamic_0.6.1_x64-setup.exe",
+   "sha256": "0a489cc194247eac26797bdb91396a4e95470e93120a2e1ab3f89498ea8de563"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.6.1/latest.json"
+ },
+ {
+  "tag": "v0.6.0",
+  "version": "0.6.0",
+  "name": "Dynamic 0.6.0",
+  "date": "2026-11-24T21:27:13Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.6.0",
+  "notes": "Dynamic 0.6.0 aggiunge HTTPS locale per Companion, permessi e controlli remoti per dispositivo, nuovi widget, Command Palette estesa e sessioni agenti concorrenti. Include correzioni di stabilita e un installer piu leggero. Le approvazioni degli agenti restano sul PC; i collaudi su dispositivi fisici e giochi reali restano manuali.",
+  "installer": {
+   "name": "Dynamic_0.6.0_x64-setup.exe",
+   "size": 430947766,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.6.0/Dynamic_0.6.0_x64-setup.exe",
+   "sha256": "7c203c4f81d1bf49b770d86f874bac9d55339ca98bc406fc2b1e197cf4617a89"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.6.0/latest.json"
+ },
+ {
+  "tag": "v0.4.1",
+  "version": "0.4.1",
+  "name": "Dynamic 0.4.1",
+  "date": "2026-11-24T16:05:05Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.4.1",
+  "notes": "## Dynamic 0.4.1\r\n\r\n- Nuova pagina Sistema per CPU, GPU/VRAM, RAM, rete e dischi, con aggiornamento configurabile a 1/2/5 secondi.\r\n- Temperatura CPU opzionale tramite memoria condivisa di MSI Afterburner o HWiNFO, senza installare driver.\r\n- Dynamic Companion, ancora in evoluzione: dashboard locale per smartphone e tablet con 8 widget, riordino, dimensioni e temi per dispositivo.\r\n- Centro audio con mixer per applicazione, ingressi/uscite e controllo del muto del microfono.\r\n- Modalità Gaming: sospensione del wake word e delle WebView nascoste per ridurre processi e memoria.\r\n- Miglioramenti a lifecycle, sicurezza del server locale, stabilità e gestione delle risorse.\r\n\r\n### Limiti dichiarati\r\n\r\nCompanion non è ancora collaudato integralmente su dispositivi fisici. Hook Codex non considerato verificato; PawnIO solo pianificato; nessun incremento degli FPS dichiarato. Il mixer remoto di Companion resta in sola lettura su HTTP locale.\r\n\r\n### Integrità\r\n\r\nSHA-256 `Dynamic_0.4.1_x64-setup.exe`: `4538a8ab153da80b89c11faa7e9dd5ebdbfdd9fd2df11399f13c8d897e4bd7ea`",
+  "installer": {
+   "name": "Dynamic_0.4.1_x64-setup.exe",
+   "size": 461563157,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.4.1/Dynamic_0.4.1_x64-setup.exe",
+   "sha256": "4538a8ab153da80b89c11faa7e9dd5ebdbfdd9fd2df11399f13c8d897e4bd7ea"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.4.1/latest.json"
+ },
+ {
+  "tag": "v0.3.1",
+  "version": "0.3.1",
+  "name": "Dynamic 0.3.1",
+  "date": "2026-11-13T17:37:27Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.3.1",
+  "notes": "Pulsante Estendi/Comprimi nell'intestazione, Impostazioni sempre estese, menu con le sole voci Centra Dynamic ed Esci da Dynamic, testo del composer della Chat centrato.",
+  "installer": {
+   "name": "Dynamic_0.3.1_x64-setup.exe",
+   "size": 381498566,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.1/Dynamic_0.3.1_x64-setup.exe",
+   "sha256": "253013483d19329eed902e2e3b48f30cc390c77de88d20b7c21670bf9ac7f513"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.1/latest.json"
+ },
+ {
+  "tag": "v0.3.0",
+  "version": "0.3.0",
+  "name": "Dynamic 0.3.0",
+  "date": "2026-11-13T16:32:27Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.3.0",
+  "notes": "Nuova interfaccia V7: pannello più ampio e basso con la barra a icone in fondo, apertura più rapida in due fasi, Home con orologio e tre widget, dodici temi con il nuovo Glass grigio fumé e Impostazioni orizzontali. Nuova funzione «Condividi file»: invia un file dal PC al telefono sulla rete locale con un codice QR (HTTP non cifrato: solo su reti attendibili), anche trascinandolo da Esplora file. Notch Premium più piccola. Il profilo della 0.2.x resta: account, preferenze, temi, note, calendario, promemoria, voce, scorciatoie e agenti; la barra di navigazione viene ampliata conservando l'ordine scelto.",
+  "installer": {
+   "name": "Dynamic_0.3.0_x64-setup.exe",
+   "size": 381501464,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.0/Dynamic_0.3.0_x64-setup.exe",
+   "sha256": "d01b9c6b907620f1891ed78b3ef93c3cceee7bb26206e307e844d2a0a5cefc4d"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.3.0/latest.json"
+ },
+ {
+  "tag": "v0.2.11",
+  "version": "0.2.11",
+  "name": "Dynamic 0.2.11",
+  "date": "2026-11-12T21:04:00Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.2.11",
+  "notes": "Chat AI temporanea: una conversazione per provider, solo in memoria e senza cronologia. «Nuova chat» chiede conferma ed elimina messaggi, allegati, testo non inviato e contesto del provider selezionato. Le conversazioni salvate dalle versioni precedenti vengono eliminate solo dopo l'avviso nella Chat («Elimina» o «Più tardi»).",
+  "installer": {
+   "name": "Dynamic_0.2.11_x64-setup.exe",
+   "size": 382085731,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.11/Dynamic_0.2.11_x64-setup.exe",
+   "sha256": "bcee073c9a5bccb097dabb7b5f4917e78204f8e93e4fba23c887398ca8eadd1c"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.11/latest.json"
+ },
+ {
+  "tag": "v0.2.10",
+  "version": "0.2.10",
+  "name": "Dynamic 0.2.10",
+  "date": "2026-11-12T19:32:27Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.2.10",
+  "notes": "Dynamic 0.2.10: the «Ehi Dynamic» wake word is more reliable. It now also accepts the forms the speech engine really writes when the name runs into the next word or the greeting is repeated (synthetic-voice tests: 74 of 80 activations instead of 67, still no false positives; similar Italian words still do not activate it). «Apri TIDAL» heard as «Apriti dal» is now recognised, with a confirmation. Transcription accuracy is unchanged. Downloads and updates now come from github.com/JustKoal/Dynamic-releases; earlier versions keep finding updates through the GitHub redirect, with the same signature check.",
+  "installer": {
+   "name": "Dynamic_0.2.10_x64-setup.exe",
+   "size": 382098036,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.10/Dynamic_0.2.10_x64-setup.exe",
+   "sha256": "6789d1adeab1267756f7246db85921084d7dedfff0359fb7adfcb5f6796c8e25"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.10/latest.json"
+ },
+ {
+  "tag": "v0.2.9",
+  "version": "0.2.9",
+  "name": "Dynamic 0.2.9",
+  "date": "2026-11-12T17:36:55Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.2.9",
+  "notes": "Dynamic 0.2.9: Parakeet Ultra is now the only speech recognition engine and Whisper has been removed, so the installer is about 235 MB smaller (382 MB instead of 617 MB) and the update removes the old Whisper models. Parakeet (550 MB) is downloaded from Settings > Voice only when you ask; if you already have it, it is used right away. With the wake word on, only the small voice detector stays loaded at rest. Voice settings are simpler and your microphone, wake word and name are kept.",
+  "installer": {
+   "name": "Dynamic_0.2.9_x64-setup.exe",
+   "size": 382091473,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.9/Dynamic_0.2.9_x64-setup.exe",
+   "sha256": "72d70d9dec1004cb96adad175a1fc52e3e22d10cda62fae5bc22b1c5ea357224"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.9/latest.json"
+ },
+ {
+  "tag": "v0.2.8",
+  "version": "0.2.8",
+  "name": "Dynamic 0.2.8",
+  "date": "2026-11-12T16:21:23Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.2.8",
+  "notes": "Dynamic 0.2.8: the four Home cards and the navigation bar moved to Appearance & Home next to theme and island shape (your choices are kept), settings pages start from the top, search prefers whole words in Settings and the Command Palette, the Audio centre opens in the wide layout, disconnecting WhatsApp or Telegram lives in Settings, the AI and Messages cards follow the theme, and updates no longer leave a 590 MB installer copy in the temporary folder.",
+  "installer": {
+   "name": "Dynamic_0.2.8_x64-setup.exe",
+   "size": 616794825,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.8/Dynamic_0.2.8_x64-setup.exe",
+   "sha256": "5d17ccecbe64c1ed0dc7bdd58f857d6eabf52736a06b174593a5ae4dea509fb3"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.8/latest.json"
+ },
+ {
+  "tag": "v0.2.7",
+  "version": "0.2.7",
+  "name": "Dynamic 0.2.7",
+  "date": "2026-11-12T10:39:49Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.2.7",
+  "notes": "Dynamic 0.2.7: Home cards redesigned as large themed icons with live info only when relevant (track, today's event, connected devices, timers), cleaner Home header (date, time and eyes only), WhatsApp and Telegram unified in one Messages destination with tabs (your pins and shortcuts are migrated), Settings always open in the wide layout and return to the compact size on exit, text-file attachments right in the Chat composer (sent as text), a red warning when an app volume cannot be adjusted, clearer Settings overview, AI agents and actions pages.",
+  "installer": {
+   "name": "Dynamic_0.2.7_x64-setup.exe",
+   "size": 616983929,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.7/Dynamic_0.2.7_x64-setup.exe",
+   "sha256": "532160f84ce9fd0eb281edee9b334fe6d3c4eafbb2fe2445372197e9416cfe05"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.7/latest.json"
+ },
+ {
+  "tag": "v0.2.6",
+  "version": "0.2.6",
+  "name": "Dynamic 0.2.6",
+  "date": "2026-11-12T00:16:40Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.2.6",
+  "notes": "Dynamic 0.2.6: simpler Settings (Overview page, clear groups, collapsible Advanced sections, full search), clearer first run (how to open and close the island, one-time reopen hint, Getting started list for new users), keyboard focus improvements, fixes for the guided setup reopening and the AI state at startup.",
+  "installer": {
+   "name": "Dynamic_0.2.6_x64-setup.exe",
+   "size": 616928736,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.6/Dynamic_0.2.6_x64-setup.exe",
+   "sha256": "84b1555a93834139260e6602d1e636da3c6f410d372f205a2192fad2cb5a5f17"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.6/latest.json"
+ },
+ {
+  "tag": "v0.2.5",
+  "version": "0.2.5",
+  "name": "Dynamic 0.2.5",
+  "date": "2026-11-11T20:57:00Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.2.5",
+  "notes": "Chat unica per l'AI: il pulsante + della Chat condivide testo o file di testo con ChatGPT o Gemini, con riepilogo e conferma prima dell'invio. Centro audio con un clic dalla Home. Menu dell'intestazione semplificato.",
+  "installer": {
+   "name": "Dynamic_0.2.5_x64-setup.exe",
+   "size": 616937406,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.5/Dynamic_0.2.5_x64-setup.exe",
+   "sha256": "8f14a1b2744b0b2503be89caf35eeacfc5e42d2d1af6bf711c6be5346f5a1f1b"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.5/latest.json"
+ },
+ {
+  "tag": "v0.2.4",
+  "version": "0.2.4",
+  "name": "Dynamic 0.2.4",
+  "date": "2026-11-11T20:01:24Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.2.4",
+  "notes": "Command Palette (pulsante Cerca, menu o Ctrl+Alt+K): schermate, impostazioni, azioni rapide, app e timer da un'unica ricerca. Centro audio (Ctrl+Alt+U): volume di Windows e delle singole app, player e microfono di Dynamic. Condividi con l'AI: testo o file di testo inviati a ChatGPT o Gemini solo dopo un riepilogo.",
+  "installer": {
+   "name": "Dynamic_0.2.4_x64-setup.exe",
+   "size": 616792020,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.4/Dynamic_0.2.4_x64-setup.exe",
+   "sha256": "74a34eef28ce61b237297f1a9a4540c9dc2b2027c2f00dbfa6be6f27bd7eb06b"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.4/latest.json"
+ },
+ {
+  "tag": "v0.2.3",
+  "version": "0.2.3",
+  "name": "Dynamic 0.2.3",
+  "date": "2026-11-11T15:35:32Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.2.3",
+  "notes": "Accessi rapidi della Home personalizzabili (Impostazioni > Aspetto): Musica, Timer, Dispositivi, AI, Calendario, Messaggi o Agenti. Il mouse Logitech risvegliato non resta piu' su «In sonno» nella Home.",
+  "installer": {
+   "name": "Dynamic_0.2.3_x64-setup.exe",
+   "size": 616749305,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.3/Dynamic_0.2.3_x64-setup.exe",
+   "sha256": "78cd868093cd45741abc4f4e3c287c6dd2ddb28561cfabe3409d729de49886e7"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.3/latest.json"
+ },
+ {
+  "tag": "v0.2.2",
+  "version": "0.2.2",
+  "name": "Dynamic 0.2.2",
+  "date": "2026-11-11T14:53:43Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.2.2",
+  "notes": "Dopo un comando vocale riuscito e letto ad alta voce (es. «Apri TIDAL»), l'isola si richiude subito a fine lettura: puoi dare il comando successivo senza aspettare. Risposte dell'AI, errori e avvisi restano visibili 8 secondi.",
+  "installer": {
+   "name": "Dynamic_0.2.2_x64-setup.exe",
+   "size": 616755576,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.2/Dynamic_0.2.2_x64-setup.exe",
+   "sha256": "69662596aeafb25a115fba5d20b295b0640f939ac04a165abacc8b36cfe15377"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.2/latest.json"
+ },
+ {
+  "tag": "v0.2.1",
+  "version": "0.2.1",
+  "name": "Dynamic 0.2.1",
+  "date": "2026-11-11T14:20:36Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.2.1",
+  "notes": "Dynamic 0.2.1: comandi vocali quotidiani, musica affidabile e riepilogo WhatsApp.\n\nNovità\n- Nuovi comandi locali, senza cloud: «che ore sono?», «che giorno è?», «quanto manca a Natale / al weekend / a mezzanotte?», «apri Download / Documenti / Immagini / Desktop / Esplora file», «blocca il computer» (con conferma), «alza / abbassa il volume», «disattiva l'audio», «cambia uscita audio», «quanta batteria hanno le cuffie?», «non disturbarmi per 30 minuti», «riattiva le notifiche», «ho notifiche?», «cosa sai fare?».\n- Musica: «brano precedente» torna davvero al brano prima (prima riavviava quello corrente); «apri TIDAL e metti un po' di musica» apre il player e avvia la riproduzione quando è pronto; nuovi «chiudi Spotify / TIDAL / Apple Music»; il volume di un player nominato funziona anche se non è quello selezionato; muto del singolo player. Provato con TIDAL e Spotify reali.\n- WhatsApp: riepilogo a voce solo su richiesta («che notifiche WhatsApp ho?», «chi mi ha scritto?») con tre livelli in Impostazioni → Messaggistica. Predefinito: solo il conteggio. Nomi e testi restano sul PC e non vengono mai inviati all'AI.\n- Modalità silenziosa con durata: timer, sveglie, promemoria, appuntamenti ed errori continuano ad avvisarti.\n\nCambia\n- «Alza il volume» senza il nome di un player regola il volume di Windows. Per un player, nominalo: «volume di TIDAL al 40».\n\nProblemi noti\n- Codex CLI (come in 0.2.0): Codex non riesce ad avviare il comando hook di Dynamic su Windows. Claude Code non è interessato.\n- TIDAL rilascia l'uscita audio dopo qualche minuto di pausa: il suo volume torna regolabile alla ripresa.\n- Windows non permette alle app di cambiare l'uscita audio predefinita: Dynamic dice quale è in uso e indica Win+Ctrl+V.\n\nAggiornamento: Impostazioni → Informazioni → Aggiornamenti. Impostazioni, profili e cronologia restano invariati.",
+  "installer": {
+   "name": "Dynamic_0.2.1_x64-setup.exe",
+   "size": 616829471,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.1/Dynamic_0.2.1_x64-setup.exe",
+   "sha256": "48b5298f78ad1f9d770bbfa32cff124ddb8c9deb53f106ff0f624a179bf5d022"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.1/latest.json"
+ },
+ {
+  "tag": "v0.2.0",
+  "version": "0.2.0",
+  "name": "Dynamic 0.2.0",
+  "date": "2026-11-11T10:51:52Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.2.0",
+  "notes": "# Dynamic 0.2.0\n\nDynamic 0.2.0 aggiorna l’esperienza desktop senza trasformare il progetto in una “1.0”: configurazione e integrazioni sono più chiare, l’interfaccia V6.1 Refined è stata riesaminata integralmente e i dati dei profili precedenti restano compatibili.\n\n## Novità principali\n\n- Configurazione guidata riprendibile e riapribile per AI, voce, integrazioni e preferenze.\n- Pagina Connessioni con stato reale, azione successiva e diagnostica priva di segreti.\n- Ricerca offline nelle Impostazioni, utilizzabile anche da tastiera.\n- Collegamenti contestuali dagli errori vocali alla configurazione corretta.\n- Provider DEMO rimosso e Banco prova escluso dalle build distribuite.\n\n## Interfaccia e accessibilità\n\n- Home e navigazione V6.1 Refined, con undici temi e identità Dynamic invariata.\n- Stati vuoti, spaziature e contrasto corretti; revisione nativa di tutte le sezioni e pagine delle Impostazioni.\n- Migliorato il clic sull’isola durante la ricomparsa in modalità Auto-hide.\n\n## Prestazioni e compatibilità\n\n- Nessun nuovo processo, polling continuo o rendering animato di sfondo.\n- Nel confronto isolato con 0.1.13, CPU, memoria, thread e handle sono rimasti nel rumore delle misure brevi.\n- Impostazioni, account, note, timer, conversazioni, scorciatoie e modelli vocali delle versioni precedenti vengono conservati.\n\n## Limitazioni conosciute\n\n- **Le notifiche di Codex CLI non funzionano in 0.2.0 su Windows.** Anche con le sette voci Dynamic approvate tramite `/hooks` (Dynamic non approva mai al posto tuo), Codex CLI 0.163.0 non riesce ad avviare il `commandWindows` generato per un problema di virgolette. Il relay locale di Dynamic funziona; la correzione arriverà in una versione successiva. Il monitoraggio di Claude Code non è interessato. Il percorso dell’estensione VS Code è distinto e non verificato.\n- Non sono stati misurati FPS o frametime in un gioco reale.\n- Restano non verificati in questa release: sospensione/ibernazione reale, screen reader, voce umana finale, Telegram con account reale, Apple Music/TIDAL reali e un secondo PC pulito.\n- Un blocco Auto-hide di più secondi, osservato una sola volta in una versione precedente, non è stato riprodotto; eventuali glitch intermittenti non sono dichiarati definitivamente risolti.\n- L’installer ha la firma minisign verificata dall’updater, ma non una firma Authenticode: Windows SmartScreen può mostrare un avviso.\n\n## Installazione e aggiornamento\n\nScarica `Dynamic_0.2.0_x64-setup.exe` da questa release. Le installazioni dalla 0.1.1 in poi possono aggiornarsi da **Impostazioni → Informazioni**: Dynamic scarica il pacchetto, verifica la firma, aggiorna per il solo utente e riavvia mantenendo il profilo.\n\n",
+  "installer": {
+   "name": "Dynamic_0.2.0_x64-setup.exe",
+   "size": 616685128,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.0/Dynamic_0.2.0_x64-setup.exe",
+   "sha256": "2a4fffc91233c94b1251b7e2ea9adbdcaa38e1894e9d6518a7ea559ec56d313f"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.2.0/latest.json"
+ },
+ {
+  "tag": "v0.1.13",
+  "version": "0.1.13",
+  "name": "Dynamic 0.1.13",
+  "date": "2026-11-10T17:36:34Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.1.13",
+  "notes": "Il marchio Dynamic nel banner Assistente usa ora l'asset trasparente e un contenitore coerente con tutti gli 11 temi. Layout, notch, dati e integrazioni restano invariati.",
+  "installer": {
+   "name": "Dynamic_0.1.13_x64-setup.exe",
+   "size": 616712932,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.13/Dynamic_0.1.13_x64-setup.exe",
+   "sha256": "ebd425a95ccab11d2694aad69e8cb1aa33453a2664110a3e84acec57b343c8f0"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.13/latest.json"
+ },
+ {
+  "tag": "v0.1.12",
+  "version": "0.1.12",
+  "name": "Dynamic 0.1.12",
+  "date": "2026-11-09T22:05:50Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.1.12",
+  "notes": "Dynamic 0.1.12 corregge invio vocale automatico e layout di ascolto, tema del campo Gemini e hook Codex; aggiunge Segna tutte come lette per WhatsApp/Telegram e progresso reale per installazione e aggiornamento Parakeet.",
+  "installer": {
+   "name": "Dynamic_0.1.12_x64-setup.exe",
+   "size": 615867571,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.12/Dynamic_0.1.12_x64-setup.exe",
+   "sha256": "93f16c84cbb20eb6ea6f0b895eb1094cbf532303f13b4cfcf5f9e4c5872c89fc"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.12/latest.json"
+ },
+ {
+  "tag": "v0.1.11",
+  "version": "0.1.11",
+  "name": "Dynamic 0.1.11",
+  "date": "2026-11-09T17:51:15Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.1.11",
+  "notes": "Gemini come provider conversazionale gratuito con chiave personale (solo modelli del livello gratuito, nessun retry, comandi locali sempre prioritari); scorciatoie da tastiera interne e globali opzionali (solo Mostra/nascondi attiva alla prima installazione); controllo e installazione verificata degli aggiornamenti del modello Parakeet; correzioni di affidabilità (file di configurazione corrotti conservati, scollegamento calendario transazionale, cleanup handle IPC). ChatGPT resta disponibile. Non verificati: Gemini con chiave reale, gaming, Apple Music/TIDAL, voce umana, DPI/multi-monitor, sospensione/ripresa; restano aperti Auto-hide intermittente e glitch grafici.",
+  "installer": {
+   "name": "Dynamic_0.1.11_x64-setup.exe",
+   "size": 615775759,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.11/Dynamic_0.1.11_x64-setup.exe",
+   "sha256": "c42ba02e5dcf75adc18b13a373a95ede353f43c188b4db9ce7ecbc4978453fe8"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.11/latest.json"
+ },
+ {
+  "tag": "v0.1.10",
+  "version": "0.1.10",
+  "name": "Dynamic 0.1.10",
+  "date": "2026-11-09T16:20:44Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.1.10",
+  "notes": "Parakeet Ultra Q5_K_M opzionale e CPU-only; avvio con Windows opt-in per utente corrente; comandi musicali locali per Spotify, Apple Music e TIDAL con scelta deterministica, rilevamento Windows e fallback manuale. Il controllo musicale non richiede ChatGPT né account dei servizi. Restano aperti il blocco intermittente Auto-hide, i test reali Apple Music/TIDAL, voce umana, gaming, DPI/multi-monitor e sospensione/ripresa.",
+  "installer": {
+   "name": "Dynamic_0.1.10_x64-setup.exe",
+   "size": 615876329,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.10/Dynamic_0.1.10_x64-setup.exe",
+   "sha256": "9ff71d2e6947b9749004f863a05e5bbe9189848c3228cc0e1ffdddb682bbbaac"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.10/latest.json"
+ },
+ {
+  "tag": "v0.1.9",
+  "version": "0.1.9",
+  "name": "Dynamic 0.1.9",
+  "date": "2026-11-08T23:36:21Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.1.9",
+  "notes": "Dynamic 0.1.9. Correzioni dopo la 0.1.8, nessuna funzione nuova, nessun processo, thread o timer in più. 1) Riposo della WebView: dopo 15 s di inattività (o a isola nascosta) la WebView resta a un livello di memoria ridotto; ora torna al livello normale quando il cursore si avvicina all'isola, non dopo il clic, come precauzione contro rallentamenti e fotogrammi persi nelle prime aperture dopo una pausa. Sul PC di prova la differenza non è misurabile (aperture dopo riposo: 7-8 ms con e senza); l'effetto su un profilo reale più pesante va ancora verificato a mano. 2) Chip «+N» con tre o più attività: in Premium sfiorava l'occhio destro dell'avatar e ora ne è staccato (distanza misurata da -6,8 px a +6,2 px; in Adattiva da 4,2 px a 8,2 px); la larghezza della notch, i testi e le attività non cambiano. Problemi noti, non risolti: in un caso su circa venti cicli di prova lunghi il clic sulla notch appena ricomparsa non ha aperto il pannello per circa 10 secondi (causa non identificata, non riprodotto in seguito, potrebbe dipendere da interferenze sul mouse durante la prova); lampeggiamenti grafici occasionali segnalati dall'utente ma mai riprodotti nelle sonde. Non verificato: dispositivo Bluetooth realmente collegato o scollegato, DPI diverso dal 100 % e multi-monitor, gaming e FPS, voce umana, sospensione di Windows.",
+  "installer": {
+   "name": "Dynamic_0.1.9_x64-setup.exe",
+   "size": 615682808,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.9/Dynamic_0.1.9_x64-setup.exe",
+   "sha256": "1511ca1951aa2446b7ea407f69efde110bf93d97fef1c5d8f2654b045c9802ad"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.9/latest.json"
+ },
+ {
+  "tag": "v0.1.8",
+  "version": "0.1.8",
+  "name": "Dynamic 0.1.8",
+  "date": "2026-11-08T18:23:50Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.1.8",
+  "notes": "Dynamic 0.1.8. Quattro stili selezionabili per la notch compatta (Impostazioni → Aspetto → Stile notch compatta): Premium V5.1 (predefinito, invariato), Capsula, Indicatore e Adattiva (la larghezza segue le attività in corso). Avvisi Bluetooth corretti: il collegamento viene ora annunciato per qualunque dispositivo (prima solo per le cuffie; un mouse o una tastiera non producevano nulla), con la batteria reale se Windows la dichiara dopo pochi istanti, lo scollegamento delle cuffie è un avviso discreto e le oscillazioni di un dispositivo non producono raffiche di popup. Impostazioni → Dispositivi: gli associati non collegati sono in una sezione richiudibile «Associati, non collegati (N)». Home: testi più brevi dove prima venivano troncati («1 attende te», «In sonno · batteria ignota»). Un profilo della 0.1.7 resta Premium V5.1 senza perdere impostazioni. Non verificato su hardware reale: il popup con un dispositivo Bluetooth realmente collegato o scollegato (solo test deterministici e sonde native con una notifica di prova), DPI diverso dal 100 % e multi-monitor, gaming e FPS, voce umana, sospensione di Windows.",
+  "installer": {
+   "name": "Dynamic_0.1.8_x64-setup.exe",
+   "size": 615697983,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.8/Dynamic_0.1.8_x64-setup.exe",
+   "sha256": "5d107ad41695e47b7f8ce97a35c4eda4fb37492ba7e2d1dd34bd9fe682cda9a0"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.8/latest.json"
+ },
+ {
+  "tag": "v0.1.7",
+  "version": "0.1.7",
+  "name": "Dynamic 0.1.7",
+  "date": "2026-11-08T15:28:54Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.1.7",
+  "notes": "Dynamic 0.1.7. La notch compatta non mostra più la batteria dei dispositivi: il collegamento delle cuffie e la batteria bassa restano avvisi temporanei, le percentuali si consultano in Home → Dispositivi e in Impostazioni → Dispositivi. Novità rispetto alla 0.1.6: batteria Logitech reale tramite HID++ in sola lettura, pagina Dispositivi unificata (Bluetooth + Logitech), scheda Dispositivi della Home cliccabile con l'elenco completo, controlli rapidi contestuali nell'intestazione del pannello, percorsi di compilazione di Rust rimossi dall'eseguibile (restano pochi riferimenti nel codice C di whisper.cpp). Non verificato su hardware reale: dispositivi collegati nella Home, TIDAL, voce umana con invio automatico, sospensione di Windows, multi-monitor e DPI, gaming.",
+  "installer": {
+   "name": "Dynamic_0.1.7_x64-setup.exe",
+   "size": 615698450,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.7/Dynamic_0.1.7_x64-setup.exe",
+   "sha256": "54ea5966baa0504f43f5fc020bca8868263b4edb8d673671a8908d23f2e3a03e"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.7/latest.json"
+ },
+ {
+  "tag": "v0.1.6",
+  "version": "0.1.6",
+  "name": "Dynamic 0.1.6",
+  "date": "2026-11-08T10:59:02Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.1.6",
+  "notes": "Novita: Bluetooth (dispositivi collegati e batteria quando Windows la espone, avvisi per cuffie e batteria bassa), attivita simultanee nell'isola compatta (principale e secondaria cliccabili), avatar collegato agli eventi reali (trascrizione, chiarimento, successo), diagnosi del volume assente per player come TIDAL. Limiti noti: invio vocale automatico verificato solo con voce sintetica; Bluetooth collegato, TIDAL reale e wake word non verificati su dispositivi reali.",
+  "installer": {
+   "name": "Dynamic_0.1.6_x64-setup.exe",
+   "size": 615658951,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.6/Dynamic_0.1.6_x64-setup.exe",
+   "sha256": "16cf7781beb5a6ddee22c7a3dbc92b248d3c0ab3c85f2aef8a284537a03e8bcc"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.6/latest.json"
+ },
+ {
+  "tag": "v0.1.5",
+  "version": "0.1.5",
+  "name": "Dynamic 0.1.5",
+  "date": "2026-11-06T22:37:39Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.1.5",
+  "notes": "Dynamic 0.1.5: voce piu' affidabile e comandi locali.\n\n- Voce: la fine della frase non taglia piu' le pause di riflessione (pausa adattiva, ripresa se continui a parlare, pulsante «Ho finito», avviso al limite di 60 s); corretto l'ordine dei blocchi del microfono sotto carico.\n- Comandi locali (senza ChatGPT): apri applicazioni installate («apri Spotify»), promemoria e timer riconosciuti in piu' forme (anche «ricordamelo tra mezz'ora», con la domanda di chiarimento che resta in locale), volume per applicazione, «lascia Apple Music attiva», comando + domanda nella stessa frase.\n- Invio automatico della frase riconosciuta (Impostazioni -> Voce -> Invio della frase, predefinito «Automatico»; «Manuale» chiede sempre conferma). Le frasi dubbie, i nomi interpretati e le azioni sensibili chiedono comunque di controllare o confermare.\n- Include le correzioni V5.1 e Musica gia' presenti nelle versioni precedenti.\n\nATTENZIONE: l'invio automatico e' stato verificato solo con voce sintetica (Piper e Microsoft Elsa), NON con una voce umana e un microfono reale. Se una frase parte con un testo sbagliato, passa a «Manuale» in Impostazioni -> Voce.\nNon verificati: Spotify, TIDAL, Apple Music e Firefox con applicazioni reali, wake word reale, gioco a schermo intero, sospensione/ripresa.",
+  "installer": {
+   "name": "Dynamic_0.1.5_x64-setup.exe",
+   "size": 615605082,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.5/Dynamic_0.1.5_x64-setup.exe",
+   "sha256": "3ac8e3a786ae08cc0bd513c928fb1ac6dcfcb363beeb1f75887cbb204a69ba3d"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.5/latest.json"
+ },
+ {
+  "tag": "v0.1.4",
+  "version": "0.1.4",
+  "name": "Dynamic 0.1.4",
+  "date": "2026-11-06T17:09:44Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.1.4",
+  "notes": "Dynamic 0.1.4 — stabilizzazione, Musica e comandi vocali locali.\n\nNovità e correzioni rispetto alla 0.1.3:\n- Notch: corretta la striscia bianca alla riduzione con un clic fuori; comparsa in Auto più rapida.\n- Musica: spostamento nel brano, volume e muto per applicazione (mai il volume generale di Windows), sessioni duplicate gestite senza scelte arbitrarie, supporto migliorato a TIDAL e ai browser.\n- Comandi vocali: più player in una frase (es. «ferma Spotify e TIDAL ma lascia Firefox attivo»), volume dell'applicazione nominata, riconoscimento più robusto delle frasi parlate. I comandi locali (timer, musica, note, calendario, navigazione) funzionano anche senza ChatGPT e senza Internet: il riconoscimento Whisper è già incluso.\n- Interfaccia: menu a discesa coerenti con gli 11 temi; riquadro «Riconoscimento offline» in Impostazioni → Voce.\n- ChatGPT: diagnostica anonima esportabile e messaggi più chiari sull'uso del piano. Claude non è integrato.\n\nLimiti noti: verificato con player simulati e con Brave, non con Spotify, TIDAL, Apple Music, Chrome e Firefox reali; accesso ChatGPT Free non verificato.",
+  "installer": {
+   "name": "Dynamic_0.1.4_x64-setup.exe",
+   "size": 615634155,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.4/Dynamic_0.1.4_x64-setup.exe",
+   "sha256": "ff1f9eef6d9b3911a96c80671d19d739dea2554cc0fb8d99f174404da38cec74"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.4/latest.json"
+ },
+ {
+  "tag": "v0.1.3",
+  "version": "0.1.3",
+  "name": "Dynamic 0.1.3",
+  "date": "2026-11-05T18:54:36Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.1.3",
+  "notes": "Premium Design V5.1: Home espansa che usa tutta l'altezza, calendario esteso con celle proporzionate e prossimi giorni, impostazioni con layout coerente (etichetta, interruttore, spiegazione), barra laterale che sta nel pannello normale. Audit nativo del layout e correzioni minori.",
+  "installer": {
+   "name": "Dynamic_0.1.3_x64-setup.exe",
+   "size": 615830526,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.3/Dynamic_0.1.3_x64-setup.exe",
+   "sha256": "7df63419e42cc70a7b6f1ffc43198cbdaf3955e942ccfa26d42f8d67b38d0c27"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.3/latest.json"
+ },
+ {
+  "tag": "v0.1.2",
+  "version": "0.1.2",
+  "name": "Dynamic 0.1.2",
+  "date": "2026-11-05T09:55:35Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.1.2",
+  "notes": "Azioni di Dynamic: timer, note, calendario, musica, navigazione e agenti di coding da chat e voce, con conferma per le operazioni sensibili. Calendario esteso, stato degli agenti più ricco e rifiniture dell'interfaccia.",
+  "installer": {
+   "name": "Dynamic_0.1.2_x64-setup.exe",
+   "size": 615848184,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.2/Dynamic_0.1.2_x64-setup.exe",
+   "sha256": "c4c7032a0b498d4f9fb6dbe6aed9ef4fe1c19084cb6b224763312dba6ea39b2d"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.2/latest.json"
+ },
+ {
+  "tag": "v0.1.1",
+  "version": "0.1.1",
+  "name": "Dynamic 0.1.1",
+  "date": "2026-11-03T18:15:43Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.1.1",
+  "notes": "Aggiornamento automatico dalle Impostazioni (badge rosso quando esce una nuova versione), Chat vuota a ogni avvio, selettore player Musica non più tagliato, anelli di focus neutri.",
+  "installer": {
+   "name": "Dynamic_0.1.1_x64-setup.exe",
+   "size": 615441912,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.1/Dynamic_0.1.1_x64-setup.exe",
+   "sha256": "90268542241650b6d75a185b74fd96527d69def2ce5930fe43eedc837f226636"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.1.1/latest.json"
+ }
+]

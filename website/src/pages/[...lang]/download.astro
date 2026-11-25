@@ -1,0 +1,116 @@
+---
+import Base from "../../layouts/Base.astro";
+import Icon from "../../components/Icon.astro";
+import { t, url, langPaths, type Lang } from "../../i18n";
+import { getLatest, formatDate, formatSize, RELEASES_URL } from "../../lib/releases";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const dl = d.download;
+const r = await getLatest();
+const exe = r.installer!;
+const verify = `Get-FileHash .\\${exe.name} -Algorithm SHA256`;
+---
+<Base lang={lang} path="download/" title={dl.title} description={dl.description}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{dl.eyebrow}</p>
+      <h1 class="h1">{dl.heading}</h1>
+      <p class="lead">{dl.sub}</p>
+    </div>
+  </section>
+
+  <section class="divider section-tight">
+    <div class="container dl-grid">
+      <div class="card release">
+        <div class="release-head">
+          <div>
+            <p class="muted small" style="margin:0">{d.common.version}</p>
+            <p class="ver">Dynamic {r.version}</p>
+          </div>
+          <span class="badge ok">{d.common.free}</span>
+        </div>
+        <a class="btn btn-primary btn-block" href={exe.url}><Icon name="download" size={20} />{d.common.download}</a>
+        <dl class="facts">
+          <div><dt>{dl.file}</dt><dd><code>{exe.name}</code></dd></div>
+          <div><dt>{dl.size}</dt><dd class="num">{formatSize(exe.size, lang)} <span class="muted">({exe.size.toLocaleString(lang === "it" ? "it-IT" : "en-US")} {dl.bytes})</span></dd></div>
+          <div><dt>{dl.released}</dt><dd><time datetime={r.date}>{formatDate(r.date, lang)}</time></dd></div>
+          <div><dt>{lang === "it" ? "Sistema" : "System"}</dt><dd>{d.common.platform}</dd></div>
+        </dl>
+        {exe.sha256 && (
+          <div class="sha">
+            <p class="muted small" style="margin:0 0 8px">{dl.sha}</p>
+            <div class="code-line">
+              <code>{exe.sha256}</code>
+              <button class="copy-btn" type="button" data-copy={exe.sha256} data-copied={d.common.copied}><Icon name="copy" size={14} /><span aria-live="polite">{d.common.copy}</span></button>
+            </div>
+          </div>
+        )}
+        <p class="links">
+          <a class="link" href={r.url}><Icon name="file-text" size={16} />{d.common.releaseNotes}</a>
+          <a class="link" href={url(lang, "changelog/")}><Icon name="history" size={16} />{d.nav.changelog}</a>
+        </p>
+      </div>
+
+      <div class="side">
+        <div class="card">
+          <h2 class="h3" style="margin-bottom:16px">{dl.installTitle}</h2>
+          <ol class="steps">{dl.install.map((s) => <li><span>{s}</span></li>)}</ol>
+        </div>
+        <div class="card">
+          <h2 class="h3" style="margin-bottom:10px">{dl.verifyTitle}</h2>
+          <p class="small" style="margin-bottom:12px">{dl.verifyText}</p>
+          <div class="code-line">
+            <code>{verify}</code>
+            <button class="copy-btn" type="button" data-copy={verify} data-copied={d.common.copied}><Icon name="copy" size={14} /><span aria-live="polite">{d.common.copy}</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section divider">
+    <div class="container grid-2" style="align-items:start">
+      <div>
+        <h2 class="h2">{dl.reqTitle}</h2>
+        <ul class="checks" style="margin-top:24px">{dl.req.map((x) => <li><Icon name="check" size={18} /><span>{x}</span></li>)}</ul>
+      </div>
+      <div class="stack">
+        <div class="card">
+          <span class="icon-chip"><Icon name="refresh-cw" size={22} /></span>
+          <h2 class="h3">{dl.updatesTitle}</h2>
+          <p style="margin-top:10px">{dl.updates}</p>
+        </div>
+        <div class="card">
+          <h2 class="h3">{dl.limitsTitle}</h2>
+          <ul class="checks" style="margin-top:16px">{dl.limits.map((x) => <li><Icon name="circle-alert" size={18} /><span>{x}</span></li>)}</ul>
+        </div>
+        <div class="card">
+          <h2 class="h3">{dl.previous}</h2>
+          <p style="margin-top:10px">{dl.previousText}</p>
+          <a class="link" style="margin-top:14px" href={RELEASES_URL}><Icon name="github" size={16} />{d.common.allReleases}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .dl-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+  .side, .stack { display: grid; gap: 16px; }
+  .release { padding: clamp(24px, 3vw, 40px); }
+  .release-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+  .ver { font-size: 2rem; font-weight: 700; letter-spacing: -0.035em; margin: 2px 0 0; color: var(--text); }
+  .btn-block { width: 100%; }
+  .facts { display: grid; gap: 0; margin: 24px 0; }
+  .facts div { display: grid; grid-template-columns: 120px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .facts dt { color: var(--text-3); font-size: 0.875rem; font-weight: 600; }
+  .facts dd { margin: 0; color: var(--text); overflow-wrap: anywhere; }
+  .links { display: flex; flex-wrap: wrap; gap: 20px; margin: 24px 0 0; }
+  .card .icon-chip { margin-bottom: 16px; }
+  .checks .icon { flex: none; }
+  .stack .checks li .icon { color: var(--warn); }
+  @media (max-width: 900px) { .dl-grid { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 480px) { .facts div { grid-template-columns: 1fr; gap: 2px; } }
+</style>

@@ -1,0 +1,40 @@
+---
+import Base from "../../layouts/Base.astro";
+import Icon from "../../components/Icon.astro";
+import { t, url, langPaths, type Lang } from "../../i18n";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const f = d.faq;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: lang,
+  mainEntity: f.items.map((i) => ({ "@type": "Question", name: i.q, acceptedAnswer: { "@type": "Answer", text: i.a } })),
+};
+---
+<Base lang={lang} path="faq/" title={f.title} description={f.description} jsonLd={jsonLd}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <p class="eyebrow">{f.eyebrow}</p>
+      <h1 class="h1">{f.heading}</h1>
+    </div>
+  </section>
+  <section class="divider section-tight" style="padding-bottom:var(--section)">
+    <div class="container narrow">
+      <div class="faq">
+        {f.items.map((i) => (
+          <details>
+            <summary>{i.q}<Icon name="chevron-down" size={20} /></summary>
+            <p>{i.a}</p>
+          </details>
+        ))}
+      </div>
+      <p class="muted" style="margin-top:32px">
+        <a class="link" href={url(lang, "docs/troubleshooting/")}>{d.common.readGuide}<Icon name="arrow-right" size={16} /></a>
+      </p>
+    </div>
+  </section>
+</Base>
+<style>.narrow { max-width: calc(860px + 2 * var(--gutter)); }</style>

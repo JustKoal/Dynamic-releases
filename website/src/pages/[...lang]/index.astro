@@ -1,0 +1,240 @@
+---
+import Base from "../../layouts/Base.astro";
+import Icon from "../../components/Icon.astro";
+import Shot from "../../components/Shot.astro";
+import Device from "../../components/Device.astro";
+import { t, url, langPaths, type Lang } from "../../i18n";
+import { getLatest, formatDate, formatSize, REPO_URL } from "../../lib/releases";
+import home from "../../assets/shots/v7-02-home.webp";
+import compact from "../../assets/shots/v7-01-compact.webp";
+import capsule from "../../assets/shots/v7-14-notch-capsule.webp";
+import indicator from "../../assets/shots/v7-15-notch-indicator.webp";
+import notice from "../../assets/shots/v7-13-notice.webp";
+import agents from "../../assets/shots/v7-10-agents.webp";
+import music from "../../assets/shots/v7-04-music.webp";
+import calendar from "../../assets/shots/v7-05-calendar.webp";
+import iphone from "../../assets/shots/companion-iphone.webp";
+import ipad from "../../assets/shots/companion-ipad-landscape.webp";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const h = d.home;
+const latest = await getLatest();
+const exe = latest.installer!;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Dynamic",
+  alternateName: "Dynamic by JustKoal",
+  description: d.site.description,
+  applicationCategory: "UtilitiesApplication",
+  operatingSystem: "Windows 11",
+  softwareVersion: latest.version,
+  datePublished: latest.date.slice(0, 10),
+  downloadUrl: exe.url,
+  fileSize: `${Math.round(exe.size / 1e6)} MB`,
+  url: new URL(url(lang), Astro.site).href,
+  image: new URL(url("en", "og-en.png"), Astro.site).href,
+  inLanguage: "it",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  author: { "@type": "Person", name: "JustKoal", url: "https://github.com/JustKoal" },
+  sameAs: [REPO_URL],
+};
+---
+<Base lang={lang} path="" description={d.site.description} jsonLd={jsonLd}>
+  <section class="hero">
+    <div class="container center">
+      <p class="eyebrow fade-up"><span class="eyes" aria-hidden="true"><i></i><i></i></span>{h.eyebrow}</p>
+      <h1 class="display fade-up d1">{h.title[0]}<br /><span class="dim">{h.title[1]}</span></h1>
+      <p class="lead center fade-up d2" style="margin-top:24px">{h.sub}</p>
+      <div class="hero-cta fade-up d3">
+        <a class="btn btn-primary" href={exe.url}><Icon name="download" size={20} />{d.common.download}</a>
+        <a class="btn btn-ghost" href={url(lang, "features/")}>{d.common.explore}<Icon name="arrow-right" size={18} /></a>
+      </div>
+      <p class="hero-meta fade-up d3">
+        <span>{d.common.version} {latest.version}</span><span aria-hidden="true">·</span>
+        <span>{formatDate(latest.date, lang)}</span><span aria-hidden="true">·</span>
+        <span>{d.common.platform}</span><span aria-hidden="true">·</span>
+        <span>{formatSize(exe.size, lang)}</span><span aria-hidden="true">·</span>
+        <a href={latest.url}>{d.common.onGitHub}</a>
+      </p>
+    </div>
+    <div class="container">
+      <div class="hero-stage">
+        <Shot src={home} alt={h.heroAlt} sizes="(max-width: 940px) 92vw, 860px" eager class="panel-shot" widths={[480, 860, 1290, 1720]} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight divider" aria-labelledby="principles">
+    <h2 id="principles" class="visually-hidden">{d.nav.performance}</h2>
+    <div class="container grid-4">
+      {h.principles.map((p) => (
+        <div class="principle">
+          <span class="icon-chip"><Icon name={p.icon} size={22} /></span>
+          <h3 class="h3">{p.title}</h3>
+          <p>{p.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" id="features" aria-labelledby="bento-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <h2 id="bento-title" class="h2">{h.bentoTitle}</h2>
+        <p class="lead">{h.bentoSub}</p>
+      </div>
+      <div class="bento">
+        <a class="card span-2 row-2 reveal" href={url(lang, "features/#island")}>
+          <span class="icon-chip"><Icon name="panel-top" size={22} /></span>
+          <h3 class="h3">{h.bento.island.title}</h3>
+          <p>{h.bento.island.text}</p>
+          <div class="media island-stack">
+            <Shot src={compact} alt="Premium" sizes="240px" widths={[240, 344]} />
+            <Shot src={capsule} alt={lang === "it" ? "Capsula" : "Capsule"} sizes="206px" widths={[206, 296]} />
+            <Shot src={indicator} alt={lang === "it" ? "Indicatore" : "Indicator"} sizes="162px" widths={[162, 232]} />
+            <Shot src={notice} alt="" sizes="(max-width: 640px) 80vw, 460px" widths={[460, 800]} class="notice" />
+          </div>
+        </a>
+        <a class="card span-2 reveal" href={url(lang, "features/#ai")}>
+          <span class="icon-chip"><Icon name="sparkles" size={22} /></span>
+          <h3 class="h3">{h.bento.agents.title}</h3>
+          <p>{h.bento.agents.text}</p>
+          <div class="media-bleed"><Shot src={agents} alt="" sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 600px" /></div>
+        </a>
+        <a class="card reveal" href={url(lang, "features/#voice")}>
+          <span class="icon-chip"><Icon name="mic" size={22} /></span>
+          <h3 class="h3">{h.bento.voice.title}</h3>
+          <p>{h.bento.voice.text}</p>
+        </a>
+        <a class="card reveal" href={url(lang, "features/#palette")}>
+          <span class="icon-chip"><Icon name="command" size={22} /></span>
+          <h3 class="h3">{h.bento.palette.title}</h3>
+          <p>{h.bento.palette.text}</p>
+          <p class="media keys" aria-hidden="true"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>K</kbd></p>
+        </a>
+        <a class="card reveal" href={url(lang, "features/#system")}>
+          <span class="icon-chip"><Icon name="gauge" size={22} /></span>
+          <h3 class="h3">{h.bento.system.title}</h3>
+          <p>{h.bento.system.text}</p>
+        </a>
+        <a class="card reveal" href={url(lang, "features/#system")}>
+          <span class="icon-chip"><Icon name="battery-medium" size={22} /></span>
+          <h3 class="h3">{h.bento.devices.title}</h3>
+          <p>{h.bento.devices.text}</p>
+        </a>
+        <a class="card reveal" href={url(lang, "features/#messages")}>
+          <span class="icon-chip"><Icon name="message-circle" size={22} /></span>
+          <h3 class="h3">{h.bento.messages.title}</h3>
+          <p>{h.bento.messages.text}</p>
+        </a>
+        <a class="card reveal" href={url(lang, "performance/#gaming")}>
+          <span class="icon-chip"><Icon name="gamepad-2" size={22} /></span>
+          <h3 class="h3">{h.bento.gaming.title}</h3>
+          <p>{h.bento.gaming.text}</p>
+        </a>
+        <a class="card span-2 reveal" href={url(lang, "features/#audio")}>
+          <span class="icon-chip"><Icon name="music" size={22} /></span>
+          <h3 class="h3">{h.bento.audio.title}</h3>
+          <p>{h.bento.audio.text}</p>
+          <div class="media-bleed"><Shot src={music} alt="" sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 600px" /></div>
+        </a>
+        <a class="card span-2 reveal" href={url(lang, "features/#productivity")}>
+          <span class="icon-chip"><Icon name="calendar" size={22} /></span>
+          <h3 class="h3">{h.bento.productivity.title}</h3>
+          <p>{h.bento.productivity.text}</p>
+          <div class="media-bleed"><Shot src={calendar} alt="" sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 600px" /></div>
+        </a>
+      </div>
+      <p class="muted small center" style="margin-top:20px">{d.common.italianUi}</p>
+    </div>
+  </section>
+
+  <section class="section divider companion-teaser" aria-labelledby="companion-title">
+    <div class="container split">
+      <div class="reveal">
+        <p class="eyebrow"><Icon name="smartphone" size={16} />{h.companionEyebrow}</p>
+        <h2 id="companion-title" class="h2">{h.companionTitle}</h2>
+        <p class="lead" style="margin-top:16px">{h.companionSub}</p>
+        <ul class="pills" style="margin-block:28px">{h.companionPoints.map((p) => <li>{p}</li>)}</ul>
+        <a class="btn btn-ghost" href={url(lang, "companion/")}>{h.companionCta}<Icon name="arrow-right" size={18} /></a>
+      </div>
+      <div class="devices reveal">
+        <Device kind="tablet" src={ipad} alt={d.companion.shotsAlt.ipadLandscape} sizes="(max-width: 900px) 90vw, 560px" class="dev-tablet" />
+        <Device kind="phone" src={iphone} alt={d.companion.shotsAlt.iphone} sizes="(max-width: 900px) 40vw, 220px" class="dev-phone" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section divider" aria-labelledby="perf-title">
+    <div class="container split perf">
+      <div class="reveal">
+        <p class="eyebrow"><Icon name="gauge" size={16} />{h.perfEyebrow}</p>
+        <h2 id="perf-title" class="h2">{h.perfTitle}</h2>
+        <p class="lead" style="margin-top:16px">{h.perfSub}</p>
+        <a class="link" href={url(lang, "performance/")} style="margin-top:20px">{h.perfCta}<Icon name="arrow-right" size={16} /></a>
+      </div>
+      <div class="card stat reveal">
+        <p class="stat-num">{h.perfStat}</p>
+        <p class="stat-label">{h.perfStatLabel}</p>
+        <p class="small muted" style="margin-top:16px">{h.perfStatContext}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section divider final-cta" aria-labelledby="cta-title">
+    <div class="container center">
+      <span class="eyes big" aria-hidden="true"><i></i><i></i></span>
+      <h2 id="cta-title" class="h1">{h.ctaTitle}</h2>
+      <p class="lead center" style="margin-top:16px">{h.ctaSub}</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href={exe.url}><Icon name="download" size={20} />{d.common.download}</a>
+        <a class="btn btn-ghost" href={url(lang, "download/")}>{d.download.reqTitle}</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-top: clamp(56px, 9vw, 120px); overflow: hidden; }
+  .dim { color: var(--text-3); }
+  .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px; }
+  .hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; margin-top: 20px; color: var(--text-3); font-size: 0.875rem; }
+  .hero-meta a { color: var(--text-2); }
+  .eyes { display: inline-flex; gap: 4px; }
+  .eyes i { width: 7px; height: 10px; border-radius: 4px; background: var(--eye); box-shadow: 0 0 8px 1px rgb(150 170 230 / 0.7); }
+  .eyes.big { gap: 14px; margin-bottom: 28px; }
+  .eyes.big i { width: 22px; height: 32px; border-radius: 12px; box-shadow: 0 0 22px 4px rgb(130 150 220 / 0.55); }
+  .hero-stage {
+    margin-top: clamp(48px, 7vw, 88px); padding: 0 4%; border: 1px solid var(--border-strong); border-bottom: 0;
+    border-radius: 28px 28px 0 0; background: radial-gradient(110% 90% at 50% 0%, #0c1526 0%, #04060b 50%, #000 80%);
+    -webkit-mask-image: linear-gradient(#000 75%, transparent); mask-image: linear-gradient(#000 75%, transparent);
+  }
+  .hero-stage :global(.panel-shot) { width: min(860px, 100%); margin: -1px auto 0; }
+  .principle .icon-chip { margin-bottom: 16px; }
+  .principle h3 { margin-bottom: 8px; font-size: 1.0625rem; }
+  .principle p { color: var(--text-2); font-size: 0.9375rem; margin: 0; }
+  .island-stack { display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 40px 16px; margin-inline: -8px; border-radius: var(--r); background: #000; border: 1px solid var(--border); }
+  .island-stack :global(img) { height: auto; }
+  .island-stack :global(img:nth-child(1)) { width: min(240px, 70%); }
+  .island-stack :global(img:nth-child(2)) { width: min(206px, 60%); }
+  .island-stack :global(img:nth-child(3)) { width: min(162px, 48%); }
+  .island-stack :global(.notice) { width: min(460px, 100%); margin-top: 14px; }
+  .keys { display: flex; gap: 6px; }
+  .keys kbd { font-size: 1rem; padding: 6px 12px; }
+  .bento :global(.media-bleed img) { width: 100%; }
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(40px, 6vw, 80px); align-items: center; }
+  .devices { position: relative; padding: 0 0 40px 0; }
+  .devices :global(.dev-tablet) { width: 92%; }
+  .devices :global(.dev-phone) { position: absolute; right: 0; bottom: 0; width: 34%; }
+  .perf .stat { padding: clamp(28px, 4vw, 48px); }
+  .stat-num { font-size: clamp(3rem, 2rem + 4vw, 5rem); font-weight: 700; letter-spacing: -0.05em; line-height: 1; color: var(--text); margin-bottom: 16px; font-variant-numeric: tabular-nums; }
+  .stat-label { color: var(--text-2); font-size: 1.0625rem; }
+  .final-cta { padding-block: clamp(96px, 12vw, 160px); }
+  @media (max-width: 900px) {
+    .split { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>

@@ -1,0 +1,10 @@
+---
+// Lightweight CSS device frame around an authentic screenshot (no brand-specific hardware details).
+import Shot from "./Shot.astro";
+import type { ImageMetadata } from "astro";
+interface Props { kind: "phone" | "tablet"; src: ImageMetadata; alt: string; sizes: string; eager?: boolean; class?: string; style?: string }
+const { kind, src, alt, sizes, eager, class: cls, style } = Astro.props;
+---
+<figure class:list={["device", kind, cls]} style={style}>
+  <Shot src={src} alt={alt} sizes={sizes} eager={eager} widths={kind === "phone" ? [300, 450, 786] : [600, 1000, 1640, 2360]} />
+</figure>

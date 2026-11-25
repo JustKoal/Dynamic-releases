@@ -1,0 +1,135 @@
+---
+import Base from "../../layouts/Base.astro";
+import Icon from "../../components/Icon.astro";
+import Device from "../../components/Device.astro";
+import { t, url, langPaths, type Lang } from "../../i18n";
+import iphone from "../../assets/shots/companion-iphone.webp";
+import android from "../../assets/shots/companion-android.webp";
+import ipadP from "../../assets/shots/companion-ipad-portrait.webp";
+import ipadL from "../../assets/shots/companion-ipad-landscape.webp";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const c = d.companion;
+---
+<Base lang={lang} path="companion/" title={c.title} description={c.description}>
+  <section class="page-hero">
+    <div class="container center">
+      <p class="eyebrow"><Icon name="smartphone" size={16} />{c.eyebrow}</p>
+      <h1 class="h1 center" style="max-width:20ch">{c.heading}</h1>
+      <p class="lead center">{c.sub}</p>
+    </div>
+    <div class="container">
+      <div class="stage">
+        <Device kind="phone" src={android} alt={c.shotsAlt.android} sizes="(max-width: 700px) 30vw, 230px" class="d-android" />
+        <Device kind="tablet" src={ipadL} alt={c.shotsAlt.ipadLandscape} sizes="(max-width: 700px) 70vw, 640px" class="d-ipad" eager />
+        <Device kind="phone" src={iphone} alt={c.shotsAlt.iphone} sizes="(max-width: 700px) 30vw, 230px" class="d-iphone" />
+      </div>
+      <p class="small muted center" style="margin-top:20px">{c.syntheticNote}</p>
+    </div>
+  </section>
+
+  <section class="section divider" aria-labelledby="widgets-t">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="widgets-t" class="h2">{c.widgetsTitle}</h2>
+        <p class="lead">{c.widgetsSub}</p>
+      </div>
+      <div class="grid-4 widgets">
+        {c.widgets.map((w) => (
+          <div class="card reveal">
+            <span class="icon-chip"><Icon name={w.icon} size={22} /></span>
+            <h3 class="h3">{w.title}</h3>
+            <p>{w.text}</p>
+          </div>
+        ))}
+        <div class="card reveal portrait">
+          <Device kind="tablet" src={ipadP} alt={c.shotsAlt.ipadPortrait} sizes="(max-width: 640px) 80vw, 260px" class="vertical" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section divider" aria-labelledby="steps-t">
+    <div class="container">
+      <div class="section-head"><h2 id="steps-t" class="h2">{c.stepsTitle}</h2></div>
+      <ol class="grid-4 step-cards">
+        {c.steps.map((s, i) => (
+          <li class="card reveal">
+            <span class="step-n" aria-hidden="true">{i + 1}</span>
+            <h3 class="h3">{s.title}</h3>
+            <p>{s.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section divider" id="https" aria-labelledby="https-t">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><Icon name="lock" size={16} />HTTPS</p>
+        <h2 id="https-t" class="h2">{c.httpsTitle}</h2>
+        <p class="lead">{c.httpsSub}</p>
+      </div>
+      <div class="grid-2">
+        {[c.httpsIos, c.httpsAndroid].map((g) => (
+          <div class="card">
+            <h3 class="h3" style="margin-bottom:20px">{g.title}</h3>
+            <ol class="steps">{g.steps.map((s) => <li><span>{s}</span></li>)}</ol>
+          </div>
+        ))}
+      </div>
+      <p class="note info" style="margin-top:20px"><Icon name="info" size={18} /><span>{c.httpsNote}</span></p>
+    </div>
+  </section>
+
+  <section class="section divider" aria-labelledby="sec-t">
+    <div class="container">
+      <div class="section-head"><h2 id="sec-t" class="h2">{c.securityTitle}</h2></div>
+      <div class="grid-4">
+        {c.security.map((s) => (
+          <div class="card reveal">
+            <span class="icon-chip"><Icon name={s.icon} size={22} /></span>
+            <h3 class="h3">{s.title}</h3>
+            <p>{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section divider" aria-labelledby="not-t">
+    <div class="container grid-2 not">
+      <div>
+        <h2 id="not-t" class="h2">{c.notTitle}</h2>
+        <ul class="checks" style="margin-top:24px">
+          {c.not.map((n) => <li><Icon name="x" size={18} /><span>{n}</span></li>)}
+        </ul>
+      </div>
+      <div class="card">
+        <span class="badge" style="margin-bottom:16px"><Icon name="flask-conical" size={14} />{d.common.validating}</span>
+        <h3 class="h3">{c.limitsTitle}</h3>
+        <p style="margin-top:10px">{c.limits}</p>
+        <a class="btn btn-ghost" style="margin-top:24px" href={url(lang, "docs/companion/")}>{c.guideCta}<Icon name="arrow-right" size={18} /></a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .stage { position: relative; display: grid; grid-template-columns: 1fr 4fr 1fr; align-items: end; gap: clamp(12px, 2vw, 28px); margin-top: clamp(40px, 6vw, 72px); max-width: 1200px; margin-inline: auto; }
+  .stage :global(.d-android), .stage :global(.d-iphone) { margin-bottom: -4%; }
+  .widgets .portrait { display: flex; align-items: center; justify-content: center; padding: 20px; background: var(--bg-raised); }
+  .widgets .portrait :global(.device) { width: min(200px, 80%); }
+  .step-cards { list-style: none; padding: 0; margin: 0; }
+  .step-n { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-weight: 700; margin-bottom: 18px; }
+  .not .checks li .icon { color: var(--text-3); }
+  .not { align-items: start; gap: clamp(24px, 5vw, 64px); }
+  @media (max-width: 700px) {
+    .stage { grid-template-columns: 1fr 1fr; }
+    .stage :global(.d-ipad) { grid-column: 1 / -1; grid-row: 1; }
+    .stage :global(.d-android), .stage :global(.d-iphone) { width: 82%; margin: 0 auto; }
+  }
+</style>
