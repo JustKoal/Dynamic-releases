@@ -364,11 +364,13 @@ const jsonLd = {
 
   /* bento with deliberate size differences */
   .bento6 { display: grid; gap: 16px; grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .tile { position: relative; display: flex; flex-direction: column; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-l); padding: clamp(22px, 2.4vw, 30px); overflow: hidden; }
+  .tile { --pad: clamp(22px, 2.4vw, 30px); position: relative; display: flex; flex-direction: column; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-l); padding: var(--pad); overflow: hidden; }
   .tile p { margin: 0; color: var(--text-2); }
   .tile .icon-chip { margin-bottom: 8px; }
   .tile-text { display: grid; gap: 10px; }
-  .tile :global(.tile-media) { margin: auto calc(-1 * clamp(22px, 2.4vw, 30px)) calc(-1 * clamp(22px, 2.4vw, 30px)); padding-top: 14px; }
+  /* Edge-to-edge media. The explicit width matters when .tile-media is the <img> itself: width:100% / max-width:100%
+     would size it to the padded content box, so the negative margins only shifted it left (gap on the right). */
+  .tile :global(.tile-media) { width: calc(100% + 2 * var(--pad)); max-width: none; margin: auto calc(-1 * var(--pad)) calc(-1 * var(--pad)); padding-top: 14px; }
   .tile :global(.tile-media img), .tile :global(.tile-media video) { width: 100%; }
   .t-island { grid-column: span 4; grid-row: span 2; }
   .t-voice { grid-column: span 2; grid-row: span 2; }
@@ -377,7 +379,7 @@ const jsonLd = {
   .t-more { grid-column: span 6; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
   .t-more h3 { margin-right: auto; }
   .t-island .tile-text { max-width: 46ch; }
-  .styles { position: absolute; top: clamp(22px, 2.4vw, 30px); right: clamp(22px, 2.4vw, 30px); display: grid; justify-items: end; gap: 10px; padding: 14px; border-radius: 16px; background: #000; border: 1px solid var(--border); }
+  .styles { position: absolute; top: var(--pad); right: var(--pad); display: grid; justify-items: end; gap: 10px; padding: 14px; border-radius: 16px; background: #000; border: 1px solid var(--border); }
   .styles :global(img:nth-child(1)) { width: 150px; }
   .styles :global(img:nth-child(2)) { width: 130px; }
   .styles :global(img:nth-child(3)) { width: 102px; }
@@ -400,8 +402,12 @@ const jsonLd = {
   .hw figcaption { margin-top: 8px; }
   @media (max-width: 1080px) {
     .bento6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .t-island, .t-more, .t-audio { grid-column: span 2; grid-row: auto; }
-    .t-voice, .t-ai, .t-agents, .t-palette, .t-system { grid-column: span 1; grid-row: auto; }
+    .t-island, .t-more { grid-column: span 2; grid-row: auto; }
+    .t-voice, .t-ai, .t-agents, .t-palette, .t-system, .t-audio { grid-column: span 1; grid-row: auto; }
+    /* Pair tiles of similar height (voice+system, chat+agents, palette+audio) so no row leaves a hole or a tall empty gap.
+       Only .t-system moves visually and it holds no focusable element, so the focus order is unchanged. */
+    .t-ai, .t-agents, .t-palette, .t-audio { order: 1; }
+    .t-more { order: 2; }
   }
   @media (max-width: 760px) {
     .styles { position: static; justify-items: center; margin-top: 8px; }
@@ -409,7 +415,7 @@ const jsonLd = {
   }
   @media (max-width: 640px) {
     .bento6 { grid-template-columns: minmax(0, 1fr); }
-    .tile, .t-island, .t-more, .t-audio { grid-column: auto; }
+    .tile, .t-island, .t-more, .t-audio { grid-column: auto; order: 0; }
     .facts { grid-template-columns: 1fr 1fr; }
   }
 
@@ -424,6 +430,7 @@ const jsonLd = {
   .bridge-devices { position: relative; padding-bottom: 8%; }
   .bridge-devices :global(.b-tablet) { width: 86%; }
   .bridge-devices :global(.b-phone) { position: absolute; right: 0; bottom: 34px; width: 30%; }
+  .bridge-devices figcaption { max-width: calc(100% - 30% - 12px); }
   .companion-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; margin-top: 40px; }
   @media (max-width: 900px) {
     .bridge { grid-template-columns: minmax(0, 1fr); }
@@ -431,6 +438,7 @@ const jsonLd = {
     .bridge-pc { width: min(100%, 560px); justify-self: center; }
     .bridge-devices { width: min(100%, 640px); justify-self: center; padding-bottom: 10%; }
     .bridge-devices :global(.b-phone) { width: 28%; bottom: 44px; }
+    .bridge-devices figcaption { max-width: calc(100% - 28% - 12px); }
   }
 
   /* gaming & performance */
@@ -439,11 +447,12 @@ const jsonLd = {
   .states th, .states td { padding: 12px 10px 12px 0; }
   .states thead th { padding-top: 0; }
   .state { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 0.8125rem; font-weight: 600; }
+  @media (min-width: 521px) { .state { white-space: nowrap; } }
   .state.on { background: rgb(255 255 255 / 0.07); color: var(--text-2); }
   .state.off { background: var(--accent-soft); color: var(--accent); }
   .bar-group { margin-top: 18px; }
   .bar-title { margin: 0 0 8px !important; color: var(--text) !important; font-weight: 600; font-size: 0.9375rem; }
-  .bar-row { display: grid; grid-template-columns: 130px 1fr 96px; align-items: center; gap: 12px; margin-top: 8px; }
+  .bar-row { display: grid; grid-template-columns: 150px 1fr 96px; align-items: center; gap: 12px; margin-top: 8px; }
   .bar-name { color: var(--text-3); font-size: 0.8125rem; }
   .bar { height: 14px; border-radius: 4px; background: rgb(255 255 255 / 0.04); overflow: hidden; }
   .bar i { display: block; height: 100%; border-radius: 0 4px 4px 0; }
@@ -451,12 +460,13 @@ const jsonLd = {
   .bar i.after { background: var(--accent); }
   .bar-val { color: var(--text); font-size: 0.875rem; text-align: right; }
   .chart .link { margin-top: 12px; }
-  @media (max-width: 900px) { .perf-grid { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 1080px) { .perf-grid { grid-template-columns: minmax(0, 1fr); } }
   @media (max-width: 520px) {
     .bar-row { grid-template-columns: 1fr 92px; }
     .bar-name { grid-column: 1 / -1; }
     .states thead { display: none; }
-    .states tr { display: grid; grid-template-columns: auto auto; justify-content: start; gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .state { border-radius: 12px; }
+    .states tr { display: grid; grid-template-columns: auto minmax(0, 1fr); justify-items: start; gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--border); }
     .states tbody th { grid-column: 1 / -1; }
     .states th, .states td { border: 0; padding: 0; }
   }
@@ -465,9 +475,16 @@ const jsonLd = {
   .download-card { text-align: center; padding: clamp(40px, 6vw, 72px) clamp(20px, 4vw, 48px); border-radius: var(--r-xl); border: 1px solid var(--border); background: radial-gradient(80% 120% at 50% 0%, #0c1526 0%, var(--surface) 55%); }
   .download-card :global(.dl-logo) { margin: 0 auto 28px; border-radius: 22px; box-shadow: 0 0 60px rgb(130 150 220 / 0.25); }
   .dl-specs { list-style: none; padding: 0; margin: 32px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .download-card .lead { margin-top: 16px; }
   .dl-specs li { display: grid; gap: 2px; min-width: 120px; padding: 12px 18px; border-radius: 14px; background: rgb(255 255 255 / 0.04); border: 1px solid var(--border); }
   .dl-specs span { color: var(--text-3); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; }
   .dl-specs strong { color: var(--text); font-size: 1rem; font-variant-numeric: tabular-nums; }
+  @media (max-width: 560px) {
+    /* narrow screens: one spec list (label left, value right) instead of pills that wrap unevenly */
+    .dl-specs { display: grid; gap: 0; max-width: 360px; border: 1px solid var(--border); border-radius: 14px; background: rgb(255 255 255 / 0.04); }
+    .dl-specs li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; min-width: 0; padding: 12px 16px; border: 0; border-radius: 0; background: none; text-align: right; }
+    .dl-specs li + li { border-top: 1px solid var(--border); }
+  }
   .btn-lg { min-height: 56px; padding: 0 30px; font-size: 1.0625rem; }
   .dl-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; margin: 28px 0 0; }
 </style>
