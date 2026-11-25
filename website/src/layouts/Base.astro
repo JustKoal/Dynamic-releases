@@ -88,7 +88,7 @@ const current = (href: string) => (alt[lang] === href || (href !== url(lang) && 
         </nav>
         <div class="header-actions">
           <a class="icon-btn hide-xs" href={REPO_URL} aria-label={d.nav.github} title="GitHub"><Icon name="github" size={20} /></a>
-          <a class="icon-btn" href={switchHref} hreflang={other} lang={other} data-lang={other} aria-label={t(other).name} title={t(other).name}>
+          <a class="icon-btn" href={switchHref} hreflang={other} lang={other} data-lang={other} aria-label={`${other.toUpperCase()} – ${t(other).name}`} title={t(other).name}>
             <Icon name="languages" size={18} class="hide-xs" /><span class="lang-code">{other.toUpperCase()}</span>
           </a>
           <a class="btn btn-primary btn-sm" href={url(lang, "download/")}>{d.nav.download}</a>

@@ -119,7 +119,7 @@ const themes = [
         <p class="lead">{f.themesSub}</p>
       </div>
       <ul class="themes">
-        {themes.map((th) => <li><Shot src={th.src} alt={`${th.name}`} sizes="(max-width: 640px) 92vw, (max-width: 1000px) 45vw, 380px" widths={[400, 800]} class="shot framed" /><span>{th.name}</span></li>)}
+        {themes.map((th) => <li><Shot src={th.src} alt={it ? `Home di Dynamic con il tema ${th.name}` : `Dynamic Home with the ${th.name} theme`} sizes="(max-width: 640px) 92vw, (max-width: 1000px) 45vw, 380px" widths={[400, 800]} class="shot framed" /><span>{th.name}</span></li>)}
       </ul>
     </div>
   </section>
