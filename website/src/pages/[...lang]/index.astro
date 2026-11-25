@@ -353,6 +353,7 @@ const jsonLd = {
   .play-cta { display: inline-flex; align-items: center; gap: 16px; }
   .play-label { font-size: clamp(0.9375rem, 0.85rem + 0.4vw, 1.125rem); text-shadow: 0 1px 8px rgb(0 0 0 / 0.6); }
   .player.playing .play-big { display: none; }
+  @media (max-width: 640px) { .play-big { align-items: center; justify-content: center; background: rgb(0 0 0 / 0.25); } .play-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } }
   .demo-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; max-width: 1080px; margin: 20px auto 0; }
   .demo-foot p { margin: 0; max-width: 70ch; }
   .transcript { max-width: 1080px; margin: 16px auto 0; border-top: 1px solid var(--border); }
