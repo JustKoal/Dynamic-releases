@@ -6,7 +6,8 @@ import { join, relative, posix } from "node:path";
 const DIST = new URL("../dist/", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1");
 const BASE = (process.env.BASE_PATH ?? "/Dynamic-releases").replace(/\/$/, "");
 const pages = [];
-const walk = (d) => readdirSync(d).forEach((f) => { const p = join(d, f); statSync(p).isDirectory() ? walk(p) : p.endsWith(".html") && pages.push(p); });
+const walk = (d) => readdirSync(d).forEach((f) => { const p = join(d, f); statSync(p).isDirectory() ? walk(p) : p.endsWith(".html") && !/^google[0-9a-f]+\.html$/.test(f) && pages.push(p); });
+// google<hex>.html: file di verifica di Google Search Console in public/, non una pagina del sito (niente lang/canonical/hreflang)
 walk(DIST);
 
 const errors = [];

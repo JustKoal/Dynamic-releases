@@ -23,11 +23,14 @@ node scripts/check-links.mjs   # fails on broken internal links, missing lang/ca
 | Design tokens and global styles | `src/styles/global.css` |
 | Screenshots (synthetic data only) | `src/assets/shots/` |
 | Release data (read at build time) | `src/lib/releases.ts`, fallback snapshot `src/data/releases.json` |
+| Google Search Console verification (keep name and content unchanged) | `public/googlea14030c7174ada9e.html` (skipped by `check-links.mjs`) |
 
 ## Releases
 
 The version, date, installer link, size, SHA-256 and changelog come from the GitHub Releases API **at build time**; the browser never calls the API.
-Publishing, editing or deleting a release triggers a rebuild automatically. If the API is unreachable, the committed snapshot is used
+Publishing, editing or deleting a release starts the workflow, but the `github-pages` environment currently allows deployments from
+`main` only: the run on the release tag builds and is then rejected. Until a `v*` tag rule is added to that environment, run the
+workflow manually after a release (`gh workflow run website.yml --ref main`). If the API is unreachable, the committed snapshot is used
 (refresh it with `node scripts/update-snapshot.mjs`). The workflow only reads releases: it never changes `latest.json`, installers or signatures.
 
 ## Video
