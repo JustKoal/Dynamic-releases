@@ -26,7 +26,8 @@
   <a href="#features">Features</a> ·
   <a href="#privacy-and-local-processing">Privacy</a> ·
   <a href="#installation-and-updates">Install</a> ·
-  <a href="#known-limitations">Known limitations</a>
+  <a href="#known-limitations">Known limitations</a> ·
+  <a href="#support">Support</a>
 </p>
 
 <p align="center">
@@ -195,6 +196,12 @@ minisign signature against the embedded public key, performs the per-user update
 - Windows offers no public API for apps to change the default audio output: Dynamic tells you which output is in use and points to Win+Ctrl+V.
 - Chat attachments accept text files only and have not been sent to a real ChatGPT or Gemini account yet.
 - The installer has a valid updater minisign signature but no Authenticode certificate; SmartScreen may warn.
+
+## Support
+
+Dynamic is completely free and will stay that way. If you find it useful, you can support its development on Buy Me a Coffee. It is entirely voluntary and unlocks nothing: every feature stays available to everyone.
+
+<a href="https://www.buymeacoffee.com/justkoal"><img src="docs/assets/support/support-dynamic.png" alt="Support Dynamic on Buy Me a Coffee" width="220" height="52"></a>
 
 ## Links
 
