@@ -1,12 +1,15 @@
-<h1 align="center">Dynamic</h1>
+<h1 align="center">
+  <img src="docs/assets/banners/dynamic-readme-banner.webp" alt="Dynamic. Your desktop. Smarter. Simpler. Connected. The compact island, the Home panel and Dynamic Companion on a phone" width="838">
+</h1>
 
 <p align="center">
-  <strong>Smart Desktop Assistant for Windows 11.</strong><br>
-  A compact Dynamic Island for AI, local voice commands, music, calendar, notes, time, messages, file sharing and coding agents.
+  <strong>Smart desktop assistant for Windows 11:</strong> a compact Dynamic Island for AI, local voice commands, music, calendar, notes, time, messages, file sharing and coding agents.
 </p>
 
 <p align="center">
-  <img src="docs/assets/screenshots/v7-01-compact.webp" alt="Dynamic in its compact form: a small black pill at the top edge of the screen with two glowing eyes, a music indicator and a timer" width="344">
+  <a href="https://github.com/JustKoal/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
+  <a href="https://justkoal.github.io/Dynamic-releases/"><b>Official website</b></a> ·
+  <a href="https://justkoal.github.io/Dynamic-releases/it/">Sito in italiano</a>
 </p>
 
 <p align="center">
@@ -18,9 +21,6 @@
 </p>
 
 <p align="center">
-  <a href="https://justkoal.github.io/Dynamic-releases/"><b>Official website</b></a> ·
-  <a href="https://justkoal.github.io/Dynamic-releases/it/">Sito in italiano</a> ·
-  <a href="https://github.com/JustKoal/Dynamic-releases/releases/latest"><b>⬇️ Download for Windows</b></a> ·
   <a href="#video-di-presentazione">Video</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#features">Features</a> ·
@@ -28,10 +28,6 @@
   <a href="#installation-and-updates">Install</a> ·
   <a href="#known-limitations">Known limitations</a> ·
   <a href="#support">Support</a>
-</p>
-
-<p align="center">
-  <img src="docs/assets/screenshots/v7-02-home.webp" alt="Dynamic V7 Home: a large clock, the date, an AI status chip, three widgets (agents, now playing, timer) and the icon bar at the bottom" width="640">
 </p>
 
 > Dynamic is a personal Windows project. This repository hosts the public installers, the update feed and the source of the [official website](https://justkoal.github.io/Dynamic-releases/) (`website/`); the application source repository is private.
