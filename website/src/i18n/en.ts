@@ -54,6 +54,12 @@ const en = {
     feed: "Update feed (latest.json)",
     note: "Dynamic is a personal project. Installers and the signed update feed are published on GitHub; the application source code is private. This site uses no cookies and no analytics.",
   },
+  support: {
+    cta: "Support Dynamic",
+    title: "Free for everyone",
+    text: "Dynamic is completely free and will stay that way. If you find it useful, you can support its development on Buy Me a Coffee. It is entirely voluntary and unlocks nothing: every feature stays available to everyone.",
+    footer: "Dynamic is free. Support is voluntary.",
+  },
   home: {
     eyebrow: "A Dynamic Island for Windows 11",
     title: ["Your PC.", "One interface."],

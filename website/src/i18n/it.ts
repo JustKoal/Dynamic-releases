@@ -55,6 +55,12 @@ const it: Dict = {
     feed: "Feed degli aggiornamenti (latest.json)",
     note: "Dynamic è un progetto personale. Installer e feed firmato degli aggiornamenti sono pubblicati su GitHub; il codice sorgente dell'applicazione è privato. Questo sito non usa cookie né strumenti di analisi.",
   },
+  support: {
+    cta: "Sostieni Dynamic",
+    title: "Gratuita per tutti",
+    text: "Dynamic è completamente gratuita e lo resterà. Se ti è utile, puoi sostenerne lo sviluppo su Buy Me a Coffee. È del tutto volontario e non sblocca nulla: ogni funzione resta disponibile per tutti.",
+    footer: "Dynamic è gratuita. Il sostegno è volontario.",
+  },
   home: {
     eyebrow: "Una Dynamic Island per Windows 11",
     title: ["Il tuo PC.", "Un'unica interfaccia."],

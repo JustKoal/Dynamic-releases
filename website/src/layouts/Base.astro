@@ -5,7 +5,7 @@ import { Image } from "astro:assets";
 import logo from "../assets/logo.png";
 import Icon from "../components/Icon.astro";
 import { t, url, alternates, asset, type Lang, LANGS } from "../i18n";
-import { REPO_URL, RELEASES_URL } from "../lib/releases";
+import { REPO_URL, RELEASES_URL, SUPPORT_URL } from "../lib/releases";
 
 interface Props {
   lang: Lang;
@@ -119,6 +119,10 @@ const current = (href: string) => (alt[lang] === href || (href !== url(lang) && 
           <div>
             <a class="brand" href={url(lang)}><Image src={logo} alt="" width={28} height={28} widths={[28, 56]} sizes="28px" /><span>Dynamic</span></a>
             <p style="margin-top:14px;max-width:36ch">{d.footer.tagline}</p>
+            <div class="footer-support">
+              <a class="btn btn-support" href={SUPPORT_URL}><span class="emoji" aria-hidden="true">☕</span>{d.support.cta}</a>
+              <p>{d.support.footer}</p>
+            </div>
           </div>
           <div>
             <h2>{d.footer.product}</h2>

@@ -8,6 +8,8 @@ export const REPO = "JustKoal/Dynamic-releases";
 export const REPO_URL = `https://github.com/${REPO}`;
 export const RELEASES_URL = `${REPO_URL}/releases`;
 export const LATEST_URL = `${REPO_URL}/releases/latest`;
+/** Voluntary support page: a plain link, no Buy Me a Coffee script, widget or tracking on this site. */
+export const SUPPORT_URL = "https://www.buymeacoffee.com/justkoal";
 
 export interface Release {
   tag: string;

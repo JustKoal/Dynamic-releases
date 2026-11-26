@@ -122,6 +122,12 @@ kbd {
 .btn-ghost:hover { background: rgb(255 255 255 / 0.08); border-color: rgb(255 255 255 / 0.25); }
 .btn-sm { min-height: 40px; padding: 0 16px; font-size: 0.9375rem; }
 .btn .icon { flex: none; }
+/* Voluntary support (Buy Me a Coffee): official colours, black on #6cc4ff = 10.9:1. Local markup only, no third-party script.
+   .btn.btn-support also wins over footer link colours, including :hover. */
+.btn.btn-support, .btn.btn-support:hover { color: #000; }
+.btn.btn-support { min-height: 44px; padding: 0 18px; gap: 8px; background: #6cc4ff; font-size: 0.9375rem; }
+.btn.btn-support:hover { background: var(--accent-strong); }
+.btn-support .emoji { font-size: 1.15em; line-height: 1; }
 .link { color: var(--accent); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
 .link:hover { text-decoration: underline; text-underline-offset: 3px; }
 /* standalone links: 44px-tall touch target without changing the layout */
@@ -331,6 +337,8 @@ td:first-child, tbody th { color: var(--text); font-weight: 550; }
 .footer-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
 .footer-grid a { color: var(--text-3); text-decoration: none; display: inline-flex; min-height: 32px; align-items: center; }
 .footer-grid a:hover { color: var(--text); }
+.footer-support { display: grid; justify-items: start; gap: 8px; margin-top: 20px; }
+.footer-support p { margin: 0; font-size: 0.8125rem; }
 .footer-note { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 0.8125rem; max-width: 90ch; }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .footer-grid > :first-child { grid-column: 1 / -1; } }
 @media (max-width: 540px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
