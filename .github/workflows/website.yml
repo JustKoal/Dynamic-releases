@@ -1,5 +1,7 @@
 # Builds the static site in website/ and publishes it to GitHub Pages.
 # Runs when the site changes, when a release is published/edited/deleted (release data is read at build time) or manually.
+# The github-pages environment only accepts main, so a release (which runs on its tag) does not build here: it re-dispatches
+# this workflow on main. workflow_dispatch is the documented exception that GITHUB_TOKEN can trigger; protections are unchanged.
 # It never writes to the repository or to releases, so it cannot loop or touch the updater feed (latest.json).
 name: Website
 
@@ -19,7 +21,19 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  redispatch:
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Rebuild the site from main
+        run: gh workflow run website.yml --repo "$GITHUB_REPOSITORY" --ref main
+        env:
+          GH_TOKEN: ${{ github.token }}
+
   build:
+    if: github.event_name != 'release'
     runs-on: ubuntu-latest
     defaults:
       run:
