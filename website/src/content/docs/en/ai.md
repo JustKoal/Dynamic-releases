@@ -27,3 +27,17 @@ Only messages that are not local commands are sent to the provider, as text. Tex
 Monitoring is observation only: prompt and tool contents are discarded, and Dynamic never approves a request. You answer in the agent itself, on the PC.
 
 After an update, Codex may ask you to re-approve changed hooks with `/hooks`; Dynamic detects this and tells you.
+
+## Agent usage
+
+See five-hour and weekly quotas, reset times, model, context and tokens when available. Enable optional alerts and local history. Quotas also appear on Home and in the Companion Agents widget.
+
+Under Settings → Agents, preview and connect the Claude Code status line or use Read now for Codex. Claude reports quotas on supported plans after the first response. Codex CLI session context and token counts are unavailable.
+
+## GitHub dashboard
+
+Follow Actions, builds, deployments, releases, pull requests and issues across up to eight repositories, including private ones. Use browser-based sign-in or a fine-grained personal access token. Access is read-only.
+
+Only authorised repositories you select. Windows DPAPI encrypts the token. GitHub receives no requests while the feature is off. Alerts are optional and checks pause during gaming. The dashboard does not report local Git folder status.
+
+Use **Read now** or enable checks at the start and end of a turn. Dynamic closes the Codex process after reading. You can remove the Claude link from Settings to restore your previous status line. In GitHub, enable the dashboard, sign in through your browser and select repositories. You can turn it off or disconnect from Settings.

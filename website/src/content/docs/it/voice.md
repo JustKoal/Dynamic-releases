@@ -27,3 +27,9 @@ Esempi: «Imposta un timer di 10 minuti», «Metti in pausa la musica», «Apri 
 ## Memoria e giochi
 
 I modelli vocali vengono rilasciati quando l'ascolto è in pausa. Durante un gioco a schermo intero la parola di attivazione va in pausa da sola e il microfono si chiude (vedi [Modalità Gaming](../gaming-mode/)).
+
+## Dynamic Dictation
+
+Detta offline in italiano o inglese con Ctrl+Alt+W. Rivedi il testo e scegli se inserirlo nell’app di partenza o copiarlo.
+
+Attiva la funzione in Impostazioni → Voce. L’inserimento è disponibile una volta per anteprima entro dieci minuti, nelle app compatibili. Nelle app elevate, usa Copia. La dettatura è sospesa in gioco. A capo e Tab diventano spazi nell’inserimento diretto.

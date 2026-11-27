@@ -49,3 +49,9 @@ Ogni dispositivo parte con la sola **consultazione**. Sul PC puoi concedere, per
 
 - Le reti ospiti con isolamento dei client bloccano Companion.
 - La pagina non usa un service worker, quindi non funziona offline.
+
+## Utilizzo degli agenti
+
+Controlla quote a 5 ore e settimanali, ripristini, modello, contesto e token quando disponibili. Attiva avvisi e storico locale facoltativo. Le quote compaiono anche in Home e nel widget Agenti di Companion.
+
+In Impostazioni → Agenti collega la status line di Claude Code con anteprima o usa Leggi ora per Codex. Claude fornisce le quote con piani compatibili, dopo la prima risposta. Per Codex CLI contesto e token della sessione non sono disponibili.

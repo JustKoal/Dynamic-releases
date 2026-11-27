@@ -29,3 +29,9 @@ Italian examples: «Imposta un timer di 10 minuti», «Metti in pausa la musica�
 ## Memory and games
 
 The speech models are released when listening pauses. During a fullscreen game the wake word pauses automatically and the microphone closes (see [Gaming mode](../gaming-mode/)).
+
+## Dynamic Dictation
+
+Dictate offline in English or Italian with Ctrl+Alt+W. Edit the preview, then insert the text into the original app or copy it.
+
+Enable dictation under Settings → Voice. Each preview can be inserted once within ten minutes in supported apps. Use Copy for elevated apps. Dictation pauses while gaming. Direct insertion turns line breaks and tabs into spaces.

@@ -27,3 +27,17 @@ Al provider arrivano solo i messaggi che non sono comandi locali, come testo. I 
 Il monitoraggio è in sola osservazione: i contenuti di prompt e strumenti vengono scartati e Dynamic non approva mai una richiesta. Rispondi direttamente nell'agente, sul PC.
 
 Dopo un aggiornamento, Codex può chiedere di riapprovare gli hook modificati con `/hooks`; Dynamic lo rileva e te lo segnala.
+
+## Utilizzo degli agenti
+
+Controlla quote a 5 ore e settimanali, ripristini, modello, contesto e token quando disponibili. Attiva avvisi e storico locale facoltativo. Le quote compaiono anche in Home e nel widget Agenti di Companion.
+
+In Impostazioni → Agenti collega la status line di Claude Code con anteprima o usa Leggi ora per Codex. Claude fornisce le quote con piani compatibili, dopo la prima risposta. Per Codex CLI contesto e token della sessione non sono disponibili.
+
+## Dashboard GitHub
+
+Segui Actions, build, deployment, release, pull request e issue di un massimo di otto repository, anche privati. Accesso guidato dal browser o token personale a grana fine. Permessi di sola lettura.
+
+Solo ai repository autorizzati e selezionati. Il token è cifrato con Windows DPAPI. Quando la funzione è spenta non ci sono richieste a GitHub. Gli avvisi sono facoltativi e i controlli si sospendono durante il gioco. La dashboard non legge lo stato delle cartelle Git locali.
+
+Usa **Leggi ora** o attiva la lettura a inizio e fine turno. Dynamic chiude il processo Codex dopo la lettura. Puoi scollegare Claude dalle Impostazioni per ripristinare la status line precedente. Nella scheda GitHub, attiva la dashboard, accedi dal browser e scegli i repository. Puoi spegnerla o scollegarla dalle Impostazioni.

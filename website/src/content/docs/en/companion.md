@@ -49,3 +49,9 @@ Each device starts with **view** only. On the PC you can grant, per device and o
 
 - Guest networks with client isolation block Companion.
 - The page has no service worker, so it does not work offline.
+
+## Agent usage
+
+See five-hour and weekly quotas, reset times, model, context and tokens when available. Enable optional alerts and local history. Quotas also appear on Home and in the Companion Agents widget.
+
+Under Settings → Agents, preview and connect the Claude Code status line or use Read now for Codex. Claude reports quotas on supported plans after the first response. Codex CLI session context and token counts are unavailable.

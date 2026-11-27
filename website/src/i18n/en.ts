@@ -6,8 +6,7 @@ const en = {
   name: "English",
   site: {
     title: "Dynamic — Smart desktop assistant for Windows 11",
-    description:
-      "Dynamic by JustKoal is a desktop assistant for Windows 11 in the style of a Dynamic Island: local voice commands in English and Italian, AI chat, AI agent notifications for Claude Code and Codex, local PC monitoring, a gaming-aware background mode and a phone dashboard on your local network.",
+    description: "Windows 11 desktop assistant with Claude Code and Codex usage, a read-only GitHub dashboard, offline English and Italian dictation, and a local phone dashboard.",
   },
   nav: {
     features: "Features",
@@ -141,6 +140,9 @@ const en = {
     heading: "A desktop assistant that stays out of the way.",
     sub: "Dynamic is organised around what you do every day. Each area below is in the current public release; items still being validated on real hardware are marked.",
     sections: [
+      {"id": "usage", "icon": "gauge", "title": "Agent usage", "text": "See five-hour and weekly quotas, reset times, model, context and tokens when available. Enable optional alerts and local history. Quotas also appear on Home and in the Companion Agents widget.", "points": ["Under Settings → Agents, preview and connect the Claude Code status line or use Read now for Codex. Claude reports quotas on supported plans after the first response. Codex CLI session context and token counts are unavailable."], "status": ""},
+      {"id": "github", "icon": "git-pull-request", "title": "GitHub dashboard", "text": "Follow Actions, builds, deployments, releases, pull requests and issues across up to eight repositories, including private ones. Use browser-based sign-in or a fine-grained personal access token. Access is read-only.", "points": ["Only authorised repositories you select. Windows DPAPI encrypts the token. GitHub receives no requests while the feature is off. Alerts are optional and checks pause during gaming. The dashboard does not report local Git folder status."], "status": ""},
+      {"id": "dictation", "icon": "mic", "title": "Dynamic Dictation", "text": "Dictate offline in English or Italian with Ctrl+Alt+W. Edit the preview, then insert the text into the original app or copy it.", "points": ["Enable dictation under Settings → Voice. Each preview can be inserted once within ten minutes in supported apps. Use Copy for elevated apps. Dictation pauses while gaming. Direct insertion turns line breaks and tabs into spaces."], "status": ""},
       {
         id: "island", icon: "panel-top", title: "The island",
         text: "Dynamic sits at the top of the desktop as a small, low-distraction pill and opens into a wide, low panel (860 × 440) in two quick steps. An icon bar at the bottom holds up to nine sections of your choice plus «More», search and the microphone.",
@@ -428,6 +430,9 @@ const en = {
     eyebrow: "FAQ",
     heading: "Frequently asked questions",
     items: [
+      {"q": "How do I connect Claude Code and Codex?", "a": "Under Settings → Agents, preview and connect the Claude Code status line or use Read now for Codex. Claude reports quotas on supported plans after the first response. Codex CLI session context and token counts are unavailable."},
+      {"q": "What does Dynamic access on GitHub?", "a": "Only authorised repositories you select. Windows DPAPI encrypts the token. GitHub receives no requests while the feature is off. Alerts are optional and checks pause during gaming. The dashboard does not report local Git folder status."},
+      {"q": "Where can I insert dictated text?", "a": "Enable dictation under Settings → Voice. Each preview can be inserted once within ten minutes in supported apps. Use Copy for elevated apps. Dictation pauses while gaming. Direct insertion turns line breaks and tabs into spaces."},
       { q: "Is Dynamic free?", a: "Yes. The installer is a free download from the official GitHub release. AI chat uses your own ChatGPT account or Gemini key, under that provider's terms." },
       { q: "Which Windows versions are supported?", a: "Windows 11 x64. Windows 10 has not been tested. Local speech recognition needs a CPU with AVX2." },
       { q: "Is the app available in English?", a: "Yes. In 0.7.0, choose the interface language in Settings → General and the voice in Settings → Voice. Recognition detects the spoken language automatically. Companion remembers its language on each device." },

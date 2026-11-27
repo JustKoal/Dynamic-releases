@@ -30,9 +30,39 @@
   <a href="#support">Support</a>
 </p>
 
-> Dynamic is a personal Windows project. This repository hosts the public installers, the update feed and the source of the [official website](https://justkoal.github.io/Dynamic-releases/) (`website/`); the application source repository is private.
+> Dynamic is a personal Windows project. This repository hosts the public installers, the update feed and the source of the [official website](https://justkoal.github.io/Dynamic-releases/) (`website/`); release notes are available in English and Italian.
 > The «Source code» archives that GitHub attaches automatically to every release contain only this README, the screenshots and the website, not the application code.
 > Dynamic is available in English and Italian, including the installer, interface, local voice commands and Companion. The installer is not Authenticode-signed, so Windows SmartScreen may warn on first run.
+
+## 0.8.0 — Intelligence Update
+
+### Italiano
+
+- **Utilizzo degli agenti.** Controlla quote a 5 ore e settimanali, ripristini, modello, contesto e token quando disponibili. Attiva avvisi e storico locale facoltativo. Le quote compaiono anche in Home e nel widget Agenti di Companion.
+- **Dashboard GitHub.** Segui Actions, build, deployment, release, pull request e issue di un massimo di otto repository, anche privati. Accesso guidato dal browser o token personale a grana fine. Permessi di sola lettura.
+- **Dynamic Dictation.** Detta offline in italiano o inglese con Ctrl+Alt+W. Rivedi il testo e scegli se inserirlo nell’app di partenza o copiarlo.
+
+Leggi le [funzionalità e limitazioni](https://justkoal.github.io/Dynamic-releases/it/features/#usage).
+
+| Utilizzo | GitHub | Dettatura |
+| --- | --- | --- |
+| ![Quote degli agenti](docs/assets/screenshots/v080-usage-it.webp) | ![Dashboard GitHub](docs/assets/screenshots/v080-github-it.webp) | ![Impostazioni della dettatura](docs/assets/screenshots/v080-dictation-it.webp) |
+
+Schermate del simulatore con dati dimostrativi.
+
+### English
+
+- **Agent usage.** See five-hour and weekly quotas, reset times, model, context and tokens when available. Enable optional alerts and local history. Quotas also appear on Home and in the Companion Agents widget.
+- **GitHub dashboard.** Follow Actions, builds, deployments, releases, pull requests and issues across up to eight repositories, including private ones. Use browser-based sign-in or a fine-grained personal access token. Access is read-only.
+- **Dynamic Dictation.** Dictate offline in English or Italian with Ctrl+Alt+W. Edit the preview, then insert the text into the original app or copy it.
+
+See the [features and limitations](https://justkoal.github.io/Dynamic-releases/features/#usage).
+
+| Usage | GitHub | Dictation |
+| --- | --- | --- |
+| ![Agent quotas](docs/assets/screenshots/v080-usage-en.webp) | ![GitHub dashboard](docs/assets/screenshots/v080-github-en.webp) | ![Dictation settings](docs/assets/screenshots/v080-dictation-en.webp) |
+
+Screenshots from the app simulator with demo data.
 
 ## Video di presentazione
 

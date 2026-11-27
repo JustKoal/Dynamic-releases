@@ -5,6 +5,12 @@ import Shot from "../../components/Shot.astro";
 import Device from "../../components/Device.astro";
 import { t, url, langPaths, type Lang } from "../../i18n";
 import type { ImageMetadata } from "astro";
+import usageIt from "../../assets/shots/v080-usage-it.webp";
+import usageEn from "../../assets/shots/v080-usage-en.webp";
+import githubIt from "../../assets/shots/v080-github-it.webp";
+import githubEn from "../../assets/shots/v080-github-en.webp";
+import dictationIt from "../../assets/shots/v080-dictation-it.webp";
+import dictationEn from "../../assets/shots/v080-dictation-en.webp";
 import home from "../../assets/shots/v7-02-home.webp";
 import chat from "../../assets/shots/v7-03-chat.webp";
 import agents from "../../assets/shots/v7-10-agents.webp";
@@ -35,6 +41,9 @@ const it = lang === "it";
 
 // Real screenshots for each section (alt text describes what is visible).
 const media: Record<string, { src: ImageMetadata; alt: string }[]> = {
+  usage: [{ src: it ? usageIt : usageEn, alt: it ? "Quote e ripristini di Claude Code e Codex con dati dimostrativi" : "Claude Code and Codex quota meters and reset times using demo data" }],
+  github: [{ src: it ? githubIt : githubEn, alt: it ? "Dashboard GitHub con build, release e pull request dimostrative" : "GitHub dashboard with sample builds, releases and pull requests" }],
+  dictation: [{ src: it ? dictationIt : dictationEn, alt: it ? "Impostazioni della dettatura locale e scorciatoia" : "Local dictation settings and keyboard shortcut" }],
   island: [{ src: appearance, alt: it ? "Impostazioni → Aspetto: temi, forma dell'isola e personaggio" : "Settings → Appearance: themes, island shape and character" }],
   voice: [{ src: chat, alt: it ? "Chat: i comandi locali rispondono anche senza AI collegata" : "Chat: local commands answer even with no AI connected" }],
   ai: [{ src: agents, alt: it ? "Pagina Agenti con sessioni di Claude Code e Codex, una in attesa di autorizzazione" : "Agents page with Claude Code and Codex sessions, one waiting for authorisation" }],
@@ -102,10 +111,10 @@ const themes = [
               </table>
               <p class="small muted" style="margin-top:14px">{it ? "Al primo avvio è globale solo «Mostra / nascondi»; le altre funzionano con Dynamic in primo piano e si possono rendere globali, modificare o disattivare." : "On first start only «Show / hide» is global; the others work while Dynamic is focused and can be made global, changed or turned off."}</p>
             </div>
-          ) : media[s.id].length > 1 ? (
+          ) : (media[s.id]?.length ?? 0) > 1 ? (
             <div class="shot-grid">{media[s.id].map((m) => <Shot src={m.src} alt={m.alt} sizes="(max-width: 900px) 45vw, 300px" widths={[400, 800]} class="shot framed" />)}</div>
           ) : (
-            <Shot src={media[s.id][0].src} alt={media[s.id][0].alt} sizes="(max-width: 900px) 92vw, 620px" class="shot framed" />
+            media[s.id]?.[0] && <Shot src={media[s.id][0].src} alt={media[s.id][0].alt} sizes="(max-width: 900px) 92vw, 620px" class="shot framed" />
           )}
         </div>
       </div>

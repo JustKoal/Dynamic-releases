@@ -7,8 +7,7 @@ const it: Dict = {
   name: "Italiano",
   site: {
     title: "Dynamic — Assistente desktop per Windows 11",
-    description:
-      "Dynamic di JustKoal è un assistente desktop per Windows 11 in stile Dynamic Island: comandi vocali locali in italiano e inglese, chat AI, notifiche degli agenti AI Claude Code e Codex, monitoraggio locale del PC, una modalità attenta al gaming e una dashboard per lo smartphone sulla rete locale.",
+    description: "Assistente desktop per Windows 11 con quote di Claude Code e Codex, dashboard GitHub in sola lettura, dettatura offline in italiano e inglese e dashboard locale per smartphone.",
   },
   nav: {
     features: "Funzionalità",
@@ -142,6 +141,9 @@ const it: Dict = {
     heading: "Un assistente desktop che non ti intralcia.",
     sub: "Dynamic è organizzata intorno a ciò che fai ogni giorno. Ogni area è presente nella release pubblica attuale; ciò che è ancora in verifica su hardware reale è indicato.",
     sections: [
+      {"id": "usage", "icon": "gauge", "title": "Utilizzo degli agenti", "text": "Controlla quote a 5 ore e settimanali, ripristini, modello, contesto e token quando disponibili. Attiva avvisi e storico locale facoltativo. Le quote compaiono anche in Home e nel widget Agenti di Companion.", "points": ["In Impostazioni → Agenti collega la status line di Claude Code con anteprima o usa Leggi ora per Codex. Claude fornisce le quote con piani compatibili, dopo la prima risposta. Per Codex CLI contesto e token della sessione non sono disponibili."], "status": ""},
+      {"id": "github", "icon": "git-pull-request", "title": "Dashboard GitHub", "text": "Segui Actions, build, deployment, release, pull request e issue di un massimo di otto repository, anche privati. Accesso guidato dal browser o token personale a grana fine. Permessi di sola lettura.", "points": ["Solo ai repository autorizzati e selezionati. Il token è cifrato con Windows DPAPI. Quando la funzione è spenta non ci sono richieste a GitHub. Gli avvisi sono facoltativi e i controlli si sospendono durante il gioco. La dashboard non legge lo stato delle cartelle Git locali."], "status": ""},
+      {"id": "dictation", "icon": "mic", "title": "Dynamic Dictation", "text": "Detta offline in italiano o inglese con Ctrl+Alt+W. Rivedi il testo e scegli se inserirlo nell’app di partenza o copiarlo.", "points": ["Attiva la funzione in Impostazioni → Voce. L’inserimento è disponibile una volta per anteprima entro dieci minuti, nelle app compatibili. Nelle app elevate, usa Copia. La dettatura è sospesa in gioco. A capo e Tab diventano spazi nell’inserimento diretto."], "status": ""},
       {
         id: "island", icon: "panel-top", title: "L'isola",
         text: "Dynamic resta in cima al desktop come una pillola piccola e discreta e si apre in due rapidi passaggi in un pannello ampio e basso (860 × 440). In basso, una barra di icone raccoglie fino a nove sezioni a scelta, più «Altro», la ricerca e il microfono.",
@@ -429,6 +431,9 @@ const it: Dict = {
     eyebrow: "FAQ",
     heading: "Domande frequenti",
     items: [
+      {"q": "Come collego Claude Code e Codex?", "a": "In Impostazioni → Agenti collega la status line di Claude Code con anteprima o usa Leggi ora per Codex. Claude fornisce le quote con piani compatibili, dopo la prima risposta. Per Codex CLI contesto e token della sessione non sono disponibili."},
+      {"q": "A cosa accede Dynamic su GitHub?", "a": "Solo ai repository autorizzati e selezionati. Il token è cifrato con Windows DPAPI. Quando la funzione è spenta non ci sono richieste a GitHub. Gli avvisi sono facoltativi e i controlli si sospendono durante il gioco. La dashboard non legge lo stato delle cartelle Git locali."},
+      {"q": "Dove posso inserire il testo dettato?", "a": "Attiva la funzione in Impostazioni → Voce. L’inserimento è disponibile una volta per anteprima entro dieci minuti, nelle app compatibili. Nelle app elevate, usa Copia. La dettatura è sospesa in gioco. A capo e Tab diventano spazi nell’inserimento diretto."},
       { q: "Dynamic è gratuita?", a: "Sì. L'installer si scarica gratuitamente dalla release ufficiale su GitHub. La chat AI usa il tuo account ChatGPT o la tua chiave Gemini, secondo le condizioni del provider." },
       { q: "Quali versioni di Windows sono supportate?", a: "Windows 11 x64. Windows 10 non è stato testato. Il riconoscimento vocale locale richiede una CPU con AVX2." },
       { q: "L'app è disponibile in inglese?", a: "Sì. Dalla 0.7.0 scegli la lingua in Impostazioni → Generale e la voce in Impostazioni → Voce. Il riconoscimento rileva la lingua automaticamente. Companion ricorda la lingua su ogni dispositivo." },
