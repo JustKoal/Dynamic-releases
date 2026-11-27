@@ -34,6 +34,14 @@
 > The «Source code» archives that GitHub attaches automatically to every release contain only this README, the screenshots and the website, not the application code.
 > Dynamic is available in English and Italian, including the installer, interface, local voice commands and Companion. The installer is not Authenticode-signed, so Windows SmartScreen may warn on first run.
 
+## 0.9.1 — Companion Revolution
+
+**Italiano.** In **Agenti → Utilizzo**, Dynamic riconosce una status line Claude Code già collegata, mostra l’ultimo aggiornamento e mantiene le quote valide quando manca una delle due finestre. La ricezione delle quote è verificata nel terminale. Resta da verificare dopo una risposta riuscita nel pannello grafico di VS Code.
+
+**English.** **Agents → Usage** recognizes a connected Claude Code status line, shows the last update, and keeps valid limits when a report omits a window. Quota delivery is verified in the terminal. It remains to be verified after a successful response in the graphical VS Code panel.
+
+[Note di rilascio / Release notes](https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.9.1)
+
 ## 0.9.0 — Companion Revolution
 
 **Italiano.** Companion 2.0 aggiunge dashboard multipagina, modelli e widget modificabili. Control Deck riunisce le azioni concesse dal PC. Profili audio, Smart Profiles, cronometro e Focus rendono più rapide le attività ricorrenti. StandBy mostra orologi e widget su telefono o tablet. Il profilo Risparmio riduce il campionamento hardware a batteria.
@@ -238,7 +246,8 @@ minisign signature against the embedded public key, performs the per-user update
 
 - The Windows Firewall prompt for Share file has not been observed on a clean PC.
 - **Glass needs Windows transparency effects** to be translucent; with them off it uses an opaque smoke grey.
-- **Codex hooks need manual re-approval after updating:** Dynamic detects entries changed since approval and asks for `/hooks`; a real 0.6.0 Codex session is still pending. Claude Code monitoring is unaffected.
+- **Codex hooks.** A real Codex CLI session verified delivery of `SessionStart`, `UserPromptSubmit` and `Stop` on Dynamic 0.8.1. **Settings → AI Agents → Check in Codex** reports detected, enabled and trusted entries separately. In `/hooks`, review definitions that changed since approval. End-to-end use in Codex Desktop and VS Code remains to be tested.
+- **Hook Codex.** Una sessione reale di Codex CLI ha verificato la ricezione di `SessionStart`, `UserPromptSubmit` e `Stop` su Dynamic 0.8.1. **Impostazioni → Agenti AI → Verifica in Codex** distingue le voci rilevate, abilitate e autorizzate. Rivedi in `/hooks` le definizioni cambiate dopo l’approvazione. Restano da verificare Codex Desktop e VS Code.
 - **PawnIO (experimental, optional, off by default) is not yet validated on real hardware.** If you don't use MSI Afterburner or HWiNFO, Dynamic 0.6.3 can read the CPU die temperature through [PawnIO](https://pawnio.eu/), if you installed it yourself: AMD Ryzen Zen–Zen 5 (Tctl/Tdie) and Intel (CPU Package). Dynamic never installs PawnIO and ships none of its modules: only when you press «Predisponi» does it download the pinned official namazso/PawnIO.Modules release from GitHub, used only if the SHA-256 hashes match. Windows asks once to set up a small read-only helper in Program Files and again at each authorization (shown as an unknown publisher: no Authenticode signature). Dynamic itself never runs as administrator. Some anti-cheat software may flag kernel drivers of this kind. MSI Afterburner was verified with live shared-memory data; HWiNFO parsing was verified without completing a live HWiNFO session.
 - WhatsApp group and sender details depend on what WhatsApp Web puts in its notifications.
 - Human-voice accuracy, wake-word false positives, suspend/hibernate, screen readers, real-game FPS/frametime, GPU usage and a clean second PC remain unverified.

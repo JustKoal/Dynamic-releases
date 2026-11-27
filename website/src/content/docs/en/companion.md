@@ -53,4 +53,4 @@ Open it from the dashboard. Choose up to three widgets, clocks and Night mode. T
 
 See five-hour and weekly quotas, reset times, model, context and tokens when available. Enable optional alerts and local history. Quotas also appear on Home and in the Companion Agents widget.
 
-Under Settings → Agents, preview and connect the Claude Code status line or use Read now for Codex. Claude reports quotas on supported plans after the first response. Codex CLI session context and token counts are unavailable.
+The Agents widget shows active Claude Code and Codex limits received on the PC. Dynamic 0.9.1 removes expired windows. Check the last update and status line state under **Agents → Usage** on the PC.

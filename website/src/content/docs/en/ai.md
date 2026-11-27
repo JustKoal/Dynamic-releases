@@ -32,7 +32,9 @@ After an update, Codex may ask you to re-approve changed hooks with `/hooks`; Dy
 
 See five-hour and weekly quotas, reset times, model, context and tokens when available. Enable optional alerts and local history. Quotas also appear on Home and in the Companion Agents widget.
 
-Under Settings → Agents, preview and connect the Claude Code status line or use Read now for Codex. Claude reports quotas on supported plans after the first response. Codex CLI session context and token counts are unavailable.
+In **Settings → AI Agents**, you can preview and connect the Claude Code status line. If it is already connected, open **Agents → Usage** to see whether Dynamic is waiting for data, the last update, and any active limits. For Codex, use **Read now**. Codex CLI does not provide session context or token counts.
+
+Claude Code provides quotas on eligible plans when the status line receives usage data. Quota delivery is verified in the terminal. Delivery from the graphical panel after a successful response is still to be verified. You can run Claude Code in VS Code’s integrated terminal.
 
 ## GitHub dashboard
 

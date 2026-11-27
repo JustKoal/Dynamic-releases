@@ -32,7 +32,9 @@ Dopo un aggiornamento, Codex può chiedere di riapprovare gli hook modificati co
 
 Controlla quote a 5 ore e settimanali, ripristini, modello, contesto e token quando disponibili. Attiva avvisi e storico locale facoltativo. Le quote compaiono anche in Home e nel widget Agenti di Companion.
 
-In Impostazioni → Agenti collega la status line di Claude Code con anteprima o usa Leggi ora per Codex. Claude fornisce le quote con piani compatibili, dopo la prima risposta. Per Codex CLI contesto e token della sessione non sono disponibili.
+In **Impostazioni → Agenti AI** puoi collegare la status line di Claude Code con anteprima. Se è già collegata, apri **Agenti → Utilizzo** per vedere se Dynamic attende i dati, l’ultimo aggiornamento e le finestre ancora valide. Per Codex usa **Leggi ora**. Codex CLI non fornisce contesto e token della sessione.
+
+Claude Code fornisce le quote su piani compatibili quando la status line riceve i dati. La ricezione è verificata nel terminale. Resta da verificare il pannello grafico dopo una risposta riuscita. Puoi usare Claude Code nel terminale integrato di VS Code.
 
 ## Dashboard GitHub
 

@@ -53,4 +53,4 @@ Aprilo dalla dashboard. Scegli fino a tre widget, gli orologi e la modalità not
 
 Controlla quote a 5 ore e settimanali, ripristini, modello, contesto e token quando disponibili. Attiva avvisi e storico locale facoltativo. Le quote compaiono anche in Home e nel widget Agenti di Companion.
 
-In Impostazioni → Agenti collega la status line di Claude Code con anteprima o usa Leggi ora per Codex. Claude fornisce le quote con piani compatibili, dopo la prima risposta. Per Codex CLI contesto e token della sessione non sono disponibili.
+Il widget Agenti mostra le quote attive ricevute sul PC da Claude Code e Codex. Dynamic 0.9.1 esclude le finestre scadute. Controlla l’ultimo aggiornamento e lo stato della status line in **Agenti → Utilizzo** sul PC.
