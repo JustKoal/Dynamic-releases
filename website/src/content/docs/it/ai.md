@@ -41,3 +41,9 @@ Segui Actions, build, deployment, release, pull request e issue di un massimo di
 Solo ai repository autorizzati e selezionati. Il token è cifrato con Windows DPAPI. Quando la funzione è spenta non ci sono richieste a GitHub. Gli avvisi sono facoltativi e i controlli si sospendono durante il gioco. La dashboard non legge lo stato delle cartelle Git locali.
 
 Usa **Leggi ora** o attiva la lettura a inizio e fine turno. Dynamic chiude il processo Codex dopo la lettura. Puoi scollegare Claude dalle Impostazioni per ripristinare la status line precedente. Nella scheda GitHub, attiva la dashboard, accedi dal browser e scegli i repository. Puoi spegnerla o scollegarla dalle Impostazioni.
+
+## Stato degli hook Codex
+
+Corregge l’esecuzione degli hook Codex quando la shell di sessione è PowerShell e i falsi avvisi di approvazione. In **Impostazioni → Agenti AI → Verifica in Codex** puoi vedere le voci rilevate, abilitate e autorizzate, oltre all’ultimo evento ricevuto da Dynamic.
+
+Se usi ancora le definizioni precedenti, apri **Agenti AI → Aggiorna…**, controlla l’anteprima e rivedi le voci modificate con `/hooks` in Codex. Le definizioni già corrette mantengono posizione e approvazione.

@@ -34,6 +34,14 @@
 > The «Source code» archives that GitHub attaches automatically to every release contain only this README, the screenshots and the website, not the application code.
 > Dynamic is available in English and Italian, including the installer, interface, local voice commands and Companion. The installer is not Authenticode-signed, so Windows SmartScreen may warn on first run.
 
+## 0.8.1 — Intelligence Update
+
+**Italiano.** Corregge l’esecuzione degli hook Codex quando la shell di sessione è PowerShell e i falsi avvisi di approvazione. In **Impostazioni → Agenti AI → Verifica in Codex** puoi vedere le voci rilevate, abilitate e autorizzate, oltre all’ultimo evento ricevuto da Dynamic.
+
+**English.** Fixes Codex hook execution when the session shell is PowerShell and removes false approval warnings. **Settings → AI Agents → Check in Codex** shows detected, enabled and trusted hooks, plus the last event received by Dynamic.
+
+[Note di rilascio / Release notes](https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.8.1)
+
 ## 0.8.0 — Intelligence Update
 
 ### Italiano

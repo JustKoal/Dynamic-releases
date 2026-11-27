@@ -430,6 +430,7 @@ const en = {
     eyebrow: "FAQ",
     heading: "Frequently asked questions",
     items: [
+      {"q": "How do I check my Codex hooks?", "a": "Open Settings → AI Agents → Check in Codex for separate enabled and trusted counts."},
       {"q": "How do I connect Claude Code and Codex?", "a": "Under Settings → Agents, preview and connect the Claude Code status line or use Read now for Codex. Claude reports quotas on supported plans after the first response. Codex CLI session context and token counts are unavailable."},
       {"q": "What does Dynamic access on GitHub?", "a": "Only authorised repositories you select. Windows DPAPI encrypts the token. GitHub receives no requests while the feature is off. Alerts are optional and checks pause during gaming. The dashboard does not report local Git folder status."},
       {"q": "Where can I insert dictated text?", "a": "Enable dictation under Settings → Voice. Each preview can be inserted once within ten minutes in supported apps. Use Copy for elevated apps. Dictation pauses while gaming. Direct insertion turns line breaks and tabs into spaces."},

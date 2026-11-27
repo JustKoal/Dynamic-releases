@@ -109,7 +109,9 @@ const jsonLd = {
   <!-- VIDEO SHOWCASE -->
   <section class="section-tight divider" aria-labelledby="intelligence-heading">
     <div class="container">
-      <h2 class="h2" id="intelligence-heading">0.8.0 · Intelligence Update</h2>
+      <h2 class="h2" id="intelligence-heading">0.8.1 · Intelligence Update</h2>
+      <p class="lead">{lang === "it" ? "Correzione degli hook Codex in PowerShell e nuovo controllo delle autorizzazioni." : "Fixes Codex hooks in PowerShell and adds a trust check."}</p>
+      <a class="link" href={url(lang, "docs/ai/")}>{lang === "it" ? "Verifica gli hook Codex" : "Check Codex hooks"}</a>
       <ul class="checks" style="margin-top:24px">
         {d.features.sections.slice(0, 3).map((feature) => (
           <li><Icon name="check" size={18} /><div><a class="link" href={url(lang, `features/#${feature.id}`)}>{feature.title}</a><p>{feature.text}</p></div></li>

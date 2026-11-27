@@ -41,3 +41,9 @@ Follow Actions, builds, deployments, releases, pull requests and issues across u
 Only authorised repositories you select. Windows DPAPI encrypts the token. GitHub receives no requests while the feature is off. Alerts are optional and checks pause during gaming. The dashboard does not report local Git folder status.
 
 Use **Read now** or enable checks at the start and end of a turn. Dynamic closes the Codex process after reading. You can remove the Claude link from Settings to restore your previous status line. In GitHub, enable the dashboard, sign in through your browser and select repositories. You can turn it off or disconnect from Settings.
+
+## Codex hook status
+
+Fixes Codex hook execution when the session shell is PowerShell and removes false approval warnings. **Settings → AI Agents → Check in Codex** shows detected, enabled and trusted hooks, plus the last event received by Dynamic.
+
+If you still have the older definitions, open **AI Agents → Update…**, review the preview, then review the changed entries with `/hooks` in Codex. Correct definitions retain their positions and approvals.

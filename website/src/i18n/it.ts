@@ -431,6 +431,7 @@ const it: Dict = {
     eyebrow: "FAQ",
     heading: "Domande frequenti",
     items: [
+      {"q": "Come verifico gli hook Codex?", "a": "Apri Impostazioni → Agenti AI → Verifica in Codex. Le voci abilitate e quelle autorizzate sono conteggiate separatamente."},
       {"q": "Come collego Claude Code e Codex?", "a": "In Impostazioni → Agenti collega la status line di Claude Code con anteprima o usa Leggi ora per Codex. Claude fornisce le quote con piani compatibili, dopo la prima risposta. Per Codex CLI contesto e token della sessione non sono disponibili."},
       {"q": "A cosa accede Dynamic su GitHub?", "a": "Solo ai repository autorizzati e selezionati. Il token è cifrato con Windows DPAPI. Quando la funzione è spenta non ci sono richieste a GitHub. Gli avvisi sono facoltativi e i controlli si sospendono durante il gioco. La dashboard non legge lo stato delle cartelle Git locali."},
       {"q": "Dove posso inserire il testo dettato?", "a": "Attiva la funzione in Impostazioni → Voce. L’inserimento è disponibile una volta per anteprima entro dieci minuti, nelle app compatibili. Nelle app elevate, usa Copia. La dettatura è sospesa in gioco. A capo e Tab diventano spazi nell’inserimento diretto."},
