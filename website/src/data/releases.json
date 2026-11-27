@@ -1,5 +1,20 @@
 [
  {
+  "tag": "v0.8.1",
+  "version": "0.8.1",
+  "name": "Dynamic 0.8.1 — Intelligence Update",
+  "date": "2026-11-27T17:29:12Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.8.1",
+  "notes": "# Dynamic 0.8.1 — Intelligence Update\n\n## Italiano\n\nCorregge l’esecuzione degli hook Codex quando la shell di sessione è PowerShell e i falsi avvisi di approvazione. In **Impostazioni → Agenti AI → Verifica in Codex** puoi vedere le voci rilevate, abilitate e autorizzate, oltre all’ultimo evento ricevuto da Dynamic.\n\nSe usi ancora le definizioni precedenti, apri **Agenti AI → Aggiorna…**, controlla l’anteprima e rivedi le voci modificate con `/hooks` in Codex. Le definizioni già corrette mantengono posizione e approvazione.\n\nL’aggiornamento in-app verifica la firma Minisign. L’installer Windows x64 può mostrare un avviso SmartScreen perché manca la firma Authenticode.\n\n## English\n\nFixes Codex hook execution when the session shell is PowerShell and removes false approval warnings. **Settings → AI Agents → Check in Codex** shows detected, enabled and trusted hooks, plus the last event received by Dynamic.\n\nIf you still have the older definitions, open **AI Agents → Update…**, review the preview, then review the changed entries with `/hooks` in Codex. Correct definitions retain their positions and approvals.\n\nDynamic verifies the Minisign signature for in-app updates. Windows SmartScreen may warn because the x64 installer lacks an Authenticode signature.\n\n**SHA-256** `f86703b25eb3de21691d9a61c0b4efb1cf8a9c051cd103fc2142402a200a171f`\n",
+  "installer": {
+   "name": "Dynamic_0.8.1_x64-setup.exe",
+   "size": 431487022,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.8.1/Dynamic_0.8.1_x64-setup.exe",
+   "sha256": "f86703b25eb3de21691d9a61c0b4efb1cf8a9c051cd103fc2142402a200a171f"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.8.1/latest.json"
+ },
+ {
   "tag": "v0.8.0",
   "version": "0.8.0",
   "name": "Dynamic 0.8.0 — Intelligence Update",
