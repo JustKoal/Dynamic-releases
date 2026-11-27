@@ -450,7 +450,7 @@ const it: Dict = {
   },
   privacy: {
     title: "Privacy e sicurezza",
-    description: "Come Dynamic tratta i tuoi dati: elaborazione vocale locale, servizi cloud facoltativi, provider AI, credenziali, certificati di Companion e permessi dei dispositivi. Questo sito non usa cookie né analisi.",
+    description: "Come Dynamic tratta i tuoi dati: elaborazione vocale locale, servizi cloud facoltativi, provider AI, credenziali, certificati di Companion e permessi dei dispositivi. Questo sito non usa cookie né analisi. GitHub usa richieste di sola lettura per i repository selezionati e conserva il token cifrato in Windows. La dashboard non invia richieste quando è spenta. La dettatura viene trascritta sul PC.",
     eyebrow: "Privacy e sicurezza",
     heading: "Cosa resta sul tuo PC e cosa no",
     sub: "Dynamic è progettata per fare in locale il più possibile. Alcune funzioni dipendono da servizi esterni che scegli di collegare: questa pagina li elenca.",

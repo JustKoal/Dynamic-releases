@@ -449,7 +449,7 @@ const en = {
   },
   privacy: {
     title: "Privacy and security",
-    description: "How Dynamic handles your data: local speech processing, optional cloud services, AI providers, credentials, Companion certificates and device permissions. This website uses no cookies or analytics.",
+    description: "How Dynamic handles your data: local speech processing, optional cloud services, AI providers, credentials, Companion certificates and device permissions. This website uses no cookies or analytics. GitHub uses read-only requests for selected repositories and stores the token encrypted on Windows. The dashboard sends no requests while off. Dictation is transcribed on the PC.",
     eyebrow: "Privacy and security",
     heading: "What stays on your PC, and what does not",
     sub: "Dynamic is built to do as much as possible locally. Some features depend on external services you choose to connect; this page lists them.",
