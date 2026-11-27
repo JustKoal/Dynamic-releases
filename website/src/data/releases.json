@@ -1,5 +1,20 @@
 [
  {
+  "tag": "v0.9.1",
+  "version": "0.9.1",
+  "name": "Dynamic 0.9.1 — Companion Revolution",
+  "date": "2026-11-27T23:08:10Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.9.1",
+  "notes": "## Italiano\n\nDynamic 0.9.1 è un aggiornamento correttivo di Companion Revolution per **Agenti → Utilizzo**.\n\n- La scheda mostra se la status line di Claude Code è collegata, in attesa dei dati o temporaneamente indisponibile. Mostra l’ultimo aggiornamento ricevuto e avvisa quando Claude Code comunica che il limite è raggiunto.\n- Le quote delle ultime cinque ore e della settimana si aggiornano separatamente. I report parziali o fuori ordine conservano i valori ancora validi. Home e Companion escludono le finestre scadute.\n- La ricezione di entrambe le quote e dei rispettivi ripristini è stata verificata nel terminale. Il collaudo del pannello grafico di VS Code dopo una risposta riuscita resta pendente. Puoi usare Claude Code nel terminale integrato.\n\nAggiorna da **Impostazioni → Informazioni**. Se la status line è già collegata, puoi continuare a usarla.\n\n## English\n\nDynamic 0.9.1 is a Companion Revolution maintenance release for **Agents → Usage**.\n\n- The tab shows whether the Claude Code status line is connected, waiting for data, or temporarily unavailable. It shows the last update and marks a limit reached when Claude Code reports it.\n- Five-hour and weekly quotas update independently. Partial or out-of-order reports preserve active values. Home and Companion omit expired windows.\n- Delivery of both quotas and their reset times was verified in the terminal. Delivery from the graphical VS Code panel after a successful response remains to be verified. You can run Claude Code in the integrated terminal.\n\nUpdate from **Settings → About**. If your status line is already connected, you can keep using it.\n\n### Windows x64\n\nDynamic verifica gli aggiornamenti dall’app con Minisign. Windows SmartScreen può mostrare un avviso per l’installer, che non ha una firma Authenticode.\n\nDynamic verifies in-app updates with Minisign. Windows SmartScreen may warn because the installer lacks an Authenticode signature.\n\n**SHA-256** `5e1d79e619e85e14c0efb08a6e627a1fa0234be5f31cdc1366241bfa27954ae4`\n",
+  "installer": {
+   "name": "Dynamic_0.9.1_x64-setup.exe",
+   "size": 431605674,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.9.1/Dynamic_0.9.1_x64-setup.exe",
+   "sha256": "5e1d79e619e85e14c0efb08a6e627a1fa0234be5f31cdc1366241bfa27954ae4"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.9.1/latest.json"
+ },
+ {
   "tag": "v0.9.0",
   "version": "0.9.0",
   "name": "Dynamic 0.9.0 — Companion Revolution",
