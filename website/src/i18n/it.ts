@@ -7,7 +7,7 @@ const it: Dict = {
   name: "Italiano",
   site: {
     title: "Dynamic — Assistente desktop per Windows 11",
-    description: "Assistente desktop per Windows 11 con quote di Claude Code e Codex, dashboard GitHub in sola lettura, dettatura offline in italiano e inglese e dashboard locale per smartphone.",
+    description: "Dynamic per Windows 11 con Companion 2.0, Control Deck, StandBy, profili audio, automazioni locali e dettatura offline.",
   },
   nav: {
     features: "Funzionalità",
@@ -63,7 +63,7 @@ const it: Dict = {
   home: {
     eyebrow: "Una Dynamic Island per Windows 11",
     title: ["Il tuo PC.", "Un'unica interfaccia."],
-    sub: "Dynamic resta in cima allo schermo come una piccola isola e si apre solo quando serve: comandi vocali locali, chat AI, avvisi dei tuoi agenti di coding, musica, stato dell'hardware e una dashboard sullo smartphone.",
+    sub: "Controlla il PC dalla dashboard Companion 2.0 sul tuo telefono. Su Windows ritrovi comandi vocali locali, profili audio, automazioni, Focus e Gaming nella stessa isola.",
     watch: "Guarda Dynamic in azione",
     heroAlt: "Dynamic a grandezza reale su un desktop Windows 11: l'isola si è aperta nel pannello con orologio, stato dell'AI e widget per agenti, musica e timer",
     heroCaption: "Grandezza reale su un desktop Windows 11 · comando vocale elaborato sul PC",
@@ -133,14 +133,16 @@ const it: Dict = {
     ctaSub: "Gratuita per Windows 11. Gli aggiornamenti sono firmati e attendono sempre la tua conferma.",
     ctaNotes: "Note di rilascio",
     ctaDocs: "Guide",
+    revolution: {"title":"In Dynamic 0.9.0","cta":"Scopri Companion 2.0"},
   },
   features: {
     title: "Funzionalità",
-    description: "Tutto ciò che Dynamic sa fare su Windows 11: l'isola, voce e comandi locali, AI e agenti di coding, Command Palette, produttività, musica e audio, messaggi, monitoraggio hardware, modalità Gaming e Companion.",
+    description: "Dynamic per Windows 11 con Companion 2.0, Control Deck, StandBy, profili audio, automazioni locali e dettatura offline.",
     eyebrow: "Funzionalità",
     heading: "Un assistente desktop che non ti intralcia.",
     sub: "Dynamic è organizzata intorno a ciò che fai ogni giorno. Ogni area è presente nella release pubblica attuale; ciò che è ancora in verifica su hardware reale è indicato.",
     sections: [
+      {"id":"automations","icon":"zap","title":"Smart Profiles","text":"In Impostazioni → Automazioni, collega eventi del PC a profili audio, temi, Non disturbare e azioni locali.","points":["Usa Focus, Gaming, app aperte, orari o alimentazione a batteria come condizioni.","Le impostazioni temporanee si ripristinano rispettando le modifiche manuali."],"status":""},
       {"id": "usage", "icon": "gauge", "title": "Utilizzo degli agenti", "text": "Controlla quote a 5 ore e settimanali, ripristini, modello, contesto e token quando disponibili. Attiva avvisi e storico locale facoltativo. Le quote compaiono anche in Home e nel widget Agenti di Companion.", "points": ["In Impostazioni → Agenti collega la status line di Claude Code con anteprima o usa Leggi ora per Codex. Claude fornisce le quote con piani compatibili, dopo la prima risposta. Per Codex CLI contesto e token della sessione non sono disponibili."], "status": ""},
       {"id": "github", "icon": "git-pull-request", "title": "Dashboard GitHub", "text": "Segui Actions, build, deployment, release, pull request e issue di un massimo di otto repository, anche privati. Accesso guidato dal browser o token personale a grana fine. Permessi di sola lettura.", "points": ["Solo ai repository autorizzati e selezionati. Il token è cifrato con Windows DPAPI. Quando la funzione è spenta non ci sono richieste a GitHub. Gli avvisi sono facoltativi e i controlli si sospendono durante il gioco. La dashboard non legge lo stato delle cartelle Git locali."], "status": ""},
       {"id": "dictation", "icon": "mic", "title": "Dynamic Dictation", "text": "Detta offline in italiano o inglese con Ctrl+Alt+W. Rivedi il testo e scegli se inserirlo nell’app di partenza o copiarlo.", "points": ["Attiva la funzione in Impostazioni → Voce. L’inserimento è disponibile una volta per anteprima entro dieci minuti, nelle app compatibili. Nelle app elevate, usa Copia. La dettatura è sospesa in gioco. A capo e Tab diventano spazi nell’inserimento diretto."], "status": ""},
@@ -191,7 +193,7 @@ const it: Dict = {
       {
         id: "productivity", icon: "calendar", title: "Calendario, note e tempo",
         text: "Gli strumenti che apri decine di volte al giorno, a una scorciatoia di distanza.",
-        points: [
+        points: ["Cronometro con tempi parziali e sessioni Focus utilizzabili dalle automazioni.",
           "Calendario: feed ICS di Google o Outlook in sola lettura, con eventi ricorrenti, fusi orari, promemoria e cache offline cifrata.",
           "Note: locali, ricercabili e salvate automaticamente.",
           "Tempo: timer, sveglie e promemoria.",
@@ -202,7 +204,7 @@ const it: Dict = {
       {
         id: "audio", icon: "music", title: "Musica e Centro audio",
         text: "Dynamic segue le sessioni multimediali di Windows, quindi funziona con i player che usi già.",
-        points: [
+        points: ["Profili audio salvano i livelli generali, del microfono e delle singole app.",
           "Copertina, avanzamento, controlli e volume per player; può aprire, avviare e chiudere Spotify, Apple Music o TIDAL.",
           "Centro audio con volume generale e per app, uscite e ingressi in uso, livello e muto del microfono.",
           "Windows non offre alle app un'API supportata per cambiare l'uscita predefinita: Dynamic mostra quella in uso e rimanda a Win+Ctrl+V.",
@@ -221,7 +223,7 @@ const it: Dict = {
       {
         id: "system", icon: "gauge", title: "Hardware, dispositivi e modalità Gaming",
         text: "La pagina Sistema mostra CPU, GPU e VRAM, RAM, traffico di rete fisico e dischi dalle API di Windows, con un intervallo condiviso di 1, 2 o 5 secondi.",
-        points: [
+        points: ["Modalità Gaming manuale per giochi in finestra. Risparmio rallenta i campioni hardware attivi quando il PC è a batteria.",
           "Temperatura CPU dalla memoria condivisa di MSI Afterburner o HWiNFO, quando già disponibile. Sperimentale e spento di default: PawnIO, se lo hai installato tu.",
           "Dispositivi Bluetooth e con ricevitore USB, con il livello della batteria quando Windows lo espone.",
           "Modalità Gaming: con un'app a schermo intero la parola di attivazione va in pausa e le WebView nascoste di WhatsApp e Telegram si chiudono, poi tornano gradualmente. Nessun aumento degli FPS viene dichiarato.",
@@ -230,8 +232,8 @@ const it: Dict = {
       },
       {
         id: "companion", icon: "smartphone", title: "Dynamic Companion",
-        text: "Una dashboard locale per smartphone e tablet con layout, temi e permessi per dispositivo. L'HTTPS facoltativo usa un'autorità di certificazione locale che installi manualmente sul dispositivo.",
-        points: [
+        text: "Companion 2.0 porta dashboard multipagina, widget personalizzabili, Control Deck e StandBy sul telefono o tablet, attraverso la rete locale.",
+        points: ["Dashboard multipagina, pile di widget, Control Deck e StandBy con orologi e modalità notte.",
           "Widget per hardware, agenti, musica, audio, batterie, timer e azioni rapide.",
           "Controlli autorizzati: volume, muto del microfono, timer del PC, Non disturbare e azioni rapide, solo su HTTPS.",
           "Spento di default, solo rete locale.",
@@ -244,23 +246,23 @@ const it: Dict = {
     compactTitle: "Stili compatti",
   },
   companion: {
-    title: "Dynamic Companion",
-    description: "Dynamic Companion trasforma uno smartphone o un tablet sulla rete locale in una dashboard del PC: hardware, batterie, timer, musica, audio, agenti AI e azioni rapide nel browser, senza app e senza cloud.",
+    title: "Dynamic Companion 2.0",
+    description: "Companion 2.0 porta dashboard multipagina, widget personalizzabili, Control Deck e StandBy sul telefono o tablet, attraverso la rete locale.",
     eyebrow: "Dynamic Companion",
-    heading: "Il centro di controllo del tuo PC, in qualsiasi browser della tua rete.",
-    sub: "Apri Companion su un iPhone, un iPad o un dispositivo Android collegato alla stessa Wi-Fi. La pagina è servita da Dynamic sul tuo PC: nessuna app da installare, nessun account, nessun servizio cloud. Ogni dispositivo ricorda la lingua scelta in Companion.",
+    heading: "Più dashboard per lo stesso PC.",
+    sub: "Apri Companion 2.0 nel browser di iPhone, iPad o Android sulla stessa rete. Passa dal layout Gaming a Produttività, organizza le azioni del PC e usa StandBy come display da scrivania o comodino.",
     shotsAlt: {
-      iphone: "Companion su uno schermo da iPhone: widget CPU e GPU, agenti AI con uno in attesa di autorizzazione e azioni rapide",
+      iphone: "Dashboard Produttività su smartphone con orologi, timer e calendario",
       android: "Companion su uno schermo da smartphone Android con la stessa dashboard",
       ipadPortrait: "Companion su iPad in verticale con widget hardware, agenti, azioni rapide e audio",
-      ipadLandscape: "Companion su iPad in orizzontale con hardware, agenti, azioni rapide, Centro audio, timer del PC, musica e batterie",
+      ipadLandscape: "Dashboard Produttività su tablet in orizzontale",
     },
     languageTitle: "Scegli la lingua su ogni dispositivo",
     languageText: "Apri le impostazioni di Companion e scegli italiano o inglese. Il dispositivo ricorda la scelta e la usa per gli esiti delle azioni rapide.",
     languageAlt: "Impostazioni di Dynamic Companion con Italiano selezionato in Lingua",
     syntheticNote: "Le schermate usano la vera pagina di Companion con dati dimostrativi.",
     widgetsTitle: "Widget",
-    widgetsSub: "Ogni dispositivo conserva il proprio layout: ordine, dimensioni e widget visibili. Le preferenze restano nel browser di quel dispositivo e non vengono inviate al PC.",
+    widgetsSub: "Crea più pagine, scegli un modello, riordina, ridimensiona o impila i widget. Il PC può gestire i layout dei dispositivi associati.",
     widgets: [
       { icon: "cpu", title: "Hardware", text: "CPU, GPU, RAM, rete e dischi, con dettagli al tocco." },
       { icon: "battery-medium", title: "Batterie", text: "Mouse, cuffie e controller wireless che comunicano il livello." },
@@ -268,7 +270,7 @@ const it: Dict = {
       { icon: "music", title: "Musica", text: "Il brano in riproduzione sul PC con play, pausa e cambio brano." },
       { icon: "volume-2", title: "Centro audio", text: "Volume generale e per app e muto del microfono, con il relativo permesso." },
       { icon: "square-terminal", title: "Agenti AI", text: "Sessioni di Claude Code e Codex e avvisi quando una ti aspetta." },
-      { icon: "zap", title: "Azioni rapide", text: "Lo stesso catalogo della Command Palette, filtrato in base ai permessi." },
+      { icon: "zap", title: "Control Deck", text: "Lo stesso catalogo della Command Palette, filtrato in base ai permessi." },
     ],
     stepsTitle: "Pronto in pochi minuti",
     steps: [
@@ -303,7 +305,7 @@ const it: Dict = {
       { icon: "wifi", title: "Solo rete privata", text: "Ascolta solo sull'indirizzo privato del PC nella LAN, porta 47613. Nessuna esposizione a Internet, UPnP o relay cloud." },
       { icon: "key-round", title: "Token per dispositivo", text: "Ogni dispositivo ha il proprio token, salvato sul PC solo come hash SHA-256 e revocabile in qualsiasi momento." },
       { icon: "lock", title: "Permessi concessi da te", text: "Di default si può solo consultare. Volume, microfono, timer, modalità e azioni rapide si concedono per dispositivo, solo su HTTPS." },
-      { icon: "shield-check", title: "Elenco chiuso di comandi", text: "Niente terminale, file, credenziali o avvio di programmi. Le azioni che richiedono conferma restano sul PC." },
+      { icon: "shield-check", title: "Elenco chiuso di comandi", text: "Control Deck apre solo app, cartelle e siti approvati sul PC. Comandi arbitrari e credenziali restano inaccessibili." },
     ],
     notTitle: "Cosa Companion non è",
     not: [
@@ -314,6 +316,7 @@ const it: Dict = {
     limitsTitle: "Stato attuale",
     limits: "Collaudato dal proprietario del progetto su iPhone, iPad e Android fisici. Non è disponibile l'uso offline, perché la pagina non usa un service worker.",
     guideCta: "Leggi la guida a Companion",
+    gallery: [{"title":"Dashboard multipagina","text":"Passa tra Gaming e Produttività. Parti anche dai modelli Developer, Audio o Controllo PC.","alt":"Dashboard Gaming con schede di pagina, metriche e comandi"},{"title":"Widget su misura","text":"Scegli dimensioni, ordine e pile. Importa o esporta le pagine e gestisci le dashboard associate dal PC.","alt":"Editor Companion con i controlli del layout"},{"title":"Control Deck","text":"Organizza azioni e cartelle e usa solo i comandi concessi al dispositivo, come timer, musica e collegamenti approvati.","alt":"Editor di Control Deck con azioni e cartelle"},{"title":"StandBy","text":"Orologio, fusi orari e widget su un’unica schermata, con modalità notte e spostamenti anti burn-in OLED.","alt":"StandBy con orologio e widget su telefono in orizzontale"}],
   },
   performance: {
     title: "Prestazioni",
@@ -417,7 +420,7 @@ const it: Dict = {
   },
   docs: {
     title: "Guide",
-    description: "Guide di Dynamic per Windows 11: installazione, prima configurazione, l'isola, voce, integrazioni AI, Command Palette, Companion, monitoraggio hardware, modalità Gaming e risoluzione dei problemi.",
+    description: "Guide per Windows 11, Companion 2.0, Control Deck, StandBy, profili audio, automazioni e Gaming.",
     eyebrow: "Documentazione",
     heading: "Guide",
     sub: "Guide brevi e pratiche per le funzionalità della release attuale.",
@@ -431,6 +434,10 @@ const it: Dict = {
     eyebrow: "FAQ",
     heading: "Domande frequenti",
     items: [
+      {"q":"I miei widget Companion restano dopo l’aggiornamento?","a":"Sullo stesso browser e indirizzo, il layout precedente viene importato in una pagina Dashboard. Usa l’esportazione e l’importazione per trasferire un layout tra dispositivi."},
+      {"q":"Cosa posso fare con Control Deck?","a":"Eseguire azioni concesse dal PC, inclusi collegamenti approvati ad app, cartelle o siti. I controlli protetti richiedono HTTPS e permessi per dispositivo."},
+      {"q":"StandBy tiene sempre acceso lo schermo?","a":"Il blocco schermo dipende dal browser e dal sistema. StandBy sospende gli aggiornamenti quando la pagina non è visibile."},
+      {"q":"Cosa cambia quando uso il portatile a batteria?","a":"Il profilo Risparmio rallenta solo il campionamento hardware già in corso. Dynamic non modifica il piano energetico di Windows."},
       {"q": "Come verifico gli hook Codex?", "a": "Apri Impostazioni → Agenti AI → Verifica in Codex. Le voci abilitate e quelle autorizzate sono conteggiate separatamente."},
       {"q": "Come collego Claude Code e Codex?", "a": "In Impostazioni → Agenti collega la status line di Claude Code con anteprima o usa Leggi ora per Codex. Claude fornisce le quote con piani compatibili, dopo la prima risposta. Per Codex CLI contesto e token della sessione non sono disponibili."},
       {"q": "A cosa accede Dynamic su GitHub?", "a": "Solo ai repository autorizzati e selezionati. Il token è cifrato con Windows DPAPI. Quando la funzione è spenta non ci sono richieste a GitHub. Gli avvisi sono facoltativi e i controlli si sospendono durante il gioco. La dashboard non legge lo stato delle cartelle Git locali."},

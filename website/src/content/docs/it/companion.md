@@ -1,6 +1,6 @@
 ---
-title: Dynamic Companion
-description: Apri la dashboard del PC su uno smartphone o un tablet della stessa rete, configura l'HTTPS e concedi i permessi.
+title: Dynamic Companion 2.0
+description: Configura dashboard, Control Deck, StandBy e HTTPS su telefono o tablet nella stessa rete del PC.
 order: 7
 icon: smartphone
 ---
@@ -35,15 +35,14 @@ Proseguire oltre un avviso del browser non crea una fiducia duratura. Dynamic no
 
 Dalla pagina HTTPS usa **Condividi → Aggiungi alla schermata Home** in Safari, oppure **Aggiungi a schermata Home** dal menu di Chrome su Android. Una scorciatoia creata in precedenza può mantenere l'icona vecchia.
 
-## Personalizzare
+## Pagine e widget
+Apri il selettore delle pagine e crea una dashboard, anche da un modello Gaming, Developer, Audio, Produttività o Controllo PC. In modalità modifica riordina e ridimensiona i widget o impilali. Usa importazione ed esportazione per spostare le configurazioni. Da **Impostazioni → Companion** sul PC puoi gestire le dashboard dei dispositivi associati. Con lo stesso browser e indirizzo, un vecchio layout diventa la prima pagina Dashboard.
 
-Tocca **Personalizza** per riordinare, ridimensionare, aggiungere o rimuovere widget e per scegliere il tema. Ogni dispositivo conserva il proprio layout nel browser; nulla viene inviato al PC.
+## Control Deck e permessi
+Aggiungi pulsanti e cartelle al widget **Control Deck**. Sul PC scegli le azioni da concedere a ogni dispositivo. Per volume, microfono, timer e altri controlli protetti servono HTTPS e i relativi permessi. App, cartelle e siti sono disponibili solo come collegamenti approvati sul PC. Revoca l’accesso da **Impostazioni → Companion**.
 
-Widget: CPU, GPU, RAM, rete, dischi, agenti AI, musica, Centro audio, batterie, timer (timer sul dispositivo, Pomodoro e cronometro), timer del PC e azioni rapide.
-
-## Permessi
-
-Ogni dispositivo parte con la sola **consultazione**. Sul PC puoi concedere, per dispositivo e solo su HTTPS: controllo della musica, audio, microfono, timer del PC, modalità (Non disturbare), azioni rapide e nomi dei progetti degli agenti. Non esistono terminale, accesso ai file, avvio di programmi o comandi arbitrari. Puoi revocare un dispositivo in qualsiasi momento da **Impostazioni → Companion**.
+## StandBy
+Aprilo dalla dashboard. Scegli fino a tre widget, gli orologi e la modalità notte. Lo schermo può restare acceso nei browser compatibili, salvo limitazioni del sistema. StandBy mette in pausa gli aggiornamenti quando la pagina è nascosta.
 
 ## Da sapere
 

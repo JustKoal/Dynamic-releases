@@ -1,4 +1,8 @@
 ---
+import stopwatchen from "../../assets/shots/v090-stopwatch-en.webp";
+import stopwatchit from "../../assets/shots/v090-stopwatch-it.webp";
+import audioen from "../../assets/shots/v090-audio-en.webp";
+import audioit from "../../assets/shots/v090-audio-it.webp";
 import Base from "../../layouts/Base.astro";
 import Icon from "../../components/Icon.astro";
 import Shot from "../../components/Shot.astro";
@@ -21,7 +25,8 @@ import share from "../../assets/shots/v7-08-share.webp";
 import music from "../../assets/shots/v7-04-music.webp";
 import messages from "../../assets/shots/v7-07-messages.webp";
 import appearance from "../../assets/shots/v7-12-settings-appearance.webp";
-import iphone from "../../assets/shots/companion-iphone.webp";
+import productivityit from "../../assets/shots/v090-productivity-it.webp";
+import productivityen from "../../assets/shots/v090-productivity-en.webp";
 import compact from "../../assets/shots/v7-01-compact.webp";
 import capsule from "../../assets/shots/v7-14-notch-capsule.webp";
 import indicator from "../../assets/shots/v7-15-notch-indicator.webp";
@@ -50,10 +55,11 @@ const media: Record<string, { src: ImageMetadata; alt: string }[]> = {
   productivity: [
     { src: calendar, alt: it ? "Calendario mensile con agenda" : "Monthly calendar with agenda" },
     { src: notes, alt: it ? "Note locali con ricerca" : "Local notes with search" },
+    { src: it ? stopwatchit : stopwatchen, alt: it ? "Cronometro di Dynamic con pulsanti Avvia e Giro" : "Dynamic stopwatch with Start and Lap controls" },
     { src: tempo, alt: it ? "Tempo: timer, sveglie e promemoria" : "Time: timers, alarms and reminders" },
     { src: share, alt: it ? "Condividi file con QR sulla rete locale" : "Share file with a QR code on the local network" },
   ],
-  audio: [{ src: music, alt: it ? "Musica: copertina, avanzamento e controlli della sessione di Windows" : "Music: cover, timeline and controls for the Windows media session" }],
+  audio: [{ src: it ? audioit : audioen, alt: it ? "Profili audio nel Centro audio con dati dimostrativi" : "Audio Profiles in the Audio center with sample data" }, { src: music, alt: it ? "Musica: copertina, avanzamento e controlli della sessione di Windows" : "Music: cover, timeline and controls for the Windows media session" }],
   messages: [{ src: messages, alt: it ? "Messaggi: WhatsApp e Telegram in un unico posto, non collegati" : "Messages: WhatsApp and Telegram in one place, shown not connected" }],
   system: [{ src: home, alt: it ? "Home con stato dei dispositivi, agenti, musica e timer" : "Home with device status, agents, music and timer" }],
 };
@@ -90,12 +96,14 @@ const themes = [
             {s.points.map((p) => <li><Icon name="check" size={18} /><span>{p}</span></li>)}
           </ul>
           {s.status && <p class="note" style="margin-top:24px"><Icon name="flask-conical" size={18} /><span><strong>{d.common.validating}.</strong> {s.status}</span></p>}
+          {["audio", "productivity", "automations"].includes(s.id) && <p class="small muted" style="margin-top:14px">{it ? "Schermate dimostrative" : "Demo screenshots"}</p>}
           {s.id === "companion" && <a class="btn btn-ghost" style="margin-top:28px" href={url(lang, "companion/")}>{d.home.companionCta}<Icon name="arrow-right" size={18} /></a>}
+          {(s.id === "automations" || s.id === "audio" || s.id === "productivity") && <a class="link" style="margin-top:24px" href={url(lang, "docs/profiles/")}>{d.common.readGuide}<Icon name="arrow-right" size={16} /></a>}
           {s.id === "system" && <a class="link" style="margin-top:24px" href={url(lang, "performance/#gaming")}>{d.nav.performance}<Icon name="arrow-right" size={16} /></a>}
         </div>
         <div class="feature-media reveal">
           {s.id === "companion" ? (
-            <Device kind="phone" src={iphone} alt={d.companion.shotsAlt.iphone} sizes="(max-width: 900px) 70vw, 300px" class="phone-solo" />
+            <Device kind="phone" src={it ? productivityit : productivityen} alt={d.companion.shotsAlt.iphone} sizes="(max-width: 900px) 70vw, 300px" class="phone-solo" />
           ) : s.id === "island" ? (
             <div class="island-demo">
               <Shot src={compact} alt="Premium" sizes="260px" widths={[260, 344]} />

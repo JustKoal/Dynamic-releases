@@ -24,3 +24,7 @@ Apri **Impostazioni → Generale → Schermo intero e giochi**. Le due opzioni d
 La modalità Gaming riduce processi in background e memoria di Dynamic. Nella nostra prova su una build di sviluppo l'intero albero dei processi è passato da 13 a 7 processi e da 509 MB a 177–190 MB di memoria privata (dettagli e limiti nella [pagina Prestazioni](../../performance/#benchmarks)).
 
 Non dichiariamo aumenti degli FPS, le misure in giochi reali sono ancora da fare e la compatibilità con ogni sistema anti-cheat non è stata verificata.
+
+## Modalità manuale e batteria
+
+In **Impostazioni → Generale → Schermo intero e giochi** attiva la modalità manuale per un gioco in finestra. Quando il PC è a batteria, Risparmio porta ad almeno 5 secondi l’intervallo del campionamento hardware già attivo. Il piano energetico di Windows resta invariato.

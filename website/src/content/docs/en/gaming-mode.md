@@ -24,3 +24,7 @@ Open **Settings → Generale → Schermo intero e giochi**. Both Gaming-mode opt
 Gaming mode reduces Dynamic's background processes and memory. In our test on a development build it took the full process tree from 13 to 7 processes and from 509 MB to 177–190 MB of private memory (details and limits on the [Performance page](../../performance/#benchmarks)).
 
 No FPS improvement is claimed, real-game measurements are still pending, and compatibility with every anti-cheat system has not been verified.
+
+## Manual mode and battery power
+
+Turn on manual mode in **Settings → General → Full screen and games** for games in a window. On battery, Dynamic spaces active hardware readings at least five seconds apart. The Windows power plan is unaffected.

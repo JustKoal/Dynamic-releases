@@ -6,7 +6,7 @@ const en = {
   name: "English",
   site: {
     title: "Dynamic — Smart desktop assistant for Windows 11",
-    description: "Windows 11 desktop assistant with Claude Code and Codex usage, a read-only GitHub dashboard, offline English and Italian dictation, and a local phone dashboard.",
+    description: "Windows 11 desktop assistant with Companion 2.0, Control Deck, StandBy, audio profiles, local automations and offline dictation.",
   },
   nav: {
     features: "Features",
@@ -62,7 +62,7 @@ const en = {
   home: {
     eyebrow: "A Dynamic Island for Windows 11",
     title: ["Your PC.", "One interface."],
-    sub: "Dynamic sits at the top of your screen as a small island and opens only when you need it: local voice commands, AI chat, alerts from your coding agents, music, hardware stats and a dashboard on your phone.",
+    sub: "Control your PC from the Companion 2.0 dashboard on your phone. On Windows, local voice commands, audio profiles, automations, Focus and Gaming are all in the same island.",
     watch: "See Dynamic in action",
     heroAlt: "Dynamic at real size on a Windows 11 desktop: the island has opened into its panel with the clock, the AI status and widgets for agents, music and a timer",
     heroCaption: "Real size on a Windows 11 desktop · voice command handled on the PC",
@@ -132,14 +132,16 @@ const en = {
     ctaSub: "Free for Windows 11. Updates are signed and always wait for your confirmation.",
     ctaNotes: "Release notes",
     ctaDocs: "Documentation",
+    revolution: {"title":"In Dynamic 0.9.0","cta":"Explore Companion 2.0"},
   },
   features: {
     title: "Features",
-    description: "Everything Dynamic can do on Windows 11: the island, voice and local commands, AI and coding agents, Command Palette, productivity, music and audio, messages, hardware monitoring, Gaming mode and Companion.",
+    description: "Windows 11 desktop assistant with Companion 2.0, Control Deck, StandBy, audio profiles, local automations and offline dictation.",
     eyebrow: "Features",
     heading: "A desktop assistant that stays out of the way.",
     sub: "Dynamic is organised around what you do every day. Each area below is in the current public release; items still being validated on real hardware are marked.",
     sections: [
+      {"id":"automations","icon":"zap","title":"Smart Profiles","text":"In Settings → Automations, link PC events to audio profiles, themes, Do Not Disturb and local actions.","points":["Use Focus, Gaming, running apps, schedules or battery power as conditions.","Temporary settings are restored while respecting manual changes."],"status":""},
       {"id": "usage", "icon": "gauge", "title": "Agent usage", "text": "See five-hour and weekly quotas, reset times, model, context and tokens when available. Enable optional alerts and local history. Quotas also appear on Home and in the Companion Agents widget.", "points": ["Under Settings → Agents, preview and connect the Claude Code status line or use Read now for Codex. Claude reports quotas on supported plans after the first response. Codex CLI session context and token counts are unavailable."], "status": ""},
       {"id": "github", "icon": "git-pull-request", "title": "GitHub dashboard", "text": "Follow Actions, builds, deployments, releases, pull requests and issues across up to eight repositories, including private ones. Use browser-based sign-in or a fine-grained personal access token. Access is read-only.", "points": ["Only authorised repositories you select. Windows DPAPI encrypts the token. GitHub receives no requests while the feature is off. Alerts are optional and checks pause during gaming. The dashboard does not report local Git folder status."], "status": ""},
       {"id": "dictation", "icon": "mic", "title": "Dynamic Dictation", "text": "Dictate offline in English or Italian with Ctrl+Alt+W. Edit the preview, then insert the text into the original app or copy it.", "points": ["Enable dictation under Settings → Voice. Each preview can be inserted once within ten minutes in supported apps. Use Copy for elevated apps. Dictation pauses while gaming. Direct insertion turns line breaks and tabs into spaces."], "status": ""},
@@ -190,7 +192,7 @@ const en = {
       {
         id: "productivity", icon: "calendar", title: "Calendar, notes and time",
         text: "The everyday tools you open dozens of times a day, one shortcut away.",
-        points: [
+        points: ["Stopwatch with laps and Focus sessions that can trigger automations.",
           "Calendar: read-only Google or Outlook ICS feeds with recurring events, time zones, reminders and an encrypted offline cache.",
           "Notes: local, searchable and autosaved.",
           "Time: timers, alarms and reminders.",
@@ -201,7 +203,7 @@ const en = {
       {
         id: "audio", icon: "music", title: "Music and audio centre",
         text: "Dynamic follows Windows media sessions, so it works with the players you already use.",
-        points: [
+        points: ["Audio Profiles save master, microphone and per-app levels.",
           "Cover, timeline, transport controls and per-player volume; can open, start and close Spotify, Apple Music or TIDAL.",
           "Audio centre with master and per-app volume, current outputs and inputs, microphone level and mute.",
           "Windows has no supported API for apps to change the default output: Dynamic shows which one is in use and points to Win+Ctrl+V.",
@@ -220,7 +222,7 @@ const en = {
       {
         id: "system", icon: "gauge", title: "Hardware, devices and Gaming mode",
         text: "The System page shows CPU, GPU and VRAM, RAM, physical network traffic and disks from Windows APIs, with a shared 1, 2 or 5-second interval.",
-        points: [
+        points: ["Manual Gaming mode for windowed games. On battery, power saving slows active hardware readings.",
           "CPU temperature from MSI Afterburner or HWiNFO shared memory, when already available. Experimental and off by default: PawnIO, if you installed it yourself.",
           "Bluetooth and USB-receiver devices with battery level when Windows exposes it.",
           "Gaming mode: during a fullscreen app, the wake word pauses and hidden WhatsApp and Telegram views close, then return gradually. No FPS improvement is claimed.",
@@ -229,8 +231,8 @@ const en = {
       },
       {
         id: "companion", icon: "smartphone", title: "Dynamic Companion",
-        text: "A local dashboard for phones and tablets with per-device layout, themes and permissions. Optional HTTPS uses a local certificate authority that you install manually on the device.",
-        points: [
+        text: "Companion 2.0 brings multi-page dashboards, custom widgets, Control Deck and StandBy to your phone or tablet over the local network.",
+        points: ["Multi-page dashboards, widget stacks, Control Deck and StandBy with clocks and Night mode.",
           "Widgets for hardware, agents, music, audio, batteries, timers and quick actions.",
           "Authorised controls: volume, microphone mute, PC timers, Do Not Disturb and quick actions, only over HTTPS.",
           "Off by default, local network only.",
@@ -243,23 +245,23 @@ const en = {
     compactTitle: "Compact styles",
   },
   companion: {
-    title: "Dynamic Companion",
-    description: "Dynamic Companion turns a phone or tablet on your local network into a dashboard for your PC: hardware, batteries, timers, music, audio, AI agents and quick actions in the browser, with no app and no cloud.",
+    title: "Dynamic Companion 2.0",
+    description: "Companion 2.0 brings multi-page dashboards, custom widgets, Control Deck and StandBy to your phone or tablet over the local network.",
     eyebrow: "Dynamic Companion",
-    heading: "Your PC's control centre, in any browser on your network.",
-    sub: "Open Companion on an iPhone, iPad or Android device connected to the same Wi-Fi. The page is served by Dynamic on your PC: no app to install, no account, no cloud service. Each device remembers the language you choose in Companion.",
+    heading: "More dashboards for the same PC.",
+    sub: "Open Companion 2.0 in the browser on your iPhone, iPad or Android device on the same network. Switch from Gaming to Productivity, organise PC actions and use StandBy as a desk or bedside display.",
     shotsAlt: {
-      iphone: "Companion on an iPhone-sized screen: CPU and GPU widgets, AI agents with one waiting for authorisation, and quick actions",
+      iphone: "Productivity dashboard on a phone with clocks, timers and calendar",
       android: "Companion on an Android phone-sized screen with the same dashboard",
       ipadPortrait: "Companion on an iPad in portrait orientation with hardware, agents, quick actions and audio widgets",
-      ipadLandscape: "Companion on an iPad in landscape orientation with hardware, agents, quick actions, audio centre, PC timers, music and batteries",
+      ipadLandscape: "Productivity dashboard on a tablet in landscape",
     },
     languageTitle: "Choose a language on each device",
     languageText: "Open Companion settings and choose English or Italian. Your choice is saved on that device, and quick-action results follow it.",
     languageAlt: "Dynamic Companion settings with English selected under Language",
     syntheticNote: "Screenshots use the real Companion page with synthetic demo data.",
     widgetsTitle: "Widgets",
-    widgetsSub: "Each device keeps its own layout: order, size and which widgets appear. Preferences stay in that device's browser and are not sent to the PC.",
+    widgetsSub: "Create pages, choose a template, and rearrange, resize or stack widgets. Manage layouts for paired devices from your PC.",
     widgets: [
       { icon: "cpu", title: "Hardware", text: "CPU, GPU, RAM, network and disks, with details on tap." },
       { icon: "battery-medium", title: "Batteries", text: "Wireless mice, headsets and controllers that report their level." },
@@ -267,7 +269,7 @@ const en = {
       { icon: "music", title: "Music", text: "Now playing on the PC with play, pause and track controls." },
       { icon: "volume-2", title: "Audio centre", text: "Master and per-app volume and microphone mute, with permission." },
       { icon: "square-terminal", title: "AI agents", text: "Claude Code and Codex sessions, and alerts when one needs you." },
-      { icon: "zap", title: "Quick actions", text: "The same catalogue as the Command Palette, filtered by permission." },
+      { icon: "zap", title: "Control Deck", text: "The same catalogue as the Command Palette, filtered by permission." },
     ],
     stepsTitle: "Set up in a few minutes",
     steps: [
@@ -302,7 +304,7 @@ const en = {
       { icon: "wifi", title: "Private network only", text: "Listens only on the PC's private LAN address, port 47613. No Internet exposure, UPnP or cloud relay." },
       { icon: "key-round", title: "Per-device tokens", text: "Each device gets its own token, stored on the PC only as a SHA-256 hash and revocable at any time." },
       { icon: "lock", title: "Permissions you grant", text: "Viewing is the default. Volume, microphone, timers, modes and quick actions are granted per device, over HTTPS only." },
-      { icon: "shield-check", title: "Closed command list", text: "No terminal, files, credentials or app launching. Actions that need confirmation stay on the PC." },
+      { icon: "shield-check", title: "Closed command list", text: "Control Deck can open PC-approved apps, folders or sites. Arbitrary commands and access to credentials stay unavailable." },
     ],
     notTitle: "What Companion is not",
     not: [
@@ -311,8 +313,9 @@ const en = {
       "It does not approve Claude Code or Codex requests. Approvals always stay on the PC.",
     ],
     limitsTitle: "Current status",
-    limits: "Tested by the project owner on physical iPhone, iPad and Android devices. There is no offline mode, because the page does not use a service worker.",
+    limits: "Companion needs a live connection to the PC on the local network. StandBy screen wake depends on browser and system support.",
     guideCta: "Read the Companion guide",
+    gallery: [{"title":"Multi-page dashboards","text":"Switch between Gaming and Productivity. Start with the Developer, Audio or PC Control templates too.","alt":"Gaming dashboard with page tabs, metrics and controls"},{"title":"Custom widgets","text":"Choose sizes, order and stacks. Import or export layouts and manage paired dashboards from the PC.","alt":"Companion layout editor with widget controls"},{"title":"Control Deck","text":"Organise actions into buttons and folders. Run the actions granted to this device, such as timers, music or approved shortcuts.","alt":"Control Deck editor with actions and folders"},{"title":"StandBy","text":"See the clock, time zones and widgets on one screen, with Night mode and small shifts to help reduce OLED burn-in.","alt":"StandBy with a clock and widgets on a phone in landscape"}],
   },
   performance: {
     title: "Performance",
@@ -416,7 +419,7 @@ const en = {
   },
   docs: {
     title: "Documentation",
-    description: "Guides for Dynamic on Windows 11: installation, first setup, the island, voice, AI integrations, Command Palette, Companion, hardware monitoring, Gaming mode and troubleshooting.",
+    description: "Guides for Windows 11, Companion 2.0, Control Deck, StandBy, audio profiles, automations and Gaming.",
     eyebrow: "Documentation",
     heading: "Guides",
     sub: "Short, practical guides for the features in the current release.",
@@ -430,6 +433,10 @@ const en = {
     eyebrow: "FAQ",
     heading: "Frequently asked questions",
     items: [
+      {"q":"Will the update keep my Companion widgets?","a":"The old layout is imported into a Dashboard page when you use the same browser and address. Use export and import to transfer a layout between devices."},
+      {"q":"What can I do with Control Deck?","a":"Run actions granted on the PC, including approved shortcuts to apps, folders or sites. Protected controls require HTTPS and per-device permissions."},
+      {"q":"Does StandBy always keep the screen on?","a":"Screen Wake Lock depends on the browser and system. StandBy pauses updates while the page is hidden."},
+      {"q":"What changes when my laptop runs on battery?","a":"Power saving only slows active hardware sampling. Dynamic leaves the Windows power plan untouched."},
       {"q": "How do I check my Codex hooks?", "a": "Open Settings → AI Agents → Check in Codex for separate enabled and trusted counts."},
       {"q": "How do I connect Claude Code and Codex?", "a": "Under Settings → Agents, preview and connect the Claude Code status line or use Read now for Codex. Claude reports quotas on supported plans after the first response. Codex CLI session context and token counts are unavailable."},
       {"q": "What does Dynamic access on GitHub?", "a": "Only authorised repositories you select. Windows DPAPI encrypts the token. GitHub receives no requests while the feature is off. Alerts are optional and checks pause during gaming. The dashboard does not report local Git folder status."},

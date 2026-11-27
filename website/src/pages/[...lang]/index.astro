@@ -18,8 +18,10 @@ import capsule from "../../assets/shots/v7-14-notch-capsule.webp";
 import indicator from "../../assets/shots/v7-15-notch-indicator.webp";
 import agents from "../../assets/shots/v7-10-agents.webp";
 import hw from "../../assets/shots/companion-hw.webp";
-import iphone from "../../assets/shots/companion-iphone.webp";
-import ipad from "../../assets/shots/companion-ipad-landscape.webp";
+import tabletit from "../../assets/shots/v090-tablet-it.webp";
+import tableten from "../../assets/shots/v090-tablet-en.webp";
+import productivityit from "../../assets/shots/v090-productivity-it.webp";
+import productivityen from "../../assets/shots/v090-productivity-en.webp";
 
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Lang };
@@ -94,6 +96,7 @@ const jsonLd = {
       </p>
     </div>
     <div class="container">
+      <p class="small center" style="margin: 18px 0"><a class="link" href={url(lang, "companion/")}>{h.revolution.title} · {h.revolution.cta}<Icon name="arrow-right" size={16} /></a></p>
       <div class="monitor">
         <Loop name="hero-island" poster={heroPoster} alt={h.heroAlt} sizes="(max-width: 1240px) 94vw, 1160px" widths={[640, 960, 1280]} eager class="screen" {...loopLabels} />
         <p class="stage-caption"><span class="dot" aria-hidden="true"></span>{h.heroCaption}</p>
@@ -256,8 +259,8 @@ const jsonLd = {
         <div class="bridge-link" aria-hidden="true"><span>{h.companionLink}</span></div>
         <p class="visually-hidden">{h.companionLink}</p>
         <figure class="bridge-devices">
-          <Device kind="tablet" src={ipad} alt={d.companion.shotsAlt.ipadLandscape} sizes="(max-width: 900px) 80vw, 520px" class="b-tablet" />
-          <Device kind="phone" src={iphone} alt={d.companion.shotsAlt.iphone} sizes="(max-width: 900px) 34vw, 190px" class="b-phone" />
+          <Device kind="tablet" src={it ? tabletit : tableten} alt={d.companion.shotsAlt.ipadLandscape} sizes="(max-width: 900px) 80vw, 520px" class="b-tablet" />
+          <Device kind="phone" src={it ? productivityit : productivityen} alt={d.companion.shotsAlt.iphone} sizes="(max-width: 900px) 34vw, 190px" class="b-phone" />
           <figcaption><Icon name="smartphone" size={16} />{h.companionDevice}</figcaption>
         </figure>
       </div>

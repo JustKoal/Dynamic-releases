@@ -34,6 +34,22 @@
 > The «Source code» archives that GitHub attaches automatically to every release contain only this README, the screenshots and the website, not the application code.
 > Dynamic is available in English and Italian, including the installer, interface, local voice commands and Companion. The installer is not Authenticode-signed, so Windows SmartScreen may warn on first run.
 
+## 0.9.0 — Companion Revolution
+
+**Italiano.** Companion 2.0 aggiunge dashboard multipagina, modelli e widget modificabili. Control Deck riunisce le azioni concesse dal PC. Profili audio, Smart Profiles, cronometro e Focus rendono più rapide le attività ricorrenti. StandBy mostra orologi e widget su telefono o tablet. Il profilo Risparmio riduce il campionamento hardware a batteria.
+
+**English.** Companion 2.0 adds multi-page dashboards, templates and editable widgets. Control Deck groups actions granted by the PC. Audio Profiles, Smart Profiles, the stopwatch and Focus make recurring tasks easier. StandBy shows clocks and widgets on phones and tablets. Power saving slows hardware sampling on battery.
+
+[Note di rilascio / Release notes](https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.9.0) · [Guida Companion](https://justkoal.github.io/Dynamic-releases/it/docs/companion/) · [Companion guide](https://justkoal.github.io/Dynamic-releases/docs/companion/)
+
+
+
+| Gaming | Control Deck | StandBy |
+| --- | --- | --- |
+| ![Gaming dashboard with sample data](website/src/assets/shots/v090-gaming-en.webp) | ![Control Deck editor](website/src/assets/shots/v090-deck-en.webp) | ![StandBy in landscape](website/src/assets/shots/v090-standby-en.webp) |
+
+Schermate di Companion con dati dimostrativi / Companion screenshots with sample data.
+
 ## 0.8.1 — Intelligence Update
 
 **Italiano.** Corregge l’esecuzione degli hook Codex quando la shell di sessione è PowerShell e i falsi avvisi di approvazione. In **Impostazioni → Agenti AI → Verifica in Codex** puoi vedere le voci rilevate, abilitate e autorizzate, oltre all’ultimo evento ricevuto da Dynamic.
@@ -153,7 +169,7 @@ Synthetic demo data only; no account, device or hardware value from the developm
 - **Messages** → WhatsApp Web and Telegram Web, each in its own isolated WebView2 profile, with notifications and an optional DPAPI-encrypted local history.
 - **Share file** → pick a file or drag it from File Explorer, start sharing and scan the QR code with your phone on the same network. While this page is open the island stays open even if you click elsewhere, so you can drag files in.
 - **System monitor** → CPU, GPU/VRAM, RAM, physical-network traffic and disks from Windows APIs, with a shared 1/2/5-second sampling interval. CPU temperature can be read from MSI Afterburner or HWiNFO when their shared-memory interface is already available; Dynamic installs no driver.
-- **Dynamic Companion** → an optional local dashboard for phones and tablets with per-device layout, themes and permissions. HTTPS uses a local Dynamic CA installed manually on the device; authorised controls include volume, microphone mute, PC timers, Do Not Disturb and quick actions. Plain HTTP remains limited to lower-risk viewing and music on trusted networks.
+- **Dynamic Companion** → multi-page local dashboards, configurable widgets, Control Deck and StandBy on phones and tablets. HTTPS uses a local Dynamic CA installed manually on the device; authorised controls include volume, microphone mute, PC timers, Do Not Disturb and quick actions. Plain HTTP remains limited to lower-risk viewing and music on trusted networks.
 - **Audio centre** → master and per-app volume, current outputs and inputs, and microphone level/mute through Windows audio sessions; Windows exposes no supported API for changing the default output.
 - **Gaming resource controls** → while the existing Gaming Boost signal is active, local wake-word processing is suspended and hidden messaging WebViews are closed, then restored gradually. This reduces background processes and memory; no FPS improvement is claimed.
 - **Coding agents** → optional monitoring for concurrent Claude Code and Codex sessions through local hooks; prompt and tool contents are discarded. Companion can show state and attention requests, but approvals stay on the PC.
@@ -191,7 +207,7 @@ Synthetic demo data only; no account, device or hardware value from the developm
 - HTTPS is configured manually: install Dynamic's public local CA on the phone/tablet, compare its fingerprint with the PC, then use the secure QR. Dynamic never installs a certificate or profile automatically.
 - Pairing uses a short-lived QR secret or six-digit code. The device token is stored only as a SHA-256 hash on the PC, is bound to HTTP or HTTPS, and can be revoked immediately.
 - Remote controls require HTTPS plus explicit per-device permissions. Commands use one-time identifiers; no shell, filesystem, credentials or arbitrary command execution is exposed.
-- The dashboard subscribes only to data required by its current widgets and renews the live stream every five minutes. Layout, theme and selected quick actions remain in that device's browser storage.
+- The dashboard subscribes only to data required by its current widgets and renews the live stream every five minutes. Layouts stay on the device and can be synced to the paired PC. The browser remembers the theme.
 - Plain HTTP remains available on trusted networks for lower-risk information and music control; sensitive controls and PC timers are absent.
 
 Third-party licence notices, voice attribution and the corresponding Piper source references are included with the installer.

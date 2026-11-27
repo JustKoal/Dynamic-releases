@@ -2,19 +2,31 @@
 import Base from "../../layouts/Base.astro";
 import Icon from "../../components/Icon.astro";
 import Device from "../../components/Device.astro";
+import Shot from "../../components/Shot.astro";
+import gamingit from "../../assets/shots/v090-gaming-it.webp";
+import gamingen from "../../assets/shots/v090-gaming-en.webp";
+import editit from "../../assets/shots/v090-edit-it.webp";
+import editen from "../../assets/shots/v090-edit-en.webp";
+import deckit from "../../assets/shots/v090-deck-it.webp";
+import decken from "../../assets/shots/v090-deck-en.webp";
+import standbyit from "../../assets/shots/v090-standby-it.webp";
+import standbyen from "../../assets/shots/v090-standby-en.webp";
+import tabletit from "../../assets/shots/v090-tablet-it.webp";
+import tableten from "../../assets/shots/v090-tablet-en.webp";
+import productivityit from "../../assets/shots/v090-productivity-it.webp";
+import productivityen from "../../assets/shots/v090-productivity-en.webp";
 import { t, url, langPaths, type Lang } from "../../i18n";
-import dashboardEn from "../../assets/shots/companion-dashboard-en.webp";
-import dashboardIt from "../../assets/shots/companion-dashboard-it.webp";
 import languageEn from "../../assets/shots/companion-language-en.webp";
 import languageIt from "../../assets/shots/companion-language-it.webp";
 import android from "../../assets/shots/companion-android.webp";
 import ipadP from "../../assets/shots/companion-ipad-portrait.webp";
-import ipadL from "../../assets/shots/companion-ipad-landscape.webp";
 
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Lang };
 const d = t(lang);
 const c = d.companion;
+const it = lang === "it";
+const gallery = [it ? gamingit : gamingen, it ? editit : editen, it ? deckit : decken, it ? standbyit : standbyen];
 ---
 <Base lang={lang} path="companion/" title={c.title} description={c.description}>
   <section class="page-hero">
@@ -26,10 +38,28 @@ const c = d.companion;
     <div class="container">
       <div class="stage">
         <Device kind="phone" src={android} alt={c.shotsAlt.android} sizes="(max-width: 700px) 30vw, 230px" class="d-android" />
-        <Device kind="tablet" src={ipadL} alt={c.shotsAlt.ipadLandscape} sizes="(max-width: 700px) 70vw, 640px" class="d-ipad" eager />
-        <Device kind="phone" src={lang === "it" ? dashboardIt : dashboardEn} alt={c.shotsAlt.iphone} sizes="(max-width: 700px) 30vw, 230px" class="d-iphone" />
+        <Device kind="tablet" src={it ? tabletit : tableten} alt={it ? "Companion su tablet con dashboard Produttività, timer e calendario" : "Companion on a tablet with the Productivity dashboard, timers and calendar"} sizes="(max-width: 700px) 70vw, 640px" class="d-ipad" eager />
+        <Device kind="phone" src={it ? productivityit : productivityen} alt={it ? "Dashboard Produttività su smartphone" : "Productivity dashboard on a phone"} sizes="(max-width: 700px) 30vw, 230px" class="d-iphone" />
       </div>
       <p class="small muted center" style="margin-top:20px">{c.syntheticNote}</p>
+    </div>
+  </section>
+
+  <section class="section divider" aria-labelledby="companion2-t">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="companion2-t" class="h2">Companion 2.0</h2>
+        <p class="lead">{c.widgetsSub}</p>
+      </div>
+      <div class="grid-2 release-gallery">
+        {c.gallery.map((feature, i) => (
+          <article class="card release-card">
+            <h3 class="h3">{feature.title}</h3>
+            <p>{feature.text}</p>
+            <Shot src={gallery[i]} alt={feature.alt} sizes="(max-width: 780px) 82vw, 480px" />
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -131,6 +161,10 @@ const c = d.companion;
 </Base>
 
 <style>
+  .release-gallery { align-items: start; }
+  .release-card { display: grid; gap: 16px; }
+  .release-card :global(img) { width: min(100%, 290px); height: auto; justify-self: center; border-radius: 14px; }
+  .release-card:last-child :global(img) { width: 100%; }
   .stage { position: relative; display: grid; grid-template-columns: 1fr 4fr 1fr; align-items: end; gap: clamp(12px, 2vw, 28px); margin-top: clamp(40px, 6vw, 72px); max-width: 1200px; margin-inline: auto; }
   .stage :global(.d-android), .stage :global(.d-iphone) { margin-bottom: -4%; }
   .widgets .portrait { display: flex; align-items: center; justify-content: center; padding: 20px; background: var(--bg-raised); }

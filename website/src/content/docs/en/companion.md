@@ -1,6 +1,6 @@
 ---
-title: Dynamic Companion
-description: Open your PC's dashboard on a phone or tablet on the same network, set up HTTPS and grant permissions.
+title: Dynamic Companion 2.0
+description: Set up dashboards, Control Deck, StandBy and HTTPS on a phone or tablet on the same network as your PC.
 order: 7
 icon: smartphone
 ---
@@ -35,15 +35,14 @@ Tapping through a browser warning does not create lasting trust. Dynamic never i
 
 From the HTTPS page, use **Share → Add to Home Screen** in Safari, or **Add to Home screen** from the Chrome menu on Android. A shortcut created earlier may keep the old icon.
 
-## Customise
+## Pages and widgets
+Open the page selector and create a dashboard, starting from a Gaming, Developer, Audio, Productivity or PC Control template if you like. In edit mode, rearrange, resize and stack widgets. Use import and export to transfer configurations. On the PC, open **Settings → Companion** to manage paired dashboards. With the same browser and address, an old layout becomes the first Dashboard page.
 
-Tap **Personalizza** to reorder, resize, add or remove widgets, and to choose the theme. Each device keeps its own layout in its browser; nothing is sent to the PC.
+## Control Deck and permissions
+Add buttons and folders in the **Control Deck** widget. On the PC, choose which actions each device can run. Volume, microphone, timers and other protected controls require HTTPS and the corresponding permissions. Apps, folders and sites appear only as PC-approved shortcuts. Revoke access in **Settings → Companion**.
 
-Widgets: CPU, GPU, RAM, network, disks, AI agents, music, audio centre, batteries, timers (on-device timer, Pomodoro and stopwatch), PC timers and quick actions.
-
-## Permissions
-
-Each device starts with **view** only. On the PC you can grant, per device and over HTTPS only: music control, audio, microphone, PC timers, modes (Do Not Disturb), quick actions and agent project names. There is no terminal, file access, app launching or arbitrary command. Revoke a device at any time from **Settings → Companion**.
+## StandBy
+Open it from the dashboard. Choose up to three widgets, clocks and Night mode. The screen can stay awake in supported browsers, subject to system limits. StandBy pauses updates while the page is hidden.
 
 ## Good to know
 
