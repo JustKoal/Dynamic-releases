@@ -1,18 +1,19 @@
 ---
 title: Assistente vocale
-description: Configura il microfono, il modello vocale locale e la parola di attivazione «Ehi Dynamic».
+description: Configura il microfono, il modello vocale locale e la parola di attivazione «Ehi Dynamic» o «Hey Dynamic».
 order: 4
 icon: mic
 ---
 
-Riconoscimento e sintesi vocale funzionano in locale sulla CPU. L'audio del microfono non viene mai salvato su disco.
+Riconoscimento e sintesi vocale funzionano in locale sulla CPU. L'audio del microfono non viene mai salvato su disco. I comandi vocali M9 sono disponibili in italiano e inglese. Un unico modello Parakeet riconosce automaticamente la lingua parlata.
 
 ## Configurazione
 
 1. Apri **Impostazioni → Voce**.
 2. In **Microfono** scegli il microfono e usa la prova del livello.
 3. In **Riconoscimento vocale** scarica **Parakeet Ultra** (circa 550 MB, da Hugging Face). Funziona sulla CPU e richiede AVX2.
-4. Facoltativo: attiva la parola di attivazione **«Ehi Dynamic»** in **Attivazione vocale**. Viene elaborata in locale.
+4. Facoltativo: attiva la parola di attivazione **«Ehi Dynamic»** in **Attivazione vocale**. Puoi dire anche **«Hey Dynamic»**. Entrambe le frasi vengono elaborate in locale.
+5. In **Impostazioni → Voce** scegli la sintesi indipendentemente dall’interfaccia. Serena (italiano) è inclusa. Scarica Kristin (inglese) su richiesta. Dynamic verifica i file e consente di rimuovere la voce scaricata.
 
 ## Parlare con Dynamic
 

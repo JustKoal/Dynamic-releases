@@ -25,6 +25,6 @@ You can reopen it at any time from **Settings → Generale → Riapri la configu
 3. **Look**: choose a theme and a compact style in **Settings → Aspetto e Home** (see [The island](../island/)).
 4. **Start with Windows**: turn it on in **Settings → Generale → Avvio con Windows** if you want Dynamic always available.
 
-> The app is in Italian. Menu names in these guides are shown exactly as they appear in Dynamic, with a translation where useful.
+> Choose English or Italian in the setup wizard or in **Settings → General → Language**. Some screenshots show the Italian interface.
 
 The **Panoramica** (Overview) page in Settings shows what is still missing, such as an AI provider that is not connected.

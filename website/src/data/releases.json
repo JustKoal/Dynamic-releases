@@ -1,5 +1,65 @@
 [
  {
+  "tag": "v0.7.0",
+  "version": "0.7.0",
+  "name": "Dynamic 0.7.0 — International Update",
+  "date": "2026-11-27T00:13:01Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.7.0",
+  "notes": "# Dynamic 0.7.0 — International Update\n\n## Italiano\n\nDynamic 0.7.0 porta italiano e inglese nell’interfaccia, nella configurazione guidata e nell’installer Windows.\n\n- Scegli la lingua dell’interfaccia in **Impostazioni → Generale** e la voce in **Impostazioni → Voce**. Un unico modello riconosce automaticamente la lingua del parlato.\n- Serena è inclusa. Scarica Kristin, la voce inglese, quando ti serve e rimuovila dalle impostazioni quando non la usi più.\n- Usa «Ehi Dynamic» o «Hey Dynamic» per timer, musica, notifiche e altri comandi locali M9 in entrambe le lingue.\n- Companion ricorda la lingua su ogni dispositivo e la usa anche per gli esiti delle azioni rapide.\n\n## English\n\nDynamic 0.7.0 brings Italian and English to the interface, setup wizard and Windows installer.\n\n- Choose the interface language in **Settings → General** and the speaking voice in **Settings → Voice**. One speech model detects the spoken language automatically.\n- Serena is included. Download Kristin, the English voice, when you need it and remove it in settings when you no longer use it.\n- Use “Ehi Dynamic” or “Hey Dynamic” for timers, music, notifications and other local M9 commands in either language.\n- Companion remembers the language on each device and uses it for quick-action results.\n\n### Windows x64\n\nL’installer può mostrare un avviso SmartScreen perché non è firmato con Authenticode. Dynamic verifica gli aggiornamenti in-app con la sua firma Minisign.\n\nSmartScreen may warn because the installer lacks Authenticode signing. Dynamic verifies in-app updates using its Minisign signature.\n\n**SHA-256** `a807257d0a4e7dabba46ec5fa14c641903e9af4ca03950da7e0f333e9a0fc6f8`\n",
+  "installer": {
+   "name": "Dynamic_0.7.0_x64-setup.exe",
+   "size": 431382112,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.7.0/Dynamic_0.7.0_x64-setup.exe",
+   "sha256": "a807257d0a4e7dabba46ec5fa14c641903e9af4ca03950da7e0f333e9a0fc6f8"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.7.0/latest.json"
+ },
+ {
+  "tag": "v0.6.4",
+  "version": "0.6.4",
+  "name": "Dynamic 0.6.4",
+  "date": "2026-11-26T17:41:52Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.6.4",
+  "notes": "# Dynamic 0.6.4\n\nAggiornamento di manutenzione: nessuna funzione nuova importante, nessun cambiamento nel comportamento quotidiano.\n\n- **Sostieni Dynamic.** In **Impostazioni → Informazioni** c'è un collegamento discreto alla pagina Buy Me a Coffee del progetto. Si apre nel tuo browser solo quando lo premi. Dynamic resta gratuito e completo: il sostegno è del tutto facoltativo. Nessuno script, nessuna richiesta di rete e nessuna funzione riservata ai sostenitori.\n\n**Limiti:** la lettura della temperatura tramite PawnIO resta sperimentale: un primo riscontro positivo è stato riferito da un altro utente, ma la verifica tecnica completa è ancora in corso.\n\nAggiorna Dynamic da **Impostazioni → Informazioni** o scarica l'installer Windows x64 da questa pagina.",
+  "installer": {
+   "name": "Dynamic_0.6.4_x64-setup.exe",
+   "size": 431296906,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.6.4/Dynamic_0.6.4_x64-setup.exe",
+   "sha256": "703c3c1843ec7f4b3622ed06ad5a6a754236518e17af805c8669418296d7f187"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.6.4/latest.json"
+ },
+ {
+  "tag": "v0.6.3",
+  "version": "0.6.3",
+  "name": "Dynamic 0.6.3",
+  "date": "2026-11-25T22:52:16Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.6.3",
+  "notes": "# Dynamic 0.6.3\n\nTemperatura della CPU tramite PawnIO, sperimentale e facoltativa.\n\n- **Per chi non usa MSI Afterburner o HWiNFO.** Dynamic può leggere la temperatura del die tramite [PawnIO](https://pawnio.eu/), se lo hai installato tu. Copre AMD Ryzen da Zen a Zen 5 (Tctl/Tdie) e Intel (CPU Package). Con Afterburner o HWiNFO non cambia nulla: restano le sorgenti predefinite.\n- **Spento di default.** Lo attivi in Impostazioni → Sistema e monitoraggio. Finché resta spento, Dynamic non apre il driver, non scarica nulla, non avvia processi e non chiede autorizzazioni. Dynamic non installa né rimuove PawnIO.\n- **Moduli scaricati solo su richiesta.** Dynamic non include i moduli PawnIO. Quando premi «Predisponi», scarica la release ufficiale fissata di namazso/PawnIO.Modules da GitHub e la usa solo se gli SHA-256 corrispondono.\n- **Sicurezza.** Dynamic resta senza privilegi. Con la conferma di Windows, un piccolo helper di sola lettura viene copiato in una cartella protetta dei programmi e verificato prima di ogni avvio. Ogni avvio richiede un'altra conferma, mostrata come «autore sconosciuto» perché l'helper non ha una firma Authenticode. L'helper si chiude con Dynamic o spegnendo PawnIO. Alcuni anti-cheat possono segnalare driver di questo tipo.\n\n**Limite:** la lettura tramite PawnIO non è ancora stata validata su hardware reale. È verificata con test e prove senza driver; se la usi, il pannello offre «Diagnostica» con un report copiabile, senza dati personali.\n\nAggiorna Dynamic da **Impostazioni → Informazioni** o scarica l'installer Windows x64 da questa pagina.",
+  "installer": {
+   "name": "Dynamic_0.6.3_x64-setup.exe",
+   "size": 431286009,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.6.3/Dynamic_0.6.3_x64-setup.exe",
+   "sha256": "bf50ef918cff24b8becf932e06b0cfbe7d093162c5d3f9ab473d1dbeddcabe77"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.6.3/latest.json"
+ },
+ {
+  "tag": "v0.6.2",
+  "version": "0.6.2",
+  "name": "Dynamic 0.6.2",
+  "date": "2026-11-25T15:57:59Z",
+  "url": "https://github.com/JustKoal/Dynamic-releases/releases/tag/v0.6.2",
+  "notes": "# Dynamic 0.6.2\n\nCorrezione della dashboard di Companion in orizzontale.\n\n- **Nessun buco tra i widget.** Su smartphone ruotati e tablet in orizzontale, ogni widget sale nel primo spazio libero sotto quello che lo precede. Prima si allineava al widget più alto della riga. Colonne e spazi restano uniformi.\n- **Ordine e personalizzazioni invariati.** Ordine, dimensioni, tema e widget scelti restano quelli salvati sul dispositivo. La disposizione orizzontale dipende dalla misura dello schermo e non sostituisce le tue impostazioni.\n- **Rotazione immediata.** Ruotando il dispositivo, la dashboard si ridispone subito, senza ricaricare la pagina. Timer e musica non si interrompono e il PC non riceve richieste aggiuntive.\n\nLa disposizione in verticale non cambia. Il collaudo della nuova disposizione su iPhone, iPad e Android fisici è ancora in corso.\n\nAggiorna Dynamic da **Impostazioni → Informazioni** o scarica l'installer Windows x64 da questa pagina.\n",
+  "installer": {
+   "name": "Dynamic_0.6.2_x64-setup.exe",
+   "size": 431013203,
+   "url": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.6.2/Dynamic_0.6.2_x64-setup.exe",
+   "sha256": "2b4bb505aeb38bddee1e8655fd71ab07e948e4b0e955bb2aa93f667ccb36f9fa"
+  },
+  "manifest": "https://github.com/JustKoal/Dynamic-releases/releases/download/v0.6.2/latest.json"
+ },
+ {
   "tag": "v0.6.1",
   "version": "0.6.1",
   "name": "Dynamic 0.6.1",

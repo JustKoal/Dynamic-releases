@@ -5,6 +5,8 @@ order: 7
 icon: smartphone
 ---
 
+Nelle impostazioni di Companion scegli **Lingua** per usare italiano o inglese. La scelta viene salvata sul dispositivo. Gli esiti delle azioni rapide seguono la lingua di Companion anche se il PC usa l’altra.
+
 Companion è una pagina web servita da Dynamic sul tuo PC e aperta nel browser di uno smartphone, di un tablet o di un altro computer **sulla stessa rete privata**. Nessuna app da installare, nessun servizio cloud. È spento di default.
 
 ## Attivazione e associazione

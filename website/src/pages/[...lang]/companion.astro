@@ -3,7 +3,10 @@ import Base from "../../layouts/Base.astro";
 import Icon from "../../components/Icon.astro";
 import Device from "../../components/Device.astro";
 import { t, url, langPaths, type Lang } from "../../i18n";
-import iphone from "../../assets/shots/companion-iphone.webp";
+import dashboardEn from "../../assets/shots/companion-dashboard-en.webp";
+import dashboardIt from "../../assets/shots/companion-dashboard-it.webp";
+import languageEn from "../../assets/shots/companion-language-en.webp";
+import languageIt from "../../assets/shots/companion-language-it.webp";
 import android from "../../assets/shots/companion-android.webp";
 import ipadP from "../../assets/shots/companion-ipad-portrait.webp";
 import ipadL from "../../assets/shots/companion-ipad-landscape.webp";
@@ -24,9 +27,19 @@ const c = d.companion;
       <div class="stage">
         <Device kind="phone" src={android} alt={c.shotsAlt.android} sizes="(max-width: 700px) 30vw, 230px" class="d-android" />
         <Device kind="tablet" src={ipadL} alt={c.shotsAlt.ipadLandscape} sizes="(max-width: 700px) 70vw, 640px" class="d-ipad" eager />
-        <Device kind="phone" src={iphone} alt={c.shotsAlt.iphone} sizes="(max-width: 700px) 30vw, 230px" class="d-iphone" />
+        <Device kind="phone" src={lang === "it" ? dashboardIt : dashboardEn} alt={c.shotsAlt.iphone} sizes="(max-width: 700px) 30vw, 230px" class="d-iphone" />
       </div>
       <p class="small muted center" style="margin-top:20px">{c.syntheticNote}</p>
+    </div>
+  </section>
+
+  <section class="section divider" aria-labelledby="language-t">
+    <div class="container grid-2 not">
+      <div class="section-head">
+        <h2 id="language-t" class="h2">{c.languageTitle}</h2>
+        <p class="lead">{c.languageText}</p>
+      </div>
+      <Device kind="phone" src={lang === "it" ? languageIt : languageEn} alt={c.languageAlt} sizes="(max-width: 640px) 75vw, 300px" class="vertical" />
     </div>
   </section>
 

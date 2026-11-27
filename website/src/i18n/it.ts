@@ -8,7 +8,7 @@ const it: Dict = {
   site: {
     title: "Dynamic — Assistente desktop per Windows 11",
     description:
-      "Dynamic di JustKoal è un assistente desktop per Windows 11 in stile Dynamic Island: comandi vocali locali, chat AI, notifiche degli agenti AI Claude Code e Codex, monitoraggio locale del PC, una modalità attenta al gaming e una dashboard per lo smartphone sulla rete locale.",
+      "Dynamic di JustKoal è un assistente desktop per Windows 11 in stile Dynamic Island: comandi vocali locali in italiano e inglese, chat AI, notifiche degli agenti AI Claude Code e Codex, monitoraggio locale del PC, una modalità attenta al gaming e una dashboard per lo smartphone sulla rete locale.",
   },
   nav: {
     features: "Funzionalità",
@@ -38,7 +38,7 @@ const it: Dict = {
     copied: "Copiato",
     validating: "In verifica",
     allReleases: "Tutte le release su GitHub",
-    italianUi: "L'interfaccia e la voce dell'app sono in italiano.",
+    interfaceLanguages: "Interfaccia e installer in italiano e inglese. Scegli la voce separatamente.",
     notesLang: "Le note di rilascio sono riportate come pubblicate su GitHub.",
     onThisPage: "In questa pagina",
     backToTop: "Torna su",
@@ -96,7 +96,7 @@ const it: Dict = {
     bentoSub: "Dynamic affianca alla chat AI azioni locali e deterministiche. Timer, note, musica e navigazione funzionano senza dare all'AI il permesso di comandare il PC.",
     bento: {
       island: { title: "L'isola, come la vuoi tu", text: "Una piccola pillola sul bordo superiore che si apre in un pannello ampio. Quattro stili compatti, dodici temi compreso Glass, ancorata o mobile, sul monitor che preferisci." },
-      voice: { title: "Parla con il tuo PC", text: "Riconoscimento e sintesi vocale funzionano sulla CPU. Timer, promemoria, note, musica e volume sono gestiti in locale, mai dall'AI.", quote: "«Ehi Dynamic, imposta un timer di 10 minuti»", note: "I comandi vocali sono in italiano.", flow: ["Dici «Ehi Dynamic» o premi il microfono", "Parakeet Ultra trascrive sulla CPU", "Dynamic avvia il timer da sola: nessuna AI coinvolta"] },
+      voice: { title: "Parla con il tuo PC", text: "Riconoscimento e sintesi vocale funzionano sulla CPU. Timer, promemoria, note, musica e volume sono gestiti in locale, mai dall'AI.", quote: "«Ehi Dynamic, imposta un timer di 10 minuti»", note: "Comandi M9 in italiano e inglese.", flow: ["Dici «Ehi Dynamic» o premi il microfono", "Parakeet Ultra trascrive sulla CPU", "Dynamic avvia il timer da sola: nessuna AI coinvolta"] },
       ai: { title: "Chat AI con il tuo account", text: "ChatGPT tramite «Accedi con ChatGPT» o Gemini con la tua chiave. Puoi allegare file di testo; i comandi locali non arrivano mai al provider." },
       agents: { title: "Claude Code e Codex a colpo d'occhio", text: "Segui più sessioni insieme e ricevi un avviso nell'isola quando una ti aspetta. Solo osservazione: le autorizzazioni restano sul PC." },
       palette: { title: "Command Palette", text: "Ctrl+Alt+K raggiunge ogni schermata, impostazione e azione rapida.", examples: ["Timer 25 min", "Disattiva il microfono", "Modalità Gaming", "Non disturbare"] },
@@ -156,12 +156,12 @@ const it: Dict = {
       },
       {
         id: "voice", icon: "mic", title: "Voce e comandi locali",
-        text: "Riconoscimento vocale (Parakeet Ultra) e sintesi (Piper, voce italiana) funzionano sulla CPU. I comandi per ora e date, timer, promemoria, note, calendario, musica, volume di Windows, cartelle, dispositivi, modalità silenziosa e navigazione sono deterministici: le risposte dell'AI non vengono mai interpretate come comandi.",
+        text: "Riconoscimento vocale (Parakeet Ultra) e sintesi (Piper, italiano e inglese) funzionano sulla CPU. I comandi per ora e date, timer, promemoria, note, calendario, musica, volume di Windows, cartelle, dispositivi, modalità silenziosa e navigazione sono deterministici: le risposte dell'AI non vengono mai interpretate come comandi.",
         points: [
           "Parola di attivazione «Ehi Dynamic» facoltativa, elaborata in locale.",
           "Le azioni sensibili chiedono conferma.",
           "Parakeet Ultra si scarica a parte (circa 550 MB) da Impostazioni → Voce.",
-          "Voce e interfaccia sono in italiano.",
+          "Un solo modello riconosce automaticamente italiano e inglese. Serena è inclusa, Kristin si scarica o si rimuove da Impostazioni → Voce.",
         ],
         status: "",
       },
@@ -246,13 +246,16 @@ const it: Dict = {
     description: "Dynamic Companion trasforma uno smartphone o un tablet sulla rete locale in una dashboard del PC: hardware, batterie, timer, musica, audio, agenti AI e azioni rapide nel browser, senza app e senza cloud.",
     eyebrow: "Dynamic Companion",
     heading: "Il centro di controllo del tuo PC, in qualsiasi browser della tua rete.",
-    sub: "Apri Companion su un iPhone, un iPad o un dispositivo Android collegato alla stessa Wi-Fi. La pagina è servita da Dynamic sul tuo PC: nessuna app da installare, nessun account, nessun servizio cloud.",
+    sub: "Apri Companion su un iPhone, un iPad o un dispositivo Android collegato alla stessa Wi-Fi. La pagina è servita da Dynamic sul tuo PC: nessuna app da installare, nessun account, nessun servizio cloud. Ogni dispositivo ricorda la lingua scelta in Companion.",
     shotsAlt: {
       iphone: "Companion su uno schermo da iPhone: widget CPU e GPU, agenti AI con uno in attesa di autorizzazione e azioni rapide",
       android: "Companion su uno schermo da smartphone Android con la stessa dashboard",
       ipadPortrait: "Companion su iPad in verticale con widget hardware, agenti, azioni rapide e audio",
       ipadLandscape: "Companion su iPad in orizzontale con hardware, agenti, azioni rapide, Centro audio, timer del PC, musica e batterie",
     },
+    languageTitle: "Scegli la lingua su ogni dispositivo",
+    languageText: "Apri le impostazioni di Companion e scegli italiano o inglese. Il dispositivo ricorda la scelta e la usa per gli esiti delle azioni rapide.",
+    languageAlt: "Impostazioni di Dynamic Companion con Italiano selezionato in Lingua",
     syntheticNote: "Le schermate usano la vera pagina di Companion con dati dimostrativi.",
     widgetsTitle: "Widget",
     widgetsSub: "Ogni dispositivo conserva il proprio layout: ordine, dimensioni e widget visibili. Le preferenze restano nel browser di quel dispositivo e non vengono inviate al PC.",
@@ -405,7 +408,7 @@ const it: Dict = {
     previousText: "Tutti gli installer precedenti restano disponibili con le relative note.",
     limitsTitle: "Limiti noti",
     limits: [
-      "Interfaccia e voce sono in italiano.",
+      "Installer e interfaccia in italiano e inglese.",
       "FPS e frame time in giochi reali, un secondo PC pulito, sospensione e ibernazione e lettori di schermo non sono ancora verificati.",
       "Manca ancora un certificato Authenticode, quindi SmartScreen può avvisare al primo avvio.",
     ],
@@ -428,7 +431,7 @@ const it: Dict = {
     items: [
       { q: "Dynamic è gratuita?", a: "Sì. L'installer si scarica gratuitamente dalla release ufficiale su GitHub. La chat AI usa il tuo account ChatGPT o la tua chiave Gemini, secondo le condizioni del provider." },
       { q: "Quali versioni di Windows sono supportate?", a: "Windows 11 x64. Windows 10 non è stato testato. Il riconoscimento vocale locale richiede una CPU con AVX2." },
-      { q: "L'app è disponibile in inglese?", a: "Non ancora. Oggi interfaccia e voce dell'app sono in italiano. Questo sito è disponibile in italiano e in inglese." },
+      { q: "L'app è disponibile in inglese?", a: "Sì. Dalla 0.7.0 scegli la lingua in Impostazioni → Generale e la voce in Impostazioni → Voce. Il riconoscimento rileva la lingua automaticamente. Companion ricorda la lingua su ogni dispositivo." },
       { q: "Perché Windows SmartScreen mostra un avviso?", a: "L'installer non ha ancora un certificato Authenticode. Scaricalo solo dalla release ufficiale e, se vuoi, confronta il checksum SHA-256 nella pagina Download. Gli aggiornamenti sono verificati con una firma minisign." },
       { q: "Dynamic funziona offline?", a: "Comandi locali, riconoscimento e sintesi vocale, note, timer e monitoraggio hardware funzionano senza Internet. Chat AI, download dei calendari, messaggistica, aggiornamenti e download di Parakeet richiedono una connessione." },
       { q: "La mia voce viene inviata al cloud?", a: "No. L'audio del microfono viene elaborato in locale e non viene salvato su disco. Al provider AI scelto arriva solo il testo delle richieste che non sono comandi locali." },

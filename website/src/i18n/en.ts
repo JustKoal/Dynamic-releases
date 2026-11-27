@@ -7,7 +7,7 @@ const en = {
   site: {
     title: "Dynamic — Smart desktop assistant for Windows 11",
     description:
-      "Dynamic by JustKoal is a desktop assistant for Windows 11 in the style of a Dynamic Island: local voice commands, AI chat, AI agent notifications for Claude Code and Codex, local PC monitoring, a gaming-aware background mode and a phone dashboard on your local network.",
+      "Dynamic by JustKoal is a desktop assistant for Windows 11 in the style of a Dynamic Island: local voice commands in English and Italian, AI chat, AI agent notifications for Claude Code and Codex, local PC monitoring, a gaming-aware background mode and a phone dashboard on your local network.",
   },
   nav: {
     features: "Features",
@@ -37,11 +37,11 @@ const en = {
     copied: "Copied",
     validating: "Being validated",
     allReleases: "All releases on GitHub",
-    italianUi: "The app interface and voice are in Italian.",
-    notesLang: "Release notes are shown as published on GitHub, mostly in Italian.",
+    interfaceLanguages: "Interface and installer in English and Italian. Choose the speaking voice separately.",
+    notesLang: "Release notes from 0.7.0 are published in English and Italian.",
     onThisPage: "On this page",
     backToTop: "Back to top",
-    italianLabels: "The app is in Italian: menu names are shown as they appear in Dynamic, with a translation where useful.",
+    italianLabels: "Some screenshots and older menu labels show the Italian interface.",
   },
   footer: {
     tagline: "A smart desktop assistant for Windows 11, made by JustKoal.",
@@ -95,7 +95,7 @@ const en = {
     bentoSub: "Dynamic pairs an AI chat with local, deterministic actions. Timers, notes, music and navigation work without giving the AI permission to operate your PC.",
     bento: {
       island: { title: "The island, your way", text: "A small pill at the top edge that opens into a wide panel. Four compact styles, twelve themes including Glass, docked or floating, on the monitor you choose." },
-      voice: { title: "Talk to your PC", text: "Speech recognition and synthesis run on the CPU. Timers, reminders, notes, music and volume are handled locally, never by the AI.", quote: "«Ehi Dynamic, imposta un timer di 10 minuti»", note: "Voice commands are in Italian.", flow: ["You say «Ehi Dynamic» or press the microphone", "Parakeet Ultra transcribes on the CPU", "Dynamic starts the timer itself: no AI involved"] },
+      voice: { title: "Talk to your PC", text: "Speech recognition and synthesis run on the CPU. Timers, reminders, notes, music and volume are handled locally, never by the AI.", quote: "“Hey Dynamic, set a timer for 10 minutes”", note: "M9 commands in English and Italian.", flow: ["You say “Hey Dynamic” or press the microphone", "Parakeet Ultra transcribes on the CPU", "Dynamic starts the timer itself: no AI involved"] },
       ai: { title: "AI chat with your own account", text: "ChatGPT through Sign in with ChatGPT, or Gemini with your own key. Attach text files; local commands never reach the provider." },
       agents: { title: "Claude Code and Codex at a glance", text: "Follow concurrent sessions and get an alert in the island when one needs you. Observation only: approvals stay on the PC." },
       palette: { title: "Command Palette", text: "Ctrl+Alt+K reaches every screen, setting and quick action.", examples: ["Timer 25 min", "Mute the microphone", "Gaming mode", "Do Not Disturb"] },
@@ -155,12 +155,12 @@ const en = {
       },
       {
         id: "voice", icon: "mic", title: "Voice and local commands",
-        text: "Speech recognition (Parakeet Ultra) and speech synthesis (Piper, Italian voice) run on the CPU. Commands for time and dates, timers, reminders, notes, calendar, music, Windows volume, folders, devices, quiet mode and navigation are deterministic: AI replies are never interpreted as commands.",
+        text: "Speech recognition (Parakeet Ultra) and speech synthesis (Piper, English and Italian) run on the CPU. Commands for time and dates, timers, reminders, notes, calendar, music, Windows volume, folders, devices, quiet mode and navigation are deterministic: AI replies are never interpreted as commands.",
         points: [
-          "Optional «Ehi Dynamic» wake word, processed locally.",
+          "Optional “Hey Dynamic” or “Ehi Dynamic” wake word, processed locally.",
           "Sensitive actions ask for confirmation.",
           "Parakeet Ultra is a separate download (about 550 MB) from Settings → Voce.",
-          "Voice and interface are in Italian.",
+          "One speech model detects English and Italian automatically. Serena is included. Download or remove Kristin in Settings → Voice.",
         ],
         status: "",
       },
@@ -245,13 +245,16 @@ const en = {
     description: "Dynamic Companion turns a phone or tablet on your local network into a dashboard for your PC: hardware, batteries, timers, music, audio, AI agents and quick actions in the browser, with no app and no cloud.",
     eyebrow: "Dynamic Companion",
     heading: "Your PC's control centre, in any browser on your network.",
-    sub: "Open Companion on an iPhone, iPad or Android device connected to the same Wi-Fi. The page is served by Dynamic on your PC: no app to install, no account, no cloud service.",
+    sub: "Open Companion on an iPhone, iPad or Android device connected to the same Wi-Fi. The page is served by Dynamic on your PC: no app to install, no account, no cloud service. Each device remembers the language you choose in Companion.",
     shotsAlt: {
       iphone: "Companion on an iPhone-sized screen: CPU and GPU widgets, AI agents with one waiting for authorisation, and quick actions",
       android: "Companion on an Android phone-sized screen with the same dashboard",
       ipadPortrait: "Companion on an iPad in portrait orientation with hardware, agents, quick actions and audio widgets",
       ipadLandscape: "Companion on an iPad in landscape orientation with hardware, agents, quick actions, audio centre, PC timers, music and batteries",
     },
+    languageTitle: "Choose a language on each device",
+    languageText: "Open Companion settings and choose English or Italian. Your choice is saved on that device, and quick-action results follow it.",
+    languageAlt: "Dynamic Companion settings with English selected under Language",
     syntheticNote: "Screenshots use the real Companion page with synthetic demo data.",
     widgetsTitle: "Widgets",
     widgetsSub: "Each device keeps its own layout: order, size and which widgets appear. Preferences stay in that device's browser and are not sent to the PC.",
@@ -329,7 +332,7 @@ const en = {
     gamingTitle: "Gaming mode",
     gamingText: "When a fullscreen app occupies Dynamic's monitor, two preferences (on by default, in Settings → «Generale → Schermo intero e giochi») take effect:",
     gamingPoints: [
-      "The «Ehi Dynamic» wake word pauses: the microphone closes and the speech models are released.",
+      "The wake word pauses: the microphone closes and the speech models are released.",
       "Hidden WhatsApp and Telegram views close with their profile intact, then reopen in the background one at a time when the game ends.",
       "Global shortcuts can pause automatically, and the island can hide.",
       "Dynamic does not inject code into games or draw overlays.",
@@ -404,7 +407,7 @@ const en = {
     previousText: "Every earlier installer remains available with its notes.",
     limitsTitle: "Known limitations",
     limits: [
-      "The interface and voice are in Italian.",
+      "Interface and installer in English and Italian. Choose the speaking voice separately.",
       "Real-game FPS and frame-time measurements, a clean second PC, suspend and hibernate, and screen readers are still unverified.",
       "There is no Authenticode certificate yet, so SmartScreen may warn on first run.",
     ],
@@ -427,7 +430,7 @@ const en = {
     items: [
       { q: "Is Dynamic free?", a: "Yes. The installer is a free download from the official GitHub release. AI chat uses your own ChatGPT account or Gemini key, under that provider's terms." },
       { q: "Which Windows versions are supported?", a: "Windows 11 x64. Windows 10 has not been tested. Local speech recognition needs a CPU with AVX2." },
-      { q: "Is the app available in English?", a: "Not yet. The app interface and voice are in Italian today. This website is available in English and Italian." },
+      { q: "Is the app available in English?", a: "Yes. In 0.7.0, choose the interface language in Settings → General and the voice in Settings → Voice. Recognition detects the spoken language automatically. Companion remembers its language on each device." },
       { q: "Why does Windows SmartScreen show a warning?", a: "The installer does not have an Authenticode certificate yet. Download it only from the official release, and if you like, compare its SHA-256 checksum on the Download page. Updates are verified with a minisign signature." },
       { q: "Does Dynamic work offline?", a: "Local commands, speech recognition and synthesis, notes, timers and the hardware monitor work without Internet. AI chat, calendar downloads, messaging, updates and the Parakeet download need a connection." },
       { q: "Is my voice sent to the cloud?", a: "No. Microphone audio is processed locally and not written to disk. Only the text of requests that are not local commands is sent to the AI provider you selected." },

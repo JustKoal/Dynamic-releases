@@ -5,6 +5,8 @@ order: 7
 icon: smartphone
 ---
 
+In Companion settings, choose **Language** to use English or Italian. The choice is saved on that device. Quick-action results follow the Companion language even when the PC uses the other language.
+
 Companion is a web page served by Dynamic on your PC and opened in the browser of a phone, tablet or another computer **on the same private network**. There is no app to install and no cloud service. It is off by default.
 
 ## Turn it on and pair

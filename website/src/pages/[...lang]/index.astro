@@ -55,7 +55,7 @@ const jsonLd = {
       fileSize: `${Math.round(exe.size / 1e6)} MB`,
       url: new URL(url(lang), Astro.site).href,
       image: abs("og-en.png"),
-      inLanguage: "it",
+      inLanguage: ["en", "it"],
       offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
       author: { "@type": "Person", name: "JustKoal", url: "https://github.com/JustKoal" },
       sameAs: [REPO_URL],
@@ -223,7 +223,7 @@ const jsonLd = {
           <a class="link small" href={url(lang, "features/")}>{d.common.explore}<Icon name="arrow-right" size={16} /></a>
         </article>
       </div>
-      <p class="muted small" style="margin-top:20px">{d.common.italianUi}</p>
+      <p class="muted small" style="margin-top:20px">{d.common.interfaceLanguages}</p>
     </div>
   </section>
 

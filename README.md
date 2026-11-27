@@ -32,7 +32,7 @@
 
 > Dynamic is a personal Windows project. This repository hosts the public installers, the update feed and the source of the [official website](https://justkoal.github.io/Dynamic-releases/) (`website/`); the application source repository is private.
 > The «Source code» archives that GitHub attaches automatically to every release contain only this README, the screenshots and the website, not the application code.
-> The app interface and voice are in Italian. The installer is not Authenticode-signed, so Windows SmartScreen may warn on first run.
+> Dynamic is available in English and Italian, including the installer, interface, local voice commands and Companion. The installer is not Authenticode-signed, so Windows SmartScreen may warn on first run.
 
 ## Video di presentazione
 
@@ -108,7 +108,7 @@ Synthetic demo data only; no account, device or hardware value from the developm
 - **V7 interface** → a wide, low panel (860 × 440) that opens in two quick steps, an icon bar at the bottom with up to nine sections of your choice plus «More», search and the microphone, and a header with only the date, the eyes and the Settings gear.
 - **Home** → large clock, status chips for connected wireless devices (Bluetooth or USB receivers) and the AI, and three widgets: assistant or agents, now playing, timer.
 - **AI assistant** → ChatGPT through *Sign in with ChatGPT* when the account plan permits it, or Gemini through your own Google AI Studio key. No automatic paid-API fallback. The chat is temporary and kept in memory only.
-- **Local voice** → Parakeet Ultra speech-to-text and Piper Italian speech synthesis, both on the CPU. Parakeet is downloaded on request from Settings → Voice.
+- **Local voice** → Parakeet Ultra speech-to-text and Piper speech synthesis, both on the CPU. A single Parakeet model detects Italian or English automatically. Choose the UI under Settings → General and the speaking voice under Settings → Voice. Serena is included and English Kristin downloads on demand.
 - **Local actions** → deterministic commands for time and dates, timers, reminders, notes, calendar, music, Windows volume, folders, devices, quiet mode, notifications and navigation. AI replies are never interpreted as commands; sensitive actions ask for confirmation.
 - **Music** → Windows media sessions with cover, timeline, transport and per-player volume; can open, start and close Spotify, Apple Music or TIDAL.
 - **Calendar** → read-only Google/Outlook ICS feeds with recurring events, time zones, reminders and an encrypted offline cache; the month stays visible even before a calendar is connected. Creating or editing an event opens the browser.
@@ -192,6 +192,10 @@ minisign signature against the embedded public key, performs the per-user update
 - Windows offers no public API for apps to change the default audio output: Dynamic tells you which output is in use and points to Win+Ctrl+V.
 - Chat attachments accept text files only and have not been sent to a real ChatGPT or Gemini account yet.
 - The installer has a valid updater minisign signature but no Authenticode certificate; SmartScreen may warn.
+
+## Novità della 0.7.0
+
+Interfaccia e installer in italiano e inglese, lingua dell’interfaccia e della sintesi indipendenti, riconoscimento automatico del parlato e comandi locali M9 bilingue. Serena è inclusa e Kristin si scarica su richiesta. Ogni dispositivo Companion ricorda la propria lingua. [Guida in italiano](https://justkoal.github.io/Dynamic-releases/it/).
 
 ## Support
 
